@@ -18,7 +18,7 @@
 | R2 | Energy path (C_UP/C_DOWN) | C_DOWN ≤80–150pF @5V, C_UP not free, Cf not counted, 95.5% dumps not isolated | **PASS** (after correction) | README_FJ corrected, energy calc E=½CV² |
 | R3 | ADC signal chain | AD7175 external gain required — ADS1262 primary with internal PGA | **PASS** (after correction) | Path A/B comparison; 100×/50×/25× external for AD7175 |
 | R4 | DAC reference | AD5764 @5V ref (20V span) guaranteed ±1LSB; 5V ref part (LTC6655-5.0) not 2.5V | **PASS** (after correction) | Datasheet 5V spec, half-codes 305µV, LTC6655-5.0 |
-| R5 | LT1970 vendor model | Behavioral PASS only — vendor LTspice pending + prototype | **CONDITIONAL** (NEEDS VENDOR-MODEL + PROTOTYPE) | Behavioral 6.5% transient vs 16.2% analytic historical |
+| R5 | LT1970 vendor model | Vendor LT1970.sub (ADI 2404b) transient stable, PM inconclusive — CONDITIONAL / prototype | **CONDITIONAL** (VENDOR TRANSIENT STABLE, PM INCONCLUSIVE) | Vendor LTspice 26.0.2 LT1970.sub (see R5_VENDOR_MODEL_RESULTS.md): no oscillation 10pF–1nF with 47Ω, 6–9% OS @1nF matching behavioral 6.5% trend |
 | R6 | Open-sense leakage | Reed relay <1pA (not CMOS 100pA) to preserve 1nA MUC | **PASS** (after correction) | ADG1419 100pA typ 500pA max fails; reed passes |
 
 Original Gates 1–6 (A–O) historical PASS retained; above 6 corrective gates supersede synthesis interpretations where marked.

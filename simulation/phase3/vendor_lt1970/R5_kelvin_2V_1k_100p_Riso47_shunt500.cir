@@ -1,0 +1,28 @@
+* R5 vendor Kelvin bench - R5_kelvin_2V_1k_100p_Riso47_shunt500
+V1 VEE 0 -12
+V2 VMINUS 0 -12
+V3 VCC 0 12
+V4 VPLUS 0 12
+Vset IN 0 PULSE(0 2 1u 0.1u 0.1u 20u 40u)
+Vcsrc VCsrc 0 5
+Vcsnk VCsnk 0 5
+Vcom COM 0 0
+Ven EN 0 5
+XU1 VEE VMINUS OUT SENSEP FILTER SENSEM VCC N_DUT IN VCsnk VCsrc COM EN N_ISRC N_ISNK VPLUS LT1970
+Rshunt OUT SENSEP 500
+Riso SENSEP N_DUT 47
+Rdut N_DUT 0 1k
+Cdut N_DUT 0 100p
+Cfilter FILTER SENSEM 220p
+* Tie Isrc/Isnk floating allowed (warn) or tie to 0 via 10k?
+Risrc N_ISRC 0 10k
+Risnk N_ISNK 0 10k
+.lib C:\Users\azrai\AppData\Local\LTspice\lib\cmp\standard.dio
+.tran 0 40u 0 10n
+.meas tran Vpeak MAX V(N_DUT) FROM 0 TO 40u
+.meas tran Vfinal AVG V(N_DUT) FROM 30u TO 40u
+.meas tran Vmin MIN V(N_DUT) FROM 0 TO 40u
+.meas tran Overshoot PARAM (Vpeak-Vfinal)/abs(Vfinal+1e-12)*100
+.lib LT1970.sub
+.backanno
+.end

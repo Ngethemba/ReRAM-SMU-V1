@@ -1,0 +1,24 @@
+* R5 vendor bench - shared high-side shunt approx, LT1970 vendor model
+* Shunt 500 (shared), Rdut 1k, Cdut 1n, Riso 47
+V1 -V 0 -12
+V2 +V 0 12
+V3 IN 0 PULSE(0 2 1u 0.1u 0.1u 20u 40u)
+XU1 -V -V N004 N004 N005 OUT +V N006 IN N001 N001 N001 N001 0 +V N003 N003 N003 +V LT1970
+Rshunt OUT N004 500
+Riso N004 N007 47
+Rdut N007 0 1k
+Cdut N007 0 1n
+R2 +V N002 3K
+R3 OUT N006 10K
+R4 N006 0 10K
+D1 N002 N003 QTLP690C
+V4 N001 0 5
+.model D D
+.lib C:\Users\azrai\AppData\Local\LTspice\lib\cmp\standard.dio
+.tran 0 40u 0 10n
+.meas tran Vpeak MAX V(N007) FROM 0 TO 40u
+.meas tran Vfinal AVG V(N007) FROM 30u TO 40u
+.meas tran Overshoot PARAM (Vpeak-Vfinal)/Vfinal*100
+.lib LT1970.sub
+.backanno
+.end
