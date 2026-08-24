@@ -219,4 +219,14 @@
 	(text "Simulation: vendor LT1970.sub + OPAx140.LIB gate E at +0.1V/+2V/-2V 100pF/1nF Riso47 10k CV + 100R CC (10mA) + 1k CC (50uA) - see vendor_lt1970_R5p1E" (at 10 105 0) (effects (font (size 1 1)) (justify left bottom)))
 	(wire (pts (xy 45.72 38.1) (xy 60.96 45.72)) (stroke (width 0) (type default)) (uuid "w401w401-w401-4w01-8w01-w401w401w401"))
 	(wire (pts (xy 45.72 63.5) (xy 60.96 55.88)) (stroke (width 0) (type default)) (uuid "w402w402-w402-4w02-8w02-w402w402w402"))
+
+
+
+
+
+
+
+
+
+
 )

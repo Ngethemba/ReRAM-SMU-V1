@@ -162,4 +162,17 @@
 
 	; ─── Notes box ───
 	(text "Notes: (1) TLV3501 threshold is 1.2x/1.3x/1.5x *programmed Icc* — never fixed. (2) Trip latch is independent of MCU — survives halt. (3) Every sample logs compliance_flag/type/Icomp_trip/fault. (4) Prototype-tune: adjust divider or DAC scale if trip too sensitive." (at 10 195 0) (effects (font (size 0.7 0.7)) (justify left)))
+
+
+
+
+
+
+
+
+
+
+
+
+
 ))

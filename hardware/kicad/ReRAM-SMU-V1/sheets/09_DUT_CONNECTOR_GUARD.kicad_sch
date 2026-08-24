@@ -140,4 +140,13 @@
 	(wire (pts (xy 15 55) (xy 40 55)) (stroke (width 0.2) (type default)) (uuid "w-sl-jack"))
 	(wire (pts (xy 40 50) (xy 80 50)) (stroke (width 0.2) (type default)) (uuid "w-fh-out"))
 	(text "Notes: (1) Guard ring not tied to GND — keep 0.5mm isol. (2) SENSE pads never probed with 100pF scope during nA. (3) All TPs labelled on silkscreen TPxx. (4) C_down measured on first article with 10kHz LCR; adjust relay/ESD accordingly." (at 10 195 0) (effects (font (size 0.7 0.7)) (justify left)))
+
+
+
+
+
+
+
+
+
 ))

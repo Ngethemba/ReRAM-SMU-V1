@@ -176,4 +176,38 @@
 	(global_label "VREF_5V" (shape input) (at 50 200 0) (uuid "g-vref5-232") (property "Intersheetrefs" "${INTERSHEET_REFS}"))
 	(global_label "VREF_2V5" (shape input) (at 60 200 0) (uuid "g-vref25-233") (property "Intersheetrefs" "${INTERSHEET_REFS}"))
 	(text "Return path: one plane. MCU decoupling local, relay return via ferrite + star near USB connector. USB shield bleed only. Analog guards not under MCU." (at 10 205 0) (effects (font (size 0.7 0.7)) (justify left)))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ))
