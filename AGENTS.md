@@ -74,4 +74,13 @@ All work remains inside `E:/ReRAM-SMU V1` unless a later task explicitly authori
 
 ---
 
+## Language Policy
+
+- All user-facing conversation, progress updates, questions, warnings, summaries, and final reports MUST be in Turkish.
+- Never switch to Italian or another language unless the user explicitly requests it.
+- Code, commands, filenames, component names, datasheet terminology, Git commit messages, and engineering documents may remain in English where technically appropriate.
+- This language rule applies to the lead agent and all delegated subagents.
+
+---
+
 *An agent that follows these rules is a useful junior engineer. One that does not is a liability.*
