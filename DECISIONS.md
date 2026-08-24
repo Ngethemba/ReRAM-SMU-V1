@@ -363,7 +363,7 @@ No FINAL promotion until Phase 3 simulation gates pass. Specs must not be propag
 | DEC-031 | Phase 3 Corrective Review Overall | CONDITIONAL — PROTOTYPE GATE | 2026-08-24 |
 | DEC-032 | MCU Selection — STM32G474 RET6 PRIMARY | SUPERSEDED by DEC-038 | 2026-08-24 |
 | DEC-033 | 05_CURRENT_RANGES 6-Shunt Shared Low-Side with Kelvin & BBM | SELECTED FOR SCHEMATIC | 2026-08-25 |
-| DEC-034 | 06_CURRENT_FRONTEND_ADC ADS1262 Re-derived Chain | SELECTED FOR SCHEMATIC | 2026-08-25 |
+| DEC-034 | 06_CURRENT_FRONTEND_ADC ADS1262 Re-derived Chain | PARTIALLY SUPERSEDED by DEC-042 (supply/VCM) | 2026-08-25 |
 | DEC-035 | 03_OUTPUT_STAGE + 04_KELVIN_SENSE Detailed (Gates C/E) | SELECTED FOR SCHEMATIC | 2026-08-25 |
 | DEC-036 | Pre-ERC LT1970A Physical Pinout Correction | ACCEPTED | 2026-08-25 |
 | DEC-037 | Pre-ERC ADS1262 Package TSSOP-28 | ACCEPTED | 2026-08-25 |
@@ -458,7 +458,7 @@ No FINAL promotion until Phase 3 simulation gates pass. Specs must not be propag
 - **Verification status:** CALCULATED + SCHEMATIC WIRED — UNVERIFIED bench (continuity, contact R, leak <10 pA @1 V, BBM scope, autorange chatter).
 - **Provenance:** `docs/calculations/CURRENT_RANGES_RELAY_TOPOLOGY_AUDIT.md` + TI Coto 9007 DS (<1 pA) + `PHASE3_ERROR_BUDGET` + this gate.
 
-### DEC-034 — Phase 7 Gate F: 06_CURRENT_FRONTEND_ADC ADS1262 Re-derived Chain
+### DEC-034 — Phase 7 Gate F: 06_CURRENT_FRONTEND_ADC ADS1262 Re-derived Chain (PARTIALLY SUPERSEDED by DEC-042 for supply/VCM — see DEC-042)
 
 - **Date:** 2026-08-25
 - **Status:** SELECTED FOR SCHEMATIC (Gate F — for review)

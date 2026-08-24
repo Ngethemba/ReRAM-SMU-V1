@@ -129,3 +129,6 @@ All 7 gates corrected in schematic text/footprints (rev0.3) before point-to-poin
 
 **Provenance:** 1970afc.pdf, SBAS661C Rev C (ADS1262 PW TSSOP-28), STM32G431 datasheet (KBT6 32-pin vs RBT6 64-pin), MAX16054 datasheet (50ms debounce), LT5400 Rev B (0.01% 0.2ppm), AD5764 Rev C (11.4V min).
 
+
+
+**Related:** `docs/calculations/ADS1262_BUFFER_TABLE.md` — per-range buffer decision (DIRECT for 10mA–10µA, BUFFERED for 1µA/100nA with OPA140) and `docs/architecture/PRE_ERC_MANUFACTURER_CORRECTIONS.md` §6 single baseline.
