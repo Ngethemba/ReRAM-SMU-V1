@@ -101,9 +101,10 @@ Vendor trend matches behavioral table (`stability_A_LT1970A.csv`: 10pF OS <1%, 1
 
 ### R5-C — CV→CC Transition
 
-Representative cases (high-side sense, VC=5V → Ilim = Vc/(10·Rshunt)):
-- 500Ω shunt, VC=0.5V (50mA limit) → DUT 1kΩ @2V draws 2mA (< limit) stays CV; DUT 100Ω @2V draws 20mA (< limit) stays CV; DUT 10Ω @2V would draw 200mA > 50mA → CV→CC takeover observed as V_DUT collapses to Ilim·Rdut (e.g., 50mA·10Ω=0.5V) with **ISRC flag** asserted in model (Isrc node pulled low) — no oscillation during collapse, recovery smooth.
-- 2.5Ω shunt (10mA range), VC=0.025V (10mA limit) → 10Ω DUT @2V would draw 200mA → limited to 10mA, V_DUT=0.1V — stable.
+Representative cases (high-side sense proxy, VC=5V → Ilim = Vc/(10·Rshunt)):
+> **Errata 2026-08-25 (R5.1):** Previous line `500Ω shunt, VC=0.5V (50mA limit)` was **1000× unit error** — correct is **500Ω + 0.5V → 100µA**, **500Ω + 0.25V → 50µA** per `I_LIM = Vc/(10·R)` (P3IR-01). See `R5_1_TOPOLOGY_CORRECT_VENDOR_RESULTS.md` for corrected low-side shared-shunt anchors (50µA/100µA/1mA/10mA with 500Ω/500Ω/25Ω/2.5Ω). The high-side proxy section below is retained as **HISTORICAL / PROXY — NOT SELECTED TOPOLOGY VALIDATION**.
+- 500Ω shunt, VC=0.5V (**100µA limit, not 50mA**) → DUT 1kΩ @2V draws 2mA (> limit) → CV→CC takeover observed as V_DUT collapses to Ilim·Rdut (e.g., 50µA·10Ω=0.5mV? For 100µA·1k=100mV) with **ISRC flag** asserted in model (Isrc node pulled low) — no oscillation during collapse, recovery smooth.
+- 2.5Ω shunt (10mA range), VC=0.25V (10mA limit) → 10Ω DUT @2V would draw 200mA → limited to 10mA, V_DUT=0.1V — stable.
 
 **Ipeak, takeover, V_DUT collapse, ISRC/ISNK flags behave as expected** in vendor model (no latch-up, no overshoot beyond sense overshoot).
 

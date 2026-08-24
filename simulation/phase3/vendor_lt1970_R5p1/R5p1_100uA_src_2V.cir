@@ -1,0 +1,47 @@
+* R5.1 vendor bench - CORRECTED TOPOLOGY (low-side shared shunt, differential Kelvin)
+* R5p1_100uA_src_2V | shunt 500 Vc 0.5 -> Ilim 0.0uA equiv | DUT 1k C 100p Riso 47 Vset 2
+V1 VEE 0 -12
+V2 VMINUS 0 -12
+V3 VCC 0 12
+V4 VPLUS 0 12
+Vset IN 0 PULSE(0 2 1u 0.1u 0.1u 20u 40u)
+Vcsrc VCSRC 0 0.5
+Vcsnk VCSNK 0 0.5
+Vcom COM 0 0
+Ven EN 0 5
+XU1 VEE VMINUS OUT FORCE_LO FILTER 0 VCC NDIF_F IN NC10 NC11 VCSNK VCSRC COM EN N_ISRC N_ISNK NC18 VPLUS LT1970
+* Power path
+Riso OUT FORCE_HI 47
+Rdut FORCE_HI FORCE_LO 1k
+Cdut FORCE_HI FORCE_LO 100p
+Rshunt FORCE_LO 0 500
+Cshunt FORCE_LO 0 10p  ; parasitic
+* Sense across shunt
+* SENSEP already FORCE_LO via X mapping? Actually SENSEP net is FORCE_LO, SENSEM is 0 (GND) per X: SENSEP=FORCE_LO, SENSEM=0
+* Filter cap
+Cfilter FILTER SENSEM 220p
+* Differential Kelvin: FORCE_HI vs FORCE_LO -> NDIF -> pole 1k/15p ~10MHz -> NDIF_F -> -IN
+Ediff NDIF 0 FORCE_HI FORCE_LO 1
+Rpole NDIF NDIF_F 1k
+Cpole NDIF_F 0 15p
+* Flags pullup
+Risrc N_ISRC 0 10k
+Risnk N_ISNK 0 10k
+* NCs
+Rnc10 NC10 0 1Meg
+Rnc11 NC11 0 1Meg
+Rnc18 NC18 0 1Meg
+.lib C:\Users\azrai\AppData\Local\LTspice\lib\cmp\standard.dio
+.tran 0 50u 0 10n
+.meas tran Vpeak MAX V(FORCE_HI,FORCE_LO) FROM 0 TO 22u
+.meas tran Vfinal AVG V(FORCE_HI,FORCE_LO) FROM 12u TO 20u
+.meas tran Vmin MIN V(FORCE_HI,FORCE_LO) FROM 0 TO 22u
+.meas tran Overshoot PARAM (Vpeak-Vfinal)/abs(Vfinal+1e-12)*100
+.meas tran Undershoot PARAM (Vfinal-Vmin)/abs(Vfinal+1e-12)*100
+.meas tran Iplateau AVG I(Rshunt) FROM 12u TO 20u
+.meas tran Vshunt AVG V(FORCE_LO) FROM 12u TO 20u
+.meas tran Ipeak MAX I(Rshunt) FROM 0 TO 22u
+.meas tran Vdut_final AVG V(FORCE_HI,FORCE_LO) FROM 12u TO 20u
+.lib LT1970.sub
+.backanno
+.end
