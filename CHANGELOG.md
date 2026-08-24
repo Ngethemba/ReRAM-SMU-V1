@@ -31,8 +31,11 @@ Versioning: `0.y.z` pre-release (no hardware), `1.y.z` after V1 release.
 - Tooling docs under `tools/setup/` (ENVIRONMENT_REPORT, INSTALL_LOG, TOOL_DECISIONS, SECURITY_REVIEW, SMOKE_TEST_RESULTS, PYTHON_ENVIRONMENT, KICAD_SETUP, SPICE_SETUP, HERMES_SKILLS, MCP_SETUP, UTILITIES_FIRMWARE_INSTRUMENT) + scripts (`fetch_datasheet.ps1`, `check_instruments.py`) + `bom/candidates/component_template.csv`.
 - `.gitignore` hardened (`.env`/`!.env.example`, `tools/setup/ngspice-portable/`); `.env.example` added.
 - `STATUS.md` marked Phase 0 tooling complete (Phase 1 ready).
+- **Phase 1 research (4 parallel agents):** `RERAM_MEASUREMENT_REQUIREMENTS.md` (31 KB, 8 workflows, Vset 0.6–1.5 V, Icc 10 µA–1 mA), `LOW_CURRENT_MEASUREMENT.md` (29 KB, Johnson 0.41 pA @100 nA/10 Hz, guard), `SMU_ARCHITECTURE_SURVEY.md` (26 KB, Arch A–D), `COMPLIANCE_RESEARCH.md` (21 KB, triad regulation vs trip), `COMMERCIAL_SMU_BENCHMARK.md` (30 KB, Keithley 2450 vs 2400/2600B vs Keysight B2900 vs NI PXIe vs Yokogawa), `PHASE1_RESEARCH_SUMMARY.md` synthesis, `REQUIREMENTS_TRACEABILITY.md`, calculation frameworks `NOISE_BUDGET_FRAMEWORK.md` + `BURDEN_VOLTAGE_ANALYSIS.md` (100 mV FS shunt 10 Ω–1 MΩ, TIA ~20 µV) + `UNCERTAINTY_BUDGET_FRAMEWORK.md` (GUM RSS k=2).
+- REQUIREMENTS.md v0.1.0→v0.2.0: promoted REQ-SRC-005 (4-quad), REQ-MEAS-001 (6 ranges), REQ-MEAS-002 quantified (detection 3σ 1.5–6 pA, practical MUC 1 nA), added REQ-MEAS-007/008 accuracy research targets, compliance triad/Kelvin/guard/sweep enriched, traceability cited.
+- DECISIONS.md: DEC-007 (4-quad mandatory), DEC-008 (6 ranges), DEC-009 (MUC quantified), DEC-010 (voltage provisional-verified), DEC-011 (compliance <50 µs/<5 µs), DEC-012 (sweep/Kelvin/guard); OPEN_QUESTIONS Q-04/07/08/11/15/16 resolved; STATUS Phase 1 COMPLETE.
 
 ### Notes
-- No ReRAM-SMU schematic/PCB/BOM simulated or created in this session — correct for tooling phase. All candidates remain `PROVISIONAL / REQUIRES VERIFICATION`.
+- No ReRAM-SMU schematic/PCB/BOM simulated or created in this session — correct for research phase. All candidates remain `PROVISIONAL / REQUIRES VERIFICATION`.
 
 ---

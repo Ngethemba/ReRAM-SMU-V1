@@ -60,3 +60,23 @@ Append one entry per substantial agent session. Record concise, externally usefu
   - DEC-TOOL-005 No MCP in Phase 0; KiCad MCP candidate deferred
 - **Unresolved issues:** None blocking Phase 0; STM32 toolchain intentionally deferred until MCU selection verified (Phase 2). `jq`/`fd`/`Graphviz`/`pandoc` deferred as not needed for Phase 0 exit.
 - **Next step:** Awaiting explicit authorization to enter **Phase 1 — Requirements Verification** (do not auto-start). Final inspection + commit pending in this session.
+
+---
+
+### 2026-08-24 17:33–18:00 — Phase 1 Requirements Verification & Engineering Research Bootstrap
+
+- **Objective:** Determine what V1 must actually do (source/measurement/protection/accuracy/noise/speed/interface) from measurement problem, quantify provisional targets, and create requirement traceability. No schematic/BOM.
+- **Actions:**
+  - Spawned 4 parallel research agents: A ReRAM (RERAM_MEASUREMENT_REQUIREMENTS.md 31 KB), B Metrology (LOW_CURRENT 29 KB + NOISE + BURDEN 8 KB), C Architecture+Compliance (SMU_ARCHITECTURE 26 KB + COMPLIANCE 21 KB + UNCERTAINTY 29 KB sibling + 8.7 KB lead), D Commercial (COMMERCIAL 30 KB).
+  - Lead calculations: Johnson noise table (k=1.38e-23, T=300 K, B=10 Hz: 10 mA 10Ω 0.13 nA, 100 nA 1 MΩ 0.41 pA), burden 100 mV FS vs 10 mV vs TIA (~20 µV), TC 25 ppm →25 µV FS.
+  - Synthesis in docs/research/PHASE1_RESEARCH_SUMMARY.md (19 KB) reconciling all agents; docs/architecture/REQUIREMENTS_TRACEABILITY.md mapping every REQ to evidence/verification.
+  - Frameworks: docs/calculations/NOISE_BUDGET_FRAMEWORK.md (lead 7 KB, sibling 10 KB), BURDEN_VOLTAGE_ANALYSIS.md (8 KB), UNCERTAINTY_BUDGET_FRAMEWORK.md (GUM RSS, k=2, rectangular a/√3, lead 8.7 KB + sibling 29 KB).
+  - Updated REQUIREMENTS.md v0.1.0→v0.2.0 (31 confirmed +9 provisional +3 future): promoted REQ-SRC-005 (4-quad), REQ-MEAS-001 (6 ranges), REQ-MEAS-002 (quantified MUC), added REQ-MEAS-007/008 accuracy research targets, enriched compliance/Kelvin/guard/sweep entries.
+  - DECISIONS.md: added DEC-007 (4-quad), DEC-008 (6 ranges), DEC-009 (MUC), DEC-010 (voltage provisional-verified), DEC-011 (compliance triad/timing), DEC-012 (sweep/Kelvin/guard).
+  - OPEN_QUESTIONS.md: resolved Q-04,07,08,11,15,16 (6 total); RISKS.md reviewed (R-01/R-03/R-08 now quantified).
+  - STATUS.md marked Phase 1 COMPLETE, Phase 2 ready.
+- **Files changed:** docs/research/RERAM_MEASUREMENT_REQUIREMENTS.md, LOW_CURRENT_MEASUREMENT.md, COMMERCIAL_SMU_BENCHMARK.md, SMU_ARCHITECTURE_SURVEY.md, COMPLIANCE_RESEARCH.md, PHASE1_RESEARCH_SUMMARY.md, docs/calculations/NOISE_BUDGET_FRAMEWORK.md, BURDEN_VOLTAGE_ANALYSIS.md, UNCERTAINTY_BUDGET_FRAMEWORK.md, docs/architecture/REQUIREMENTS_TRACEABILITY.md, REQUIREMENTS.md, DECISIONS.md, OPEN_QUESTIONS.md, STATUS.md, CHANGELOG.md (pending).
+- **Evidence examined:** 9+ web_search queries per agent (ReRAM Vset/Icc, Keithley handbook, NI shunt vs TIA, burden comparisons, Keithley 2450/Keysight B2900/NI PXIe/Yokogawa datasheets), peer-reviewed RSC/MRS/Polimi papers, arXiv 2102.05770/2112.00192/1006.5132, commercial datasheets (Tek/Keysight/NI/Yokogawa), Python Johnson recomputations (.venv).
+- **Decisions / Outcomes:** Promotions above; four-quadrant mandatory, 6 ranges, 1 nA practical MUC, 100 nA floor leakage-limited, 100 mV FS shunt baseline recommended, TIA is V2; compliance regulation vs trip distinction with <50 µs / <5 µs research targets; guard/triax deferred to V2 with provision.
+- **Unresolved issues:** Architecture choice (A–D) remains for Phase 2; Q-01/02/03/05/06/09/10/12/13/14/17/18/19/20 stay open. No blocking Phase 1 exit.
+- **Next step:** Awaiting explicit authorization for Phase 2 — Architecture & Candidate Component Verification. Do not auto-start.
