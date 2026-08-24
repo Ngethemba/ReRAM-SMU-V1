@@ -6,9 +6,9 @@
 
 ## Current Phase
 
-> **Phase 2 — Architecture & Candidate Component Verification** · `COMPLETE — READY FOR PHASE 3 (awaiting authorization)`
+> **PHASE 2 — CORRECTED / READY FOR PHASE 3** · `docs/research/PHASE2_INDEPENDENT_REVIEW_CORRECTIONS.md` (IR-01..IR-16 verified; DEC-024/025 added)
 
-Phase 1 quantified the envelope; Phase 2 has selected conceptual architecture and candidate classes for Phase 3 simulation. No schematic/PCB/BOM has been created (correct). SELECTED FOR PHASE 3 requires simulation gates before FINAL.
+Phase 1 quantified the envelope; Phase 2 selected conceptual architecture and candidate classes for Phase 3 simulation. Independent review (IR-01..IR-16) has been reconciled against primary datasheets; repository synchronized and canonical sources declared. No schematic/PCB/BOM has been created (correct). SELECTED FOR PHASE 3 requires simulation gates A–O before FINAL.
 
 ---
 

@@ -15,7 +15,7 @@
 | Decision | Recommended candidate | Fallback |
 |---|---|---|
 | Shunt vs TIA vs hybrid | **Hybrid: shunts 10 mA→1 µA, TIA-ready for 100 nA** (but V1 ships as shunts-only with TIA footprint provision) | All-shunt 10 mA→100 nA (simplest, proven) |
-| Burden philosophy | **Range-dependent D** (25 mV on 10 mA/1 mA, 50 mV on 100 µA/10 µA, 100 mV on 1 µA/100 nA) — see SHUNT_RANGE_TRADEOFF.md | Fixed 100 mV on all ranges |
+| Burden philosophy | **Range-dependent D per SHUNT_RANGE_TRADEOFF §2.4 (IR-05)** — 10 mA 25 mV (2.5 Ω), 1 mA 25 mV (25 Ω), 100 µA 50 mV (500 Ω), 10 µA 50 mV (5 kΩ), 1 µA 100 mV (100 kΩ), 100 nA 100 mV (1 MΩ) — canonical, not fixed 100 mV | Fixed 100 mV on all ranges (Phase 1 baseline, superseded) |
 | Placement | **Low-side shunt with Kelvin + forced guard-friendly layout**; high-side is alternative if compliance loop demands it — §3 | High-side shunt (if 4-quad compliance needs common-mode) |
 | Range switching | **Reed relay (signal-grade, low-thermal) for 100 nA/1 µA**; **PhotoMOS or low-leakage CMOS mux for 10 µA→10 mA only if leakage verified** — §4 | All-reed-reed (6× reed) for uniformity |
 | ADC strategy | **Hybrid: fixed shunt FS per §2.4 + per-range PGA (ADS1262 PGA 1–32)** — §5 | Fixed FS + fixed gain (simplest, wastes DR on low burden) |
@@ -39,7 +39,7 @@ These are **candidates**; Phase-2 DEC will close them after relay/switch leakage
 | **Burden** | 25–100 mV (range-dep) | <0.2 mV typ | 25–50 mV (mA/µA) + <0.2 mV (nA) — best of both |
 | **Headroom cost** | FORCE must supply V_DUT+burden | Negligible | Negligible on nA; mA headroom still paid but less often at HRS reads |
 | **Johnson floor** | Table §2.1 SHUNT doc (0.41 pA @100 nA/10 Hz) | Identical for same Rf | Identical — TIA does not improve thermal noise, only burden |
-| **Settling** | `τ=R·C` 50 µs @1 MΩ/50 pF → 250 µs 5τ + DA seconds | `τ_eff≈Rf·Cf/Aol` → µs even at 1 MΩ with Cf | Fast on TIA range; shunt ranges limited by RC+DA |
+| **Settling** | `τ=R·C` 50 µs @1 MΩ/50 pF → 250 µs 5τ + DA seconds | TIA settling and stability are set by `Rf`, `Cf`, input capacitance (DUT + cable), op-amp GBW, noise gain, and phase margin — not by `R_shunt` alone; a TIA can be faster than a shunt only when its integration capacitor and compensation are sized for the specific `Rf`/`Cin`/`C_DUT` and validated for phase margin (IR-09, provision-only) | Fast on TIA range when validated; shunt ranges limited by RC+DA |
 | **Stability** | Unconditional (resistive) | Needs per-Rf Cf tuning, phase margin vs C_DUT (nF) | TIA range needs compensation; shunt ranges trivial |
 | **Output swing** | Diff amp handles ±100 mV | `I·Rf` must fit op-amp swing (100 mV FS still) | Same swing constraint on TIA |
 | **Power / SOA** | Shunt dissipates I·V (1 mW @10 mA/100 mV) | Op-amp supplies I·V (same) plus quiescent | Same |
@@ -184,6 +184,32 @@ Flux residue, relay potting, and FR-4 absorb charge and release over seconds —
 **Anti-alias / Sinc filter note:** ΔΣ Sinc filter + decimation sets effective BW; PGA and shunt RC jointly set ENBW (§6 SHUNT doc). Settling after PGA/range change needs Sinc flush (ADS1262: `t_settle ≈ 2–3 / data_rate`) — budget 10–20 ms blanking after switch before valid sample.
 
 ---
+
+### 5.4 Bipolar front-end taxonomy (IR-12) — topologies A/B/C for Phase 3 test G
+
+Per MEASUREMENT IR-12: low-side shunt voltage changes sign in source vs sink quadrants (±Vshunt). Each range (10 mA…100 nA) must measure +FS/−FS/zero/±0.01·FS/±0.10·FS around zero for each ADC candidate (ADS1262 vs AD7175-class vs alternatives) evaluating input range, bipolar supply, CM limits, PGA restrictions, buffer behavior, zero-crossing.
+
+- **A — True bipolar output from sense amp** (dual supplies ±5 V, diff output centered at 0 V, ADC differential bipolar)
+- **B — Level shift around ADC midscale** (single-supply amp + VCM 2.5 V/1.65 V, shunt ±V maps to midscale ±gain)
+- **C — Differential ADC directly** (INA + differential ADC inputs, CM at GND, requiring ADC with bipolar input or external level shift)
+
+Phase 3 test G reports per-range × per-ADC feasible topology and leakage/NPLC budget. No schematic until then.
+
+### 5.5 Guard cross-ref (IR-10)
+Guard strategy per GUARD_STRATEGY.md: **passive keepout / clean high-Z zone** (no-mask, 0.5 mm gap), **grounded shield** (1 MΩ||10 nF bleed), **driven guard** (low-leakage follower powered from normal rails, input tracks high-Z sense node, output drives guard — not powered through 1 GΩ from SENSE_HI — IR-10). V1 REV-A: no driven guard stuffed, no arbitrary ground guard around SENSE_HI; keepout + optional driven-guard footprint; §6 leakage budget assumes this.
+
+
+## 5a. Bipolar Current Front-End (IR-12) — Topologies for ±Vshunt
+
+Low-side shunt voltage changes sign: sourcing +10mA → shunt +Vs, sinking -10mA → -Vs. ADC must handle ±Vshunt and zero crossing.
+
+| Topology | Supply | How it handles -Vs | CM limit | When it fits |
+|---|---|---|---|---|
+| **A — True bipolar output from sense amp** | ±5 V dual supplies, diff output centered at 0 V | Sense amp drives bipolar; ADC in differential bipolar mode (e.g., AD7175 with ± supplies or ADS1262 differential bipolar) | Wide CM (~0 V ground-ref) but needs dual supply for amp | Preferred if amp can run dual and PCB allows |
+| **B — Level shift around ADC midscale** | Single +5 V, VCM=2.5 V (or 1.65 V) | Single-supply amp with VCM shift: shunt ±Vs maps to ADC code midscale ± gain·Vs; 0 V shunt at midscale code | ADC single-supply; amp CM must include GND + VCM offset | Fits ADS1262 single-supply 5 V mode; needs precision VCM reference |
+| **C — Differential ADC directly** | Instrumentation amp + differential ADC inputs | In-amp handles ground-ref shunt differential (FORCE_LO reference), ADC differential input captures bipolar without level shift; CM at GND | ADC must handle bipolar diff near GND — requires input buffers enabled or external shift if ADS1262 internal PGA buffer CM restricts | Best CM rejection but buffer noise/leakage tradeoff |
+
+Phase 3 must evaluate each topology per ADC candidate (ADS1262 vs AD7175-class): input range, bipolar supply requirement, CM limits, PGA restrictions, buffer behavior, zero crossing error, negative shunt signal measurement. No final schematic; Phase 3 test G covers +FS/-FS/zero/small bipolar per range.
 
 ## 6. Risks & Phase-2 verification
 

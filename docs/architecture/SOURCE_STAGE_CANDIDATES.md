@@ -64,7 +64,7 @@
 | **Swing** | `Voh ≈ V+ −1.7 V`, `Vol ≈ V− +1.9 V` (typ, full load). On ±12 V rails → ~±10.3 V unloaded, ~±10 V at modest load — plenty of headroom for ±5 V + 100 mV burden + 1.5 V dropout budget. On ±7 V rails still ±5.3 V/±5.1 V — tight but feasible. |
 | **Source/sink current** | **±500 mA min** continuous; fail-safe fixed limit ±800 mA; output can be boosted to ±5 A with external transistors. V1 needs ±10 mA → huge margin → SOA is trivial at 50 mW. |
 | **Stability / cap load** | Unity-gain stable, GBW **3.6 MHz**, SR **1.6 V/µs**. TI DS says "can drive capacitive and inductive loads directly" with improved reactive-load stability in the **A** rev. In practice: `Cload = 10 nF` needs the usual power-amp treatment — isolation R (1–10 Ω) with feedback pickoff after Rsense (Kelvin) + optional snubber; no heroic comp. The `Rsense + SENSE+/−` pins are **inside** the precision-limit loop; keep Kelvin tight and add `CFILTER` per DS. |
-| **Current limit / compliance** | **Integrated, precision, 4 µs takeover.** Two gm amps (`ISRC`/`ISNK`) watch `SENSE+ − SENSE−` vs `VCSRC/10` / `VCSNK/10`. `Ilim = VC/(10·Rsense)`, `VC = 0–5 V` (from COMMON). **Separate source/sink control.** Accuracy **1%** (A) vs 2% (non-A). Example for V1: `Rsense = 10 Ω` → 500 mV/10 Ω = 50 mA @5 V; 10 mA @1 V; 1 mA @0.1 V. For finer DAC resolution pick `Rsense = 20–50 Ω` and use DAC 0–2.5 V to reach 10 mA with better granularity. Open-collector flags `ISRC`, `ISNK`, `TSD`. AC bandwidth VC→output **2 MHz**. |
+| **Current limit / compliance** | **Integrated, precision, 4 µs takeover.** Two gm amps (`ISRC`/`ISNK`) watch `SENSE+ − SENSE−` vs `VCSRC/10` / `VCSNK/10`. `Ilim = VC/(10·Rsense)` only when **Vc ≥60 mV** (Vsense ≥6 mV, linear); **Vc=0–5 V → Vsense=Vc/10** (IR-01). **Floor Vsense_min 4 mV typ** to prevent simultaneous source/sink → **I_min = 4 mV/Rsense** ≈ **4% FS at 100 mV FS** (or 16% at 25 mV FS, 8% at 50 mV). Vc <60 mV is nonlinear — do not claim 0.1%·I_range with LT1970A alone; 0.1% only via range coercion (Solution A) or precision outer loop / Candidate C (§2.6, IR-01/DEC-024). Example for V1: `Rsense = 10 Ω` → 500 mV/10 Ω = 50 mA @5 V; 10 mA @1 V; 1 mA @0.1 V — but **I_min = 400 µA on 10 Ω (4% of 10 mA)**, **1.6 mA on 2.5 Ω/25 mV (16%)** — see IR-01 table. For finer DAC resolution pick `Rsense = 20–50 Ω` and use DAC 0–2.5 V to reach 10 mA with better granularity, still bounded by 4 mV floor. Open-collector flags `ISRC`, `ISNK`, `TSD`. AC bandwidth VC→output **2 MHz**. **Setting VC=0 still allows ±4 mV/Rsense quiescent.** |
 | **Shutdown / safe disable** | Logic `ENABLE` → **0.6 mA standby**, high-Z output, `tON/tOFF ≈10 µs`. TTL w.r.t. COMMON. Correctly tied (pull-down + POR default) → meets REQ-SAFE-003/004. **Setting `VC=0` does NOT guarantee 0 mA** — hockey-stick min ≈4 mV/RS → ~0.4 mA @10 Ω — so ENABLE is the true zero-current means. |
 | **Package / thermal** | **20-lead TSSOP (4.4×6.5 mm) with exposed copper pad** (θJA ~30–40 °C/W on 2 s-pads, per copper). At 50 mW DC worst-case (short to GND at 5 V ·10 mA = 50 mW + quiescent ~100 mW → ~150 mW total) → ΔT ~5 °C — no heatsink. Thermal shutdown at ~150 °C + flag. Supply slew on start-up must be ≤6 V/µs per DS (add soft-start or RC on rails). |
 | **Lifecycle** | ADI **Active**, two temp grades: `LT1970ACFE` (0–70 °C) and `LT1970AIFE` (−40–85 °C). No PDN at time of writing; LT1970 (non-A, 2% tol) is older rev of same die. Single-source (ADI) risk exists — keep second-source plan in Phase 3. |
@@ -222,6 +222,23 @@ DAC ──→ selector ──┬── V-error amp (ADA4522-2, senses SENSE_HI/L
 
 **Verdict:** The **textbook-correct SMU** and the best ReRAM compliance (flat CC, low overshoot, R-02/R-03 mitigation). Also the **highest bring-up risk for a first PCB**. Recommended to **defer to V1.1** unless Phase 3 sim + prototype bandwidth is explicitly funded.
 
+### 2.6 Source Candidate C — Precision Outer Loop + LT1970A Booster (IR-15)
+
+**Status:** Phase 3 candidate (IR-15) — promoted from footnote; no PCB commitment until simulation.
+
+```
+precision outer voltage-loop amplifier (ADA4522/OPA140-class, Vos 5 µV / Ib 10 pA, e.g., ADA4522-2)
+       ↓ (drives LT1970A +IN or booster input, filtered 1 kΩ+10 nF)
+LT1970A used as power/current-limit booster, unity-gain buffer (SENSE+/− across Rsense, ISRC/ISNK flags retained)
+       ↓
+FORCE via Rsense + R_iso (feedback after R_iso to outer amp — DUT-sense loop, not OUT)
+```
+
+- **Retains:** precision DC offset/drift from outer amplifier (5 µV vs LT1970A ~200 µV), LT1970A source/sink drive (±500 mA), integrated 4 µs limit (Vc/10 law, same floor/linear limits as §2.1), ENABLE high-Z + TSD/ISRC/ISNK flags, split-supply option (outer ±12 V, LT1970A V+/V− ±7–8 V to cut dissipation).
+- ** Solves IR-01 0.1%:** precision loop is the only topology that can credibly claim 0.1% closed-loop compliance accuracy (textbook SMU dual-error-amp CV/CC diode-OR) — at cost of nested-loop complexity (Solutions C/D of IR-01).
+- **Stability (explicit Phase 3 gate — do not assume):** nested loop interaction (outer voltage + inner current), phase margin vs capacitive DUT 10 pF–10 nF + cable, Kelvin remote-sense latch-up; requires Miller/lead-lag compensation (Cf across Rf, R_iso with feedback after R_iso) and COMPLIANCE_ARCHITECTURE R_iso + C_UPSTREAM/C_DOWNSTREAM budgeting. Must sweep CL 10 pF–10 nF + Llead 100 nH, Rsense 2.5–10 Ω, and compliance-entry step (IR-16 O/J).
+- **Trade:** ~$10–15 BOM (ADA4522 $4 + LT1970A $7 + comp) vs ~$7 LT1970A alone; highest stability risk of single-stage options but best lifecycle hedge (multi-source) and accuracy. V1 REV-A ships LT1970A direct (Candidate A) with Candidate C as parallel simulation; promotion requires Phase 3 AC + transient + compliance crossover validation per IR-15/16 O.
+
 ---
 
 ## 3. CAUTION 1 — Bipolar vs Full Four-Quadrant (Why "Bipolar" ≠ "4-Quad", and How Much 4-Quad V1 Actually Needs)
@@ -292,6 +309,8 @@ Stability: Rsense outside voltage loop → loop is simpler (no Rsense L inside);
 
 #### 4.1b The recommended Phase-3 wiring (combines both correctly)
 
+> **Canonical Kelvin equation (IR-11):** `V_FORCE = V_DUT + V_SHUNT + I·R_LEAD` for the topology where SENSE encloses DUT only and shunt sits low-side outside loop. Kelvin sensing does not physically eliminate shunt burden — it prevents burden from becoming DUT-voltage error by forcing the source to provide additional headroom. **LT1970A alone is not a 4-terminal remote servo** — its internal SENSE+/− is the compliance sense across Rsense; remote DUT-sense requires external differential feedback (post-buffer IR-02 → diff/attenuation → error amp → LT1970A +IN → FORCE).
+
 - **LT1970A's SENSE+/−** = **current-limit sense across Rsense only** (high-side or low-side, kelvin-routed to Rsense pads, FILTER cap optional).
 - **SMU's SENSE_HI/LO** = **Kelvin voltage measurement across DUT only** (high-Z diff-amp → ADS1262). The **voltage-source feedback** for accuracy must close on **SENSE_HI/LO at the DUT**, i.e. **burden is OUTSIDE the DUT voltage loop** — DUT sees the set `V` regardless of `I·Rsense`. This is the "DUT-sense loop with headroom" drawn above.
 - Consequence: in **4-wire** mode `Vdut = Vset` is correct by construction, even with 100 mV burden. In **2-wire** mode (SENSE shorted to FORCE at the connector) `Vdut = Vset − I·Rsense` and the **full burden error appears** — 100 mV is **5.0% @ 2 V, 16.7% @ 0.6 V (typical Vset), 20% @ 0.5 V read, 50% @ 0.2 V read** — per CAUTION 2. For LRS reads at 0.2 V on the 1 mA range, a 100 mV burden is catastrophic without Kelvin.
@@ -322,17 +341,20 @@ Stability: Rsense outside voltage loop → loop is simpler (no Rsense L inside);
 
 ## 5. Headroom & Dropout Check (REQ-PWR-003)
 
-Worst-case headroom stack at **+5 V, +10 mA**:
+Worst-case headroom stack at **+5 V, +10 mA** (range-dependent burden D per SHUNT_RANGE_TRADEOFF §2.4, IR-05):
 
 ```
 V+ ≥ Vdut,max + Vburden@FS + Vsat(amp) + margin
-V+≥ 5.0 V   + 0.10 V       + 1.7–2.0 V    + 0.5 V ≈ 7.2–7.6 V
-V−≤ −5.0 V  − 0.10 V       − 1.9 V        − 0.5 V ≈ −7.5 V
+# Philosophy D: 10 mA range is 25 mV FS (2.5 Ω), not 100 mV — worst headroom is on 10 mA/25 mV, not 100 mV
+V+≥ 5.0 V   + 0.025 V (10 mA D)  + 1.7–2.0 V    + 0.5 V ≈ 7.2–7.5 V  (100 mV FS would be 7.6 V)
+# 1 µA/100 nA ranges are 100 mV FS (100 kΩ/1 MΩ) but at ≤1 µA headroom cost is negligible vs accuracy
+V−≤ −5.0 V  − 0.025 V            − 1.9 V        − 0.5 V ≈ −7.4 V
+# Thermal: 10 mA·25 mV = 250 µW on 2.5 Ω (vs 1 mW at 100 mV/10 Ω); 100 µA·50 mV=5 µW; 1 µA·100 mV=100 nW — range-dependent.
 ```
 
 | Candidate | Vsat (typ) | Required V+/V− for ±5 V+100 mV | On nominal ±12 V | On LT1970A split (VCC ±12, V+/V− ±7–8) |
 |-----------|------------|-------------------------------|------------------|------------------------------------------|
-| **A LT1970A** | +1.7 / −1.9 V | **±7.3 V** | ✔︎ **4.7 V margin** | ✔︎ still works at ±8 V; ±7 V is marginal (+5 V exactly — give +1 V) |
+| **A LT1970A** | +1.7 / −1.9 V | **±7.2–7.3 V** (25 mV burden D @10 mA; 7.6 V if 100 mV FS) | ✔︎ **4.7 V margin on ±12 V** (range-dependent) | ✔︎ still works at ±8 V; ±7 V is marginal (+5 V exactly — give +1 V) |
 | **B Prec+Discrete (BJT)** | ~1.0–1.5 V (Vbe+Vce) | ±6.6 V | ✔︎ | ✔︎ (tighter with MOSFET Vgs ~2–3 V) |
 | **C OPA551** | ~2.0 V from rail @200 mA | **±7.1 V** but DS says min ±4 and dropout curve is ~2.4 V @0.6 A → **±7.6 V for guaranteed ±5 V** | ✔︎ on ±12 V with 4.4 V margin | Not applicable (no split) |
 | **D/E** | As booster | As booster | As booster | As booster |
@@ -443,6 +465,17 @@ For the **selected LT1970A** path (and any future composite):
 > **Method:** `web_search` across ADI/TI product pages + DigiKey/Mouser aggregator + Octopart/FindChips on 2026-08-24. All parts returned **Active** with no PDN/EOL notice. Prices are pre-tax, pre-shipping, single-unit vs 1k reel. **Re-check at Phase 3 DEC with `bom/sourcing/` live query.**
 
 ---
+
+### Appendix A — DAC Comparison (IR-06 / IR-07)
+
+| Device | System span | LSB | Supplies | Notes |
+|---|---|---|---|---|
+| **AD5686R** 0–5 V → ×2 → **±5 V** | 10 V | **152.588 µV** (10 V/65536) | Single 5 V (+ gain stage) | Requires external ×2 gain amp + resistor TC/gain error; INL ±2 LSB → ±305 µV in system volts |
+| **AD5764** nominal **±10 V** (no ±5 V mode — IR-06) | **20.0 V** (21.0526 V at ±10.5263 V option) | **305.176 µV** nominal (20 V/65536); **321.2 µV** at ±10.5263 V | **±11.4–±16.5 V** (IR-07) | **No ±5 V range exists**; operating AD5764 for ±5 V wastes half the codes (resolution halved, LSB still 305 µV). INL ±1 LSB = ±305 µV — equal in volts to AD5686R system ±2 LSB. Advantage is **no external gain-stage error**, not INL alone. Raw ±12 V bench satisfies 11.4 V with ~0.6 V margin; **±10 V LDO rail cannot host AD5764** (IR-07). |
+| **AD5764** ≠ 153 µV | — | Deprecated 153 µV claim for AD5764 was 10 V span mis-attributed — **superseded** | — | See PHASE2_INDEPENDENT_REVIEW_CORRECTIONS.md IR-06 |
+| **AD5791-class** (if needed) | 20 V | 19.07 µV (20-bit) | ±7.5–±16.5 V | Only if LSB headroom at 0.1 V read demands it; higher cost; Q-01 trade |
+
+Power-tree Options per IR-07: **A — Raw ±12 V for AD5764/LT1970A power stage** (simplest V1, precision +5 V regulated only), **B — Regulated complementary rails** (positive LT1763/LT3045-class + **negative LT1964/LT3091/TPS7A30-class** — LT1763/LT3045 are positive-only, not negative), **C — Separate rails for power stage vs precision chain**. Decision per actual error-budget headroom (PRELIMINARY_ERROR_BUDGET §1.2 post-cal @1 V: AD5764 headroom ≈+8.8% vs AD5686R −8.6% with gain stage) and calibration burden.
 
 ## 11. What Phase 3 Must Do Before Promotion (Gate Checklist — No DEC Without This)
 

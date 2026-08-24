@@ -6,6 +6,9 @@
 **Gateway:** Phase 1 evidence → Phase 2 architecture DECs.
 
 Format: `Requirement → Evidence → Rationale → Verification method` per ENGINEERING_RULES §9.
+> **Phase 2 Corrective Review (2026-08-24):** REQ-SAFE-001 revised per DEC-024/IR-01; REQ-DUT-001 addendum per IR-02/03; REQ-PWR-003/004 corrected per IR-07/IR-13; canonical sources declared in PHASE2_INDEPENDENT_REVIEW_CORRECTIONS.md.
+
+
 
 ---
 

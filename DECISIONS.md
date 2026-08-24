@@ -197,27 +197,27 @@ Copy the template for each new decision.
 
 ### DEC-019 — Kelvin Sense Loop
 
-- **Date:** 2026-08-24
-- **Status:** ACCEPTED
+- **Date:** 2026-08-24 (amended 2026-08-24 per IR-02/03/04/11)
+- **Status:** ACCEPTED (amended)
 - **Requirement(s):** REQ-DUT-001, REQ-SRC-001/002
-- **Alternatives considered:** Source regulates FORCE vs SENSE; burden inside vs outside loop.
-- **Evidence examined:** `KELVIN_SENSE_ARCHITECTURE.md` (7.4 KB, SENSE differential >10 GΩ, 5 VFS, open-sense pull-up + comparator fallback to FORCE, lead R ≤1 MΩ limit, bias current).
-- **Decision:** **Source regulates SENSE at DUT; burden outside loop.** Open SENSE_HI/LO detected via pull-up (100 kΩ to FORCE) + comparator → fallback to FORCE mode + fault flag.
-- **Rationale:** Kelvin correctness: V_DUT = V_SENSE, not V_FORCE – V_burden; fallback prevents oscillation on open sense.
-- **Verification status:** UNVERIFIED — open-sense test + 2-wire vs 4-wire on 10 Ω dummy.
-- **Provenance:** CAUTION 4 (Kelvin not tied to 10 kΩ threshold).
+- **Alternatives considered:** Source regulates FORCE vs SENSE; burden inside vs outside loop; passive divider vs buffered sense; permanent 10 MΩ pull vs switched.
+- **Evidence examined:** `KELVIN_SENSE_ARCHITECTURE.md` (SENSE differential >10 GΩ via high-Z buffer before attenuation, DUT-node capacitance budget, switched open-sense) + PRELIMINARY_ERROR_BUDGET IR-02 loading table (20 MΩ passive divider: 83% error @100 MΩ DUT) + LT1970A 1970afc + COMPLIANCE_ENERGY.
+- **Decision:** **Source regulates SENSE at DUT via high-Z buffers (≥10 GΩ, ≤10 pA) before any divider; burden outside loop:** `V_FORCE = V_DUT + V_SHUNT + I·R_LEAD` (canonical). Open SENSE_HI/LO detected via **switched** continuity test before OUTPUT ON + analog-switch disconnect during measurement (≥10 GΩ effective or disconnected; no DC load invariant per IR-03). 1 nF filter is **after buffer**, not at DUT. Fallback to FORCE mode on open, latched.
+- **Rationale:** Kelvin correctness: V_DUT = V_SENSE; passive divider loads HRS; permanent 10 MΩ violates nA budget; filter cap at DUT violates energy budget.
+- **Verification status:** UNVERIFIED — open-sense switched test + 2-wire vs 4-wire + DUT-loading sweep 1 MΩ–1 GΩ + sense-C sweep (Phase 3 IR-16 D,E,F).
+- **Provenance:** CAUTION 4 + IR-02/03/04 independent recalculations.
 
 ### DEC-020 — Grounding Philosophy
 
-- **Date:** 2026-08-24
-- **Status:** ACCEPTED
+- **Date:** 2026-08-24 (amended per IR-13)
+- **Status:** ACCEPTED (wording corrected)
 - **Requirement(s):** REQ-PWR-004, REQ-MEAS-002/008
 - **Alternatives considered:** Single continuous plane partitioned vs split AGND/DGND vs star vs isolated analog domain.
 - **Evidence examined:** `GROUNDING_AND_RETURN_PATHS.md` (36 KB, return paths: DAC ref, ADC ref, MCU, relay, USB, FORCE_LO).
-- **Decision:** **Single continuous ground/reference plane with physical partitioning + single AGND/DGND bridge + partitioned current claims** (not generic star). CAUTION 5 explicitly not pre-decided as split/star.
-- **Rationale:** Return-path analysis > “star best”; split invites antenna; isolated domain adds DC/DC noise.
+- **Decision:** **One continuous reference plane. Analog/digital separation is achieved by placement, local return-current control, routing discipline, and decoupling. There is no etched AGND/DGND split and no physical AGND/DGND bridge.** Detailed geometry (precision reference return, shunt Kelvin reference, FORCE_LO reference, relay return, USB return, chassis/shield) defined separately. A single tie at the ADC is a measurement point, not a gap-bridging element.
+- **Rationale:** Return-path analysis > “star best”; split invites antenna; "single continuous plane + single bridge" was self-contradictory phrasing; isolated domain adds DC/DC noise.
 - **Verification status:** UNVERIFIED — noise PSD with/without USB + partitioning review (Phase 8).
-- **Provenance:** CAUTION 5.
+- **Provenance:** CAUTION 5 + IR-13.
 
 ### DEC-021 — Isolation Classification
 
@@ -233,15 +233,15 @@ Copy the template for each new decision.
 
 ### DEC-022 — Guard and Connector Provision
 
-- **Date:** 2026-08-24
-- **Status:** ACCEPTED (provision)
+- **Date:** 2026-08-24 (amended per IR-10)
+- **Status:** ACCEPTED (provision, wording corrected)
 - **Requirement(s):** REQ-MEAS-002/006, REQ-DUT-002/003
-- **Alternatives considered:** Reserved copper+stitching vs active driven guard now vs triax now.
-- **Evidence examined:** `GUARD_STRATEGY.md` (reserved copper, stitching, optional driven guard amp on SENSE_HI buffer — not arbitrary node) + `LOW_CURRENT_MEASUREMENT.md` §4.
-- **Decision:** **V1 provision:** guard ring copper (exposed, no mask, stitched inner guard plane) encircling high-Z nodes (100 nA shunt/sense) + optional driven guard amplifier footprint tied to SENSE_HI buffer, shield tied to FORCE_LO via 1 MΩ||10 nF. Triax is V2.
-- **Rationale:** V1 does not claim electrometer but must leave upgrade path without re-spin.
+- **Alternatives considered:** Reserved copper+stitching vs active driven guard now vs triax now; passive keepout vs grounded shield vs driven guard.
+- **Evidence examined:** `GUARD_STRATEGY.md` (corrected taxonomy) + `LOW_CURRENT_MEASUREMENT.md` §4 + IR-10.
+- **Decision:** **V1 provision:** guard ring copper (exposed, no mask, stitched inner guard plane) encircling high-Z nodes (100 nA shunt/sense) as **passive keepout / grounded shield** (no driven guard stuffed in REV-A — no arbitrary ground guard around SENSE_HI). Optional **driven-guard footprint** if provisioned: amplifier is **powered from normal rails, input tracks SENSE_HI, output drives guard** — corrected from "powered from SENSE_HI through 1 GΩ." Shield tied to FORCE_LO via 1 MΩ||10 nF. Triax is V2.
+- **Rationale:** V1 does not claim electrometer but must leave upgrade path without re-spin; mis-tied passive guard worsens leakage.
 - **Verification status:** UNVERIFIED — visual + leakage <10 pA.
-- **Provenance:** CAUTION 4 + low-current guard checklist.
+- **Provenance:** CAUTION 4 + IR-10 + low-current guard checklist.
 
 ### DEC-023 — Component Adversarial Verdicts (Phase 2)
 
@@ -249,11 +249,37 @@ Copy the template for each new decision.
 - **Status:** ACCEPTED (K/C/R/A/D)
 - **Requirement(s):** REQ-GEN-002, lifecycle/sourcing
 - **Alternatives considered:** Previously suggested AD5686R, ADA4522-2, LT1970A, ADS1262, LT1763, ADR4525, STM32G431 vs new candidates.
-- **Evidence examined:** `PHASE2_COMPONENT_MATRIX.md` (32 KB, 10+ web_search batches, datasheets rev F/G/K, DigiKey/Mouser stock, SPICE model column) + `PRELIMINARY_ERROR_BUDGET.md` (post-cal U 805 µV @2 V for AD5686R vs 638 µV @2 V for AD5764).
-- **Decision:** Verdicts: **AD5686R — KEEP AS ALTERNATE** (±2 LSB INL, post-cal @1 V -11% headroom vs target 700 µV); **ADA4522-2 — KEEP** (zero-drift, but role-dependent vs OPA140/ADA4528); **LT1970A — KEEP (primary)** (active, 1% limiter, LTspice model); **ADS1262 — KEEP AS ALTERNATE** (vs AD7175 preferred for 50 Hz rejection/noise-free bits); **LT1763 — KEEP** (active, LDO) but LT3045 for precision rail as alternate; **ADR4525 — KEEP** but LTC6655/REF50xx deferred branch; **STM32G431 — KEEP AS ALTERNATE** (meets SPI/USB/GPIO/watchdog but G474/RP2040 alternates lower cost).
-- **Rationale:** Would not have blindly preserved AI history — independent DSP shows AD5764-class beats AD5686R on INL, etc.
+- **Evidence examined:** `PHASE2_COMPONENT_MATRIX.md` (32 KB, 10+ web_search batches, datasheets rev F/G/K, DigiKey/Mouser stock, SPICE model column) + `PRELIMINARY_ERROR_BUDGET.md` (**corrected:** AD5764 LSB 305.2 µV on 20 V span, 20 V span, ±11.4 V supplies — IR-06/07; post-cal headroom recomputed).
+- **Decision:** Verdicts: **AD5686R — KEEP AS ALTERNATE** (correct LSB 152.6 µV on 10 V system; post-cal headroom still better vs AD5764 when span waste accounted for); **ADA4522-2 — KEEP role-dependent** (shunt sense, not DUT sense on 100 nA); **LT1970A — KEEP (primary)** (active, 1% limiter, LTspice model; floor 4 mV); **ADS1262 — KEEP AS ALTERNATE** (vs AD7175 preferred for bipolar front-end per IR-12); **LT1763 — KEEP positive regulator only** (negative rail requires LT1964-class, IR-07); **ADR4525 — KEEP** but LTC6655/REF50xx deferred branch; **STM32G431 — KEEP AS ALTERNATE**.
+- **Rationale:** Independent datasheets show AD5764-class requires ±11.4 V and wastes half codes at ±5 V; INL in volts equalizes — do not promote on INL alone.
 - **Verification status:** UNVERIFIED — simulation gates before `bom/approved/`.
-- **Provenance:** Manufacturer datasheets (AD5686R Rev F, LT1970A 1970afc, OPA140 Rev F, etc.) + counterfeit policy (precision parts authorized distributors only).
+- **Provenance:** Manufacturer datasheets (AD5686R Rev F, **AD5764 Rev F ±11.4 V, LSB 305.2 µV**, LT1970A 1970afc 4 mV floor, TLV3501 Rev E Vos 6.5 mV) + counterfeit policy.
+
+### DEC-024 — Compliance Minimum Programmability and Range-Coercion Architecture
+
+- **Date:** 2026-08-24
+- **Status:** ACCEPTED
+- **Requirement(s):** REQ-SAFE-001, REQ-SRC-006, REQ-MEAS-001
+- **Alternatives considered:** (A) keep 0.1% binding for LT1970A, (B) remove requirement entirely, (C) coercion + precision-loop tier, (D) single separate compliance bank for all ranges.
+- **Evidence examined:** LT1970A 1970afc/1970fe (VSENSE_MIN 4 mV typ, Vc<60 mV nonlinear, I=Vc/(10·R)), SHUNT_RANGE_TRADEOFF burden table, COMPLIANCE_ARCHITECTURE cautions, independent recomputation IR-01 (I_min≈4% FS at 100 mV, 16% at 25 mV).
+- **Decision:** Tiered rule: (1) LT1970A limiter: minimum compliance = max(4 mV/Rsense, 60 mV/(10·Rsense)) — about 4% FS at 100 mV burden, 16% at 25 mV. Firmware implements compliance-aware range coercion; (2) Precision external CC loop (Source Candidate C) — 0.1%·I_range is research retention for Candidate C, validated in Phase 3; (3) Separate compliance-sense bank is provisioning option but not required for REV-A if coercion satisfies typical ReRAM Icc 10 µA–1 mA.
+- **Rationale:** Primary datasheets override the copied Keithley rule; 0.1% as closed-loop servo semantics, not LT1970A Vc/10 threshold physics; forcing LT1970A to 0.1% requires 4 V burden — destructive.
+- **Consequences:** COMPLIANCE_ARCHITECTURE solutions A–D formalized; Phase 3 tests A,B,H added; REQUIREMENTS REQ-SAFE-001 revised; host driver logs compliance_range.
+- **Verification status:** UNVERIFIED — Phase 3 sims IR-16 A,B,H + scope fault injection.
+- **Provenance:** LT1970A 1970afc p.12–13 (VCSRC/VCSNK 4 mV floor, 60 mV linear) + PHASE2_CORRECTIONS IR-01.
+
+### DEC-025 — Source Composite Candidate
+
+- **Date:** 2026-08-24
+- **Status:** SELECTED FOR PHASE 3
+- **Requirement(s):** REQ-SRC-001/002/006, REQ-SAFE-001
+- **Alternatives considered:** LT1970A direct, precision+discrete, composite (Candidate C) — precision outer loop + LT1970A booster.
+- **Evidence examined:** `SOURCE_STAGE_CANDIDATES.md` new §2.6 + `docs/research/PHASE2_INDEPENDENT_REVIEW_CORRECTIONS.md` IR-15.
+- **Decision:** **Source Candidate C — Precision outer loop + LT1970A inner/power stage:** outer ADA4522/OPA140-class drives LT1970A as power/current-limit booster; LT1970A provides sink drive, 4 µs limit, enable/flags while outer amp sets precision offset. Phase 2 defines only; do not assume stability.
+- **Rationale:** Retains LT1970A drive/limit/enable while reducing reliance on its 200 µV offset; promising third architecture between monolithic and discrete.
+- **Consequences:** Phase 3 must test nested loop interaction, phase margin, compliance crossover, Kelvin sense, capacitive DUT (IR-16 O).
+- **Verification status:** UNVERIFIED — nested-loop AC + transient per PHASE3 plan O.
+- **Provenance:** SOURCE_STAGE_CANDIDATES + IR-15.
 
 ---
 
@@ -263,14 +289,15 @@ The following remain `PROVISIONAL / REQUIRES VERIFICATION` and must not be treat
 
 | Candidate | Notes | Required Evidence Before Promotion |
 |-----------|-------|--------------------------------------|
-| DAC AD5686R quad 16-bit | KEEP AS ALTERNATE pending AD5764 sim | AD5764 vs AD5686R error-budget sim + DMM |
-| DAC AD5764 ±10 V 16-bit | PREFERRED for Phase 3 sim (±1 LSB INL) | Same |
-| Amp ADA4522-2 zero-drift | KEEP role-dependent (shunt sense) | Noise/TC sim + bench |
-| Power amp LT1970A | KEEP primary (500 mA, 1% limiter) | Load regulation + cap stability sim |
-| ADC ADS1262 / AD7175 | Both CANDIDATE (noise @NPLC) | NPLC sweep sim vs measured noise |
-| Regulator LT1763 / LT3045 | Both CANDIDATE per rail | Dropout/PSRR sim |
+| DAC AD5686R quad 16-bit | KEEP AS ALTERNATE (LSB 152.6 µV on 10 V system; gain-stage error) | AD5764 vs AD5686R error-budget sim with actual 20 V span (LSB 305.2 µV, ±11.4 V rail — IR-06/07) + DMM |
+| DAC AD5764 ±10 V 16-bit | PREFERRED candidate only if gain-stage removal justifies ±11.4 V / cost / span waste (IR-06/07) | Same |
+| Amp ADA4522-2 zero-drift | KEEP role-dependent (shunt sense, not DUT sense on 100 nA per IR-02) | Noise/TC sim + bench |
+| Power amp LT1970A | KEEP primary (500 mA, 1% limiter, floor 4 mV per IR-01) | Load regulation + cap stability sim + range coercion |
+| Source Candidate C outer+LT1970A booster | SELECTED FOR PHASE 3 (DEC-025) — precision outer loop + LT1970A power stage | Nested-loop stability O |
+| ADC ADS1262 / AD7175 | Both CANDIDATE (bipolar front-end A/B/C per IR-12, NPLC sweep) | Bipolar front-end + NPLC sweep sim vs measured noise |
+| Regulator LT1763 positive / negative LT1964-class | Both CANDIDATE per rail — LT1763 positive only (IR-07) | Dropout/PSRR sim with complementary neg |
 | Reference ADR4525 / LTC6655 | Shared vs separate branch | Drift/correlation sim |
-| Shunts + relay matrix | Hybrid 10 mA→1 µA + TIA provision | Leakage/TC + burden headroom sim |
+| Shunts + relay matrix | Hybrid 10 mA→1 µA + TIA provision; range-dependent D canonical per IR-05 | Leakage/TC + burden headroom sim |
 | MCU STM32G431 family | KEEP AS ALTERNATE (G474/RP2040 alternates) | SPI/USB/timer check |
 
 No FINAL promotion until Phase 3 simulation gates pass. Specs must not be propagated from memory.
@@ -292,13 +319,15 @@ No FINAL promotion until Phase 3 simulation gates pass. Specs must not be propag
 | DEC-014 | Output-stage candidate (LT1970A primary) | SELECTED FOR PHASE 3 | 2026-08-24 |
 | DEC-015 | Current-measurement topology (hybrid) | SELECTED FOR PHASE 3 | 2026-08-24 |
 | DEC-016 | Shunt location (low-side) | ACCEPTED | 2026-08-24 |
-| DEC-017 | Burden-voltage philosophy (range-dependent) | SELECTED FOR PHASE 3 | 2026-08-24 |
-| DEC-018 | Compliance architecture (dual) | SELECTED FOR PHASE 3 | 2026-08-24 |
-| DEC-019 | Kelvin sense loop (SENSE feedback) | ACCEPTED | 2026-08-24 |
-| DEC-020 | Grounding (single plane partitioned) | ACCEPTED | 2026-08-24 |
+| DEC-017 | Burden-voltage philosophy (range-dependent) | SELECTED FOR PHASE 3 (canonical IR-05) | 2026-08-24 |
+| DEC-018 | Compliance architecture (dual) | SELECTED FOR PHASE 3 (amended IR-01/08/14) | 2026-08-24 |
+| DEC-019 | Kelvin sense loop (SENSE feedback) | ACCEPTED (amended IR-02/03/04/11) | 2026-08-24 |
+| DEC-020 | Grounding (single plane, no split) | ACCEPTED (wording corrected IR-13) | 2026-08-24 |
 | DEC-021 | Isolation (optional) | ACCEPTED | 2026-08-24 |
-| DEC-022 | Guard provision | ACCEPTED | 2026-08-24 |
-| DEC-023 | Component adversarial verdicts | ACCEPTED | 2026-08-24 |
+| DEC-022 | Guard provision | ACCEPTED (wording corrected IR-10) | 2026-08-24 |
+| DEC-023 | Component adversarial verdicts | ACCEPTED (corrected IR-06/07) | 2026-08-24 |
+| DEC-024 | Compliance minimum programmability / coercion | ACCEPTED | 2026-08-24 |
+| DEC-025 | Source composite candidate (outer+booster) | SELECTED FOR PHASE 3 | 2026-08-24 |
 
 ---
 

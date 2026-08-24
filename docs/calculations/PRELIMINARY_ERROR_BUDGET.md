@@ -59,13 +59,17 @@ At 0.1 V read: target 520 µV, offset/INL dominate → U≈650 µV → **−130 
 
 ### 1.2 Bipolar alternative: AD5764 (±10 V, true bipolar, ±1 LSB INL) vs 20-bit AD5791/AD5780
 
-| DAC | Span | LSB | INL `±a` | Glitch | Settle to ±1 LSB | Supply | Power-up | Provenance |
+| DAC | Span | LSB | INL `±a` | Glitch | Settle to ±1 LSB | Supply (IR-07: ±11.4 V min, ±10 V LDO incompatible — Options A/B/C per POWER_TREE) | Power-up | Provenance |
 |-----|------|-----|----------|--------|------------------|--------|----------|------------|
 | **AD5764** quad 16-bit bipolar | ±10 V (20 V) | 305 µV | ±1 LSB → ±305 µV → **u=176 µV** | <10 nV-sec typ | 10 µs max to ±0.0015 % FSR | ±11.4..±16.5 V, 5 V logic | Clamped to 0 V via low-Z during supply ramp (integrated PO/PB) | AD5764 Rev F: INL ±1 LSB max, TUE ±0.1 %? Actually tighter; settling 10 µs. https://www.analog.com/media/en/technical-documentation/data-sheets/AD5764.pdf |
 | **AD5791** single 20-bit bipolar | ±10 V via ext refs (20 V) | 19.1 µV | ±1 LSB → ±19 µV → **u=11 µV** | 1.4 nV-sec (midscale) | 1 µs to 1 ppm | ±12..±16.5 V, refs 5..VDD-2.5 | Requires ext refs + buffer, POR to 0 V | AD5791 Rev F: INL ±1 LSB max, 1 ppm, 7.5 nV/√Hz, glitch 1.4 nV-sec. https://www.analog.com/media/en/technical-documentation/data-sheets/ad5791.pdf |
 
 Post-cal at 2 V with AD5764 (no external gain error, ±10 V span but operated ±5 V): `u≈ √(176²+gain_resid 144²+amp 3²+ref?)`. If ext ref ADR4525/LTC6655 5 V → scaled ×4 → INL dominates ~176 µV → U≈550–650 µV → **headroom +30–40 % at 2 V, +~0 % at 1 V**.  
 With AD5791: INL 11 µV → source budget dominated by ref+amp+resistors → U≈350 µV → **headroom +55 % at 2 V**, but cost ×10 and PCB area + power.
+
+> **IR-06 comparison:** AD5764 INL ±1 LSB on 20 V = ±305 µV vs AD5686R ±2 LSB on 10 V (±305 µV) — **equal in volts**. Do not promote AD5764 on INL alone; advantage is no external gain-stage error, not INL.
+
+> **IR-08 note:** TLV3501-class fast comparator (Vos ±6.5 mV max, hyst 6 mV) is **not** part of precision compliance regulation budget — it is an emergency supervisor/trip at 120–150% Icomp with 10–25% tolerance. Precision CC loop uses ADA4522/OPA140-class (Vos µV). TLV3501 tolerance is separate supervisor budget, not INL/headroom above.
 
 **Noise headroom:** Source noise density at 10 Hz BW: DAC+amp en 5.8 nV/√Hz·√(1.57·10)≈23 nV rms + ref noise 0.27 µV rms → ~270 nV rms → 1.6 µV p-p → **<< LSB₁₆ (152 µV) and << target 700 µV** → noise not the limiter; **static errors (INL, gain, offset) dominate**.
 
@@ -77,7 +81,7 @@ With AD5791: INL 11 µV → source budget dominated by ref+amp+resistors → U�
 | AD5686R gain=2 (0–5 V → ×2) | 16 | 10 V | 152.6 µV | 1.5 % — OK | 5.9 LSB | 3.4 LSB |
 | AD5696R / DAC8568 (same 16-bit) | 16 | 10 V | 152.6 µV | same | same | same |
 | AD5764 bipolar ±10 V operated ±5 V | 16 | 20 V | 305 µV | 3.0 % — OK (still <10 %) | 2.95 LSB @2 V — tighter | 1.7 LSB — **fails LSB headroom** |
-| AD5764 range ±5 V mode (if available ±5 V) | 16 | 10 V | 152.6 µV | 1.5 % — OK | 5.9 LSB | 3.4 LSB |
+| AD5764 ~~range ±5 V mode (if available ±5 V) | 16 | 10 V | 152.6 µV~~ — **CORRECTED (IR-06): No ±5 V mode exists; AD5764 minimum span is 20 V (LSB 305.2 µV). Retained as historical error.** | — | — | — |
 | AD5780 18-bit unipolar 0–5 V → ×2 | 18 | 10 V | 38.1 µV | 0.38 % | 23.6 LSB | 13.6 LSB |
 | AD5791 20-bit bipolar 20 V span | 20 | 20 V | 19.1 µV | 0.19 % | 47 LSB | 27 LSB |
 
@@ -123,7 +127,7 @@ Shunt tolerance assumed 0.1 % (a=0.1 % → u=0.0577 %), TC 25 ppm/°C·3 °C=75 
 
 ### 2.3 Voltage measurement path (sense)
 
-Divider 10 MΩ/10 MΩ? For ±5 V → ±2.5 V ADC? Assume divide by 2, buffered by OPA140 (10 pA Ib → 50 nV error on 5 MΩ Thevenin). Divider ratio tol 0.01 % → 0.0058 % → 116 µV at 2 V. ADC gain/INL ±10 ppm → 20 µV at 2 V. Amp Vos 30 µV typ → 60 µV after gain. RSS `u_c`≈135 µV → U≈270 µV (k=2) vs target 900 µV @2 V → **+70 % headroom** — voltage measure is not the limiter.
+Divider **after high-Z buffer per IR-02** (DUT sees ≥10 GΩ, ≤10 pA buffer first; attenuation/division occurs after buffering, never directly across DUT). Example: ±5 V → ±2.5 V via post-buffer divide-by-2, buffered by OPA140 (10 pA Ib → 50 nV error on 5 MΩ Thevenin). Divider ratio tol 0.01 % → 0.0058 % → 116 µV at 2 V. ADC gain/INL ±10 ppm → 20 µV at 2 V. Amp Vos 30 µV typ → 60 µV after gain. RSS `u_c`≈135 µV → U≈270 µV (k=2) vs target 900 µV @2 V → **+70 % headroom** — voltage measure is not the limiter. *Pre-buffer passive divider directly at DUT is rejected (IR-02). No 20 MΩ load on DUT.*
 
 ---
 
@@ -158,7 +162,7 @@ Word length (32-bit) ≠ noise-free bits. Noise-free bits = `log2(FS / (6.6·noi
 | Topology | Pros | Cons | Correlation impact | Recommended for V1 |
 |----------|------|------|--------------------|---------------------|
 | **Internal DAC ref** (AD5686R 2.5 V 2 ppm/°C) alone | Fewest parts, 2 ppm/°C adequate | Cannot share with ADC; gain mismatch DAC vs ADC adds RSS; no ratiometric cancel | Uncorrelated → RSS `√(u_DAC²+u_ADC²)` larger | DEFER — keep as fallback if cost-driven |
-| **Shared ADR4525 2.5 V for DAC+ADC** | Saves one ref, ratiometric for some shunt-vs-DAC ratios partially cancels, lower BOM | Reference noise couples to both DAC and ADC gain → **correlated term `ρ≈0.8–1`**, so combined error does NOT RSS but adds `2ρu1u2`; if one RC filter mismatch, still correlated at DC. Supply sequencing must avoid ADC reading before ref settled (130 µs tR). | If source and measure share ref, spec-to-spec accuracy for Vset vs Iread tracking improves (good for ReRAM window ratio), but absolute accuracy does not improve. | **KEEP AS ALTERNATE** — good for calibrated ratio measurements, requires buffer (ADR4525 drives 10 mA but cap load careful). |
+| **Shared ADR4525 2.5 V for DAC+ADC** | Saves one ref, ratiometric for some shunt-vs-DAC ratios partially cancels, lower BOM | Reference noise couples to both DAC and ADC gain → **correlated term `ρ≈0.8–1`**, so combined error does NOT RSS but adds `2ρu1u2`; if one RC filter mismatch, still correlated at DC. Supply (IR-07: ±11.4 V min, ±10 V LDO incompatible — Options A/B/C per POWER_TREE) sequencing must avoid ADC reading before ref settled (130 µs tR). | If source and measure share ref, spec-to-spec accuracy for Vset vs Iread tracking improves (good for ReRAM window ratio), but absolute accuracy does not improve. | **KEEP AS ALTERNATE** — good for calibrated ratio measurements, requires buffer (ADR4525 drives 10 mA but cap load careful). |
 | **Separate refs: LTC6655-2.5 LN for DAC + ADR4525-5.0 for ADC (or vice versa)** | Noise isolation, PSRR decoupling, no correlation, each can be filtered/tuned independently; lowest noise on DAC path (most sensitive to source accuracy) | +1 IC, + thermals hysteresis mismatch (different package temps) → differential drift ±(2+2)=4 ppm/°C worst | Uncorrelated → RSS valid, mathematically lower `U` for absolute V/I specs | **KEEP — recommended baseline** (see §1/2 budgets used ADR4525/LTC6655 2.5 V numbers; moving ADC to REF50xx 5 V would worsen ADC budget 15 µV p-p). |
 | **Single REF50xx with NR cap** | Cheapest if high-grade available, sink/source ±10 mA | Noise 3× ADR4525, drift worse unless high-grade, hysteresis larger | Same as shared | DEFER — needs NR cap and still noisier; only if ADR/LTC unavailable (lifecycle). |
 

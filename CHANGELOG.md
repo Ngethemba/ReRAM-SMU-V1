@@ -36,6 +36,29 @@ Versioning: `0.y.z` pre-release (no hardware), `1.y.z` after V1 release.
 - DECISIONS.md: DEC-007 (4-quad mandatory), DEC-008 (6 ranges), DEC-009 (MUC quantified), DEC-010 (voltage provisional-verified), DEC-011 (compliance <50 µs/<5 µs), DEC-012 (sweep/Kelvin/guard); OPEN_QUESTIONS Q-04/07/08/11/15/16 resolved; STATUS Phase 1 COMPLETE.
 - **Phase 2 architecture (6 agents):** `ARCHITECTURE.md` (low-side hybrid shunts outside SENSE, SENSE feedback at DUT, dual compliance, 4-quad sink), `SOURCE_STAGE_CANDIDATES.md` (55 KB LT1970A primary + discrete alternate, CAUTION 1/2), `MEASUREMENT_FRONTEND_CANDIDATES.md` (21 KB) + `SHUNT_RANGE_TRADEOFF.md` (15 KB, range-dependent 100→50→25 mV) + `KELVIN_SENSE_ARCHITECTURE.md` (7.4 KB), `COMPLIANCE_ARCHITECTURE.md` (48 KB Option D) + `COMPLIANCE_ENERGY_ANALYSIS.md` (27 KB, 10 nF@5 V 125 nJ), `PRELIMINARY_ERROR_BUDGET.md` (28 KB, AD5764 preferred, GUM), `PHASE2_COMPONENT_MATRIX.md` (32 KB, lifecycle active), `GROUNDING_AND_RETURN_PATHS.md` (36 KB single plane), `ISOLATION_STRATEGY.md` (23 KB optional), `GUARD_STRATEGY.md` (2.7 KB), `POWER_TREE.md` + `SOURCE_HEADROOM_THERMAL.md` (70–170 mW vs 50 mW DUT), `PHASE2_DECISION_MATRIX.md` + `PHASE2_RESEARCH_SUMMARY.md` + `PHASE3_SIMULATION_PLAN.md` + DEC-013..023 + OPEN_QUESTIONS Q-01/02/03/05/06/12/18/20 partially resolved; STATUS Phase 2 COMPLETE.
 
+
+## [Unreleased] — Phase 2 Corrective Review (IR-01..IR-16) — 2026-08-24
+
+### Corrected
+- Independent review IR-01..IR-16 verified against primary datasheets (LT1970A 1970afc 4mV floor, AD5764 RevF 20V span LSB 305.2uV ±11.4V, TLV3501 RevE 6.5mV) and Python recomputations; documented in docs/research/PHASE2_INDEPENDENT_REVIEW_CORRECTIONS.md (67 KB).
+- REQ-SAFE-001 revised per DEC-024: tiered compliance minimum (LT1970A 4% FS at 100mV, 16% at 25mV, 0.1% only via range coercion or Candidate C); REQ-DUT-001 buffer-first (>10GΩ, ≤10pA) and switched open-sense (≥10GΩ or disconnected); REQ-PWR-003/004 Options A/B/C and one-continuous-plane wording (IR-13).
+- DECISIONS.md: DEC-019/020/022 wording corrected; DEC-023 corrected (AD5764 LSB/supply); new DEC-024 (compliance coercion) and DEC-025 (Source Candidate C outer+LT1970A booster).
+- ARCHITECTURE.md: block diagram and §3 corrected (range-dependent 25/50/100mV canonical, TLV3501 supervisor, Candidate C, grounding no-split, power options).
+- PHASE2_DECISION_MATRIX.md: burden, stored-energy (C_UP/DOWN), DAC, amps, ADC bipolar, Kelvin equation, grounding, power, and new row 21 Candidate C corrected.
+- GUARD_STRATEGY.md: taxonomy passive/grounded/driven + corrected powering (from rails, not SENSE_HI via 1GΩ).
+- POWER_TREE.md: Options A/B/C, AD5764 ±11.4V incompatibility, LT1763 positive-only / negative LT1964-class.
+- KELVIN_SENSE_ARCHITECTURE.md: high-Z buffer first, V_FORCE equation canonical, switched open-sense, DUT-node C budget, filter after buffer.
+- GROUNDING_AND_RETURN_PATHS.md: one continuous plane wording (IR-13).
+- SHUNT_RANGE_TRADEOFF.md: declared canonical §2.4 (IR-05); reversed ordering rejected; BURDEN_VOLTAGE_ANALYSIS marked superseded.
+- PRELIMINARY_ERROR_BUDGET.md: AD5764 LSB 305.2uV (no ±5V mode), INL headroom corrected, divider after buffer, TLV3501 not in compliance.
+- COMPLIANCE_ENERGY_ANALYSIS.md: C_UPSTREAM/C_DOWNSTREAM distinction (IR-14).
+- COMPLIANCE_ARCHITECTURE.md: LT1970A floor/coercion (IR-01), TLV3501 supervisor tolerance (IR-08), C_UP/DOWN (IR-14), switched open-sense (IR-03).
+- SOURCE_STAGE_CANDIDATES.md: LT1970A floor table, new §2.6 Candidate C (IR-15), canonical equation (IR-11), DAC LSB/supply.
+- MEASUREMENT_FRONTEND_CANDIDATES.md: burden canonical, TIA settling qualified (IR-09), bipolar A/B/C (IR-12).
+- simulation/PHASE3_SIMULATION_PLAN.md: expanded from 43 lines to canonical tests A-O (IR-16).
+- OPEN_QUESTIONS.md (Q-01/02/03/05/10/11) and REQUIREMENTS_TRACEABILITY updated; STATUS marked PHASE 2 — CORRECTED / READY FOR PHASE 3.
+- No schematic/PCB/BOM created; no component order.
+
 ### Notes
 - No ReRAM-SMU schematic/PCB/BOM simulated or created in this session — correct for architecture phase. All candidates `PROVISIONAL / REQUIRES VERIFICATION` until simulation.
 

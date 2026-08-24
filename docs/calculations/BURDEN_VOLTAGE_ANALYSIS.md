@@ -1,5 +1,7 @@
 # Burden Voltage Analysis — ReRAM-SMU V1
 
+> **Phase 1 baseline — superseded by SHUNT_RANGE_TRADEOFF §2.4 (IR-05); retained for traceability. Do not use this fixed 100 mV table as authoritative — SHUNT_RANGE_TRADEOFF §2.4 (range-dependent 25/50/100 mV) is canonical. Reversed ordering rejected.**
+
 **Project:** ReRAM-SMU V1 — Phase 1 research  
 **Date:** 2026-08-24  
 **Status:** Framework only — shunt values are *not* final resistor values (Phase 2 DEC). All use 100 mV FS provisional target; compare philosophies for requirement decision.  

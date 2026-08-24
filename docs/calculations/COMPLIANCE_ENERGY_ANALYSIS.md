@@ -51,6 +51,28 @@ All tables below are direct output of that one-liner; no hidden spreadsheet.
 
 ---
 
+
+## 1.5 Upstream vs Downstream Capacitance Distinction (IR-14 canonical)
+
+> **Canonical terminology (IR-14):** All synthesis rows stating "low output C ≤10 nF" are clarified as **C_UPSTREAM ≤10 nF before R_iso; C_DOWNSTREAM ≤80–150 pF after R_iso (recipe-dependent)**.
+
+| Term | Definition | Location vs R_iso | Counts toward E = ½C·V² dump? | Typical V1 |
+|---|---|---|---|---|
+| **C_UPSTREAM** | Capacitance isolated from DUT by R_iso / servo (compensation C before R_iso, e.g., 4.7–10 nF) | **Before** R_iso | **No** — not directly dumpable into filament; absorbed via R_iso + loop | 4.7–10 nF (acceptable) |
+| **C_DOWNSTREAM** | Capacitance that can dump directly into DUT during switching (post-R_iso: connector+trace+relay+Cable+DUT+ESD before isolation) | **After** R_iso | **Yes** — only this counts toward filament energy | ≤80–150 pF target (see budget table below) |
+
+**C_DOWNSTREAM budget table per recipe (IR-14):**
+
+| Recipe | E_budget | C_max @5 V | C_max @2 V | C_max @1 V | V1 guidance |
+|---|---|---|---|---|---|
+| Gentle multilevel (100 µA compliance, ≤2 V typical) | 1 nJ | **80 pF** | **500 pF** | 2.0 nF | Form at ≤2–3 V where possible |
+| Standard SET (100 µA–1 mA, ≤2 V) | 2 nJ | **160 pF** | **1.0 nF** | 4.0 nF | Standard window |
+| Forming / high-Icc (5–10 mA, ≤5 V) | 10 nJ | **800 pF** | **5.0 nF** | 20 nF | Relaxed but still prohibits 10 nF on DUT node |
+
+*1 nJ is not a universal law — budgets are engineering constraints per test recipe / DUT.*
+
+**Clarification:** 10 nF compensation is **not penalized** as DUT-dump; it is C_UPSTREAM. Only C_DOWNSTREAM is limited to 80–150 pF; focus downstream budget on cable/DUT fixture length (0.5 m limit, low-C coax).
+
 ## 2. Representative Capacitances (What Actually Exists on a V1 Board)
 
 | Contributor | Typical value | Source / note | Where it sits relative to compliance sense |

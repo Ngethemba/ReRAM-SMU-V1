@@ -96,3 +96,25 @@ Append one entry per substantial agent session. Record concise, externally usefu
 - **Decisions / Outcomes:** Functional architecture SELECTED FOR PHASE 3 (block diagram), LT1970A primary (DEC-014), hybrid measurement (DEC-015), low-side shunt (DEC-016), range-dependent burden (DEC-017), dual compliance (DEC-018), SENSE feedback (DEC-019), single-plane grounding (DEC-020), isolation optional (DEC-021), guard provision (DEC-022), adversarial verdicts (DEC-023). No FINAL promotion — sim gates remain.
 - **Unresolved issues:** DAC/ref/ADC final choice, shunt exact values, layer stack, relay drive, SCPI subset still need Phase 3 sim; all Phase 2 exit criteria 1–25 satisfied.
 - **Next step:** Awaiting explicit authorization for Phase 3 — Source, Compliance & Stability Simulation. Do not auto-start.
+### 2026-08-24 19:00 — Phase 2 Independent Review Corrections (IR-01..IR-16)
+
+- **Objective:** Independently verify each of 16 independent-review findings, correct confirmed issues, reject false findings with evidence, synchronize all conflicting documents, leave repo clean pre-Phase-3.
+- **Actions:**
+  - Retrieved primary datasheets: LT1970A 1970afc (Vc 0-5V/10, floor 4mV, Vc<60mV nonlinear), AD5764 RevF (±11.4-16.5V, 20V span LSB 305.2uV, no ±5V mode), TLV3501 RevE (Vos 6.5mV max, hyst 6mV).
+  - Recomputed: LT1970 I_min 4% FS at 100mV (16% at 25mV) vs 0.1% target → architecture A rejected; DUT loading 20M divider 33-98% error @10M-1G; 10M pull 100nA@1V dominating; 1nF*5V 12.5nJ vs 1nJ budget; shunt D 2.5Ω-1MΩ 25/50/100mV; AD5764 LSB 305.2uV; TLV3501 26% error at 25mV FS.
+  - Created docs/research/PHASE2_INDEPENDENT_REVIEW_CORRECTIONS.md (67KB, 16 findings with verdicts, calculations, corrections).
+  - Revised REQUIREMENTS.md (REQ-SAFE-001 tiered per DEC-024, REQ-DUT-001 buffer-first, REQ-PWR-003/004 options/corrected wording).
+  - Added DEC-024 (compliance coercion) and DEC-025 (Candidate C outer+booster) to DECISIONS.md; corrected DEC-019/020/022/023.
+  - Updated ARCHITECTURE.md (block diagram, burden canonical, TLV supervisor, candidate C, grounding wording, power options).
+  - Delegated/patches: PHASE2_DECISION_MATRIX (burden canonical, C_UP/DOWN), GUARD_STRATEGY (taxonomy/IR-10), POWER_TREE (Options A/B/C/IR-07), KELVIN (buffer-first/IR-02/03/04/11), GROUNDING (IR-13), SHUNT_RANGE (canonical/IR-05), PRELIMINARY_ERROR (LSB/IR-06, divider after buffer/IR-02), BURDEN (superseded banner), COMPLIANCE_ENERGY (Upstream/Downstream/IR-14), COMPLIANCE_ARCH (IR-01/08/14/03), SOURCE_STAGE (IR-01/15 floor/Candidate C, LSB/IR-06/07), MEASUREMENT (IR-05/09/12, bipolar A/B/C, qualified TIA), PHASE3_SIM_PLAN (expanded to tests A-O per IR-16).
+  - Updated OPEN_QUESTIONS (Q-01/02/03/05/10/11 corrected), REQUIREMENTS_TRACEABILITY footnote, STATUS to PHASE2-CORRECTED.
+- **Files changed:** 20+ docs listed above; see git status for manifest.
+- **Evidence examined:** Manufacturer datasheets cited, Python recomputations, corrections doc, original architecture/calc files, search terms audit.
+- **Decisions / Outcomes:**
+  - IR-01 CONFIRMED — architecture A rejected, solutions A-D formalized, coercion adopted.
+  - IR-02/03/04/05/06/07/08/09/10/13/14 CONFIRMED; IR-11 PARTIALLY; IR-12/15 REQUIRES PHASE3; IR-16 correction complete (plan A-O).
+  - Phase status: PHASE 2 — CORRECTED / READY FOR PHASE 3 (no blockers).
+  - Canonical sources declared; no schematic/PCB/BOM/order.
+- **Unresolved issues:** None blocking Phase 3; Phase 3 simulations A-O are gates before any DEC promotion.
+- **Next step:** Await explicit authorization for **Phase 3 — Source, Compliance, Kelvin & Measurement-Front-End Simulation** (Tests A-O). Do NOT auto-start.
+

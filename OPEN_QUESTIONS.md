@@ -10,19 +10,19 @@
 
 | # | Question | Priority | Target Phase | Status |
 |---|----------|----------|--------------|--------|
-| Q-01 | **Final DAC choice** — AD5686R vs AD5764 (±1 LSB) vs others? | P0 | Phase 2 | PARTIALLY RESOLVED (2026-08-24, DEC-023) — AD5764-class preferred (post-cal @1 V +8.8% headroom vs AD5686R -11%), AD5686R kept as alternate; needs Phase 3 error-budget sim |
-| Q-02 | **Final ADC choice** — ADS1262 vs AD7175/AD7177/AD7124? | P0 | Phase 2 | PARTIALLY RESOLVED (2026-08-24, DEC-023) — ADS1262 vs AD7175 both CANDIDATE (noise-free bits @50 Hz, PGA latency); needs NPLC sweep sim |
-| Q-03 | **Is LT1970A the best V1 output stage?** | P0 | Phase 2 | PARTIALLY RESOLVED (2026-08-24, DEC-014) — LT1970A primary (500 mA, 1% limit, LTspice model) + precision+discrete alternate; needs Phase 3 cap-load sim |
+| Q-01 | **Final DAC choice** — AD5686R vs AD5764 (±1 LSB) vs others? | P0 | Phase 2 | REOPENED & AMENDED (2026-08-24 per IR-06/07, DEC-023) — AD5764 corrected to 20 V span LSB 305.2 µV, ±11.4 V min (no ±5 V mode); INL in volts equalizes; neither promoted until Phase 3 N,M with actual supplies |
+| Q-02 | **Final ADC choice** — ADS1262 vs AD7175/AD7177/AD7124? | P0 | Phase 2 | AMENDED (2026-08-24 per IR-12, DEC-023) — ADS1262 vs AD7175 both CANDIDATE with bipolar front-end A/B/C (true bipolar vs midscale shift vs differential ADC); needs G + NPLC sweep sim |
+| Q-03 | **Is LT1970A the best V1 output stage?** | P0 | Phase 2 | AMENDED (2026-08-24 per IR-01/15, DEC-024/025) — LT1970A primary (4 mV floor, 4%/16% FS, range coercion required) + Candidate C outer-loop+LT1970A booster; needs Phase 3 cap-load + coercion sim |
 | Q-04 | **Compliance architecture** | P0 | Phase 2 | RESOLVED (2026-08-24, DEC-011/018) — dual continuous+trip/SOA, per-segment/polarity programmable |
-| Q-05 | **Current shunt topology** — Values for 6 ranges? Kelvin sensing? Placement? | P0 | Phase 2 | PARTIALLY RESOLVED (2026-08-24, DEC-015/016/017) — hybrid shunts 10 mA→1 µA + TIA provision, low-side outside SENSE, range-dependent FS 100→50→25 mV; values still need Phase 3 headroom sim |
+| Q-05 | **Current shunt topology** — Values for 6 ranges? Kelvin sensing? Placement? | P0 | Phase 2 | AMENDED (2026-08-24 per IR-02/05/11, DEC-015/016/017/019) — hybrid shunts 10 mA→1 µA (2.5 Ω–1 MΩ, 25/50/100 mV FS canonical per SHUNT_RANGE_TRADEOFF §2.4 IR-05) + TIA provision, low-side outside SENSE via high-Z buffers >10 GΩ (IR-02), equation `V_FORCE=V_DUT+V_SHUNT+I·R_LEAD` (IR-11); values need Phase 3 E(loading/C) sim |
 | Q-06 | **Low-current range switching technology** | P0 | Phase 2 | PARTIALLY RESOLVED (2026-08-24, DEC-015) — reed for 100 nA/1 µA (1 pA leak), PhotoMOS/signal relay for higher; one tech for all rejected |
 | Q-07 | **Achievable V1 noise floor** — “several nA” quantified? | P0 | Phase 1 | RESOLVED (2026-08-24, DEC-009) — detection 3σ 1.5–6 pA, practical 1 nA |
 | Q-08 | **Achievable V1 measurement uncertainty** | P0 | Phase 1 | RESOLVED (2026-08-24, UNCERTAINTY framework) |
 | Q-09 | **Analog / digital isolation strategy** | P1 | Phase 2 | RESOLVED (2026-08-24, DEC-021) — OPTIONAL/RECOMMENDED, footprint provisioned, direct USB ships with warning |
-| Q-10 | **Grounding architecture** | P1 | Phase 2 | RESOLVED (2026-08-24, DEC-020) — single continuous plane partitioned, single bridge (not split/star) |
-| Q-11 | **Guard strategy** | P1 | Phase 2 | RESOLVED (2026-08-24, DEC-012/022) — 100 nA guard ring provisioned, driven guard on SENSE_HI, triax V2 |
+| Q-10 | **Grounding architecture** | P1 | Phase 2 | CORRECTED (2026-08-24 per IR-13, DEC-020) — **one continuous plane, no etched AGND/DGND split** (wording fixed); separation by placement/return-current/routing/decoupling |
+| Q-11 | **Guard strategy** | P1 | Phase 2 | CORRECTED (2026-08-24 per IR-10, DEC-022) — **no driven guard stuffed; passive keepout/grounded shield; optional footprint powered from rails** (not 1 GΩ); triax V2 |
 | Q-12 | **Connector strategy** — Banana vs BNC vs triax? | P1 | Phase 2 | PARTIALLY RESOLVED (2026-08-24, DEC-022) — banana 4 mm + BNC provision, triax V2; Phase 3 may finalize manufacturer |
-| Q-13 | **Calibration reference requirements** | P1 | Phase 2 | OPEN — philosophy in PHASE1/2, but class still needs Phase 2 DEC (pending ADC/DAC choice) |
+| Q-13 | **Calibration reference requirements** | P1 | Phase 2 | OPEN — philosophy in PHASE1/2, but class still needs Phase 2 DEC (pending ADC/DAC choice; AD5764 ±11.4 V now noted) |
 | Q-14 | **Appropriate PCB layer stack** — 2 vs 4 layer? | P2 | Phase 8 | DEFERRED TO PHASE 8 (Phase 2 provisioning does not decide) |
 | Q-15 | **LTspice vs ngspice workflow** | P0 | Phase 0 | RESOLVED (2026-08-24, DEC-TOOL-002) — hybrid |
 | Q-16 | **KiCad automation approach** | P0 | Phase 0 | RESOLVED (2026-08-24, DEC-TOOL-003) — kicad-cli |

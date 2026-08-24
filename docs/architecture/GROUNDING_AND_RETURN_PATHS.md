@@ -9,6 +9,8 @@
 
 ---
 
+> **Canonical (IR-13):** One continuous reference plane. Analog/digital separation is achieved by placement, local return-current control, routing discipline, and decoupling. There is no etched AGND/DGND split and no physical AGND/DGND bridge. The single tie at ADC is a measurement point, not a gap-bridging element.
+
 ## 0. Grounding Cows — What This Document Does and Does Not Do
 
 **Does:** Compare grounding topologies by actual return-current geometry, IR-drop, loop area, and resonance. Defines the recommended V1 grounding discipline, star-point location, and placement partition. Answers OPEN_QUESTIONS Q-10 (and informs Q-09/Q-11/Q-14).
@@ -48,7 +50,7 @@ All six converge at **exactly one physical point** — the stack's COM reference
 * **Split:** Etched gap partitioning copper into AGND / DGND islands.
 * **Star (single-point tie):** Islands tied at one narrow bridge (0-Ω, ferrite, or copper neck at the ADC). Forces all inter-island current through that bridge.
 * **Moat/slot:** Consequence of split — a return that must cross the gap is blocked.
-* **Hybrid (partitioned plane):** Single plane, but placement partitioned so digital currents are geometrically segregated; no copper gap. Bridge is *conceptual*, not etched. Sometimes called “split placement, common plane.” This is distinct from split copper.
+* **Hybrid (partitioned plane):** Single plane, but placement partitioned so digital currents are geometrically segregated; no copper gap. Bridge is *conceptual* for analysis only, not etched copper. V1 has one continuous reference plane, no etched split and no physical bridge — the "tie" is a measurement point at the ADC (IR-13). Sometimes called "split placement, common plane." This is distinct from split copper.
 
 ### 2.1 Topology 1 — Single Continuous Plane (Unpartitioned)
 
@@ -125,7 +127,7 @@ flowchart LR
 * **When split helps:** Only when the system has **two disjoint Analog-Front-End vs heavy digital load** with **no signals crossing the gap except at the bridge**, and all bridges are accounted for in the layout rule check (no trace may cross the gap). V1 violates this: SPI (4 lines) + relay drivers (≤6 lines) + analog sense (2 lines) all naturally cross the analog/digital boundary.
 * **Verdict for V1:** **NOT recommended as etched split.** It trades a modest DC IR improvement (few µV) for a large AC liability (nH loop, antenna, routing funnel) and a class of uncatchable layout errors (split-crossing). It scores worst on first-build risk.
 
-### 2.3 Topology 3 — Hybrid / Partitioned Single Plane With Bridge at the ADC (“Star-Plane”)
+### 2.3 Topology 3 — Hybrid / Partitioned Single Plane — One Continuous Reference Plane, No Etched Split/Bridge; Single Tie at ADC is Measurement Point (“Star-Plane”, IR-13)
 
 This is **Topology 1 with placement discipline** plus one explicit **single-point tie chosen to be the ADC's AGND/DGND pin pair** (or directly under the ADC if the ADC has one GND). No etched gap. Sometimes drawn as a “moat with a drawbridge” but the moat is a **keepout for traces**, not a copper removal.
 

@@ -1,5 +1,7 @@
 # Shunt Range Trade-off — Calculations & Philosophy Comparison
 
+> **CANONICAL — single source of truth per IR-05; other docs reference §2.4. SHUNT_RANGE_TRADEOFF §2.4 is the only authoritative burden/shunt table. BURDEN_VOLTAGE_ANALYSIS is Phase 1 baseline superseded; reversed ordering (100 mV on high-I / 25 mV on low-I) rejected as opposite of optimal — see footnote.**
+
 **Project:** ReRAM-SMU V1 — Phase 2  
 **Date:** 2026-08-24  
 **Status:** CALCULATION — informs DECISIONS.md, informs REQ-MEAS-001/002/005/008  
@@ -82,6 +84,8 @@ Range  |   R_shunt |     P@FS |  vn dens    | vn 10Hz | in 10Hz | in/FS 10Hz | G
 | 100 nA | 100 mV | 1.00 MΩ | 10 nW | 129 nV/√Hz | 407 nV | 0.41 pA | 4.07 ppm |
 
 *10 Hz brickwall; ENBW single-pole add 25%.* Gains to 2.5 V ADC FS: **100×, 100×, 50×, 50×, 25×, 25×**. With ADS1262 PGA=32: **3.1×, 3.1×, 1.6×, 1.6×, 0.78×, 0.78×** — i.e. low-I ranges can run with PGA ≤1 or small gain, high-I ranges need moderate gain.
+
+> **Footnote (IR-05):** Reversed ordering (100 mV on 10 mA, 25 mV on 100 nA) is rejected — it would give 100 mV burden where Johnson is most abundant (high-I) and 25 mV where SNR/leakage is scarcest (low-I), opposite of optimal and inconsistent with philosophy D rationale.
 
 Power total at worst-case simultaneous FS (not realistic — only one range active): dominated by 10 mA range; D saves 0.75 mW vs fixed 100 mV at 10 mA.
 
@@ -225,3 +229,5 @@ Commit the script; do not hand-copy numbers into the schematic. Every shunt valu
 ---
 
 *Traceability: REQ-MEAS-001/002/005/008, REQ-SRC-001/002/006, REQ-PWR-003, REQ-SAFE-001, REQ-DUT-001, DEC-008/009/011, ENGINEERING_RULES §3, LOW_CURRENT_MEASUREMENT §3/§5, BURDEN_VOLTAGE_ANALYSIS (corrected).*
+
+reversed ordering rejected

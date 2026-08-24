@@ -18,7 +18,7 @@
 | **A — LT1970A built-in limiter** | ✅ yes (4 µs, 1%, independent flags) | ⚠️ partial — programmable *if* VCSRC/VCSNK driven per segment from DAC; hard-wired resistors **fail** | ❌ no — by itself does not limit downstream C; flag ≠ energy | Minimal viable, **fails CAUTION 1** unless augmented with R_iso + C budgeting + slew limit (at which point it becomes a subset of D) |
 | **B — External diode-OR continuous loop** (CV+CC error amps) | ✅ yes — true flat CC regulation | ⚠️ partial — single compliance DAC, polarity needs mux; per-segment needs fast DAC update | ❌ no — regulation quality is best, but without an independent trip it has a single-point-of-failure window; no SOA hyperbola; large-compensation C still violates energy | Best *regulation*, but **fails CAUTION 1 + trip independence** |
 | **C — Fast trip + coarse clamp** (comparator → crowbar/foldback) | ✅ yes — trip <5 µs with TLV3501-class | ✅ trip threshold can be per-segment via DAC, but coarse | ❌ regulation **not** flat CC — collapses/folds back → DUT leaves operating point; reading during fault is invalid; forming quality degraded (fabrication-scale ON/OFF spread) | Meets *protection* literal, **fails *compliance regulation* semantics** — instrument logs a fault, not a valid CC plateau |
-| **D — Dual: continuous regulation (B) *plus* independent fast trip + SOA** | ✅ yes — two independent hardware paths | ✅ yes — dual DAC refs (VCSRC/VCSNK or CC-ref + trip-ref) per segment/polarity, swappable at segment rate | ✅ yes — D mandates downstream-C budget (≤80–150 pF @5 V), R_iso 33–47 Ω, slew limit, optional active discharge — validated against E=½CV² | **Recommended for V1** — only one that covers the compliance triad correctly |
+| **D — Dual: continuous regulation (B) *plus* independent fast trip + SOA** | ✅ yes — two independent hardware paths | ✅ yes — dual DAC refs (VCSRC/VCSNK or CC-ref + trip-ref) per segment/polarity, swappable at segment rate | ✅ yes — D mandates **C_UPSTREAM ≤10 nF before R_iso; C_DOWNSTREAM ≤80–150 pF after R_iso** (recipe-dependent, IR-14), R_iso 33–47 Ω, slew limit, optional active discharge — validated against E=½CV²; fast trip via TLV3501-class as **emergency supervisor with loose 120–150% threshold (Vos 6.5 mV max, hyst 6 mV — IR-08), not precision regulation** | **Recommended for V1** — only one that covers the compliance triad correctly |
 
 Practical V1 path: **Implement D with LT1970A as one of the two layers** (A⊂D) to reduce risk — i.e. Option B's diode-OR is emulated by LT1970A's built-in ISRC/ISNK transconductance limiters (already a CV→CC limiter with 4 µs takeover) **plus** an independent window comparator (TLV3501/TLV7031-class) that gates ENABLE/high-Z and drives a fault latch. Add R_iso + C budgeting per `COMPLIANCE_ENERGY_ANALYSIS.md`. This avoids designing two discrete error amps from scratch while keeping trip independence.
 
@@ -109,6 +109,8 @@ Ref (ADR4525-class 5 V → filtered)
 
 **When Option A passes:** Only if it is augmented with (i) per-segment DAC-driven VCSRC/VCSNK, (ii) downstream-C budgeting and R_iso, (iii) slew limit, and (iv) an independent supervisor (ENABLE latch) — at which point it **is** Option D with LT1970A as the regulation leg.
 
+> **IR-01 constraint (LT1970A floor):** Vc <60 mV is nonlinear, Vsense_min 4 mV typ (VCSRC/VCSNK <60 mV not linear, VSENSE limited to 4 mV to prevent simultaneous source/sink). → I_min = 4 mV/Rsense ≈ **4% FS at 100 mV FS** or **16% FS at 25 mV FS** (8% at 50 mV). A universal **0.1% of I_range** is not achievable with LT1970A alone (would require 4 V burden); 0.1% only via **compliance-aware range coercion (Solution A)** or **precision external loop / Candidate C (Solution C/D)** — see `docs/research/PHASE2_INDEPENDENT_REVIEW_CORRECTIONS.md` IR-01 solutions A–D and `DEC-024`. Phase 3 tests A,B verify per-range floor and coercion; see also `simulation/PHASE3_SIMULATION_PLAN.md` tests A,B.
+
 ---
 
 ### 3.2 Option B — External Analog CV/CC Loop (Diode-OR / Limiter Pattern)
@@ -163,6 +165,8 @@ Coarse regulation: optional foldback resistor or power-amp internal 800 mA limit
 **CAUTION 3 note:** Trip threshold is programmable via DAC, so per-segment thresholds are feasible, but the *semantics* per segment should not be "±sweep limit = crowbar level" — the read segment expects a low CC plateau, not a trip that aborts the read. The trip is properly configured **above** the highest regulation limit (e.g. I_regulation=100 µA, I_trip=150 µA) as a safety net, not as the regulation itself.
 
 **Verdict:** C is **required as the supervisor**, but **not sufficient as the compliance**. In taxonomy terms, ship **both** loops — C as the fault layer, B (or LT1970A's built-in limiters) as the regulation layer. That's D.
+
+> **IR-08 — TLV3501 as emergency supervisor (not precision):** TLV3501 Vos max **6.5 mV** (typ 1 mV), hysteresis **6 mV** → at 100 mV FS **6.5% error** (100 mV) and **26% at 25 mV FS** (worst-case Vos alone; plus 6 mV hysteresis adds 6% at 100 mV, 24% at 25 mV). Even typical 1 mV is 4% at 25 mV. Therefore the window comparator is a **loose emergency threshold (e.g., 120–150% of Icc_reg, <5 µs, hardware latch/disable)** with **10–25% tolerance**, not a precision CC regulator. Precision CC is the LT1970A / external error-amp loop; trip tolerance is a separate Monte Carlo deliverable (IR-16 H: shunt 0.1% + DAC INL + amp offset + comparator Vos). See `PHASE2_INDEPENDENT_REVIEW_CORRECTIONS.md` IR-08.
 
 ---
 
@@ -237,7 +241,7 @@ This embedding reuses a characterized power stage (LT1970A thermal + flags prove
 
 ## 5. Stored Energy and the Mandatory Output-Node Design (CAUTION 1)
 
-Full numerics live in `docs/calculations/COMPLIANCE_ENERGY_ANALYSIS.md`. Summary for architecture choice:
+Full numerics live in `docs/calculations/COMPLIANCE_ENERGY_ANALYSIS.md`. Summary for architecture choice — canonical per IR-14: **C_UPSTREAM ≤10 nF before R_iso** (compensation/decoupling, isolated from DUT); **C_DOWNSTREAM ≤80–150 pF after R_iso** (connector+trace+relay+cable+DUT+ESD, recipe-dependent — 80 pF @5 V for 1 nJ gentle, 500 pF @2 V, 160 pF @5 V for 2 nJ standard). Only C_DOWNSTREAM counts toward `E = ½ C V²` filament dump. A synthesis line stating "low output C ≤10 nF" without upstream/downstream distinction is superseded.:
 
 ### E = ½ C V² — Cost per Capacitance at V1 Rails
 
@@ -355,8 +359,8 @@ The text above already specifies it; here for the PCB team as a wiring checklist
 
 **Kelvin and guard:**
 
-- [ ] SENSE_HI/LO are high-Z, differential, star at DUT connector (not at shunt). Sense input bias <<100 pA, ESD leakage <50 pA on 100 nA range path. Add sense-open detection (weak pull-up/down 10 MΩ + comparator) so an open sense lead does not drive the power stage to the rail.
-- [ ] Guard provision (REQ-DUT-002): exposed guard ring around high-Z sense nodes, no-mask copper, stitched inner guard plane, C0G-only on high-Z path — not claimed as guard performance, but not precluding V2 electrometer daughter card (REQ-DUT-003 future).
+- [ ] SENSE_HI/LO are high-Z, differential, star at DUT connector (not at shunt). Sense input bias <<100 pA, ESD leakage <50 pA on 100 nA range path. **Sense-open detection: switched continuity test before OUTPUT ON + analog-switch disconnect during measurement (e.g., ADG1419-class, ~10 pA leakage); weak pull network (10 MΩ) only behind switch, not permanent — no DC load invariant during valid measurement (IR-03); if a fallback bias must remain, ≥10 GΩ effective and characterized at 40 °C/humidity.**
+- [ ] Guard provision (REQ-DUT-002): exposed guard ring around high-Z sense nodes, no-mask copper, stitched inner guard plane, C0G-only on high-Z path — not claimed as guard performance, but not precluding V2 electrometer daughter card (REQ-DUT-003 future). DUT-node capacitance budget per IR-04 / COMPLIANCE_ENERGY_ANALYSIS §2.5: connector+trace+relay+Cable+buffer Cin+ESD+DUT ≤ C_DOWNSTREAM budget (80–150 pF @5 V, not the 1 nF post-buffer filter — IR-04/IR-14).
 
 **Verification gates before any ReRAM DUT (REQ-CAL-002, ENGINEERING_RULES #9–10, RISKS R-03/R-12):**
 

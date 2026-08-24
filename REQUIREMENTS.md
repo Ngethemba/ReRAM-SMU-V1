@@ -140,11 +140,11 @@ Each requirement lists ID, statement, rationale, verification method, status, an
 
 ## 3. Protection and Control — `REQ-SAFE-*`
 
-### REQ-SAFE-001 — Hardware Current Compliance (Confirmed)
+### REQ-SAFE-001 — Hardware Current Compliance (Confirmed — revised per DEC-024)
 
-**Statement:** A **hardware** current compliance / protection loop shall limit DUT current independent of firmware, per compliance triad: compliance regulation (flat CC, flagged, SMU stays in circuit) distinct from range compliance and SOA trip (crowbar). Icc programmable as value within range (not decade-locked), min 0.1% of I_range (Keithley rule).  
+**Statement:** A **hardware** current compliance / protection loop shall limit DUT current independent of firmware, per compliance triad: compliance regulation (flat CC, flagged, SMU stays in circuit) distinct from range compliance and SOA trip (crowbar). Icc programmable as value within range (not decade-locked). For LT1970A-based limiters the minimum programmable compliance is limited by the 4 mV VSENSE floor (~4% of FS at 100 mV FS, ~16% at 25 mV FS) and the Vc<60 mV nonlinear region — see DEC-024 and `docs/research/PHASE2_INDEPENDENT_REVIEW_CORRECTIONS.md` IR-01. A `0.1%·I_range` target applies only to the precision external CC-loop (Source Candidate C) and is otherwise satisfied via **compliance-aware automatic range coercion** (requested Icomp selects an achievable hardware range). The compliance reference shall be DAC-driven per segment (no hard-wired trimpot), with per-polarity source/sink control.  
 **Verification:** Fault injection: short + step load; scope I overshoot & flag timing. Targets (research): regulation settle <50 µs to Icc, trip <5 µs, overshoot <1% (resistive) / <5% into 1 nF with soft-start, SOA hyperbola |V·I|≤50–60 mW DC, flag latency ≤1 NPLC. Hardware must function with MCU halted.  
-**Status:** `CONFIRMED`
+**Status:** `CONFIRMED (revised 2026-08-24, DEC-024 — original 0.1% Keithley rule retained only for precision-loop tier)`
 
 ### REQ-SAFE-002 — Software Current Limits (Confirmed)
 
@@ -192,11 +192,11 @@ Each requirement lists ID, statement, rationale, verification method, status, an
 
 ## 4. DUT Interface — `REQ-DUT-*`
 
-### REQ-DUT-001 — Kelvin / 4-Wire Support (Confirmed)
+### REQ-DUT-001 — Kelvin / 4-Wire Support (Confirmed — addendum per IR-02/03)
 
-**Statement:** DUT interface shall support **FORCE HI, SENSE HI, SENSE LO, FORCE LO** and Kelvin/4-wire measurement with remote sense >10 GΩ, 5 V force–sense drop, 1 MΩ lead tolerance, open-sense detection, 2-write/4-wire mode.  
-**Verification:** 2-wire vs 4-wire comparison on 1 kΩ and 10 Ω dummy (LRS); max-drop test.  
-**Status:** `CONFIRMED`
+**Statement:** DUT interface shall support **FORCE HI, SENSE HI, SENSE LO, FORCE LO** and Kelvin/4-wire measurement with remote sense **>10 GΩ achieved via a high-Z buffer before any attenuation/dividing stage (IR-02)**, 5 V force–sense drop, 1 MΩ lead tolerance, open-sense detection via switched disconnect (≥10 GΩ effective or disconnected during measurement — IR-03), 2-write/4-wire mode.  
+**Verification:** 2-wire vs 4-wire comparison on 1 kΩ and 10 Ω dummy (LRS); max-drop test; DUT loading sweep 1 MΩ/10 MΩ/100 MΩ/1 GΩ (IR-02).  
+**Status:** `CONFIRMED (addendum 2026-08-24 — buffer-first, switched open-sense)`
 
 ### REQ-DUT-002 — Connector Strategy (Provisional — deferrable to Phase 2)
 
@@ -261,15 +261,15 @@ Each requirement lists ID, statement, rationale, verification method, status, an
 
 ### REQ-PWR-003 — Nominal Analog Rails (PROVISIONAL — still provisional)
 
-**Statement:** Nominal analog rails approximately **±12 V**, subject to output-stage headroom analysis (must supply ±5 V + 100 mV burden + dropout + SOA).  
-**Verification:** Headroom + dropout analysis (regulators, LT1970A or alternative).  
-**Status:** `PROVISIONAL / REQUIRES VERIFICATION` — unchanged.
+**Statement:** Nominal analog rails approximately **±12 V**, subject to output-stage headroom analysis (must supply ±5 V + 25–100 mV burden + dropout + SOA). AD5764, if selected, requires **±11.4 V minimum** (see IR-07) — ±10 V LDO rails are **not** AD5764-compatible; V1 power-tree Options A/B/C defined in `POWER_TREE.md`.  
+**Verification:** Headroom + dropout analysis (regulators, LT1970A or alternative; AD5764 ±11.4 V spec).  
+**Status:** `PROVISIONAL / REQUIRES VERIFICATION` — compatible with LT1970A on raw ±12 V (Option A).
 
 ### REQ-PWR-004 — Analog / Digital Supply Treatment (Confirmed, extent provisional)
 
-**Statement:** Design shall provide **separate analog/digital supply treatment** as needed (regulation, filtering, star-point/partition, single AGND/DGND tie, LC π-filter, PSRR ≥80 dB at ripple, NPLC mains nulling).  
+**Statement:** Design shall provide **separate analog/digital supply treatment** as needed (regulation, filtering, star-point/partition, **one continuous reference plane with no etched AGND/DGND split — separation by placement, local return-current control, routing discipline, and decoupling (IR-13)**, LC π-filter, PSRR ≥80 dB at ripple, NPLC mains nulling).  
 **Verification:** Power architecture review + noise PSD with/without USB.  
-**Status:** `CONFIRMED (principle) / PROVISIONAL (implementation)` — updated to include NPLC mains nulling from NOISE framework.
+**Status:** `CONFIRMED (principle) / PROVISIONAL (implementation) — wording corrected per IR-13`
 
 ---
 
