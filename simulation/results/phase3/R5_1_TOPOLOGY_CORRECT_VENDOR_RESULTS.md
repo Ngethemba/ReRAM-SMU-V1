@@ -52,7 +52,7 @@ Both findings are **CONFIRMED**.
 
 **Power:** LT1970 OUT → R_iso → FORCE_HI → DUT (R 100Ω–10kΩ) → FORCE_LO → shared Rshunt (2.5Ω/25Ω/500Ω/5kΩ) → GND
 
-**Sense:** SENSE+ → FORCE_LO (shunt high Kelvin), SENSE- → GND (shunt low), FILTER → 220pF to SENSE- (1k internal)
+**Sense:** SENSE+ → FORCE_LO (shunt high Kelvin), SENSE- → GND (shunt low), FILTER → **DNP/open baseline** (previous 220p outside 1nF–100nF datasheet range per 1970afc; provision optional 1nF–100nF footprint, 1k internal). Current R5.1 results represent **FILTER=open**.
 
 **Kelvin voltage servo (differential):**
 
@@ -99,7 +99,7 @@ Order 1 Vee,2 V-,3 OUT,4 Sense+,5 Filter,6 Sense-,7 Vcc,8 -IN,9 +IN,10 NC10,11 N
 | **50µA** | 500Ω | 0.25V | 1kΩ | 50µA / -50mV | **-51.29µA** | -25.64mV vs -25.00mV | -51.29mV | **Sink -2V** | **PASS** |
 | **10mA** | 2.5Ω | 0.25V | 100Ω | 10mA / -1.0V | **-10.257mA** | -25.64mV vs -25.00mV | -1.0257V | **Sink -2V** | **PASS** |
 
-**Details:** All benches `PULSE(0 ±2V 1u 0.1u 20u)`, .tran 0–50u, meas window 12u–20u (high phase). LT1970 model is LT1970 (2% grade) so **topology validated, not 1% accuracy** — measured ~1.3–2.6% high vs Vc/10, within 2% grade plus 500Ω shunt and Riso drop, and LT1970A 1% would be tighter. No sustained oscillation, takeover smooth, Isrc/Isnk flags pull low (10k to GND, observed in .raw as N_ISRC dip).
+**Details:** All benches `PULSE(0 ±2V 1u 0.1u 20u)`, .tran 0–50u, meas window 12u–20u (high phase). LT1970 model is LT1970 (2% grade) so **topology validated, not 1% accuracy** — measured ~1.3–2.6% high vs Vc/10, within 2% grade plus 500Ω shunt and Riso drop, and LT1970A 1% would be tighter. No sustained oscillation, takeover smooth, **Isrc/Isnk flags open-collector with 10k pull-ups to 3.3V VLOGIC** (re-ran 50µA source/sink with pull-ups: Source Isrc 0.03V low / Isnk 3.30V high; Sink Isrc 3.30V high / Isnk 0.03V low — correct, verified in .log `v_isrc`/`v_isnk`), not pull-downs. Previous R5 used 10k pull-downs to GND (incorrect for open-collector), now corrected.
 
 **Note on previous error:** Prior R5 proxy quoted 500Ω+0.5V→50mA — **corrected to 100µA** as above.
 
@@ -116,11 +116,13 @@ Order 1 Vee,2 V-,3 OUT,4 Sense+,5 Filter,6 Sense-,7 Vcc,8 -IN,9 +IN,10 NC10,11 N
 | +2V | 47Ω | 100pF | **100Ω** | +2V | 0.10013V* | **~0%** | ~2µs | none |
 | +2V | 33Ω | 100pF | **10kΩ** | +2V | 1.00128V* | **0.00025%** | ~3µs | none |
 | **-2V** | 47Ω | 100pF | 1kΩ | **-2V** | -1.00128V* | **~0%** (undershoot 0% ) | ~3µs | none |
-| +0.1V | 47Ω | 100pF | 10kΩ | +0.1V | **0.09980V** | **44.4%** | ~8µs | **none (settles)** |
+| +0.1V | 47Ω | 100pF | 10kΩ | +0.1V | **0.09980V** | **44.4%** | ~8µs | **none (settles) — EXPLICIT RISK (see below)** |
 
 \* For DUT 1kΩ @2V with shunt 500Ω (Ilim 1mA), the 2V request would need 2mA >1mA, so the bench is **current-limited** (CC) — Vfinal 1.00V is Ilim·Rdut, not Vset, as expected per compliance. True CV cases (10kΩ 0.1V, 100Ω 0.1V) show overshoot ~44% at 0.1V due to low-signal loop gain, but **no sustained oscillation**, settles within 8µs, acceptable for 50–100ms ReRAM dwell. For large-signal CV without limit, use smaller shunt (2.5Ω/25Ω) — bench with 1kΩ/2.5Ω @2V (Ilim 200mA) gives Vfinal 1.001V limited by Dut 1k? Actually 1k@1V is still CC; for pure CV use 10kΩ.
 
-**Key:** Across R_iso 33Ω vs 47Ω, both stable, 47Ω slightly lower OS, 33Ω also <0.01% at 1kΩ — **either 33Ω or 47Ω is usable**, 47Ω is sweet spot per P3IR-02. C 10pF→1nF all stable (OS <0.3% except 0.1V low-signal 44% but still damped, no oscillation). No sustained ringing.
+> **Explicit risk — 44% overshoot at 0→0.1V hard step (R5.1):** The 0.1V small-signal step (10kΩ, 100pF, 47Ω, shunt 5kΩ) shows **44.4% peak overshoot** (0.144V peak vs 0.100V final, Vfinal 0.0998V) before settling in ~8µs. This is **not negligible** and is **preserved as a Phase-4 design constraint**, not hidden. ReRAM read operations at 0.1V are typically quasi-static with 50–100ms dwell, but a hard 0→0.1V DAC step without slew limiting will overstress high-impedance HRS and corrupt the 10nA read. **Required mitigation (Phase 4):** Implement **slew-limited VSET/DAC ramping** (e.g., RC-filtered DAC output or firmware staircase with ≤10mV/µs, or 0.1V ramp over ≥20µs) and verify with prototype step response at 0.1V across 10kΩ–1MΩ with 100pF. Schematic must provision an RC (e.g., 1kΩ + 1nF) or DAC slew control at the LT1970 +IN, and firmware must enforce ramp for V <0.5V reads. This risk is tracked in `RISKS.md` and `PHASE3_CORRECTIVE_RESULTS.md`.
+
+**Key:** Across R_iso 33Ω vs 47Ω, both stable, 47Ω slightly lower OS, 33Ω also <0.01% at 1kΩ — **either 33Ω or 47Ω is usable**, 47Ω is sweet spot per P3IR-02. C 10pF→1nF all stable (OS <0.3% except 0.1V low-signal 44% preserved as risk above, still damped, no oscillation). No sustained ringing.
 
 **PM/GM:** Still **INCONCLUSIVE — TRANSIENT STABILITY ONLY** (encrypted macro, no loop-break). Per P3IR-05 §6, transient evidence is acceptable.
 
