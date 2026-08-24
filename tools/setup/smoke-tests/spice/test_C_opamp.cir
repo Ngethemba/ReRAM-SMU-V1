@@ -1,0 +1,12 @@
+* Test C — ideal op-amp non-inverting gain 2x using vcvs (differential)
+* VCVS Eop models ideal opamp: out = gain * (V(inp) - V(n1))
+V1 inp 0 DC 1
+R1 n1 0 10k
+R2 out n1 10k
+Eop out 0 inp n1 100000
+.control
+op
+print v(out)
+* Expect v(out) ~ 1.99996V (gain ~2x, limited by finite gain)
+.endc
+.end

@@ -1,0 +1,9 @@
+* Test D — batch execution via ngspice -b
+V1 in 0 DC 10
+R1 in mid 10k
+R2 mid 0 10k
+.control
+op
+wrdata "test_D_output.txt" v(mid)
+.endc
+.end

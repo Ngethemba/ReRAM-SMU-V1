@@ -1,0 +1,592 @@
+{
+    "$schema": "https://schemas.kicad.org/erc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-08-24T17:20:35",
+    "ignored_checks": [
+        {
+            "description": "Global label only appears once in the schematic",
+            "key": "single_global_label"
+        },
+        {
+            "description": "Four connection points are joined together",
+            "key": "four_way_junction"
+        },
+        {
+            "description": "SPICE model issue",
+            "key": "simulation_model_issue"
+        },
+        {
+            "description": "Assigned footprint doesn't match footprint filters",
+            "key": "footprint_filter"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning"
+    ],
+    "kicad_version": "10.0.5",
+    "sheets": [
+        {
+            "path": "/",
+            "uuid_path": "/28f865a0-4433-4a53-bbd7-b62f276848e4",
+            "violations": [
+                {
+                    "description": "Mevcut yapılandırma 'Footprints' ayak izi kütüphanesini içermiyor",
+                    "items": [
+                        {
+                            "description": "SembollerP3 [CONN_2]",
+                            "pos": {
+                                "x": 0.4191,
+                                "y": 0.5334
+                            },
+                            "uuid": "00000000-0000-0000-0000-00004549f4a5"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "Mevcut yapılandırma 'ecc83-pp' sembol kütüphanesini içermiyor",
+                    "items": [
+                        {
+                            "description": "SembollerP3 [CONN_2]",
+                            "pos": {
+                                "x": 0.4191,
+                                "y": 0.5334
+                            },
+                            "uuid": "00000000-0000-0000-0000-00004549f4a5"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "Mevcut yapılandırma 'Footprints' ayak izi kütüphanesini içermiyor",
+                    "items": [
+                        {
+                            "description": "SembollerP4 [CONN_2]",
+                            "pos": {
+                                "x": 0.4191,
+                                "y": 0.9144
+                            },
+                            "uuid": "00000000-0000-0000-0000-0000456a8acc"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "Mevcut yapılandırma 'ecc83-pp' sembol kütüphanesini içermiyor",
+                    "items": [
+                        {
+                            "description": "SembollerP4 [CONN_2]",
+                            "pos": {
+                                "x": 0.4191,
+                                "y": 0.9144
+                            },
+                            "uuid": "00000000-0000-0000-0000-0000456a8acc"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "Mevcut yapılandırma 'ecc83-pp' sembol kütüphanesini içermiyor",
+                    "items": [
+                        {
+                            "description": "Semboller#PWR08 [GND]",
+                            "pos": {
+                                "x": 0.508,
+                                "y": 0.5715
+                            },
+                            "uuid": "00000000-0000-0000-0000-0000550eab37"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "Mevcut yapılandırma 'ecc83-pp' sembol kütüphanesini içermiyor",
+                    "items": [
+                        {
+                            "description": "Semboller#FLG05 [PWR_FLAG]",
+                            "pos": {
+                                "x": 0.5334,
+                                "y": 0.5588
+                            },
+                            "uuid": "00000000-0000-0000-0000-0000457dbac0"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "Mevcut yapılandırma 'Footprints' ayak izi kütüphanesini içermiyor",
+                    "items": [
+                        {
+                            "description": "SembollerU1 [ECC83]",
+                            "pos": {
+                                "x": 0.635,
+                                "y": 0.7493
+                            },
+                            "uuid": "00000000-0000-0000-0000-000048b4f266"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "Mevcut yapılandırma 'ecc83-pp' sembol kütüphanesini içermiyor",
+                    "items": [
+                        {
+                            "description": "SembollerU1 [ECC83]",
+                            "pos": {
+                                "x": 0.635,
+                                "y": 0.7493
+                            },
+                            "uuid": "00000000-0000-0000-0000-000048b4f266"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "Mevcut yapılandırma 'ecc83-pp' sembol kütüphanesini içermiyor",
+                    "items": [
+                        {
+                            "description": "Semboller#FLG07 [PWR_FLAG]",
+                            "pos": {
+                                "x": 0.762,
+                                "y": 0.4953
+                            },
+                            "uuid": "00000000-0000-0000-0000-0000550ea992"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "Mevcut yapılandırma 'ecc83-pp' sembol kütüphanesini içermiyor",
+                    "items": [
+                        {
+                            "description": "SembollerC1 [CP]",
+                            "pos": {
+                                "x": 0.8636,
+                                "y": 0.5715
+                            },
+                            "uuid": "00000000-0000-0000-0000-00004549f4be"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "Mevcut yapılandırma 'ecc83-pp' sembol kütüphanesini içermiyor",
+                    "items": [
+                        {
+                            "description": "Semboller#PWR06 [GND]",
+                            "pos": {
+                                "x": 0.8636,
+                                "y": 0.6223
+                            },
+                            "uuid": "00000000-0000-0000-0000-000053b6f370"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "Mevcut yapılandırma 'Footprints' ayak izi kütüphanesini içermiyor",
+                    "items": [
+                        {
+                            "description": "SembollerP1 [CONN_2]",
+                            "pos": {
+                                "x": 1.27,
+                                "y": 1.1049
+                            },
+                            "uuid": "00000000-0000-0000-0000-00004549f464"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "Mevcut yapılandırma 'ecc83-pp' sembol kütüphanesini içermiyor",
+                    "items": [
+                        {
+                            "description": "SembollerP1 [CONN_2]",
+                            "pos": {
+                                "x": 1.27,
+                                "y": 1.1049
+                            },
+                            "uuid": "00000000-0000-0000-0000-00004549f464"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "Mevcut yapılandırma 'ecc83-pp' sembol kütüphanesini içermiyor",
+                    "items": [
+                        {
+                            "description": "Semboller#PWR09 [GND]",
+                            "pos": {
+                                "x": 1.3843,
+                                "y": 1.1684
+                            },
+                            "uuid": "00000000-0000-0000-0000-0000550eaf5a"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "Mevcut yapılandırma 'ecc83-pp' sembol kütüphanesini içermiyor",
+                    "items": [
+                        {
+                            "description": "SembollerR4 [R]",
+                            "pos": {
+                                "x": 1.4478,
+                                "y": 1.27
+                            },
+                            "uuid": "00000000-0000-0000-0000-00004549f3a2"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "Mevcut yapılandırma 'ecc83-pp' sembol kütüphanesini içermiyor",
+                    "items": [
+                        {
+                            "description": "Semboller#PWR04 [GND]",
+                            "pos": {
+                                "x": 1.4478,
+                                "y": 1.3208
+                            },
+                            "uuid": "00000000-0000-0000-0000-0000457dbaef"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "Mevcut yapılandırma 'ecc83-pp' sembol kütüphanesini içermiyor",
+                    "items": [
+                        {
+                            "description": "SembollerR2 [R]",
+                            "pos": {
+                                "x": 1.5494,
+                                "y": 1.27
+                            },
+                            "uuid": "00000000-0000-0000-0000-00004549f39d"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "Mevcut yapılandırma 'ecc83-pp' sembol kütüphanesini içermiyor",
+                    "items": [
+                        {
+                            "description": "Semboller#PWR03 [GND]",
+                            "pos": {
+                                "x": 1.5494,
+                                "y": 1.3208
+                            },
+                            "uuid": "00000000-0000-0000-0000-0000457dbaf1"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "Mevcut yapılandırma 'ecc83-pp' sembol kütüphanesini içermiyor",
+                    "items": [
+                        {
+                            "description": "SembollerR1 [R]",
+                            "pos": {
+                                "x": 1.5748,
+                                "y": 0.8509
+                            },
+                            "uuid": "00000000-0000-0000-0000-00004549f38a"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "Mevcut yapılandırma 'Footprints' ayak izi kütüphanesini içermiyor",
+                    "items": [
+                        {
+                            "description": "SembollerU1 [ECC83]",
+                            "pos": {
+                                "x": 1.5748,
+                                "y": 1.0795
+                            },
+                            "uuid": "00000000-0000-0000-0000-000048b4f263"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "Mevcut yapılandırma 'ecc83-pp' sembol kütüphanesini içermiyor",
+                    "items": [
+                        {
+                            "description": "SembollerU1 [ECC83]",
+                            "pos": {
+                                "x": 1.5748,
+                                "y": 1.0795
+                            },
+                            "uuid": "00000000-0000-0000-0000-000048b4f263"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "Mevcut yapılandırma 'Footprints' ayak izi kütüphanesini içermiyor",
+                    "items": [
+                        {
+                            "description": "SembollerP5 [CONN_1]",
+                            "pos": {
+                                "x": 1.5875,
+                                "y": 1.778
+                            },
+                            "uuid": "00000000-0000-0000-0000-000054a5890a"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "Mevcut yapılandırma 'ecc83-pp' sembol kütüphanesini içermiyor",
+                    "items": [
+                        {
+                            "description": "SembollerP5 [CONN_1]",
+                            "pos": {
+                                "x": 1.5875,
+                                "y": 1.778
+                            },
+                            "uuid": "00000000-0000-0000-0000-000054a5890a"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "Mevcut yapılandırma 'Footprints' ayak izi kütüphanesini içermiyor",
+                    "items": [
+                        {
+                            "description": "SembollerP6 [CONN_1]",
+                            "pos": {
+                                "x": 1.5875,
+                                "y": 1.8034
+                            },
+                            "uuid": "00000000-0000-0000-0000-000054a58c65"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "Mevcut yapılandırma 'ecc83-pp' sembol kütüphanesini içermiyor",
+                    "items": [
+                        {
+                            "description": "SembollerP6 [CONN_1]",
+                            "pos": {
+                                "x": 1.5875,
+                                "y": 1.8034
+                            },
+                            "uuid": "00000000-0000-0000-0000-000054a58c65"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "Mevcut yapılandırma 'Footprints' ayak izi kütüphanesini içermiyor",
+                    "items": [
+                        {
+                            "description": "SembollerP7 [CONN_1]",
+                            "pos": {
+                                "x": 1.5875,
+                                "y": 1.8288
+                            },
+                            "uuid": "00000000-0000-0000-0000-000054a58c8a"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "Mevcut yapılandırma 'ecc83-pp' sembol kütüphanesini içermiyor",
+                    "items": [
+                        {
+                            "description": "SembollerP7 [CONN_1]",
+                            "pos": {
+                                "x": 1.5875,
+                                "y": 1.8288
+                            },
+                            "uuid": "00000000-0000-0000-0000-000054a58c8a"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "Mevcut yapılandırma 'Footprints' ayak izi kütüphanesini içermiyor",
+                    "items": [
+                        {
+                            "description": "SembollerP8 [CONN_1]",
+                            "pos": {
+                                "x": 1.5875,
+                                "y": 1.8542
+                            },
+                            "uuid": "00000000-0000-0000-0000-000054a58ca3"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "Mevcut yapılandırma 'ecc83-pp' sembol kütüphanesini içermiyor",
+                    "items": [
+                        {
+                            "description": "SembollerP8 [CONN_1]",
+                            "pos": {
+                                "x": 1.5875,
+                                "y": 1.8542
+                            },
+                            "uuid": "00000000-0000-0000-0000-000054a58ca3"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "Mevcut yapılandırma 'Footprints' ayak izi kütüphanesini içermiyor",
+                    "items": [
+                        {
+                            "description": "SembollerU1 [ECC83]",
+                            "pos": {
+                                "x": 1.6002,
+                                "y": 0.6477
+                            },
+                            "uuid": "00000000-0000-0000-0000-000048b4f256"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "Mevcut yapılandırma 'ecc83-pp' sembol kütüphanesini içermiyor",
+                    "items": [
+                        {
+                            "description": "SembollerU1 [ECC83]",
+                            "pos": {
+                                "x": 1.6002,
+                                "y": 0.6477
+                            },
+                            "uuid": "00000000-0000-0000-0000-000048b4f256"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "Mevcut yapılandırma 'ecc83-pp' sembol kütüphanesini içermiyor",
+                    "items": [
+                        {
+                            "description": "SembollerC2 [C]",
+                            "pos": {
+                                "x": 1.7526,
+                                "y": 0.762
+                            },
+                            "uuid": "00000000-0000-0000-0000-00004549f3be"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "Mevcut yapılandırma 'ecc83-pp' sembol kütüphanesini içermiyor",
+                    "items": [
+                        {
+                            "description": "SembollerR3 [R]",
+                            "pos": {
+                                "x": 1.8542,
+                                "y": 0.8509
+                            },
+                            "uuid": "00000000-0000-0000-0000-00004549f3ad"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "Mevcut yapılandırma 'ecc83-pp' sembol kütüphanesini içermiyor",
+                    "items": [
+                        {
+                            "description": "Semboller#PWR02 [GND]",
+                            "pos": {
+                                "x": 1.8542,
+                                "y": 0.9017
+                            },
+                            "uuid": "00000000-0000-0000-0000-0000457dbaf5"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "Mevcut yapılandırma 'ecc83-pp' sembol kütüphanesini içermiyor",
+                    "items": [
+                        {
+                            "description": "Semboller#PWR01 [GND]",
+                            "pos": {
+                                "x": 1.9558,
+                                "y": 0.8382
+                            },
+                            "uuid": "00000000-0000-0000-0000-0000457dbaf8"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "Mevcut yapılandırma 'Footprints' ayak izi kütüphanesini içermiyor",
+                    "items": [
+                        {
+                            "description": "SembollerP2 [CONN_2]",
+                            "pos": {
+                                "x": 2.0701,
+                                "y": 0.7874
+                            },
+                            "uuid": "00000000-0000-0000-0000-00004549f46c"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "Mevcut yapılandırma 'ecc83-pp' sembol kütüphanesini içermiyor",
+                    "items": [
+                        {
+                            "description": "SembollerP2 [CONN_2]",
+                            "pos": {
+                                "x": 2.0701,
+                                "y": 0.7874
+                            },
+                            "uuid": "00000000-0000-0000-0000-00004549f46c"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                }
+            ]
+        }
+    ],
+    "source": "smoke.kicad_sch"
+}

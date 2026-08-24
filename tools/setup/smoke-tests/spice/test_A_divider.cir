@@ -1,0 +1,10 @@
+* Test A — resistor divider 10V 10k/10k => 5V at midpoint
+V1 in 0 DC 10
+R1 in mid 10k
+R2 mid 0 10k
+.control
+op
+print v(mid)
+* Expect v(mid) = 5.0
+.endc
+.end

@@ -1,0 +1,3 @@
+Reference,Function,Manufacturer,MPN,Package,Critical Specification,Lifecycle,Preferred Supplier,Unit Price,Alternate,Datasheet,Verification Status
+# Example row (do not use as real spec — placeholder):
+# U1,Voltage reference,ADI,ADR4525BRZ,SOIC-8,"0.02 % initial, 2 ppm/C drift (verify in datasheet)",Active,Mouser,,,https://www.analog.com/...,UNVERIFIED

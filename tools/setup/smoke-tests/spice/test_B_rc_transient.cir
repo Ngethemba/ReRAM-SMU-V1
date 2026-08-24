@@ -1,0 +1,10 @@
+* Test B — RC transient, R=10k C=1u tau=10ms, step 5V
+V1 in 0 PULSE(0 5 0 1u 1u 50m 100m)
+R1 in out 10k
+C1 out 0 1u IC=0
+.control
+tran 0.1m 40m
+print v(out)
+* At t=10m, v(out) should be ~ 3.16V (63.2% of 5V), at t=40m ~ 4.91V
+.endc
+.end
