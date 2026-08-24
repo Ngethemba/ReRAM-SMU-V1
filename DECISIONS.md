@@ -355,6 +355,65 @@ No FINAL promotion until Phase 3 simulation gates pass. Specs must not be propag
 | DEC-023 | Component adversarial verdicts | ACCEPTED (corrected IR-06/07) | 2026-08-24 |
 | DEC-024 | Compliance minimum programmability / coercion | ACCEPTED | 2026-08-24 |
 | DEC-025 | Source composite candidate (outer+booster) | SELECTED FOR PHASE 3 | 2026-08-24 |
+| DEC-026 | Phase 3 Source Architecture Selection | SELECTED FOR SCHEMATIC (amended R1/R5) | 2026-08-24 |
+| DEC-027 | Phase 3 DAC/ADC/Reference Selection | SELECTED FOR SCHEMATIC (amended R3/R4) | 2026-08-24 |
+| DEC-028 | P3IR-01 Shared Rsense Topology | ACCEPTED (corrects DEC-026 Rsense) | 2026-08-24 |
+| DEC-029 | P3IR-06 Reed Relay for Open-Sense | ACCEPTED | 2026-08-24 |
+| DEC-030 | P3IR-07 1GΩ Measurement Envelope | ACCEPTED | 2026-08-24 |
+| DEC-031 | Phase 3 Corrective Review Overall | CONDITIONAL — PROTOTYPE GATE | 2026-08-24 |
+
+---
+
+### DEC-026 — Phase 3 Source Architecture Selection (Amended per P3IR-01/05)
+
+- **Date:** 2026-08-24 (amended 2026-08-24 per R1/R5)
+- **Status:** SELECTED FOR SCHEMATIC WITH PROVISIONS — CONDITIONAL (see P3IR-05)
+- **Requirement(s):** REQ-SRC-001/002/006, REQ-SAFE-001
+- **Evidence (corrected):** Original behavioral PASS (A 50°/6.5%@10nF, B 60°/3.2%) retained; fixed 10Ω Rsense superseded → shared canonical shunt 2.5Ω–1MΩ (DEC-028); vendor LTspice macro NOT run → MODEL LIMITATION.
+- **Decision:** Candidate A LT1970A direct **remains SELECT** but with **shared Rsense** and **vendor-model + prototype pending**; B fallback unchanged; C prototype as before.
+- **Verification:** **BEHAVIORAL SIMULATED — VENDOR-MODEL SIMULATED PENDING, NEEDS PROTOTYPE** (R5)
+
+### DEC-027 — Phase 3 DAC/ADC/Reference Selection (Amended per P3IR-03/04)
+
+- **Date:** 2026-08-24 (amended 2026-08-24)
+- **Status:** SELECTED FOR SCHEMATIC (amended)
+- **Evidence (corrected):** AD5764 20V 305µV half-codes 3.0% @10mV PASS with 5V ref (LTC6655-5.0/ADR435B) guaranteed ±1LSB; 2.5V full-span not guaranteed (characterized). AD7175-8 HAS NO analog PGA → needs external 100/50/25×; ADS1262 internal PGA 1–32 needs only small pre-gain.
+- **Decision:** **DAC SELECT AD5764 @5V ref (LTC6655-5.0) — fallback AD5686R 0.01%; ADC SELECT ADS1262 PRIMARY — AD7175-8 ALTERNATE with external gain footprint.**
+- **Verification:** DATASHEET VERIFIED + BEHAVIORAL (Test N/G)
+
+### DEC-028 — P3IR-01 Shared Rsense Topology
+
+- **Date:** 2026-08-24
+- **Status:** ACCEPTED (corrects DEC-026)
+- **Requirement(s):** REQ-SAFE-001, REQ-MEAS-001
+- **Alternatives:** C1 shared canonical shunt (2.5Ω–1MΩ) as LT1970 Rsense; C2 separate compliance bank; C3 amplified loop; C4/5 outer/coarse+precision.
+- **Evidence:** 1970afc (Vs=Vc/10, floor 4mV, Vc<60mV nonlinear), test_A/B CSV (fixed 10Ω fails <600µA, shared passes 50µA–1mA).
+- **Decision:** **C1 shared range-switched canonical shunt SELECT for V1 REV-A** — LT1970 SENSE+ to FORCE_LO node, SENSE− to GND, Kelvin buffered. 10Ω high-side fixed-R is placeholder superseded. C2 footprint reserved.
+- **Consequences:** Schematic captures shared low-side Rsense with Kelvin; R1 PASS. See Q1–Q3 in PHASE3_INDEPENDENT_REVIEW_CORRECTIONS.md.
+
+### DEC-029 — P3IR-06 Reed Relay for Open-Sense
+
+- **Date:** 2026-08-24
+- **Status:** ACCEPTED
+- **Requirement(s):** REQ-DUT-001, REQ-MEAS-002
+- **Evidence:** ADG1419 Rev A: IS(off) 100pA typ 500pA max (25°C) 75nA (85°C) → fails 10pA budget (1nA MUC). Reed <1pA typ passes.
+- **Decision:** **Reed relay (<1pA, Coto 9007 class) SELECT** for switched SENSE pull disconnect; ADG1419 rejected for precision path (housekeeping only). Leakage included in Test M as 1pA typ.
+- **Verification:** DATASHEET VERIFIED
+
+### DEC-030 — P3IR-07 1GΩ Measurement Envelope
+
+- **Date:** 2026-08-24
+- **Status:** ACCEPTED
+- **Evidence:** OPA140 SBOS498F: Ib 0.5pA typ 10pA max (25°C) 3nA (125°C), 10pA→2%@1GΩ@0.5V.
+- **Decision:** Envelope split — **Guaranteed V1: ≤100MΩ (<1%); Characterized: 1GΩ@0.5–1V (2% raw → <0.5% cal with T-monitor); Exploratory: 1GΩ@0.1V (10–15%)**. OPA140 remains SELECT; electrometer ADA4530 deferred/V2.
+
+### DEC-031 — Phase 3 Corrective Review Overall
+
+- **Date:** 2026-08-24
+- **Status:** CONDITIONAL — PROTOTYPE GATE REQUIRED
+- **Evidence:** 8 findings reviewed: 4 CONFIRMED (01,02,03,06), 3 PARTIALLY (04,07,08), 1 MODEL LIMITATION (05). 6 corrective gates R1–R6: R1 PASS, R2 PASS, R3 PASS, R4 PASS, R5 CONDITIONAL, R6 PASS.
+- **Decision:** **PHASE 3 — CONDITIONAL / PROTOTYPE GATE REQUIRED** — not PASS, not BLOCKED. All architectures resolved except vendor-model stability (R5). Schematic may proceed with provisions (see DEC-028/029/030, R_iso options, LTC6655-5.0, ADS1262 primary).
+- **Verification:** See PHASE3_CORRECTIVE_RESULTS.md and PHASE3_INDEPENDENT_REVIEW_CORRECTIONS.md
 
 ---
 

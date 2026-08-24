@@ -6,9 +6,9 @@
 
 ## Current Phase
 
-> **Phase 3 — PASS (simulation & quantitative validation)** · `simulation/results/phase3/PHASE3_RESULTS.md` (15/15 tests PASS, 1 SELECT/1 FALLBACK/1 PROTOTYPE)
+> **Phase 3 — CONDITIONAL / PROTOTYPE GATE REQUIRED (corrective review R1–R6)** · `simulation/results/phase3/PHASE3_RESULTS.md` (historical 15/15 behavioral PASS) + `simulation/results/phase3/PHASE3_CORRECTIVE_RESULTS.md` (R1 PASS, R2 PASS, R3 PASS, R4 PASS, R5 CONDITIONAL, R6 PASS) · Corrective record `docs/research/PHASE3_INDEPENDENT_REVIEW_CORRECTIONS.md` (P3IR-01..08: 4 confirmed, 3 partial, 1 model limitation)
 
-Phase 3 executed tests A-O per corrected plan with ngspice-47 + Python 3.11.15 hybrid. All gates PASS (see gates 1-6 summaries). Architecture selected: **Candidate A LT1970A direct SELECT**, **Candidate B ADA4522+BJT KEEP AS FALLBACK**, **Candidate C outer+LT1970A REQUIRES PROTOTYPE**. DAC **AD5764 SELECT**, ADC **AD7175 primary / ADS1262 fallback**. Compliance floor/coercion, Kelvin/open-sense, C_UP/DOWN, bipolar, trip, energy, switching, POR, leakage all validated per thresholds. Error budget updated (PHASE3_ERROR_BUDGET.md), model limitations documented. No schematic/PCB/BOM/hardware created — next is Phase 4 on authorization.
+Phase 3 + corrective review executed tests A-O plus 6 corrective gates R1–R6 (ngspice-47 + Python 3.11.15). Historical behavioral 15/15 PASS retained; corrective review reconciles Rsense topology (shared canonical 2.5Ω–1MΩ, not fixed 10Ω), C_down ≤80–150pF, ADS1262 primary (AD7175 needs external gain), AD5764 @5V ref + LTC6655-5.0, behavioral 6.5% transient (16.2% analytic historical), reed relay <1pA (ADG1419 100pA fails), 1GΩ envelope split. No schematic/PCB/BOM/hardware created — Phase 4 schematic may proceed **with provisions** (see DEC-028/029/030), final LT1970 vendor-model + prototype required (R5).
 
 ---
 

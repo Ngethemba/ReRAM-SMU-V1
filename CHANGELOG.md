@@ -60,6 +60,26 @@ Versioning: `0.y.z` pre-release (no hardware), `1.y.z` after V1 release.
 - No schematic/PCB/BOM created; no component order.
 
 
+## [Unreleased] — Phase 3 Corrective Review (P3IR-01..08 / R1–R6) — 2026-08-24
+
+### Corrected
+- Independent review P3IR-01..08 verified against primary datasheets (LT1970A 1970afc floor 4mV/linear 60mV, ADG1419 100pA typ, OPA140 10pA max, ADS1262 PGA 32 vs AD7175 NO PGA, AD5764 REF 5V spec) and Python/traceability audit; documented in `docs/research/PHASE3_INDEPENDENT_REVIEW_CORRECTIONS.md` (57KB) and `simulation/results/phase3/PHASE3_CORRECTIVE_RESULTS.md` (R1–R6).
+- P3IR-01 CONFIRMED: fixed 10Ω Rsense fails <600µA — corrected to **shared canonical shunt 2.5Ω–1MΩ as LT1970 Rsense (C1)** for V1 REV-A (50–100µA PASS Vc 250–500mV); separate bank footprint reserved. Current path LT1970 OUT→R_iso 33–47Ω→DUT→selected shunt→GND with SENSE+→FORCE_LO node. Gate R1 PASS.
+- P3IR-02 CONFIRMED reversed: 1000/1047=95.5% is **dumped** to DUT not isolated — corrected C_DOWNSTREAM ≤80pF@5V/500pF@2V vs C_UPSTREAM shared dump ≤1nF@5V (not free), Cf 33pF not counted. Gate R2 PASS.
+- P3IR-03 CONFIRMED: AD7175-8 HAS NO analog PGA (only buffers/mux/digital register) — corrected to **ADS1262 PRIMARY (internal PGA 1–32 + 3.13× pre-gain)** vs AD7175 ALTERNATE with external 100/50/25× per-range diff amp footprint. Gate R3 PASS.
+- P3IR-04 PARTIALLY: AD5764 LSB 305µV at REF 5V guaranteed is DAC-A half-codes (3.0% @10mV); corrected reference to **LTC6655-5.0/ADR435B 5V** (not LN-2.5) for spec-guaranteed ±1LSB; DAC-B 2.5V full-span characterized not primary. Gate R4 PASS.
+- P3IR-05 MODEL LIMITATION: `candidate_A_transient.cir` is behavioral not vendor macro — **6.5% transient OS @10nF traceable**, 16.2% analytic historical superseded; vendor LTspice `LT1970A.lib` not run in this env — classified **CONDITIONAL / REQUIRES PROTOTYPE** (Gate R5).
+- P3IR-06 CONFIRMED: ADG1419 typ 100pA (500pA max 25°C, 75nA 85°C) fails 10pA budget — corrected to **reed relay <1pA (Coto 9007 class) SELECT** for open-sense disconnect. Gate R6 PASS.
+- P3IR-07 PARTIALLY: OPA140 envelope split — **Guaranteed ≤100MΩ (<1%), Characterized 1GΩ@0.5–1V (<2% raw → <0.5% cal), Exploratory 1GΩ@0.1V** — OPA140 remains SELECT, electrometer deferred.
+- P3IR-08 PARTIALLY: grep audit — 6.5% verified transient, 16.2% historical, 95.5% prose fixed, ADG1419 10pA corrected, nC/µC no hit; all master numbers now machine-traceable.
+- `docs/architecture/PHASE3_ARCHITECTURE_SELECTION.md`: status CONDITIONAL with provisions, DAC ref 5V, ADS1262 primary, OPA140 regions, R_iso/C_up/C_down budget.
+- `simulation/phase3/MODEL_LIMITATIONS.md`: downgraded LT1970A to BEHAVIORAL SIMULATED — VENDOR-MODEL PENDING, added §6 R1–R6 table.
+- `DECISIONS.md`: new DEC-026 amended (source), DEC-027 amended (DAC/ADC swap), DEC-028 (shared Rsense), DEC-029 (reed), DEC-030 (1GΩ regions), DEC-031 (overall CONDITIONAL).
+- `STATUS.md`: Phase 3 marked **CONDITIONAL / PROTOTYPE GATE REQUIRED** (R1–R4,R6 PASS, R5 CONDITIONAL); no schematic/PCB/BOM.
+
+### Notes
+- No schematic/PCB/BOM/hardware — corrective review only, next Phase 4 schematic provision on authorization.
+
 ## [Unreleased] — Phase 3 Simulation (Tests A-O) — 2026-08-24
 
 ### Added
