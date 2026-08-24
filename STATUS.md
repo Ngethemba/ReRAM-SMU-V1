@@ -6,9 +6,9 @@
 
 ## Current Phase
 
-> **Phase 1 — Requirements Verification** · `COMPLETE — READY FOR PHASE 2 (awaiting authorization)`
+> **Phase 2 — Architecture & Candidate Component Verification** · `COMPLETE — READY FOR PHASE 3 (awaiting authorization)`
 
-Phase 0 tooling is complete. Phase 1 research has quantified the measurement envelope; all Phase 1 exit criteria 1–24 are met. No schematic/PCB/BOM has been created (correct). No component promoted.
+Phase 1 quantified the envelope; Phase 2 has selected conceptual architecture and candidate classes for Phase 3 simulation. No schematic/PCB/BOM has been created (correct). SELECTED FOR PHASE 3 requires simulation gates before FINAL.
 
 ---
 
@@ -17,59 +17,59 @@ Phase 0 tooling is complete. Phase 1 research has quantified the measurement env
 | Item | State |
 |------|-------|
 | Workspace structure | ✅ Created |
-| Core documentation | ✅ 10 core + Phase 1 research |
-| Git repository | ✅ `d5a6100` + `7b967de` + pending Phase 1 docs commit |
-| Simulation environment | ✅ ngspice 47 + LTspice 26.0.2.1 hybrid |
-| Python scientific env | ✅ `.venv` 3.11.15 — 6 tests PASS |
+| Core documentation | ✅ 10 core + Phase 1 research + Phase 2 architecture |
+| Git repository | ✅ `d5a6100` + `7b967de` + `3658117` + pending Phase 2 commit |
+| Simulation environment | ✅ ngspice 47 + LTspice 26.0.2.1 hybrid (Phase 3 plan exists) |
+| Python scientific env | ✅ `.venv` 3.11.15 — 6 tests PASS + error/burden calcs |
 | KiCad | ✅ 10.0.5 — ERC/DRC smoke PASS |
-| Requirements verification | ✅ Phase 1 complete — v0.2.0 in REQUIREMENTS.md (31 confirmed, 9 provisional, 3 future) |
-| Research | ✅ 4 agents: RERAM (31 KB), LOW_CURRENT (29 KB), ARCHITECTURE+CPT (26+21 KB), COMMERCIAL (30 KB) |
-| Calculations | ✅ NOISE (7 KB) + BURDEN (8 KB) + UNCERTAINTY (8.7 KB lead + 29 KB sibling) frameworks |
-| Traceability | ✅ `docs/architecture/REQUIREMENTS_TRACEABILITY.md` — every REQ has evidence + verification |
+| Architecture | ✅ `ARCHITECTURE.md` (7.8 KB) — low-side hybrid shunts outside SENSE, SENSE feedback at DUT, dual compliance |
+| Current measurement | ✅ Hybrid shunt 10 mA→1 µA + TIA provision for 100 nA (DEC-015) |
+| Source stage | ✅ LT1970A primary + discrete alternate (DEC-014) |
+| Compliance | ✅ Dual continuous+trip/SOA, per-segment/polarity (DEC-018) |
+| Kelvin | ✅ SENSE feedback at DUT, open-sense fallback (DEC-019) |
+| Grounding | ✅ Single plane partitioned, single bridge (DEC-020) |
+| Guard/Isolation/Connector/Power | ✅ Provisioned (DEC-022/021, GUARD 2.7 KB, POWER_TREE, ISOLATION) |
+| Requirements verification | ✅ v0.2.0 (31 confirmed) + traceability |
 | Schematic / PCB | ⬜ Not started — intentionally blocked (hardware/kicad empty) |
 | Prototype hardware | ⬜ Not manufactured |
-| Calibration / Verification | ⬜ Framework exists — measurement pending |
+| Calibration / Verification | ⬜ Frameworks exist — measurement pending |
 
 ---
 
 ## Completed Work
 
-- [2026-08-24] Workspace structure created (E:/ReRAM-SMU V1) + 10 core docs + Git init.
-- [2026-08-24] Tool/Skill/MCP Bootstrap — Python .venv + KiCad 10.0.5 + hybrid SPICE + skill + MCP deferred + security review (tools/setup/ 10+ docs).
-- [2026-08-24] **Phase 1 — Requirements Verification COMPLETE:**
-  - ReRAM use case (8 workflows, Vset 0.6–1.5 V, Icc 10 µA/100 µA/1 mA, HRS/LRS 10³ ratio) → `RERAM_MEASUREMENT_REQUIREMENTS.md`
-  - Voltage verified: ±5 V outer (forming), ±2 V primary well-supported
-  - Current 6 ranges 10 mA→100 nA confirmed (DEC-008); 10 nA/100 mA explicitly FUTURE/REJECTED
-  - Low-current floor quantified: detection 3σ 1.5–6 pA, quantitative 10σ 5–20 pA, practical 1 nA @100 nA (DEC-009) — replaces “several nA”
-  - Accuracy research targets: source V ±0.02%+offset, measure I per-range table (REQ-MEAS-007/008 provisional)
-  - Uncertainty GUM framework (RSS, k=2, rectangular a/√3), Noise Johnson table (0.41 pA @100 nA/10 Hz), Burden 100 mV FS baseline (5% of ±2 V, TIA is V2)
-  - Compliance triad (regulation flat CC vs trip crowbar vs range compliance) + timing <50 µs / <5 µs / SOA 50 mW (DEC-011)
-  - Four-quadrant mandatory confirmed (DEC-007), Kelvin confirmed, guard/triax deferred to V2 (DEC-012), sweep/Kelvin parametric tables, calibration philosophy, temperature/safety resolved
-  - Architecture survey (A–D, D hybrid candidate) + commercial benchmark (Keithley 2450/2400/2600B, Keysight B2900, NI PXIe-4139, Yokogawa) — minimum useful subset defined
-  - `PHASE1_RESEARCH_SUMMARY.md` synthesis + `REQUIREMENTS_TRACEABILITY.md` + REQUIREMENTS v0.2.0 + DEC-007..012 + OPEN_QUESTIONS Q-07/08/04/11/15/16 resolved
-  - **No schematic/PCB/BOM created — correct for Phase 1.**
+- [2026-08-24] Workspace + tooling (as before).
+- [2026-08-24] Phase 1 complete (RERAM, LOW_CURRENT, ARCH survey, COMPLIANCE, COMMERCIAL, PHASE1 summary, traceability, frameworks).
+- [2026-08-24] **Phase 2 — Architecture & Candidate Component Verification COMPLETE (6 agents):**
+  - Source: `SOURCE_STAGE_CANDIDATES.md` (55 KB, LT1970A vs OPA140/ADA4522+buffer vs OPA548, CAUTION 1/2 resolved)
+  - Measurement: `MEASUREMENT_FRONTEND_CANDIDATES.md` (21 KB) + `SHUNT_RANGE_TRADEOFF.md` (15 KB, R 10Ω–1 MΩ, Johnson, gain) + `KELVIN_SENSE_ARCHITECTURE.md` (7.4 KB, low-side outside SENSE, open-sense pull-up)
+  - Compliance: `COMPLIANCE_ARCHITECTURE.md` (48 KB, Option D dual) + `COMPLIANCE_ENERGY_ANALYSIS.md` (27 KB, 10 nF@5 V 125 nJ, 100 nF cable 1.25 µJ, ≤10 nF +10 Ω)
+  - Precision: `PRELIMINARY_ERROR_BUDGET.md` (28 KB, GUM, post-cal AD5686R -11% @1 V vs AD5764 +8.8%) + `SOURCE_STAGE_CANDIDATES.md` appendix for DAC/ADC/ref/amp adversarial
+  - Grounding: `GROUNDING_AND_RETURN_PATHS.md` (36 KB, single plane partitioned) + `ISOLATION_STRATEGY.md` (23 KB, optional footprint) + `GUARD_STRATEGY.md` (2.7 KB, reserved copper, SENSE_HI guard) + `POWER_TREE.md` + `SOURCE_HEADROOM_THERMAL.md` (70–170 mW vs DUT 50 mW, ΔT 6–15 °C)
+  - Sourcing: `PHASE2_COMPONENT_MATRIX.md` (32 KB, lifecycle active for LT1970A/AD5686R/ADA4522/ADS1262/LT1763/ADR4525/STM32G431, AD5764/LTC6655/REF50xx/OPA140 alternates, SPICE models)
+  - Synthesis: `ARCHITECTURE.md` (block diagram low-side hybrid, SENSE feedback, dual compliance) + `PHASE2_DECISION_MATRIX.md` (20 decisions) + `PHASE2_RESEARCH_SUMMARY.md` + `PHASE3_SIMULATION_PLAN.md` (source transfer, 4-quad, compliance decades, stability, per-range, Monte Carlo, temp) + DEC-013..023 + OPEN_QUESTIONS Q-01/02/03/05/06/12/18/20 partially resolved
+  - **No schematic/PCB/BOM simulated or created — correct for Phase 2.**
 
 ---
 
 ## Active Work
 
-- None — Phase 1 deliverables complete; awaiting authorization for Phase 2.
+- None — Phase 2 deliverables complete; awaiting authorization for Phase 3.
 
 ---
 
 ## Blocked Work
 
-- None — Phase 1 exit criteria 1–24 satisfied; Phase 2 (Architecture & Candidate Component Verification) is ready to begin on explicit authorization.
+- None — Phase 2 exit criteria 1–25 satisfied (all architecture/component classes evaluated, Cautions 1–5 addressed). Phase 3 ready on authorization.
 
 ---
 
 ## Next Actions
 
-1. **Phase 2 — Architecture & Candidate Component Verification** (requires explicit authorization — DO NOT auto-start):
-   - Detail architecture D (hybrid) block diagram, power tree, signal chain, compliance loop topology, shunt/TIA boundary, grounding/guard provision, connector/layer-stack.
-   - Candidate components still provisional but with datasheet citations (AD5686R etc. still PROVISIONAL per DECISIONS.md).
+1. **Phase 3 — Source, Compliance & Stability Simulation** (requires explicit authorization — DO NOT auto-start):
+   - Simulate source transfer ±5 V/±2 V, 4-quad sink, compliance load steps/filament, stability with 10 pF–10 nF DUT + cable, per-range measurement, Monte Carlo, temp.
 
-2. Phase 3 — Precision Voltage-Source Subsystem after architecture approved.
+2. Phase 4 — Current Measurement Subsystem after source/compliance sim review.
 
 ---
 
@@ -78,14 +78,15 @@ Phase 0 tooling is complete. Phase 1 research has quantified the measurement env
 | Gate | Result | Evidence |
 |------|--------|----------|
 | Schematic review | ⬜ Not applicable | No schematic (correct) |
-| ERC / DRC | ✅ PASS (smoke disposable) | tools/setup/smoke-tests/kicad-test/erc.json (37 warn) / drc.json (17 warn) |
-| Simulation review | ✅ PASS (smoke) | ngspice 3 tests + LTspice batch |
+| ERC / DRC | ✅ PASS (smoke) | tools/setup/smoke-tests/kicad-test/erc.json (37 warn) / drc.json (17 warn) |
+| Simulation review | ⬜ Planned | simulation/PHASE3_SIMULATION_PLAN.md |
+| Architecture review | ✅ PASS | docs/architecture/ARCHITECTURE.md + DEC-013..023 |
 | Requirements traceability | ✅ PASS | docs/architecture/REQUIREMENTS_TRACEABILITY.md |
-| Research synthesis | ✅ PASS | docs/research/PHASE1_RESEARCH_SUMMARY.md |
+| Research synthesis | ✅ PASS | docs/research/PHASE2_RESEARCH_SUMMARY.md |
 | Design review | ⬜ Not applicable | No design |
-| Power-on safe state | ⬜ Not tested | No hardware |
+| Power-on safe state | ⬜ Concept | DEC-018/020 safe pull-down + supervisor |
 | Dummy-load verification | ⬜ Not tested | — |
-| Calibration | ⬜ Framework exists | docs/calculations/UNCERTAINTY_BUDGET_FRAMEWORK.md |
+| Calibration | ⬜ Framework exists | docs/calculations/UNCERTAINTY_BUDGET_FRAMEWORK.md + PRELIMINARY_ERROR_BUDGET.md |
 
 ---
 
@@ -96,4 +97,4 @@ Work log: [`docs/research/WORK_LOG.md`](docs/research/WORK_LOG.md)
 
 ---
 
-*Last updated: 2026-08-24 18:00 — Phase 1 complete, Phase 2 ready. No hardware designed or ordered.*
+*Last updated: 2026-08-24 18:30 — Phase 2 complete, Phase 3 ready. No hardware designed or ordered.*
