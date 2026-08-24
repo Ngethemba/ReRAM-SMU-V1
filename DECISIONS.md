@@ -361,6 +361,17 @@ No FINAL promotion until Phase 3 simulation gates pass. Specs must not be propag
 | DEC-029 | P3IR-06 Reed Relay for Open-Sense | ACCEPTED | 2026-08-24 |
 | DEC-030 | P3IR-07 1GΩ Measurement Envelope | ACCEPTED | 2026-08-24 |
 | DEC-031 | Phase 3 Corrective Review Overall | CONDITIONAL — PROTOTYPE GATE | 2026-08-24 |
+| DEC-032 | MCU Selection — STM32G474 RET6 PRIMARY | SUPERSEDED by DEC-038 | 2026-08-24 |
+| DEC-033 | 05_CURRENT_RANGES 6-Shunt Shared Low-Side with Kelvin & BBM | SELECTED FOR SCHEMATIC | 2026-08-25 |
+| DEC-034 | 06_CURRENT_FRONTEND_ADC ADS1262 Re-derived Chain | SELECTED FOR SCHEMATIC | 2026-08-25 |
+| DEC-035 | 03_OUTPUT_STAGE + 04_KELVIN_SENSE Detailed (Gates C/E) | SELECTED FOR SCHEMATIC | 2026-08-25 |
+| DEC-036 | Pre-ERC LT1970A Physical Pinout Correction | ACCEPTED | 2026-08-25 |
+| DEC-037 | Pre-ERC ADS1262 Package TSSOP-28 | ACCEPTED | 2026-08-25 |
+| DEC-038 | Pre-ERC MCU G431RBT6 LQFP64 (supersedes DEC-032) | SELECTED FOR SCHEMATIC | 2026-08-25 |
+| DEC-039 | Pre-ERC FAST_TRIP Latch (74LVC1G74, not MAX16054) | ACCEPTED | 2026-08-25 |
+| DEC-040 | Pre-ERC Kelvin LT5400 Promotion | ACCEPTED | 2026-08-25 |
+| DEC-041 | Pre-ERC AD5764 Rail Margin Guaranteed at IC | ACCEPTED | 2026-08-25 |
+| DEC-042 | Pre-ERC ADS1262 Bipolar ±2.5V Preference | SELECTED FOR SCHEMATIC | 2026-08-25 |
 
 ---
 
@@ -417,4 +428,122 @@ No FINAL promotion until Phase 3 simulation gates pass. Specs must not be propag
 
 ---
 
+### DEC-032 — MCU Selection: STM32G474RET6 PRIMARY (aligns schematic, resolves G431 sizing)
+
+- **Date:** 2026-08-24
+- **Status:** SELECTED FOR SCHEMATIC
+- **Requirement(s):** REQ-SW-001/002/004, REQ-SAFE-003/004/008, REQ-MEAS-004, lifecycle 10-yr
+- **Alternatives considered:** STM32G431KBT6 LQFP-32 (128 KB/32 KB, 26 GPIOs) vs STM32G431CBT6 LQFP-48 (128 KB, 39 GPIOs) vs STM32G431RBT6 LQFP-64 (128 KB, 51 GPIOs, pin-compatible) vs STM32G474RET6 LQFP-64 (512 KB/128 KB + HRTIM + 5 ADC/7 DAC, 51 GPIOs) vs RP2040/RP2350 (PIO + ext QSPI flash, $0.70, no FPU)
+- **Evidence examined:** ST DS STM32G431C6 (128 KB Flash / 32 KB SRAM+CCM, 3× SPI, USB FS, 2× DAC/3× comp/2× op-amp) + ST DS STM32G474xB (512 KB dual-bank ECC / 128 KB SRAM+CCM, 4× SPI + QUADSPI, USB FS+BCD+UCPD, 7 DAC/5 op-amp/7 comp, HRTIM 184 ps) — both Active Until 2036 (ST longevity program); GPIO need calc 30–36 (7 relay coils: 6 shunt + SENSE, ENABLE, ISRC/ISNK/TSD 3, TLV3501 FLAG 1, SPI 4 + DRDY/CS 4, I2C TMP117 2, USB 2, SWD 2, LEDs 3, supervisor 1); FW sizing 85–95 KB (USB 20–30K + HAL 15K + SCPI 10K + cal 10K + app 30K) → <30 KB margin on G431 vs ~400 KB on G474; PHASE2_COMPONENT_MATRIX §2 U-MCU lifecycle + §4b KEEP AS ALTERNATE condition (“only if flash fills”); ARCHITECTURE.md §3.1 deferred MCU choice; PHASE7_SCHEMATIC_REVIEW.md §2 Sheet 08 value STM32G474 PRIMARY LQFP-64 without matching DEC (red flag); `docs/architecture/PHASE7_POWER_DOMAIN_TABLE.md` §7 audit
+- **Decision:** **PRIMARY: STM32G474RET6 LQFP-64 (10×10, P0.5)** for REV-A schematic + layout + FW. **FALLBACK:** STM32G431RBT6 (pin-compatible LQFP-64, same 64-pin power map) and STM32G431CBT6 LQFP-48 kept as DNP alternate footprints. **RP2040/RP2350 rejected for V1** (cost alternate only — PIO MUX, ext flash, 5-V buffering, no FPU add risk for <$4 saving).
+- **Rationale:** Dual-bank 512 KB removes FW ceiling for SCPI+TMC+cal tables+DMA double-buffer; 128 KB SRAM removes sweep/ADC buffer pressure (200 pts × 4 × 4B + USB heap); 51 GPIOs in LQFP-64 leaves 12 spare for guard/2nd ADC/R_iso-tune header vs 26 GPIOs on KBT6 (fails 30-GPIO need) and 39 on CBT6 (passes but no flash headroom). Price delta ~$4 (<3 % of $150–180 BOM) vs RP2040 risk. Identical CubeMX/HAL/IBIS family — downgrade is soft if later proven.
+- **Consequences:** `08_MCU_USB_CONTROL.kicad_sch` value “STM32G474 PRIMARY LQFP-64” is now DEC-aligned (closes Phase 7 review finding). Fallback footprints provisioned as DNP. No procurement.
+- **Verification status:** FW build must report `text+bss /128K vs /512K` each release; CubeMX pin report + SPI/USB/timer smoke + watchdog brown-out (REQ-SAFE-004) before DUT.
+- **Provenance:** ST STM32G431C6 DS + ST STM32G474xB DS + ST longevity Until 2036 + PHASE2_COMPONENT_MATRIX + ARCHITECTURE.md + PHASE7_SCHEMATIC_REVIEW.md + PHASE7_POWER_DOMAIN_TABLE.md §7
+
+---
+
 *Append new decisions at the end. Never delete a decision — supersede it with a new DEC entry referencing the old one.*
+
+### DEC-033 — Phase 7 Gate D: 05_CURRENT_RANGES 6-Shunt Shared Low-Side with Kelvin & BBM
+
+- **Date:** 2026-08-25
+- **Status:** SELECTED FOR SCHEMATIC (Gate D — for review)
+- **Requirement(s):** REQ-MEAS-001 (10 mA→100 nA 6 ranges D canonical), REQ-MEAS-002 quantified floor, REQ-SAFE-003 safe default, REQ-DUT-001 Kelvin, REQ-SAFE-001 shared compliance shunt
+- **Alternatives considered:** Series shunt stack vs shared single-shunt selector; MOSFET/PhotoMOS vs reed vs signal relay; contact inside vs outside Kelvin; NC default 10 mA vs 1 MΩ; daisy-chain GND vs star
+- **Evidence examined:** `SHUNT_RANGE_TRADEOFF.md §2.4` (D canonical 25/50/100 mV → 2.5Ω/25Ω/500Ω/5k/100k/1M, power ≤250 µW, Johnson 0.51 pA @1 MΩ/10 Hz), `PHASE3_ERROR_BUDGET §2.2` (100 nA headroom +71% tight with 0.01% 10 ppm, −18% if 0.1% + max Vos), `GROUNDING_AND_RETURN_PATHS GND-05/07`, `GUARD_STRATEGY` keepout, Coto 9007 <1 pA / G6K 50 pA / AQV212 1 nA / ADG1419 500 pA leakage table, relay timing 0.5–3 ms + 5 ms BBM + 10 ms DA
+- **Decision:** **06 shared low-side shunts** — 10 mA 2.49R/25 mV, 1 mA 24.9R/25 mV, 100 µA 499R/50 mV, 10 µA 4.99k/50 mV, 1 µA 100k/0.01% 10 ppm/100 mV, 100 nA 1M/0.01% 10 ppm/100 mV (NC). Kelvin taps at resistor pad (NOT relay pole) → Force contact R (50–150 mΩ) **outside** measurement (0% error, 6% headroom on 2.5Ω only). Sense via companion reed (<1 pA) per range to `ISENSE_P_K`/`ISENSE_N_K (=GND star)`. Safe default **K6/K6B NC** → de-energized spring-closed 1 MΩ between FORCE_LO–GND. BBM via one-hot shift + 5 ms break + 10 ms settle (23.5 ms seq) — hardware + firmware invariant `Σclosed≤1`, no parallel. FORCE_LO star at shunt bottom, 4 vias to plane.
+- **Rationale:** D canonical preserves SNR at 100 nA (100 mV) where Johnson 0.51 pA/leakage dominate, reduces headroom/power 4× at 10 mA (25 mV vs 100 mV → 250 µW vs 1 mW). Contact inside Kelvin would inject 6% gain error on 2.5Ω uncorrectable; reed <1 pA keeps 100 nA leakage budget (<10 pA) vs PhotoMOS 1 nA reject. NC 1 MΩ defaults to least invasive / max protection.
+- **Consequences:** Schematic `05_CURRENT_RANGES 0.2` wired; layout must obey 0.3 mm Kelvin diff, no vias on high-R sense, guard keepout on R5/R6 (exposed copper 0.5 mm gap, stitched plane DNP, C0G only), GND star single point, coil flyback to supply entry (GND-05). Per-range cal required; E96 nearest 2.49/24.9/499 values calibrated.
+- **Verification status:** CALCULATED + SCHEMATIC WIRED — UNVERIFIED bench (continuity, contact R, leak <10 pA @1 V, BBM scope, autorange chatter).
+- **Provenance:** `docs/calculations/CURRENT_RANGES_RELAY_TOPOLOGY_AUDIT.md` + TI Coto 9007 DS (<1 pA) + `PHASE3_ERROR_BUDGET` + this gate.
+
+### DEC-034 — Phase 7 Gate F: 06_CURRENT_FRONTEND_ADC ADS1262 Re-derived Chain
+
+- **Date:** 2026-08-25
+- **Status:** SELECTED FOR SCHEMATIC (Gate F — for review)
+- **Requirement(s):** REQ-MEAS-001/002, REQ-CAL-003 (LSB ≠ accuracy)
+- **Alternatives considered:** AVDD 5/AVSS 0 vs ±2.5 bipolar; VREF 2.5 vs 5.0; PGA bypass vs 1–32; external pre-gain 100× (AD7175) vs PGA-only vs hybrid 1.56–3.13×; TVS vs BAV199 clamp; single amp vs per-range ADA4522/OPA140
+- **Evidence examined:** TI ADS1262 Rev C SBAS661C Table 7-1/7-2 Eq12 Fig7-27..30: `FSR=±VREF/G` (Gain 1–32), `VREF` 0.9–5.2 V, absolute `AVSS+0.30≤AIN≤AVDD−0.30` with VCM ±G·Vdiff/2 inside same, PGAL/H ALM, bias 2 nA @G32 /1 GΩ Zin; VREF LTC6655-2.5 vs ADR4525; SHUNT D table 25/50/100 mV; OPA140 0.5 pA typ/10 pA max SBOS498F vs ADA4522 50 pA; BAV199 3 pA vs TVS 1 µA vs PAD5 0.1 pA; C0G DA <0.1% vs X7R 1%
+- **Decision:** **ADS1262 PRIMARY** with AVDD 5 V/AVSS 0 V/VREF 2.5 LTC6655 LN/DVDD 3.3, gain per-range **PGA table:** 10 mA/1 mA 25 mV→PGA32 FS78.125 mV 32% 3.13× headroom; 100 µA/10 µA 50 mV→PGA32 FS78 64% 1.56×; 1 µA/100 nA 100 mV→**PGA16 FS156 64%** (PGA32 clips FS78<100). **External pre-gain NOT mandatory** (hybrid provides VCM shift + leakage isolation, optional 1.56/3.13× DNP). Chain: `ISENSE_P/N_K → R_prot 1k 0.1% → BAV199 clamp to AVDD/AVSS (3pA, NO TVS) → RC 1k+10n C0G diff 8 kHz (CM 16k) → buffer → VCM=2.5V (divider 100k/100k+1u) → 1k+1n → AIN0/1`, PGA per-range + STATUS PGAL/H check, REFP/REFN 10u+100n, AINCOM 2.5. Buffers: **ADA4522** (5 µV 50 pA) for 2.5Ω–5kΩ low-R, **OPA140 JFET** (0.5pA) for 100k/1M high-R — per-range reed mux <1 pA. RC anti-alias + RC after buffer.
+- **Rationale:** With AVSS=0, direct shunt 0–100 mV violates 0.30 V PGA window → PGAL_ALM (TI E2E). VCM shift to 2.5 (mid-supply) restores headroom: 2.5±G·Vdiff/2 stays in 0.30–4.70 for all 6 shunts (max 3.3 V). ADC 2 nA bias through 1 MΩ would be 2 mV/20× FS → needs JFET buffer isolation (<10 pA audit: OPA140 0.5pA + BAV199 3pA + reed <1pA + PCB guard 2pA ≈7.5 pA typ <10 pA; max 18 pA requires guard+binned). TVS 1 µA would destroy 100 nA budget; BAV199 3 pA passes. PGA utilization 32–64% leaves 1.56–3.13× overload headroom.
+- **Consequences:** Schematic `06_CURRENT_FRONTEND_ADC 0.2` wired; layout: BAV199+RC+buffers colocated, guard ring on OPA140 inputs (exposed 0.5 mm, stitched DNP), C0G only on high-Z, no vias on sense, PGAL/H firmware trap, REFP Kelvin. Alternate AD7175 DNP (needs ext 25–100×) retained. Verify VCM compliance and leak <10pA per audit.
+- **Verification status:** DATASHEET RE-DERIVED + SCHEMATIC WIRED — UNVERIFIED bench (VCM window scope, pA leak open-input 100 s, noise PSD vs PGA, PGAL trigger, overload recovery <10 ms).
+- **Provenance:** `docs/calculations/ADS1262_ANALOG_RANGE_DERIVATION.md` + `pga_table_calc.py` (100/50/25 ideal → 32/32/16) + TI SBAS661C Eq12 + TI blog “Riding the Rails” + OPA140 SBOS498F + BAV199 DS.
+
+### DEC-035 — Phase 7 Gate C/E: 03_OUTPUT_STAGE LT1970A Detailed + 04_KELVIN_SENSE K1 Differential + Reed Isolation (Gates C/E)
+
+- **Date:** 2026-08-25
+- **Status:** SELECTED FOR SCHEMATIC (Gate C — 03_OUTPUT_STAGE rev0.2 + Gate E — 04_KELVIN_SENSE rev0.2, DEC-032, R5.1E)
+- **Requirement(s):** REQ-SRC-001/002/005/006 (±5 V/±2 V 4-quad ±10 mA), REQ-DUT-001 Kelvin >10 GΩ, REQ-SAFE-001/003, REQ-MEAS-002/003/007, REQ-PWR-003
+- **Alternatives considered:** Gate C — R_iso 33 vs 47 vs 0Ω/wire vs parallel; FILTER 220 pF fixed vs DNP/open baseline 1 nF–100 nF; VCSRC/SNK direct vs clamped; ISRC/ISNK pull-down vs pull-up; COM tied vs reference. Gate E — K1 2×OPA140+4×10k 0.1% diff vs K2 LT5400 0.01% tracking vs K3 INA AD8422/INA826/INA116 (see `docs/architecture/DEC-032_KELVIN_DIFFERENTIAL_TOPOLOGY.md`).
+- **Evidence examined:** LT1970A 1970afc (p12 Vsense=Vc/10 floor 4 mV Vc<60 mV nonlinear, FILTER 1 kΩ internal 1 nF–100 nF range, TSSOP-20 EP=V−, ±12 V→±10.3 V swing, GBW 3.6 MHz SR 1.6 V/µs, ISRC/ISNK OC), OPA140 SBOS498F (Ib 0.5 pA typ/10 pA max, Vos 120 µV, 1 µV/°C, 5.1 nV, 11 MHz), LT5400 0.01% 0.2 ppm tracking, AD8422 500 pA fail, INA826 35 nA fail, R5.1 vendor LT1970.sub ±12 V OUT→R_iso→DUT→shunt low-side + differential Kelvin (transient stable PM inconclusive), R5.1E vendor+real OPA140 K1 11 benches 100 pF/1 nF +0.1/+2/−2 V CV/CC (LTspice 26.0.2.1, OPAx140.LIB, 10 MHz pole)
+- **Decision:** **Gate C — LT1970A detailed (U301 TSSOP-20):** OUT→R_iso **FIT ONE ONLY** R302 47 PRIMARY + R301 33 DNP (not parallel, overlapping pads, default 47 sweet spot P3IR-02, 33 DNP loop-tune), FILTER→C301 DNP/open baseline 1 nF–100 nF footprint to SENSE− (1970afc range, prev 220 p outside → DNP), VCSRC/SNK 0–5 V via 1 kΩ + BZX84C5V1 5.1 V Zener to COM (clamped), ENABLE 47 k pull-down HW-safe default, ISRC/ISNK 10 k→+3V3 OC (R304/R305, verified Source 0.03/3.3 V, Sink opposite in R5.1), COM=GND, NC10/11/18 1 MΩ→GND, supplies VCC/V+ +12 V (100 nF+10 µF C302/C303/C304) / VEE/V− −12 V (100 nF+10 µF C305/C306), EP=V− stitched 4 vias. **Gate E — K1 PRIMARY:** SENSE_HI→K301 Coto9007 (<1 pA 1 pF) →U401A OPA140 follower (5 pF Cin, 10 GΩ) →R401/R402 10 k 0.1% →U402 OPA140 diff (R403/R404 10 k, C401 15 pF 10.6 MHz → VDIFF→LT1970 −IN); SENSE_LO same via K302→U401B; diff gain=1. **K2 provision:** U403 LT5400-3 QFN overlapping R401–404 DNP (K1 FIT/K2 DNP) for 86 dB vs 54 dB if CMRR insufficient. **K3 REJECTED.** Open-sense reed isolation: weak 10 MΩ pulls R405/R406 behind K301/K302 NO contacts → window comp U404 TLV3501 |Vdiff−Vforce|>0.5 V flags OPEN_SENSE_FLAG→SR latch (08 MCU) → reeds OPEN before OUTPUT ON, latch OFF (sticky, fallback to FORCE divider, re-arm only SENS:REM ON + OUTPUT cycle), Coff <1 pA disconnected during meas (IR-03 switched, ≥10 GΩ). Guard keepout on sense pair, TP401–403.
+- **Rationale:** Gate C preserves R5.1 sweet spot (47 stable 10 pF–1 nF, 33 alt) without parallel FIT risk; FILTER DNP baseline matches 1970afc 1 n–100 n (220 p outside → DNP); Zener clamp protects Vc 0–5 V (Vc>5 destroys Vsense); pull-ups to 3V3 match MCU logic (open-collector, R5.1 proven) vs pull-down fails. Gate E Ib is gate — only K1/K2 meet ≤10 pA (INA 350 pA–35 nA fails 1 GΩ 1% →35 V error); K1 simplest single BOM (3×OPA140) with adequate CMRR 54 dB (4 mV @2 V CM, cal removes gain, prototype K2 upgrade no re-spin), R5.1E vendor+real K1 shows CV error <1.35 mV, OS 12% @2 V /37% @0.1 V damped <8 µs (44% risk preserved, slew mitigation provisioned in 02 1 k+1 n + fw ≤10 mV/µs), CC +2.57% within LT1970 2% grade, sink symmetric, no oscillation.
+- **Consequences:** Schematics 03 rev0.2 + 04 rev0.2 wired per above; BOM: LT1970AIFE, OPA140×3, LT5400 DNP, Coto9007×2, TLV3501, BZX84×2; layout: overlapping R_iso pads (FIT ONE), FILTER keepout, sense pair guard, reed Coff routing, EP vias; fw: slew ramp for <0.5 V reads, latch OFF handling.
+- **Verification status:** SCHEMATIC WIRED+LTSPICE VENDOR+REAL KELVIN (R5.1E 11 benches PASS CONDITIONAL, PM inconclusive encrypted macro — prototype gate remains per P3IR-05). Bench pending: 0.1 V step 10 k–1 MΩ 100 pF/1 nF prototype OS, 1 GΩ@0.5 V Ib/T-monitor, CMRR sweep, open-sense latch scope.
+- **Provenance:** 1970afc + SBOS498F + LT5400 DS + AD8422/INA826 DS + `docs/architecture/DEC-032_KELVIN_DIFFERENTIAL_TOPOLOGY.md` + `simulation/results/phase3/R5P1E_GATE_E_REAL_KELVIN_RESULTS.md` + R5.1 results.
+
+
+### DEC-036 — Pre-ERC LT1970A Physical Pinout Correction
+
+- **Date:** 2026-08-25
+- **Status:** ACCEPTED — SUPERSEDES embedded LT1970A symbol pin 10/11/18 NC assumption
+- **Requirement(s):** REQ-SRC-001/002, REQ-SAFE-001
+- **Evidence:** Analog Devices 1970afc.pdf TSSOP-20 physical pin table: 10 VEE, 11 VEE, 18 TSD, 19 V+, 20 VEE, EP21 VEE (LTspice SpiceOrder ≠ package). Previous sheet NC10/11/18 1M→GND was physical error.
+- **Decision:** **LT1970A symbol rebuilt: 10/11/20/21 VEE power_in -> -12V_A (4x + EP), 18 TSD open_collector -> 10k to 3V3.** VEE pins directly tied to -12V_A with PWR_FLAG, not via 1M. TSD flagged to MCU. Never connect physical 10/11/18 as NC — project rule.
+- **Verification:** DATASHEET VERIFIED — KiCad DRC pin_not_connected resolved via -12V power stubs.
+
+### DEC-037 — Pre-ERC ADS1262 Package Correction
+
+- **Date:** 2026-08-25
+- **Status:** ACCEPTED
+- **Evidence:** TI SBAS661C Rev C: ADS1262 PW = TSSOP-28 9.7×4.4 P0.65, not TQFP-32 5×5. Previous QFP footprint wrong.
+- **Decision:** **ADS1262 footprint corrected to Package_SO:TSSOP-28_9.7x4.4mm_P0.65mm, value ADS1262IPW TSSOP-28 PW.** Curated symbol in lib/ReRAM-SMU-V1.kicad_sym to be rebuilt from SBAS661C pin table before final wiring.
+- **Verification:** DATASHEET VERIFIED.
+
+### DEC-038 — Pre-ERC MCU Package Resolution (Supersedes DEC-032)
+
+- **Date:** 2026-08-25
+- **Status:** SELECTED FOR SCHEMATIC — SUPERSEDES DEC-032 (G474 PRIMARY)
+- **Requirement(s):** REQ-SW-001/002/004
+- **Evidence:** STM32G431KBT6 LQFP32 5×5 32 pins (26 GPIOs) insufficient for 30-36 GPIO need (see PRE_ERC_MANUFACTURER_CORRECTIONS §3). G431RBT6 LQFP64 10×10 64 pins (51 GPIOs) matches 64-pin power map, same G431 family as KBT6. G474 RET6 (512KB HRTIM) was placeholder without DEC justification.
+- **Decision:** **PRIMARY: STM32G431RBT6 LQFP64 10×10 P0.5** for REV-A. KBT6 LQFP32 kept as DNP alternate if pin count can be reduced later. G474 RET6 rejected for V1 — no G4 feature gap requires 512KB/HRTIM for <95KB FW. Identical HAL/CubeMX family, soft downgrade.
+- **Consequences:** 08_MCU_USB_CONTROL value G474RET6 -> G431RBT6.
+
+### DEC-039 — Pre-ERC FAST_TRIP Latch Correction
+
+- **Date:** 2026-08-25
+- **Status:** ACCEPTED
+- **Evidence:** Maxim MAX16054 datasheet: IN debounced 50ms typ, only _RST undelayed. FAST_TRIP 50ms delay would allow DUT damage.
+- **Decision:** **FAST_TRIP direct hardware kill: TLV3501 (4.5ns) -> diode-OR -> 74LVC1G74 D-FF async SET (ns/µs) + direct ENABLE LOW via 74LVC1G08 AND.** MAX16054 retained only for POR debounce. Latch stores fault for MCU; kill is independent of firmware and debounce-free.
+- **Verification:** DATASHEET VERIFIED — timing <10µs Kill vs 50ms debounce.
+
+### DEC-040 — Pre-ERC Kelvin CMRR Promotion (Supersedes K1 discrete PRIMARY)
+
+- **Date:** 2026-08-25
+- **Status:** ACCEPTED — PROMOTES LT5400
+- **Evidence:** Discrete 4×10k 0.1%/25ppm CMRR ≈54dB -> 5V CM error 10mV >>0.5mV target; TC drift 6.25mV/50°C. LT5400 0.01%/0.2ppm -> 86dB -> 0.25mV, TC 0.05mV (see PRE_ERC §5).
+- **Decision:** **LT5400A-3 matched network 0.01% 0.2ppm PROMOTED to PRIMARY for Kelvin diff.** Discrete 4×10k kept as DNP alternate overlapping LT5400 footprint (K1 FIT / LT5400 DNP swap). Rerun DC CM/ratio-TC + LTspice with vendor LT1970 before freezing.
+- **Verification:** CALCULATED + SCHEMATIC PROVISIONAL — LTspice re-run pending.
+
+### DEC-041 — Pre-ERC AD5764 Rail Margin
+
+- **Date:** 2026-08-25
+- **Status:** ACCEPTED
+- **Evidence:** AD5764 Rev C: AVDD min 11.4V. ±12V ±5% gives 11.4V exactly at connector, no 50mV drop + 20mV ripple + wiring margin -> 11.23V fails at IC.
+- **Decision:** **Guaranteed at IC: AVDD ≥11.8V, AVSS ≤-11.8V.** Bench supply nominal **+12.5V ±2% (12.25–12.75V)** OR **±12V ±2% + rail-valid comparator 11.6V (divider + TPS3808) holding ENABLE**. Connector drop <50mV, ripple <20mV (ferrite LC π). Absolute max 16.5V safe (<12.8V).
+- **Consequences:** 01_POWER note updated; bench spec updated; rail-valid holds LT1970 ENABLE.
+
+### DEC-042 — Pre-ERC ADS1262 Supply Topology Preference
+
+- **Date:** 2026-08-25
+- **Status:** SELECTED FOR SCHEMATIC
+- **Evidence:** TI SBAS661C §7: ADS1262 supports ±2.5V bipolar analog (AVDD +2.5V, AVSS -2.5V) for ground-centered ±100mV direct measurement without VCM shift. Single-supply 5V/0V + VCM 2.5V requires 2 extra opamps, 2× Ib, extra leakage vs bipolar.
+- **Decision:** **PREFER bipolar ±2.5V (AVDD +2.5V LT3045, AVSS -2.5V LT1964) for 100nA low-leakage.** Direct 0V-centered ±100mV shunt, PGA 16, no level shift. Single-supply VCM 2.5V kept as DNP alternate.
+- **Verification:** DATASHEET VERIFIED — leakage audit favors bipolar (<5pA vs +2× bias).
+
+---
+*Append new decisions at the end. Never delete a decision — supersede it with a new DEC entry referencing the old one.*
+
+---

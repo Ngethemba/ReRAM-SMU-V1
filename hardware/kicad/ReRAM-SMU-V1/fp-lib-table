@@ -1,0 +1,4 @@
+(fp_lib_table
+	(version 7)
+	(lib (name "ReRAM-SMU-V1") (type "KiCad") (uri "${KIPRJMOD}/lib/footprints") (options "") (descr "Project-local footprints for ReRAM-SMU-V1"))
+)

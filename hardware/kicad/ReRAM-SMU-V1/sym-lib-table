@@ -1,0 +1,4 @@
+(sym_lib_table
+	(version 7)
+	(lib (name "ReRAM-SMU-V1") (type "KiCad") (uri "${KIPRJMOD}/lib/ReRAM-SMU-V1.kicad_sym") (options "") (descr "Project-local curated symbols for ReRAM-SMU-V1 - precision analog, no global deps"))
+)
