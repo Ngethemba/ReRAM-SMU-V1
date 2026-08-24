@@ -1,0 +1,12 @@
+{
+  "board": {"design_settings": {}},
+  "boards": [],
+  "cvpcb": {},
+  "erc": {},
+  "libraries": {},
+  "meta": {"filename": "ReRAM-SMU-V1.kicad_pro", "version": 1},
+  "net_settings": {},
+  "pcbnew": {},
+  "schematic": {},
+  "sheet_settings": {}
+}
