@@ -1,0 +1,39 @@
+* Gate 4 Test G — Bipolar diff-amp level-shift (Strategy B)
+* Single +5V supply, VCM=2.5V, gain G_post = 3.125x (high-I) / 0.78125x (low-I)
+* Demonstrates: -100mV -> VCM-0.078V, +100mV -> VCM+0.078V, 0 -> VCM
+* Behavioral gain stage using E-source (ideal) + rail headroom check
+* Run: ngspice_con.exe -b test_G_bipolar.cir
+
+.title Gate4-G Bipolar Level-Shift Diff-Amp
+
+* --- Supplies ---
+Vcc  vcc 0 DC 5
+Vcm  vcm 0 DC 2.5
+
+* --- Shunt differential input sweep ---
+Vshunt_p inp 0 DC 0
+Vshunt_n inn 0 DC 0
+
+* --- Behavioral diff-amp: Vout = Vcm + G_post * (Vinp - Vinn) ---
+* Low-gain path (100mV FS -> 0.78125x): maps +-100mV -> +-78.125mV
+Eout_low  out_low 0 VALUE={V(vcm) + 0.78125*(V(inp)-V(inn))}
+* High-gain path (25mV FS -> 3.125x): maps +-25mV -> +-78.125mV
+Eout_high out_high 0 VALUE={V(vcm) + 3.125*(V(inp)-V(inn))}
+* Full-gain (no PGA) path: 25x / 100x — hits rails, for illustration
+Eout_full_100mV out_full100 0 VALUE={V(vcm) + 25*(V(inp)-V(inn))}
+Eout_full_25mV  out_full25 0 VALUE={V(vcm) + 100*(V(inp)-V(inn))}
+
+* Clamped versions using limit via B-source with max/min
+Bclamp_low  out_low_c 0 V = max(0.1, min(4.9, V(out_low)))
+Bclamp_high out_high_c 0 V = max(0.1, min(4.9, V(out_high)))
+Bclamp_f100 out_f100_c 0 V = max(0.1, min(4.9, V(out_full100)))
+Bclamp_f25  out_f25_c 0 V = max(0.1, min(4.9, V(out_full25)))
+
+.control
+set filetype=ascii
+dc Vshunt_p -0.1 0.1 0.01
+print V(inp) V(out_low) V(out_low_c) V(out_high) V(out_high_c) V(out_full100) V(out_f100_c)
+wrdata test_G_bipolar_raw.csv V(out_low) V(out_high) V(out_full100) V(out_full25)
+.endc
+
+.end

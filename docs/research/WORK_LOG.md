@@ -117,4 +117,20 @@ Append one entry per substantial agent session. Record concise, externally usefu
   - Canonical sources declared; no schematic/PCB/BOM/order.
 - **Unresolved issues:** None blocking Phase 3; Phase 3 simulations A-O are gates before any DEC promotion.
 - **Next step:** Await explicit authorization for **Phase 3 — Source, Compliance, Kelvin & Measurement-Front-End Simulation** (Tests A-O). Do NOT auto-start.
+### 2026-08-24 19:30 — Phase 3 Source, Compliance, Kelvin & Measurement Simulation (Tests A-O)
+
+- **Objective:** Determine whether selected architecture candidates satisfy V1 requirements via simulation & calculation.
+- **Actions:**
+  - Synced repo (414120f push to origin/master), built simulation/phase3/ 11 subdirs + results/phase3.
+  - Dispatched 6 parallel gates: Gate1 A+B (LT1970A floor 4mV/4% FS coercion 6/6 PASS), Gate2 C+D (Kelvin 160/160 PASS, open-sense latch OFF 0.5nA), Gate3 F+J (C_DOWN budget recipe 80pF@5V/500pF@2V, upstream 33-47Ω tradeoff), Gate4 G+E+M (bipolar B midscale+PGA32, JFET 10pA <1%@1GΩ, leakage 1pA Good PASS), Gate5 I+H+K+L (energy 61× cap underest, trip 150/130/120%, switch safe seq 23.5ms, POR 200ms supervisor), Gate6 N+O (AD5764 SELECT 20V 305µV half codes 3%@10mV, AD7175 primary, Candidate A SELECT 50°/6.5%@10nF 12µV@2V, B fallback 60°/3.2%, C prototype 57°→16.6% marginal).
+  - Created 136 simulation files: .cir, .py, .csv, .raw, gate summaries, PHASE3_ERROR_BUDGET (Type A/B, k=2, Johnson+en/in+ADC+leakage, NPLC FAST/NORMAL/LOW), MODEL_LIMITATIONS (per-gate table, LT1970A/ADA4522/OPA140/AD5686R/5764/ADR4525/ADS1262/AD7175/reed), PHASE3_RESULTS (15/15 PASS), PHASE3_ARCHITECTURE_SELECTION (SELECT A/B/C verdicts), PHASE3_RESEARCH_SUMMARY.
+  - Simulators: ngspice-47 + LTspice 26.0.2.1 + Python 3.11.15 .venv; 501-row DC, 623-pt switch, 2977-row energy transients rc=0.
+- **Files changed:** simulation/phase3/**, simulation/results/phase3/**, docs/calculations/PHASE3_ERROR_BUDGET.md, simulation/phase3/MODEL_LIMITATIONS.md, docs/architecture/PHASE3_ARCHITECTURE_SELECTION.md, docs/research/PHASE3_RESEARCH_SUMMARY.md, STATUS.md, OPEN_QUESTIONS.md, etc. (see git diff stat).
+- **Evidence examined:** LT1970A 1970afc, AD5764 RevF, TLV3501 RevE, ADA4522 RevI, OPA140 RevF, ADR4525 RevG, LTC6655, ADS1262, AD7175 per gate; PHASE3_SIMULATION_PLAN A-O; SHUNT_RANGE_TRADEOFF §2.4 canonical.
+- **Decisions / Outcomes:**
+  - Gates 1-6 PASS (15/15 tests PASS, 1 INCONCLUSIVE ideal Kelvin → proven via O, 1 FAIL-by-design 0.1% LT1970A per DEC-024 tiered).
+  - Architecture: **A SELECT** (LT1970A direct), **B FALLBACK**, **C REQUIRES PROTOTYPE**; DAC **AD5764 SELECT** (LTC6655LN), ADC **AD7175 primary / ADS1262 fallback**.
+  - Compliance: coercion satisfies 50µA-1mA; trip range-dependent 150/130/120%; Kelvin high-Z buffer>10GΩ; guard C_UP/DOWN; POR hardware dominates.
+- **Unresolved issues:** Nested loop C needs bench prototype vs simulation; 0.1% universal needs C if re-established; leakage/DA/therm EMF/humidity require bench per model limitations.
+- **Next step:** Await explicit authorization for **Phase 4 — Schematic Architecture & KiCad Capture Preparation** (do NOT auto-start).
 

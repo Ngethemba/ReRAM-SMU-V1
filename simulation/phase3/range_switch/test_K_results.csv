@@ -1,0 +1,261 @@
+from_range,to_range,from_R,to_R,fault,I_dut_A,I_dut_pct_FS_to,output_enabled,in_compliance,R_eff,Vshunt_V,overload_x,vsense_err_pct,compliance_err_pct,overstress_mW,Idut_transient_A,risk,safe_seq_required
+10mA,1mA,2.5,25,correct_BBM,1.000e-04,10%,False,False,2.500e+01,2.500e-03,0.10,0.0,0.0,0.000,1.000e-04,LOW safe when disabled,BBM+10ms
+10mA,1mA,2.5,25,correct_BBM,1.000e-04,10%,True,False,2.500e+01,2.500e-03,0.10,0.0,0.0,0.000,1.000e-04,MEDIUM hot BBM gap - voltage spike if not disabled,BBM+10ms
+10mA,1mA,2.5,25,correct_BBM,1.000e-03,100%,False,False,2.500e+01,2.500e-02,1.00,0.0,0.0,0.025,1.000e-03,LOW safe when disabled,BBM+10ms
+10mA,1mA,2.5,25,correct_BBM,1.000e-03,100%,True,False,2.500e+01,2.500e-02,1.00,0.0,0.0,0.025,1.000e-03,MEDIUM hot BBM gap - voltage spike if not disabled,BBM+10ms
+10mA,1mA,2.5,25,correct_BBM,1.500e-03,150%,True,True,2.500e+01,3.750e-02,1.50,0.0,0.0,0.056,1.000e-03,MEDIUM hot BBM gap - voltage spike if not disabled,BBM+10ms
+10mA,1mA,2.5,25,make_before_break,1.000e-04,10%,False,False,2.273e+00,2.273e-04,0.01,-90.9,-90.9,0.000,1.000e-04,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+10mA,1mA,2.5,25,make_before_break,1.000e-04,10%,True,False,2.273e+00,2.273e-04,0.01,-90.9,-90.9,0.000,1.000e-04,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+10mA,1mA,2.5,25,make_before_break,1.000e-03,100%,False,False,2.273e+00,2.273e-03,0.09,-90.9,-90.9,0.002,1.000e-03,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+10mA,1mA,2.5,25,make_before_break,1.000e-03,100%,True,False,2.273e+00,2.273e-03,0.09,-90.9,-90.9,0.002,1.000e-03,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+10mA,1mA,2.5,25,make_before_break,1.500e-03,150%,True,True,2.273e+00,3.409e-03,0.14,-90.9,1000.0,0.005,1.100e-02,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+10mA,1mA,2.5,25,stuck_short,1.000e-04,10%,False,False,2.500e+00,2.500e-04,0.01,-90.0,-90.0,0.000,1.000e-04,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+10mA,1mA,2.5,25,stuck_short,1.000e-04,10%,True,False,2.500e+00,2.500e-04,0.01,-90.0,-90.0,0.000,1.000e-04,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+10mA,1mA,2.5,25,stuck_short,1.000e-03,100%,False,False,2.500e+00,2.500e-03,0.10,-90.0,-90.0,0.002,1.000e-03,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+10mA,1mA,2.5,25,stuck_short,1.000e-03,100%,True,False,2.500e+00,2.500e-03,0.10,-90.0,-90.0,0.002,1.000e-03,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+10mA,1mA,2.5,25,stuck_short,1.500e-03,150%,True,True,2.500e+00,3.750e-03,0.15,-90.0,900.0,0.006,1.000e-02,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+10mA,1mA,2.5,25,open_relay,1.000e-04,10%,False,False,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+10mA,1mA,2.5,25,open_relay,1.000e-04,10%,True,False,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+10mA,1mA,2.5,25,open_relay,1.000e-03,100%,False,False,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+10mA,1mA,2.5,25,open_relay,1.000e-03,100%,True,False,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+10mA,1mA,2.5,25,open_relay,1.500e-03,150%,True,True,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+10mA,1mA,2.5,25,contact_bounce,1.000e-04,10%,False,False,2.500e+01,2.500e-03,0.10,0.0,0.0,0.000,1.000e-04,MEDIUM,BBM+10ms
+10mA,1mA,2.5,25,contact_bounce,1.000e-04,10%,True,False,2.500e+01,2.500e-03,0.10,0.0,0.0,0.000,1.000e-04,MEDIUM,BBM+10ms
+10mA,1mA,2.5,25,contact_bounce,1.000e-03,100%,False,False,2.500e+01,2.500e-02,1.00,0.0,0.0,0.025,1.000e-03,MEDIUM,BBM+10ms
+10mA,1mA,2.5,25,contact_bounce,1.000e-03,100%,True,False,2.500e+01,2.500e-02,1.00,0.0,0.0,0.025,1.000e-03,MEDIUM,BBM+10ms
+10mA,1mA,2.5,25,contact_bounce,1.500e-03,150%,True,True,2.500e+01,3.750e-02,1.50,0.0,0.0,0.056,1.000e-03,MEDIUM,BBM+10ms
+10mA,1mA,2.5,25,hot_switch_compliance,1.500e-03,150%,True,True,2.500e+01,3.750e-02,1.50,0.0,0.0,0.056,1.000e-03,MEDIUM,BBM+10ms
+1mA,10mA,25,2.5,correct_BBM,1.000e-03,10%,False,False,2.500e+00,2.500e-03,0.10,0.0,0.0,0.002,1.000e-03,LOW safe when disabled,BBM+10ms
+1mA,10mA,25,2.5,correct_BBM,1.000e-03,10%,True,False,2.500e+00,2.500e-03,0.10,0.0,0.0,0.002,1.000e-03,MEDIUM hot BBM gap - voltage spike if not disabled,BBM+10ms
+1mA,10mA,25,2.5,correct_BBM,1.000e-02,100%,False,False,2.500e+00,2.500e-02,1.00,0.0,0.0,0.250,1.000e-02,LOW safe when disabled,BBM+10ms
+1mA,10mA,25,2.5,correct_BBM,1.000e-02,100%,True,False,2.500e+00,2.500e-02,1.00,0.0,0.0,0.250,1.000e-02,MEDIUM hot BBM gap - voltage spike if not disabled,BBM+10ms
+1mA,10mA,25,2.5,correct_BBM,1.500e-02,150%,True,True,2.500e+00,3.750e-02,1.50,0.0,0.0,0.562,1.000e-02,MEDIUM hot BBM gap - voltage spike if not disabled,BBM+10ms
+1mA,10mA,25,2.5,make_before_break,1.000e-03,10%,False,False,2.273e+00,2.273e-03,0.09,-9.1,-9.1,0.002,1.000e-03,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+1mA,10mA,25,2.5,make_before_break,1.000e-03,10%,True,False,2.273e+00,2.273e-03,0.09,-9.1,-9.1,0.002,1.000e-03,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+1mA,10mA,25,2.5,make_before_break,1.000e-02,100%,False,False,2.273e+00,2.273e-02,0.91,-9.1,-9.1,0.227,1.000e-02,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+1mA,10mA,25,2.5,make_before_break,1.000e-02,100%,True,False,2.273e+00,2.273e-02,0.91,-9.1,-9.1,0.227,1.000e-02,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+1mA,10mA,25,2.5,make_before_break,1.500e-02,150%,True,True,2.273e+00,3.409e-02,1.36,-9.1,10.0,0.511,1.100e-02,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+1mA,10mA,25,2.5,stuck_short,1.000e-03,10%,False,False,2.500e+01,2.500e-02,1.00,900.0,900.0,0.025,1.000e-03,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+1mA,10mA,25,2.5,stuck_short,1.000e-03,10%,True,False,2.500e+01,2.500e-02,1.00,900.0,900.0,0.025,1.000e-03,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+1mA,10mA,25,2.5,stuck_short,1.000e-02,100%,False,False,2.500e+01,2.500e-01,10.00,900.0,900.0,2.500,1.000e-02,"HIGH ADC overload, recovery 10ms",BBM+disable+21ms blank
+1mA,10mA,25,2.5,stuck_short,1.000e-02,100%,True,False,2.500e+01,2.500e-01,10.00,900.0,900.0,2.500,1.000e-02,"HIGH ADC overload, recovery 10ms",BBM+disable+21ms blank
+1mA,10mA,25,2.5,stuck_short,1.500e-02,150%,True,True,2.500e+01,3.750e-01,15.00,900.0,-90.0,5.625,1.000e-03,"CRITICAL ADC severe overload, input ESD clamp may conduct",BBM+disable+21ms blank
+1mA,10mA,25,2.5,open_relay,1.000e-03,10%,False,False,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+1mA,10mA,25,2.5,open_relay,1.000e-03,10%,True,False,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+1mA,10mA,25,2.5,open_relay,1.000e-02,100%,False,False,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+1mA,10mA,25,2.5,open_relay,1.000e-02,100%,True,False,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+1mA,10mA,25,2.5,open_relay,1.500e-02,150%,True,True,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+1mA,10mA,25,2.5,contact_bounce,1.000e-03,10%,False,False,2.500e+00,2.500e-03,0.10,0.0,0.0,0.002,1.000e-03,MEDIUM,BBM+10ms
+1mA,10mA,25,2.5,contact_bounce,1.000e-03,10%,True,False,2.500e+00,2.500e-03,0.10,0.0,0.0,0.002,1.000e-03,MEDIUM,BBM+10ms
+1mA,10mA,25,2.5,contact_bounce,1.000e-02,100%,False,False,2.500e+00,2.500e-02,1.00,0.0,0.0,0.250,1.000e-02,MEDIUM,BBM+10ms
+1mA,10mA,25,2.5,contact_bounce,1.000e-02,100%,True,False,2.500e+00,2.500e-02,1.00,0.0,0.0,0.250,1.000e-02,MEDIUM,BBM+10ms
+1mA,10mA,25,2.5,contact_bounce,1.500e-02,150%,True,True,2.500e+00,3.750e-02,1.50,0.0,0.0,0.562,1.000e-02,MEDIUM,BBM+10ms
+1mA,10mA,25,2.5,hot_switch_compliance,1.500e-02,150%,True,True,2.500e+00,3.750e-02,1.50,0.0,0.0,0.562,1.000e-02,MEDIUM,BBM+10ms
+1mA,100uA,25,500,correct_BBM,1.000e-05,10%,False,False,5.000e+02,5.000e-03,0.10,0.0,0.0,0.000,1.000e-05,LOW safe when disabled,BBM+10ms
+1mA,100uA,25,500,correct_BBM,1.000e-05,10%,True,False,5.000e+02,5.000e-03,0.10,0.0,0.0,0.000,1.000e-05,MEDIUM hot BBM gap - voltage spike if not disabled,BBM+10ms
+1mA,100uA,25,500,correct_BBM,1.000e-04,100%,False,False,5.000e+02,5.000e-02,1.00,0.0,0.0,0.005,1.000e-04,LOW safe when disabled,BBM+10ms
+1mA,100uA,25,500,correct_BBM,1.000e-04,100%,True,False,5.000e+02,5.000e-02,1.00,0.0,0.0,0.005,1.000e-04,MEDIUM hot BBM gap - voltage spike if not disabled,BBM+10ms
+1mA,100uA,25,500,correct_BBM,1.500e-04,150%,True,True,5.000e+02,7.500e-02,1.50,0.0,0.0,0.011,1.000e-04,"HIGH ADC overload, recovery 10ms",BBM+disable+21ms blank
+1mA,100uA,25,500,make_before_break,1.000e-05,10%,False,False,2.381e+01,2.381e-04,0.00,-95.2,-95.2,0.000,1.000e-05,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+1mA,100uA,25,500,make_before_break,1.000e-05,10%,True,False,2.381e+01,2.381e-04,0.00,-95.2,-95.2,0.000,1.000e-05,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+1mA,100uA,25,500,make_before_break,1.000e-04,100%,False,False,2.381e+01,2.381e-03,0.05,-95.2,-95.2,0.000,1.000e-04,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+1mA,100uA,25,500,make_before_break,1.000e-04,100%,True,False,2.381e+01,2.381e-03,0.05,-95.2,-95.2,0.000,1.000e-04,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+1mA,100uA,25,500,make_before_break,1.500e-04,150%,True,True,2.381e+01,3.571e-03,0.07,-95.2,2000.0,0.001,2.100e-03,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+1mA,100uA,25,500,stuck_short,1.000e-05,10%,False,False,2.500e+01,2.500e-04,0.01,-95.0,-95.0,0.000,1.000e-05,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+1mA,100uA,25,500,stuck_short,1.000e-05,10%,True,False,2.500e+01,2.500e-04,0.01,-95.0,-95.0,0.000,1.000e-05,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+1mA,100uA,25,500,stuck_short,1.000e-04,100%,False,False,2.500e+01,2.500e-03,0.05,-95.0,-95.0,0.000,1.000e-04,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+1mA,100uA,25,500,stuck_short,1.000e-04,100%,True,False,2.500e+01,2.500e-03,0.05,-95.0,-95.0,0.000,1.000e-04,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+1mA,100uA,25,500,stuck_short,1.500e-04,150%,True,True,2.500e+01,3.750e-03,0.07,-95.0,1900.0,0.001,2.000e-03,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+1mA,100uA,25,500,open_relay,1.000e-05,10%,False,False,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+1mA,100uA,25,500,open_relay,1.000e-05,10%,True,False,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+1mA,100uA,25,500,open_relay,1.000e-04,100%,False,False,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+1mA,100uA,25,500,open_relay,1.000e-04,100%,True,False,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+1mA,100uA,25,500,open_relay,1.500e-04,150%,True,True,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+1mA,100uA,25,500,contact_bounce,1.000e-05,10%,False,False,5.000e+02,5.000e-03,0.10,0.0,0.0,0.000,1.000e-05,MEDIUM,BBM+10ms
+1mA,100uA,25,500,contact_bounce,1.000e-05,10%,True,False,5.000e+02,5.000e-03,0.10,0.0,0.0,0.000,1.000e-05,MEDIUM,BBM+10ms
+1mA,100uA,25,500,contact_bounce,1.000e-04,100%,False,False,5.000e+02,5.000e-02,1.00,0.0,0.0,0.005,1.000e-04,MEDIUM,BBM+10ms
+1mA,100uA,25,500,contact_bounce,1.000e-04,100%,True,False,5.000e+02,5.000e-02,1.00,0.0,0.0,0.005,1.000e-04,MEDIUM,BBM+10ms
+1mA,100uA,25,500,contact_bounce,1.500e-04,150%,True,True,5.000e+02,7.500e-02,1.50,0.0,0.0,0.011,1.000e-04,"HIGH ADC overload, recovery 10ms",BBM+disable+21ms blank
+1mA,100uA,25,500,hot_switch_compliance,1.500e-04,150%,True,True,5.000e+02,7.500e-02,1.50,0.0,0.0,0.011,1.000e-04,"HIGH ADC overload, recovery 10ms",BBM+disable+21ms blank
+100uA,1mA,500,25,correct_BBM,1.000e-04,10%,False,False,2.500e+01,2.500e-03,0.10,0.0,0.0,0.000,1.000e-04,LOW safe when disabled,BBM+10ms
+100uA,1mA,500,25,correct_BBM,1.000e-04,10%,True,False,2.500e+01,2.500e-03,0.10,0.0,0.0,0.000,1.000e-04,MEDIUM hot BBM gap - voltage spike if not disabled,BBM+10ms
+100uA,1mA,500,25,correct_BBM,1.000e-03,100%,False,False,2.500e+01,2.500e-02,1.00,0.0,0.0,0.025,1.000e-03,LOW safe when disabled,BBM+10ms
+100uA,1mA,500,25,correct_BBM,1.000e-03,100%,True,False,2.500e+01,2.500e-02,1.00,0.0,0.0,0.025,1.000e-03,MEDIUM hot BBM gap - voltage spike if not disabled,BBM+10ms
+100uA,1mA,500,25,correct_BBM,1.500e-03,150%,True,True,2.500e+01,3.750e-02,1.50,0.0,0.0,0.056,1.000e-03,MEDIUM hot BBM gap - voltage spike if not disabled,BBM+10ms
+100uA,1mA,500,25,make_before_break,1.000e-04,10%,False,False,2.381e+01,2.381e-03,0.10,-4.8,-4.8,0.000,1.000e-04,"HIGH parallel shunt, Vsense low by 4-50% (Kelvin would still be wrong)",BBM+disable+21ms blank
+100uA,1mA,500,25,make_before_break,1.000e-04,10%,True,False,2.381e+01,2.381e-03,0.10,-4.8,-4.8,0.000,1.000e-04,"HIGH parallel shunt, Vsense low by 4-50% (Kelvin would still be wrong)",BBM+disable+21ms blank
+100uA,1mA,500,25,make_before_break,1.000e-03,100%,False,False,2.381e+01,2.381e-02,0.95,-4.8,-4.8,0.024,1.000e-03,"HIGH parallel shunt, Vsense low by 4-50% (Kelvin would still be wrong)",BBM+disable+21ms blank
+100uA,1mA,500,25,make_before_break,1.000e-03,100%,True,False,2.381e+01,2.381e-02,0.95,-4.8,-4.8,0.024,1.000e-03,"HIGH parallel shunt, Vsense low by 4-50% (Kelvin would still be wrong)",BBM+disable+21ms blank
+100uA,1mA,500,25,make_before_break,1.500e-03,150%,True,True,2.381e+01,3.571e-02,1.43,-4.8,5.0,0.054,1.050e-03,"HIGH parallel shunt, Vsense low by 4-50% (Kelvin would still be wrong)",BBM+disable+21ms blank
+100uA,1mA,500,25,stuck_short,1.000e-04,10%,False,False,5.000e+02,5.000e-02,2.00,1900.0,1900.0,0.005,1.000e-04,"HIGH ADC overload, recovery 10ms",BBM+disable+21ms blank
+100uA,1mA,500,25,stuck_short,1.000e-04,10%,True,False,5.000e+02,5.000e-02,2.00,1900.0,1900.0,0.005,1.000e-04,"HIGH ADC overload, recovery 10ms",BBM+disable+21ms blank
+100uA,1mA,500,25,stuck_short,1.000e-03,100%,False,False,5.000e+02,5.000e-01,20.00,1900.0,1900.0,0.500,1.000e-03,"CRITICAL ADC severe overload, input ESD clamp may conduct",BBM+disable+21ms blank
+100uA,1mA,500,25,stuck_short,1.000e-03,100%,True,False,5.000e+02,5.000e-01,20.00,1900.0,1900.0,0.500,1.000e-03,"CRITICAL ADC severe overload, input ESD clamp may conduct",BBM+disable+21ms blank
+100uA,1mA,500,25,stuck_short,1.500e-03,150%,True,True,5.000e+02,7.500e-01,30.00,1900.0,-95.0,1.125,5.000e-05,"CRITICAL ADC severe overload, input ESD clamp may conduct",BBM+disable+21ms blank
+100uA,1mA,500,25,open_relay,1.000e-04,10%,False,False,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+100uA,1mA,500,25,open_relay,1.000e-04,10%,True,False,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+100uA,1mA,500,25,open_relay,1.000e-03,100%,False,False,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+100uA,1mA,500,25,open_relay,1.000e-03,100%,True,False,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+100uA,1mA,500,25,open_relay,1.500e-03,150%,True,True,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+100uA,1mA,500,25,contact_bounce,1.000e-04,10%,False,False,2.500e+01,2.500e-03,0.10,0.0,0.0,0.000,1.000e-04,MEDIUM,BBM+10ms
+100uA,1mA,500,25,contact_bounce,1.000e-04,10%,True,False,2.500e+01,2.500e-03,0.10,0.0,0.0,0.000,1.000e-04,MEDIUM,BBM+10ms
+100uA,1mA,500,25,contact_bounce,1.000e-03,100%,False,False,2.500e+01,2.500e-02,1.00,0.0,0.0,0.025,1.000e-03,MEDIUM,BBM+10ms
+100uA,1mA,500,25,contact_bounce,1.000e-03,100%,True,False,2.500e+01,2.500e-02,1.00,0.0,0.0,0.025,1.000e-03,MEDIUM,BBM+10ms
+100uA,1mA,500,25,contact_bounce,1.500e-03,150%,True,True,2.500e+01,3.750e-02,1.50,0.0,0.0,0.056,1.000e-03,MEDIUM,BBM+10ms
+100uA,1mA,500,25,hot_switch_compliance,1.500e-03,150%,True,True,2.500e+01,3.750e-02,1.50,0.0,0.0,0.056,1.000e-03,MEDIUM,BBM+10ms
+100uA,10uA,500,5000.0,correct_BBM,1.000e-06,10%,False,False,5.000e+03,5.000e-03,0.10,0.0,0.0,0.000,1.000e-06,LOW safe when disabled,BBM+10ms
+100uA,10uA,500,5000.0,correct_BBM,1.000e-06,10%,True,False,5.000e+03,5.000e-03,0.10,0.0,0.0,0.000,1.000e-06,MEDIUM hot BBM gap - voltage spike if not disabled,BBM+10ms
+100uA,10uA,500,5000.0,correct_BBM,1.000e-05,100%,False,False,5.000e+03,5.000e-02,1.00,0.0,0.0,0.001,1.000e-05,LOW safe when disabled,BBM+10ms
+100uA,10uA,500,5000.0,correct_BBM,1.000e-05,100%,True,False,5.000e+03,5.000e-02,1.00,0.0,0.0,0.001,1.000e-05,MEDIUM hot BBM gap - voltage spike if not disabled,BBM+10ms
+100uA,10uA,500,5000.0,correct_BBM,1.500e-05,150%,True,True,5.000e+03,7.500e-02,1.50,0.0,0.0,0.001,1.000e-05,"HIGH ADC overload, recovery 10ms",BBM+disable+21ms blank
+100uA,10uA,500,5000.0,make_before_break,1.000e-06,10%,False,False,4.545e+02,4.545e-04,0.01,-90.9,-90.9,0.000,1.000e-06,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+100uA,10uA,500,5000.0,make_before_break,1.000e-06,10%,True,False,4.545e+02,4.545e-04,0.01,-90.9,-90.9,0.000,1.000e-06,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+100uA,10uA,500,5000.0,make_before_break,1.000e-05,100%,False,False,4.545e+02,4.545e-03,0.09,-90.9,-90.9,0.000,1.000e-05,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+100uA,10uA,500,5000.0,make_before_break,1.000e-05,100%,True,False,4.545e+02,4.545e-03,0.09,-90.9,-90.9,0.000,1.000e-05,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+100uA,10uA,500,5000.0,make_before_break,1.500e-05,150%,True,True,4.545e+02,6.818e-03,0.14,-90.9,1000.0,0.000,1.100e-04,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+100uA,10uA,500,5000.0,stuck_short,1.000e-06,10%,False,False,5.000e+02,5.000e-04,0.01,-90.0,-90.0,0.000,1.000e-06,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+100uA,10uA,500,5000.0,stuck_short,1.000e-06,10%,True,False,5.000e+02,5.000e-04,0.01,-90.0,-90.0,0.000,1.000e-06,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+100uA,10uA,500,5000.0,stuck_short,1.000e-05,100%,False,False,5.000e+02,5.000e-03,0.10,-90.0,-90.0,0.000,1.000e-05,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+100uA,10uA,500,5000.0,stuck_short,1.000e-05,100%,True,False,5.000e+02,5.000e-03,0.10,-90.0,-90.0,0.000,1.000e-05,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+100uA,10uA,500,5000.0,stuck_short,1.500e-05,150%,True,True,5.000e+02,7.500e-03,0.15,-90.0,900.0,0.000,1.000e-04,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+100uA,10uA,500,5000.0,open_relay,1.000e-06,10%,False,False,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+100uA,10uA,500,5000.0,open_relay,1.000e-06,10%,True,False,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+100uA,10uA,500,5000.0,open_relay,1.000e-05,100%,False,False,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+100uA,10uA,500,5000.0,open_relay,1.000e-05,100%,True,False,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+100uA,10uA,500,5000.0,open_relay,1.500e-05,150%,True,True,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+100uA,10uA,500,5000.0,contact_bounce,1.000e-06,10%,False,False,5.000e+03,5.000e-03,0.10,0.0,0.0,0.000,1.000e-06,MEDIUM,BBM+10ms
+100uA,10uA,500,5000.0,contact_bounce,1.000e-06,10%,True,False,5.000e+03,5.000e-03,0.10,0.0,0.0,0.000,1.000e-06,MEDIUM,BBM+10ms
+100uA,10uA,500,5000.0,contact_bounce,1.000e-05,100%,False,False,5.000e+03,5.000e-02,1.00,0.0,0.0,0.001,1.000e-05,MEDIUM,BBM+10ms
+100uA,10uA,500,5000.0,contact_bounce,1.000e-05,100%,True,False,5.000e+03,5.000e-02,1.00,0.0,0.0,0.001,1.000e-05,MEDIUM,BBM+10ms
+100uA,10uA,500,5000.0,contact_bounce,1.500e-05,150%,True,True,5.000e+03,7.500e-02,1.50,0.0,0.0,0.001,1.000e-05,"HIGH ADC overload, recovery 10ms",BBM+disable+21ms blank
+100uA,10uA,500,5000.0,hot_switch_compliance,1.500e-05,150%,True,True,5.000e+03,7.500e-02,1.50,0.0,0.0,0.001,1.000e-05,"HIGH ADC overload, recovery 10ms",BBM+disable+21ms blank
+10uA,100uA,5000.0,500,correct_BBM,1.000e-05,10%,False,False,5.000e+02,5.000e-03,0.10,0.0,0.0,0.000,1.000e-05,LOW safe when disabled,BBM+10ms
+10uA,100uA,5000.0,500,correct_BBM,1.000e-05,10%,True,False,5.000e+02,5.000e-03,0.10,0.0,0.0,0.000,1.000e-05,MEDIUM hot BBM gap - voltage spike if not disabled,BBM+10ms
+10uA,100uA,5000.0,500,correct_BBM,1.000e-04,100%,False,False,5.000e+02,5.000e-02,1.00,0.0,0.0,0.005,1.000e-04,LOW safe when disabled,BBM+10ms
+10uA,100uA,5000.0,500,correct_BBM,1.000e-04,100%,True,False,5.000e+02,5.000e-02,1.00,0.0,0.0,0.005,1.000e-04,MEDIUM hot BBM gap - voltage spike if not disabled,BBM+10ms
+10uA,100uA,5000.0,500,correct_BBM,1.500e-04,150%,True,True,5.000e+02,7.500e-02,1.50,0.0,0.0,0.011,1.000e-04,"HIGH ADC overload, recovery 10ms",BBM+disable+21ms blank
+10uA,100uA,5000.0,500,make_before_break,1.000e-05,10%,False,False,4.545e+02,4.545e-03,0.09,-9.1,-9.1,0.000,1.000e-05,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+10uA,100uA,5000.0,500,make_before_break,1.000e-05,10%,True,False,4.545e+02,4.545e-03,0.09,-9.1,-9.1,0.000,1.000e-05,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+10uA,100uA,5000.0,500,make_before_break,1.000e-04,100%,False,False,4.545e+02,4.545e-02,0.91,-9.1,-9.1,0.005,1.000e-04,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+10uA,100uA,5000.0,500,make_before_break,1.000e-04,100%,True,False,4.545e+02,4.545e-02,0.91,-9.1,-9.1,0.005,1.000e-04,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+10uA,100uA,5000.0,500,make_before_break,1.500e-04,150%,True,True,4.545e+02,6.818e-02,1.36,-9.1,10.0,0.010,1.100e-04,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+10uA,100uA,5000.0,500,stuck_short,1.000e-05,10%,False,False,5.000e+03,5.000e-02,1.00,900.0,900.0,0.001,1.000e-05,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+10uA,100uA,5000.0,500,stuck_short,1.000e-05,10%,True,False,5.000e+03,5.000e-02,1.00,900.0,900.0,0.001,1.000e-05,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+10uA,100uA,5000.0,500,stuck_short,1.000e-04,100%,False,False,5.000e+03,5.000e-01,10.00,900.0,900.0,0.050,1.000e-04,"HIGH ADC overload, recovery 10ms",BBM+disable+21ms blank
+10uA,100uA,5000.0,500,stuck_short,1.000e-04,100%,True,False,5.000e+03,5.000e-01,10.00,900.0,900.0,0.050,1.000e-04,"HIGH ADC overload, recovery 10ms",BBM+disable+21ms blank
+10uA,100uA,5000.0,500,stuck_short,1.500e-04,150%,True,True,5.000e+03,7.500e-01,15.00,900.0,-90.0,0.113,1.000e-05,"CRITICAL ADC severe overload, input ESD clamp may conduct",BBM+disable+21ms blank
+10uA,100uA,5000.0,500,open_relay,1.000e-05,10%,False,False,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+10uA,100uA,5000.0,500,open_relay,1.000e-05,10%,True,False,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+10uA,100uA,5000.0,500,open_relay,1.000e-04,100%,False,False,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+10uA,100uA,5000.0,500,open_relay,1.000e-04,100%,True,False,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+10uA,100uA,5000.0,500,open_relay,1.500e-04,150%,True,True,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+10uA,100uA,5000.0,500,contact_bounce,1.000e-05,10%,False,False,5.000e+02,5.000e-03,0.10,0.0,0.0,0.000,1.000e-05,MEDIUM,BBM+10ms
+10uA,100uA,5000.0,500,contact_bounce,1.000e-05,10%,True,False,5.000e+02,5.000e-03,0.10,0.0,0.0,0.000,1.000e-05,MEDIUM,BBM+10ms
+10uA,100uA,5000.0,500,contact_bounce,1.000e-04,100%,False,False,5.000e+02,5.000e-02,1.00,0.0,0.0,0.005,1.000e-04,MEDIUM,BBM+10ms
+10uA,100uA,5000.0,500,contact_bounce,1.000e-04,100%,True,False,5.000e+02,5.000e-02,1.00,0.0,0.0,0.005,1.000e-04,MEDIUM,BBM+10ms
+10uA,100uA,5000.0,500,contact_bounce,1.500e-04,150%,True,True,5.000e+02,7.500e-02,1.50,0.0,0.0,0.011,1.000e-04,"HIGH ADC overload, recovery 10ms",BBM+disable+21ms blank
+10uA,100uA,5000.0,500,hot_switch_compliance,1.500e-04,150%,True,True,5.000e+02,7.500e-02,1.50,0.0,0.0,0.011,1.000e-04,"HIGH ADC overload, recovery 10ms",BBM+disable+21ms blank
+1uA,100nA,100000.0,1000000.0,correct_BBM,1.000e-08,10%,False,False,1.000e+06,1.000e-02,0.10,0.0,0.0,0.000,1.000e-08,LOW safe when disabled,BBM+10ms
+1uA,100nA,100000.0,1000000.0,correct_BBM,1.000e-08,10%,True,False,1.000e+06,1.000e-02,0.10,0.0,0.0,0.000,1.000e-08,MEDIUM hot BBM gap - voltage spike if not disabled,BBM+10ms
+1uA,100nA,100000.0,1000000.0,correct_BBM,1.000e-07,100%,False,False,1.000e+06,1.000e-01,1.00,0.0,0.0,0.000,1.000e-07,LOW safe when disabled,BBM+10ms
+1uA,100nA,100000.0,1000000.0,correct_BBM,1.000e-07,100%,True,False,1.000e+06,1.000e-01,1.00,0.0,0.0,0.000,1.000e-07,MEDIUM hot BBM gap - voltage spike if not disabled,BBM+10ms
+1uA,100nA,100000.0,1000000.0,correct_BBM,1.500e-07,150%,True,True,1.000e+06,1.500e-01,1.50,0.0,0.0,0.000,1.000e-07,MEDIUM hot BBM gap - voltage spike if not disabled,BBM+10ms
+1uA,100nA,100000.0,1000000.0,make_before_break,1.000e-08,10%,False,False,9.091e+04,9.091e-04,0.01,-90.9,-90.9,0.000,1.000e-08,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+1uA,100nA,100000.0,1000000.0,make_before_break,1.000e-08,10%,True,False,9.091e+04,9.091e-04,0.01,-90.9,-90.9,0.000,1.000e-08,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+1uA,100nA,100000.0,1000000.0,make_before_break,1.000e-07,100%,False,False,9.091e+04,9.091e-03,0.09,-90.9,-90.9,0.000,1.000e-07,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+1uA,100nA,100000.0,1000000.0,make_before_break,1.000e-07,100%,True,False,9.091e+04,9.091e-03,0.09,-90.9,-90.9,0.000,1.000e-07,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+1uA,100nA,100000.0,1000000.0,make_before_break,1.500e-07,150%,True,True,9.091e+04,1.364e-02,0.14,-90.9,1000.0,0.000,1.100e-06,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+1uA,100nA,100000.0,1000000.0,stuck_short,1.000e-08,10%,False,False,1.000e+05,1.000e-03,0.01,-90.0,-90.0,0.000,1.000e-08,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+1uA,100nA,100000.0,1000000.0,stuck_short,1.000e-08,10%,True,False,1.000e+05,1.000e-03,0.01,-90.0,-90.0,0.000,1.000e-08,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+1uA,100nA,100000.0,1000000.0,stuck_short,1.000e-07,100%,False,False,1.000e+05,1.000e-02,0.10,-90.0,-90.0,0.000,1.000e-07,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+1uA,100nA,100000.0,1000000.0,stuck_short,1.000e-07,100%,True,False,1.000e+05,1.000e-02,0.10,-90.0,-90.0,0.000,1.000e-07,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+1uA,100nA,100000.0,1000000.0,stuck_short,1.500e-07,150%,True,True,1.000e+05,1.500e-02,0.15,-90.0,900.0,0.000,1.000e-06,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+1uA,100nA,100000.0,1000000.0,open_relay,1.000e-08,10%,False,False,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+1uA,100nA,100000.0,1000000.0,open_relay,1.000e-08,10%,True,False,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+1uA,100nA,100000.0,1000000.0,open_relay,1.000e-07,100%,False,False,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+1uA,100nA,100000.0,1000000.0,open_relay,1.000e-07,100%,True,False,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+1uA,100nA,100000.0,1000000.0,open_relay,1.500e-07,150%,True,True,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+1uA,100nA,100000.0,1000000.0,contact_bounce,1.000e-08,10%,False,False,1.000e+06,1.000e-02,0.10,0.0,0.0,0.000,1.000e-08,MEDIUM,BBM+10ms
+1uA,100nA,100000.0,1000000.0,contact_bounce,1.000e-08,10%,True,False,1.000e+06,1.000e-02,0.10,0.0,0.0,0.000,1.000e-08,MEDIUM,BBM+10ms
+1uA,100nA,100000.0,1000000.0,contact_bounce,1.000e-07,100%,False,False,1.000e+06,1.000e-01,1.00,0.0,0.0,0.000,1.000e-07,MEDIUM,BBM+10ms
+1uA,100nA,100000.0,1000000.0,contact_bounce,1.000e-07,100%,True,False,1.000e+06,1.000e-01,1.00,0.0,0.0,0.000,1.000e-07,MEDIUM,BBM+10ms
+1uA,100nA,100000.0,1000000.0,contact_bounce,1.500e-07,150%,True,True,1.000e+06,1.500e-01,1.50,0.0,0.0,0.000,1.000e-07,MEDIUM,BBM+10ms
+1uA,100nA,100000.0,1000000.0,hot_switch_compliance,1.500e-07,150%,True,True,1.000e+06,1.500e-01,1.50,0.0,0.0,0.000,1.000e-07,MEDIUM,BBM+10ms
+100nA,1uA,1000000.0,100000.0,correct_BBM,1.000e-07,10%,False,False,1.000e+05,1.000e-02,0.10,0.0,0.0,0.000,1.000e-07,LOW safe when disabled,BBM+10ms
+100nA,1uA,1000000.0,100000.0,correct_BBM,1.000e-07,10%,True,False,1.000e+05,1.000e-02,0.10,0.0,0.0,0.000,1.000e-07,MEDIUM hot BBM gap - voltage spike if not disabled,BBM+10ms
+100nA,1uA,1000000.0,100000.0,correct_BBM,1.000e-06,100%,False,False,1.000e+05,1.000e-01,1.00,0.0,0.0,0.000,1.000e-06,LOW safe when disabled,BBM+10ms
+100nA,1uA,1000000.0,100000.0,correct_BBM,1.000e-06,100%,True,False,1.000e+05,1.000e-01,1.00,0.0,0.0,0.000,1.000e-06,MEDIUM hot BBM gap - voltage spike if not disabled,BBM+10ms
+100nA,1uA,1000000.0,100000.0,correct_BBM,1.500e-06,150%,True,True,1.000e+05,1.500e-01,1.50,0.0,0.0,0.000,1.000e-06,MEDIUM hot BBM gap - voltage spike if not disabled,BBM+10ms
+100nA,1uA,1000000.0,100000.0,make_before_break,1.000e-07,10%,False,False,9.091e+04,9.091e-03,0.09,-9.1,-9.1,0.000,1.000e-07,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+100nA,1uA,1000000.0,100000.0,make_before_break,1.000e-07,10%,True,False,9.091e+04,9.091e-03,0.09,-9.1,-9.1,0.000,1.000e-07,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+100nA,1uA,1000000.0,100000.0,make_before_break,1.000e-06,100%,False,False,9.091e+04,9.091e-02,0.91,-9.1,-9.1,0.000,1.000e-06,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+100nA,1uA,1000000.0,100000.0,make_before_break,1.000e-06,100%,True,False,9.091e+04,9.091e-02,0.91,-9.1,-9.1,0.000,1.000e-06,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+100nA,1uA,1000000.0,100000.0,make_before_break,1.500e-06,150%,True,True,9.091e+04,1.364e-01,1.36,-9.1,10.0,0.000,1.100e-06,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+100nA,1uA,1000000.0,100000.0,stuck_short,1.000e-07,10%,False,False,1.000e+06,1.000e-01,1.00,900.0,900.0,0.000,1.000e-07,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+100nA,1uA,1000000.0,100000.0,stuck_short,1.000e-07,10%,True,False,1.000e+06,1.000e-01,1.00,900.0,900.0,0.000,1.000e-07,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+100nA,1uA,1000000.0,100000.0,stuck_short,1.000e-06,100%,False,False,1.000e+06,1.000e+00,10.00,900.0,900.0,0.001,1.000e-06,"HIGH ADC overload, recovery 10ms",BBM+disable+21ms blank
+100nA,1uA,1000000.0,100000.0,stuck_short,1.000e-06,100%,True,False,1.000e+06,1.000e+00,10.00,900.0,900.0,0.001,1.000e-06,"HIGH ADC overload, recovery 10ms",BBM+disable+21ms blank
+100nA,1uA,1000000.0,100000.0,stuck_short,1.500e-06,150%,True,True,1.000e+06,1.500e+00,15.00,900.0,-90.0,0.002,1.000e-07,"CRITICAL ADC severe overload, input ESD clamp may conduct",BBM+disable+21ms blank
+100nA,1uA,1000000.0,100000.0,open_relay,1.000e-07,10%,False,False,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+100nA,1uA,1000000.0,100000.0,open_relay,1.000e-07,10%,True,False,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+100nA,1uA,1000000.0,100000.0,open_relay,1.000e-06,100%,False,False,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+100nA,1uA,1000000.0,100000.0,open_relay,1.000e-06,100%,True,False,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+100nA,1uA,1000000.0,100000.0,open_relay,1.500e-06,150%,True,True,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+100nA,1uA,1000000.0,100000.0,contact_bounce,1.000e-07,10%,False,False,1.000e+05,1.000e-02,0.10,0.0,0.0,0.000,1.000e-07,MEDIUM,BBM+10ms
+100nA,1uA,1000000.0,100000.0,contact_bounce,1.000e-07,10%,True,False,1.000e+05,1.000e-02,0.10,0.0,0.0,0.000,1.000e-07,MEDIUM,BBM+10ms
+100nA,1uA,1000000.0,100000.0,contact_bounce,1.000e-06,100%,False,False,1.000e+05,1.000e-01,1.00,0.0,0.0,0.000,1.000e-06,MEDIUM,BBM+10ms
+100nA,1uA,1000000.0,100000.0,contact_bounce,1.000e-06,100%,True,False,1.000e+05,1.000e-01,1.00,0.0,0.0,0.000,1.000e-06,MEDIUM,BBM+10ms
+100nA,1uA,1000000.0,100000.0,contact_bounce,1.500e-06,150%,True,True,1.000e+05,1.500e-01,1.50,0.0,0.0,0.000,1.000e-06,MEDIUM,BBM+10ms
+100nA,1uA,1000000.0,100000.0,hot_switch_compliance,1.500e-06,150%,True,True,1.000e+05,1.500e-01,1.50,0.0,0.0,0.000,1.000e-06,MEDIUM,BBM+10ms
+10mA,100nA,2.5,1000000.0,correct_BBM,1.000e-08,10%,False,False,1.000e+06,1.000e-02,0.10,0.0,0.0,0.000,1.000e-08,LOW safe when disabled,BBM+10ms
+10mA,100nA,2.5,1000000.0,correct_BBM,1.000e-08,10%,True,False,1.000e+06,1.000e-02,0.10,0.0,0.0,0.000,1.000e-08,MEDIUM hot BBM gap - voltage spike if not disabled,BBM+10ms
+10mA,100nA,2.5,1000000.0,correct_BBM,1.000e-07,100%,False,False,1.000e+06,1.000e-01,1.00,0.0,0.0,0.000,1.000e-07,LOW safe when disabled,BBM+10ms
+10mA,100nA,2.5,1000000.0,correct_BBM,1.000e-07,100%,True,False,1.000e+06,1.000e-01,1.00,0.0,0.0,0.000,1.000e-07,MEDIUM hot BBM gap - voltage spike if not disabled,BBM+10ms
+10mA,100nA,2.5,1000000.0,correct_BBM,1.500e-07,150%,True,True,1.000e+06,1.500e-01,1.50,0.0,0.0,0.000,1.000e-07,MEDIUM hot BBM gap - voltage spike if not disabled,BBM+10ms
+10mA,100nA,2.5,1000000.0,make_before_break,1.000e-08,10%,False,False,2.500e+00,2.500e-08,0.00,-100.0,-100.0,0.000,1.000e-08,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+10mA,100nA,2.5,1000000.0,make_before_break,1.000e-08,10%,True,False,2.500e+00,2.500e-08,0.00,-100.0,-100.0,0.000,1.000e-08,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+10mA,100nA,2.5,1000000.0,make_before_break,1.000e-07,100%,False,False,2.500e+00,2.500e-07,0.00,-100.0,-100.0,0.000,1.000e-07,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+10mA,100nA,2.5,1000000.0,make_before_break,1.000e-07,100%,True,False,2.500e+00,2.500e-07,0.00,-100.0,-100.0,0.000,1.000e-07,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+10mA,100nA,2.5,1000000.0,make_before_break,1.500e-07,150%,True,True,2.500e+00,3.750e-07,0.00,-100.0,40000000.0,0.000,4.000e-02,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+10mA,100nA,2.5,1000000.0,stuck_short,1.000e-08,10%,False,False,2.500e+00,2.500e-08,0.00,-100.0,-100.0,0.000,1.000e-08,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+10mA,100nA,2.5,1000000.0,stuck_short,1.000e-08,10%,True,False,2.500e+00,2.500e-08,0.00,-100.0,-100.0,0.000,1.000e-08,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+10mA,100nA,2.5,1000000.0,stuck_short,1.000e-07,100%,False,False,2.500e+00,2.500e-07,0.00,-100.0,-100.0,0.000,1.000e-07,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+10mA,100nA,2.5,1000000.0,stuck_short,1.000e-07,100%,True,False,2.500e+00,2.500e-07,0.00,-100.0,-100.0,0.000,1.000e-07,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+10mA,100nA,2.5,1000000.0,stuck_short,1.500e-07,150%,True,True,2.500e+00,3.750e-07,0.00,-100.0,39999900.0,0.000,4.000e-02,"HIGH Vsense wrong, compliance mis-regulates, shunt overstress",BBM+disable+21ms blank
+10mA,100nA,2.5,1000000.0,open_relay,1.000e-08,10%,False,False,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+10mA,100nA,2.5,1000000.0,open_relay,1.000e-08,10%,True,False,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+10mA,100nA,2.5,1000000.0,open_relay,1.000e-07,100%,False,False,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+10mA,100nA,2.5,1000000.0,open_relay,1.000e-07,100%,True,False,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+10mA,100nA,2.5,1000000.0,open_relay,1.500e-07,150%,True,True,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+10mA,100nA,2.5,1000000.0,contact_bounce,1.000e-08,10%,False,False,1.000e+06,1.000e-02,0.10,0.0,0.0,0.000,1.000e-08,MEDIUM,BBM+10ms
+10mA,100nA,2.5,1000000.0,contact_bounce,1.000e-08,10%,True,False,1.000e+06,1.000e-02,0.10,0.0,0.0,0.000,1.000e-08,MEDIUM,BBM+10ms
+10mA,100nA,2.5,1000000.0,contact_bounce,1.000e-07,100%,False,False,1.000e+06,1.000e-01,1.00,0.0,0.0,0.000,1.000e-07,MEDIUM,BBM+10ms
+10mA,100nA,2.5,1000000.0,contact_bounce,1.000e-07,100%,True,False,1.000e+06,1.000e-01,1.00,0.0,0.0,0.000,1.000e-07,MEDIUM,BBM+10ms
+10mA,100nA,2.5,1000000.0,contact_bounce,1.500e-07,150%,True,True,1.000e+06,1.500e-01,1.50,0.0,0.0,0.000,1.000e-07,MEDIUM,BBM+10ms
+10mA,100nA,2.5,1000000.0,hot_switch_compliance,1.500e-07,150%,True,True,1.000e+06,1.500e-01,1.50,0.0,0.0,0.000,1.000e-07,MEDIUM,BBM+10ms
+100nA,10mA,1000000.0,2.5,correct_BBM,1.000e-03,10%,False,False,2.500e+00,2.500e-03,0.10,0.0,0.0,0.002,1.000e-03,LOW safe when disabled,BBM+10ms
+100nA,10mA,1000000.0,2.5,correct_BBM,1.000e-03,10%,True,False,2.500e+00,2.500e-03,0.10,0.0,0.0,0.002,1.000e-03,MEDIUM hot BBM gap - voltage spike if not disabled,BBM+10ms
+100nA,10mA,1000000.0,2.5,correct_BBM,1.000e-02,100%,False,False,2.500e+00,2.500e-02,1.00,0.0,0.0,0.250,1.000e-02,LOW safe when disabled,BBM+10ms
+100nA,10mA,1000000.0,2.5,correct_BBM,1.000e-02,100%,True,False,2.500e+00,2.500e-02,1.00,0.0,0.0,0.250,1.000e-02,MEDIUM hot BBM gap - voltage spike if not disabled,BBM+10ms
+100nA,10mA,1000000.0,2.5,correct_BBM,1.500e-02,150%,True,True,2.500e+00,3.750e-02,1.50,0.0,0.0,0.562,1.000e-02,MEDIUM hot BBM gap - voltage spike if not disabled,BBM+10ms
+100nA,10mA,1000000.0,2.5,make_before_break,1.000e-03,10%,False,False,2.500e+00,2.500e-03,0.10,-0.0,-0.0,0.002,1.000e-03,"HIGH parallel shunt, Vsense low by 4-50% (Kelvin would still be wrong)",BBM+disable+21ms blank
+100nA,10mA,1000000.0,2.5,make_before_break,1.000e-03,10%,True,False,2.500e+00,2.500e-03,0.10,-0.0,-0.0,0.002,1.000e-03,"HIGH parallel shunt, Vsense low by 4-50% (Kelvin would still be wrong)",BBM+disable+21ms blank
+100nA,10mA,1000000.0,2.5,make_before_break,1.000e-02,100%,False,False,2.500e+00,2.500e-02,1.00,-0.0,-0.0,0.250,1.000e-02,"HIGH parallel shunt, Vsense low by 4-50% (Kelvin would still be wrong)",BBM+disable+21ms blank
+100nA,10mA,1000000.0,2.5,make_before_break,1.000e-02,100%,True,False,2.500e+00,2.500e-02,1.00,-0.0,-0.0,0.250,1.000e-02,"HIGH parallel shunt, Vsense low by 4-50% (Kelvin would still be wrong)",BBM+disable+21ms blank
+100nA,10mA,1000000.0,2.5,make_before_break,1.500e-02,150%,True,True,2.500e+00,3.750e-02,1.50,-0.0,0.0,0.562,1.000e-02,"HIGH parallel shunt, Vsense low by 4-50% (Kelvin would still be wrong)",BBM+disable+21ms blank
+100nA,10mA,1000000.0,2.5,stuck_short,1.000e-03,10%,False,False,1.000e+06,1.000e+03,40000.00,39999900.0,39999900.0,1000.000,1.000e-03,"CRITICAL ADC severe overload, input ESD clamp may conduct",BBM+disable+21ms blank
+100nA,10mA,1000000.0,2.5,stuck_short,1.000e-03,10%,True,False,1.000e+06,1.000e+03,40000.00,39999900.0,39999900.0,1000.000,1.000e-03,"CRITICAL ADC severe overload, input ESD clamp may conduct",BBM+disable+21ms blank
+100nA,10mA,1000000.0,2.5,stuck_short,1.000e-02,100%,False,False,1.000e+06,1.000e+04,400000.00,39999900.0,39999900.0,100000.000,1.000e-02,"CRITICAL ADC severe overload, input ESD clamp may conduct",BBM+disable+21ms blank
+100nA,10mA,1000000.0,2.5,stuck_short,1.000e-02,100%,True,False,1.000e+06,1.000e+04,400000.00,39999900.0,39999900.0,100000.000,1.000e-02,"CRITICAL ADC severe overload, input ESD clamp may conduct",BBM+disable+21ms blank
+100nA,10mA,1000000.0,2.5,stuck_short,1.500e-02,150%,True,True,1.000e+06,1.500e+04,600000.00,39999900.0,-100.0,225000.000,2.500e-08,"CRITICAL ADC severe overload, input ESD clamp may conduct",BBM+disable+21ms blank
+100nA,10mA,1000000.0,2.5,open_relay,1.000e-03,10%,False,False,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+100nA,10mA,1000000.0,2.5,open_relay,1.000e-03,10%,True,False,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+100nA,10mA,1000000.0,2.5,open_relay,1.000e-02,100%,False,False,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+100nA,10mA,1000000.0,2.5,open_relay,1.000e-02,100%,True,False,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+100nA,10mA,1000000.0,2.5,open_relay,1.500e-02,150%,True,True,inf,inf,inf,inf,inf,0.000,0.000e+00,"CRITICAL open - ADC rails, compliance blind",BBM+disable+21ms blank
+100nA,10mA,1000000.0,2.5,contact_bounce,1.000e-03,10%,False,False,2.500e+00,2.500e-03,0.10,0.0,0.0,0.002,1.000e-03,MEDIUM,BBM+10ms
+100nA,10mA,1000000.0,2.5,contact_bounce,1.000e-03,10%,True,False,2.500e+00,2.500e-03,0.10,0.0,0.0,0.002,1.000e-03,MEDIUM,BBM+10ms
+100nA,10mA,1000000.0,2.5,contact_bounce,1.000e-02,100%,False,False,2.500e+00,2.500e-02,1.00,0.0,0.0,0.250,1.000e-02,MEDIUM,BBM+10ms
+100nA,10mA,1000000.0,2.5,contact_bounce,1.000e-02,100%,True,False,2.500e+00,2.500e-02,1.00,0.0,0.0,0.250,1.000e-02,MEDIUM,BBM+10ms
+100nA,10mA,1000000.0,2.5,contact_bounce,1.500e-02,150%,True,True,2.500e+00,3.750e-02,1.50,0.0,0.0,0.562,1.000e-02,MEDIUM,BBM+10ms
+100nA,10mA,1000000.0,2.5,hot_switch_compliance,1.500e-02,150%,True,True,2.500e+00,3.750e-02,1.50,0.0,0.0,0.562,1.000e-02,MEDIUM,BBM+10ms

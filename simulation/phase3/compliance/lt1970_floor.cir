@@ -1,0 +1,39 @@
+* LT1970A behavioral compliance floor model — Gate 1 Test A
+* Verifies 4mV floor (Vc 40mV) and 60mV linear knee (Vsense 6mV)
+* Vc source 0-5V -> Vsense = Vc/10 with floor 4mV
+* Behavioral sources use ngspice B-elements
+* Author: ReRAM-SMU V1 Phase3 Gate1
+
+.title LT1970A floor knee DC sweep 0-5V
+
+* Vc stimulus (swept via .dc)
+Vvc vc 0 DC 0
+
+* Ideal linear Vsense = Vc/10
+Bideal vsense_ideal 0 V = V(vc)/10
+
+* Floored Vsense = max(4mV, Vc/10)  -- LT1970A minimum 4mV typical
+* ngspice ternary: (cond) ? true : false
+Bfloor vsense_floor 0 V = (V(vc)/10 < 4e-3) ? 4e-3 : V(vc)/10
+
+* Vsense limited linear threshold 6mV (Vc 60mV)
+* Error vs ideal in floor region
+Berr verr 0 V = V(vsense_floor) - V(vsense_ideal)
+
+* Region flag: 0=INVALID floor (Vc<40m), 1=NONLINEAR (40-60m), 2=VALID linear (Vc>=60m)
+Bregion region 0 V = (V(vc) < 40e-3) ? 0 : ((V(vc) < 60e-3) ? 1 : 2)
+
+.control
+* DC sweep Vc 0 to 5V step 10mV (500 points) — fine enough for knee, fast
+dc Vvc 0 5 0.01
+* Save and print key vectors
+print V(vc) V(vsense_ideal) V(vsense_floor) V(verr) V(region) > lt1970_floor_raw.txt
+* Also wrdata for csv-friendly
+wrdata lt1970_floor_wrdata.txt V(vc) V(vsense_ideal) V(vsense_floor) V(verr) V(region)
+* Quick check probes at knee points
+echo "=== LT1970A floor knee check probes ==="
+* Use linear interpolation: at Vc=0, 40mV, 60mV, 500mV, 5V
+print V(vc) V(vsense_ideal) V(vsense_floor) V(region) > lt1970_floor_probe.txt
+.endc
+
+.end

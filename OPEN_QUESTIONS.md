@@ -10,11 +10,11 @@
 
 | # | Question | Priority | Target Phase | Status |
 |---|----------|----------|--------------|--------|
-| Q-01 | **Final DAC choice** — AD5686R vs AD5764 (±1 LSB) vs others? | P0 | Phase 2 | REOPENED & AMENDED (2026-08-24 per IR-06/07, DEC-023) — AD5764 corrected to 20 V span LSB 305.2 µV, ±11.4 V min (no ±5 V mode); INL in volts equalizes; neither promoted until Phase 3 N,M with actual supplies |
-| Q-02 | **Final ADC choice** — ADS1262 vs AD7175/AD7177/AD7124? | P0 | Phase 2 | AMENDED (2026-08-24 per IR-12, DEC-023) — ADS1262 vs AD7175 both CANDIDATE with bipolar front-end A/B/C (true bipolar vs midscale shift vs differential ADC); needs G + NPLC sweep sim |
-| Q-03 | **Is LT1970A the best V1 output stage?** | P0 | Phase 2 | AMENDED (2026-08-24 per IR-01/15, DEC-024/025) — LT1970A primary (4 mV floor, 4%/16% FS, range coercion required) + Candidate C outer-loop+LT1970A booster; needs Phase 3 cap-load + coercion sim |
+| Q-01 | **Final DAC choice** — AD5686R vs AD5764 (±1 LSB) vs others? | P0 | Phase 2 | RESOLVED Phase3 (2026-08-24 N): **AD5764 SELECT** (20V 305µV half codes OK, ±11.4V raw ±12V 0.6V margin, LTC6655LN), fallback AD5686R 0.01% 10ppm, 0.1% REJECT, AD5791 prototype-only |
+| Q-02 | **Final ADC choice** — ADS1262 vs AD7175/AD7177/AD7124? | P0 | Phase 2 | RESOLVED Phase3 (G): **AD7175-8 primary** (250kSPS 20µs Sinc5+Sinc1) for FAST 10-20ms + autorange; **ADS1262 fallback** for NORMAL 50-100ms/LOW 200ms-1s (NPLC) |
+| Q-03 | **Is LT1970A the best V1 output stage?** | P0 | Phase 2 | RESOLVED Phase3 (O): **A SELECT** (LT1970A 50°/6.5%@10nF), **B FALLBACK** (60°/3.2%), **C REQUIRES PROTOTYPE** (57°→16.6% marginal) — see gate6 |
 | Q-04 | **Compliance architecture** | P0 | Phase 2 | RESOLVED (2026-08-24, DEC-011/018) — dual continuous+trip/SOA, per-segment/polarity programmable |
-| Q-05 | **Current shunt topology** — Values for 6 ranges? Kelvin sensing? Placement? | P0 | Phase 2 | AMENDED (2026-08-24 per IR-02/05/11, DEC-015/016/017/019) — hybrid shunts 10 mA→1 µA (2.5 Ω–1 MΩ, 25/50/100 mV FS canonical per SHUNT_RANGE_TRADEOFF §2.4 IR-05) + TIA provision, low-side outside SENSE via high-Z buffers >10 GΩ (IR-02), equation `V_FORCE=V_DUT+V_SHUNT+I·R_LEAD` (IR-11); values need Phase 3 E(loading/C) sim |
+| Q-05 | **Current shunt topology** — Values for 6 ranges? Kelvin sensing? Placement? | P0 | Phase 2 | RESOLVED Phase3 (E): hybrid 2.5Ω-1MΩ 25/50/100mV FS canonical, JFET buffer 10pA <1%@1GΩ, PGA hybrid; leakage 1pA Good PASS `V_FORCE=V_DUT+V_SHUNT+I·R_LEAD` (IR-11); values need Phase 3 E(loading/C) sim |
 | Q-06 | **Low-current range switching technology** | P0 | Phase 2 | PARTIALLY RESOLVED (2026-08-24, DEC-015) — reed for 100 nA/1 µA (1 pA leak), PhotoMOS/signal relay for higher; one tech for all rejected |
 | Q-07 | **Achievable V1 noise floor** — “several nA” quantified? | P0 | Phase 1 | RESOLVED (2026-08-24, DEC-009) — detection 3σ 1.5–6 pA, practical 1 nA |
 | Q-08 | **Achievable V1 measurement uncertainty** | P0 | Phase 1 | RESOLVED (2026-08-24, UNCERTAINTY framework) |

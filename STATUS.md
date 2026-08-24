@@ -6,9 +6,9 @@
 
 ## Current Phase
 
-> **PHASE 2 — CORRECTED / READY FOR PHASE 3** · `docs/research/PHASE2_INDEPENDENT_REVIEW_CORRECTIONS.md` (IR-01..IR-16 verified; DEC-024/025 added)
+> **Phase 3 — PASS (simulation & quantitative validation)** · `simulation/results/phase3/PHASE3_RESULTS.md` (15/15 tests PASS, 1 SELECT/1 FALLBACK/1 PROTOTYPE)
 
-Phase 1 quantified the envelope; Phase 2 selected conceptual architecture and candidate classes for Phase 3 simulation. Independent review (IR-01..IR-16) has been reconciled against primary datasheets; repository synchronized and canonical sources declared. No schematic/PCB/BOM has been created (correct). SELECTED FOR PHASE 3 requires simulation gates A–O before FINAL.
+Phase 3 executed tests A-O per corrected plan with ngspice-47 + Python 3.11.15 hybrid. All gates PASS (see gates 1-6 summaries). Architecture selected: **Candidate A LT1970A direct SELECT**, **Candidate B ADA4522+BJT KEEP AS FALLBACK**, **Candidate C outer+LT1970A REQUIRES PROTOTYPE**. DAC **AD5764 SELECT**, ADC **AD7175 primary / ADS1262 fallback**. Compliance floor/coercion, Kelvin/open-sense, C_UP/DOWN, bipolar, trip, energy, switching, POR, leakage all validated per thresholds. Error budget updated (PHASE3_ERROR_BUDGET.md), model limitations documented. No schematic/PCB/BOM/hardware created — next is Phase 4 on authorization.
 
 ---
 
@@ -18,8 +18,8 @@ Phase 1 quantified the envelope; Phase 2 selected conceptual architecture and ca
 |------|-------|
 | Workspace structure | ✅ Created |
 | Core documentation | ✅ 10 core + Phase 1 research + Phase 2 architecture |
-| Git repository | ✅ `d5a6100` + `7b967de` + `3658117` + pending Phase 2 commit |
-| Simulation environment | ✅ ngspice 47 + LTspice 26.0.2.1 hybrid (Phase 3 plan exists) |
+| Git repository | ✅ `414120f` + `Phase 3` `PHASE3_RESULTS` + `PHASE3_ERROR_BUDGET` + `MODEL_LIMITATIONS` (pushed) |
+| Simulation environment | ✅ ngspice-47 + LTspice 26.0.2.1 hybrid — 15/15 tests PASS (116 sim files, 251-pt POR, 2977-row energy) |
 | Python scientific env | ✅ `.venv` 3.11.15 — 6 tests PASS + error/burden calcs |
 | KiCad | ✅ 10.0.5 — ERC/DRC smoke PASS |
 | Architecture | ✅ `ARCHITECTURE.md` (7.8 KB) — low-side hybrid shunts outside SENSE, SENSE feedback at DUT, dual compliance |

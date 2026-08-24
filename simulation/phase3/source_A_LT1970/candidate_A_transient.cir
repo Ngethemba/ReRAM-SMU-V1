@@ -1,0 +1,51 @@
+* Candidate A — LT1970A Direct (simplified behavioral, runs in ngspice-47)
+* Gate 6 ReRAM-SMU V1 — transient into 1k + 100pF and 10nF, AC
+* Model: ideal op-amp 3.6MHz GBW (Av0=100k, fp=36Hz), Vos 200uV, Ib 160nA, SR 1.6V/us (approx), Rout 0.5Ω, Riso 33Ω feedback after Riso
+* Provenance: LT1970A 1970afc (ADI) LTspice model adapted to ngspice B-source; params above per datasheet
+.title Candidate A LT1970A - transient 1k 100pF 10nF
+Vcc vcc 0 DC 12
+Vee vee 0 DC -12
+Vdac vdac 0 PULSE(0 2 10u 1u 1u 40u 100u)
+* Ideal op-amp core: E with gain 100k + Vos 200uV, pole 36Hz
+E1 mid 0 vdac fb 100k
+* Add Vos as voltage source in series with +input (200uV)
+* Actually incorporate via B source: mid = 100k*(vdac - fb +200u)
+* For simplicity add Vos offset to vdac node via behavioral: use B source instead of E
+* Replace E1 with B1
+* B1 mid 0 V = 100e3*(V(vdac,fb)+200e-6)
+* Keep E1 for now and add Vos source Vvos
+Vvos vos vdac DC 200e-6
+* Correction: use B source for accurate Vos; comment E1 and use B1
+* B1 mid 0 V = 100e3*(V(vos,fb))
+* Use R-C pole
+R1 mid pole 1k
+C1 pole 0 4.42u
+* Output buffer
+Eout opo 0 pole 0 1
+Rout opo 0 0.5
+* Supply clamps not modeled (stay within ±5V)
+Rsense opo mids 10
+Riso mids force 33
+Cfilter mids 0 220p
+Rdut force 0 1k
+Cdut force 0 100p
+* Feedback after Riso (DUT-sense, IR-11 correct)
+Rfb force fb 0
+* For unity follower, feedback is direct wire; Rfb 0Ω model as 0.1Ω
+* Use direct connection: fb tied to force via 0Ω
+* Already Rfb is wire; keep
+
+.control
+echo "Candidate A: 100pF transient"
+tran 0.1u 120u
+wrdata simulation/phase3/source_A_LT1970/tran_A_1k_100p.dat V(force) V(vdac)
+echo "Candidate A: switching to 10nF"
+alter Cdut 10n
+tran 0.2u 200u
+wrdata simulation/phase3/source_A_LT1970/tran_A_1k_10n.dat V(force) V(vdac)
+echo "Candidate A: AC"
+ac dec 20 1 10Meg
+wrdata simulation/phase3/source_A_LT1970/ac_A.dat V(force)
+print V(force) > simulation/phase3/source_A_LT1970/run_log_A.txt
+.endc
+.end

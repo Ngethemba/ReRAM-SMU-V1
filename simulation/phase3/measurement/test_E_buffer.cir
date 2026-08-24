@@ -1,0 +1,50 @@
+* Gate 4 Test E — High-Z buffer input impedance sweep
+* Compares INVALID divider vs CORRECTED buffer-first topology
+* Run: ngspice_con.exe -b test_E_buffer.cir -o test_E_buffer.log
+
+.title Gate4-E High-Z Buffer
+
+* --- DUT: 1V via Rdut sweep ---
+Vdutsrc vdutsrc 0 DC 1
+
+* --- INVALID: 20M divider directly across DUT (REJECTED baseline) ---
+* Rdut_invalid 1G + Rdiv 20M -> V(sense_invalid) = 19.6mV (98% error)
+Rdut_inv vdutsrc sense_invalid 1e9
+Rdiv_inv sense_invalid 0 20e6
+
+* --- CORRECTED: high-Z buffer before divider ---
+* Buffer: Rin=1T, Cin=5pF, Ib=10pA worst (OPA140)
+Rdut_corr vdutsrc sense_corr 1e9
+Rbuf_in sense_corr 0 1e12
+Cbuf_in sense_corr 0 5p
+Ibuf_ib 0 sense_corr DC 10pA
+* Ideal follower
+Ebuf out_buf 0 VALUE={V(sense_corr)}
+* Post-buffer divider 20M (zero loading on DUT)
+Rdiv_post out_buf 0 20e6
+
+.control
+set filetype=ascii
+op
+print V(sense_invalid) V(sense_corr) V(out_buf)
+
+* DC sweep Vdutsrc 0.1 to 2V for both topologies
+dc Vdutsrc 0.1 2 0.1
+
+* AC analysis on corrected node: inject 1A AC, measure Zin = V/I
+* We reuse Ibuf_ib? Better add dedicated AC source
+* For AC we do a second simulation with AC source
+.endc
+
+* --- AC subcircuit: Zin(f) ---
+* Re-use sense_corr node but with AC injection
+Iac sense_corr 0 AC 1 DC 0
+
+.control
+ac dec 20 1 1e6
+* Zin magnitude is simply V(sense_corr) since I=1A AC
+print V(sense_corr)
+wrdata test_E_buffer_raw.csv V(sense_invalid) V(sense_corr) V(out_buf)
+.endc
+
+.end

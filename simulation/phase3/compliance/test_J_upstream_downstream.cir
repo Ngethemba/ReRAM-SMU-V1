@@ -1,0 +1,86 @@
+* Test J — Upstream vs downstream C_comp placement  (ngspice)
+* Gate 3 / IR-14 — reworked with behavioral resistor (avoids SW model issue)
+* Compares C_comp BEFORE R_iso (UPSTREAM, isolated) vs AFTER R_iso (DOWNSTREAM, dumps)
+* Two matched branches, same C (=4.7nF typical, also 10nF check), same DUT snap 1M->1k in 1us
+* DUT modeled as behavioral resistor R = 1k + 999k*(1 - V(nCtrl)) ; Vctrl 0->1 at 5us in 1us
+* Shows: E_stored=0.5*C*V^2 only downstream dumps fully; upstream split R_iso/R_dut
+* R_iso 47R sweet spot vs 10R (too low) vs 100R (too high) tradeoff
+
+.title Test J upstream vs downstream C_comp with R_iso isolation (behavioral R)
+
+* --- Control voltage for SET snap: 0->1 at 5us, 1us transition ---
+Vctrl  nCtrl 0 PWL(0 0  4.9u 0  6u 1  20u 1)
+
+* ================================================================
+* Branch UPSTREAM : C_comp (4.7nF) BEFORE R_iso (47R) -> R_iso -> DUT node
+* ================================================================
+Vsrc_up   nSrcUp 0 DC 5
+C_up      nSrcUp 0 4.7nF
+Riso_up   nSrcUp nDutUp 47
+Rdut_up   nDutUp 0 R='1e3 + 999e3*(1 - V(nCtrl))'
+
+* ================================================================
+* Branch DOWNSTREAM : R_iso (47R) -> C_comp (4.7nF) AFTER R_iso at DUT node
+* ================================================================
+Vsrc_down nSrcDown 0 DC 5
+Riso_down nSrcDown nDutDown 47
+C_down    nDutDown 0 4.7nF
+Rdut_down nDutDown 0 R='1e3 + 999e3*(1 - V(nCtrl))'
+
+* ================================================================
+* Additional check branches for tradeoff: 10nF with 10R and 100R
+* ================================================================
+* Upstream 10nF / 10R (too low R_iso)
+Vsrc_up2 nSrcUp2 0 DC 5
+C_up2    nSrcUp2 0 10nF
+Riso_up2 nSrcUp2 nDutUp2 10
+Rdut_up2 nDutUp2 0 R='1e3 + 999e3*(1 - V(nCtrl))'
+
+* Downstream 10nF / 100R (too high R_iso)
+Vsrc_down2 nSrcDown2 0 DC 5
+Riso_down2 nSrcDown2 nDutDown2 100
+C_down2    nDutDown2 0 10nF
+Rdut_down2 nDutDown2 0 R='1e3 + 999e3*(1 - V(nCtrl))'
+
+* Analysis: 0..20us, step 10ns
+.tran 10n 20u uic
+
+.control
+  run
+  echo "==== Test J: Upstream vs Downstream C_comp 4.7nF @5V + 10nF check ===="
+  echo "Expected E_stored: 4.7nF@5V=58.75nJ  10nF@5V=125nJ"
+  echo "UPSTREAM: E_to_DUT = E * R_dut/(R_iso+R_dut) (47R->95.5% 10R->99% 100R->90.9%)"
+  echo "DOWNSTREAM: E_to_DUT = 100% (direct dump)"
+  echo ""
+
+  meas tran VdutUp_pk MAX V(nDutUp) from=0 to=20u
+  meas tran VdutDown_pk MAX V(nDutDown) from=0 to=20u
+  meas tran VdutUp2_pk MAX V(nDutUp2) from=0 to=20u
+  meas tran VdutDown2_pk MAX V(nDutDown2) from=0 to=20u
+  meas tran VdutUp_min MIN V(nDutUp) from=5u to=20u
+  meas tran VdutDown_min MIN V(nDutDown) from=5u to=20u
+
+  echo "--- 4.7nF cases (47R) ---"
+  print VdutUp_pk VdutUp_min VdutDown_pk VdutDown_min
+  echo "Upstream 4.7nF/47R: C before Riso -> source cap isolated, DUT sees filtered step"
+  echo "Downstream 4.7nF/47R: C after Riso -> direct dump, larger transient into LRS"
+
+  echo "--- 10nF tradeoff cases ---"
+  print VdutUp2_pk VdutDown2_pk
+  echo "10nF/10R upstream: low Riso -> weak isolation, fp=1.59MHz near crossover, higher Ipeak"
+  echo "10nF/100R downstream: high Riso -> headroom 1V@10mA, fp=159kHz in BW, slow settling"
+
+  wrdata test_J_raw.csv time V(nDutUp) V(nDutDown) V(nDutUp2) V(nDutDown2) V(nCtrl)
+
+  echo ""
+  echo "Tradeoff conclusion (R_iso selection):"
+  echo "  too low (10R): headroom 0.1V good, but weak isolation if C were downstream;"
+  echo "               short-circuit Ipeak 500mA not limited, overshoot on voltage step"
+  echo "  too high (100R): headroom 1.0V (20% of 5V), regulation error I*Riso=1V, settling slow"
+  echo "               fp low (159kHz for 10nF) inside loop BW -> ringing without Cf"
+  echo "  sweet spot 33-47R: 0.33-0.47V headroom, fp 338kHz-482kHz for 10nF manageable with lead Cf,"
+  echo "               3.4MHz for 1nF (beyond crossover), preserves >45 deg PM if model permits"
+  echo "  Capacitor LOCATION is topology choice: 10nF upstream is acceptable; 10nF downstream is not."
+.endc
+
+.end

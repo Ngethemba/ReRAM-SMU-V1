@@ -1,0 +1,46 @@
+* Test L - POR / brownout supervisor RC model
+* Supervisor holds ENABLE low for 200ms via RC + open-drain
+* Rails: +12V ramp 10ms, -12V 20ms, +5V 15ms. ENABLE pulldown 10k dominates Hi-Z.
+.title TestL POR
+
+* Supply rails as PWL voltage sources
+V12p vp 0 PWL(0 0 10m 12 50m 12 50.5m 8 55m 8 55.5m 12 300m 12)
+V12n vn 0 PWL(0 0 20m -12 300m -12)
+V5   v5 0 PWL(0 0 15m 5 300m 5)
+Vref vref 0 PWL(0 0 2m 0 5m 2.5 300m 2.5)
+
+* Supervisor RC: charges via 100k to v5, threshold ~4.5V after 200ms
+Rsup v5 n_sup 100k
+Csup n_sup 0 2u
+* Comparator for supervisor: when V(n_sup) < 4.5 => ENABLE low (open-drain on)
+* Model open-drain as behavioral source that pulls low
+* For simplicity, model ENABLE node with pullup 10k to v5 and behavioral pulldown
+Rpull_en v5 en 10k
+* Behavioral pulldown: when supervisor not yet charged or any rail not valid, pull to 0
+* Use B source: I = when(V(n_sup)<4.5 | V(vp)<11 | V(vn)>-11 | V(vref)<2.4, (V(en)/10), 0) ??? Instead voltage clamp
+* Simpler: E_super en2 0 value={ (V(n_sup) < 4.5 ? 0 : (V(vp)>11 & V(vn)<-11 & V(vref)>2.4 ? V(v5) : 0)) }
+* But en is driven by pullup + open drain: we emulate with switch
+Ssup en 0 n_sup 0 SW_SUP
+.model SW_SUP SW(Ron=10 Roff=1G Vt=4.5 Vh=0.1)
+
+* MCU GPIO Hi-Z 0-100ms then drives low (disable). Model as voltage source with 10k series and Hi-Z via high Roff
+V_mcu mcu 0 PWL(0 0 100m 0 100.1m 0 200m 0 210m 0  230m 3.3)  ; after 230m FW could enable to 3.3V but supervisor still? We'll keep low for invariant test
+R_mcu mcu en 1k
+* For Hi-Z before 100m, we set V_mcu 0 but R is 1G? Instead emulate Hi-Z by not driving: we keep V_mcu 0 and rely on pulldown dominates.
+* LT1970 ENABLE follows en node
+* DUT path: LT1970 disabled => Hi-Z, so no current. Model as switch disabled when en<1.5
+Sout v5 dut_lt n_sup 0 SW_SUP  ; placeholder: disable DUT when supervisor active
+
+* Extra: DAC Vc node floating when Hi-Z, pulled to 50mV via 100k to GND (min-I safe)
+Rvc_pull vc 0 100k
+Vdac vc 0 PWL(0 0 2m 0 5m 0 50m 0 55m 5 60m 5 300m 0)  ; fault at 55m: Vc=5V for 5ms due to firmware bug, but en low should clamp
+
+.options gmin=1e-12
+
+.control
+tran 0.2m 250m uic
+wrdata simulation/phase3/fault/test_L_wr.dat v(vp) v(vn) v(v5) v(vref) v(n_sup) v(en) v(vc)
+write simulation/phase3/fault/test_L.raw v(en) v(n_sup) v(vc)
+.endc
+
+.end

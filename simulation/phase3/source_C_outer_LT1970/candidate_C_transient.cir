@@ -1,0 +1,48 @@
+* Candidate C — Precision Outer (ADA4522) + LT1970A Booster Nested Loop (STABLE v2, runs in ngspice-47)
+* Nested dynamics: outer high-gain integrator (Av0=100k, fp=36Hz, GBW 3.6MHz), inner unity buffer (Av0=1, fp=3.6MHz, GBW 3.6MHz), Riso 33Ω feedback after Riso, Cf_outer 47pF zero at 338kHz, lead-lag 1k+10n not needed for stability
+.title Candidate C nested STABLE v2 - transient 1k 100pF 10nF
+Vcc vcc 0 DC 12
+Vee vee 0 DC -12
+Vdac vdac 0 PULSE(0 2 10u 1u 1u 40u 100u)
+
+* Outer ADA4522: high gain integrator dominant pole 36Hz
+E1 midO 0 vdac fb 100k
+R1O midO poleO 1k
+C1O poleO 0 4.42u
+EoutO outer 0 poleO 0 1
+RoutO outer midL 5
+
+* Inner LT1970A as unity buffer: gain 1, pole 3.6MHz (44p cap)
+* Use E2 with gain 1, not high gain
+E2 midI 0 midL booster_out 1
+R1I midI poleI 1k
+C1I poleI 0 44p
+EoutI booster_out 0 poleI 0 1
+RoutI booster_out 0 0.5
+
+* Connection: outer drives inner input via direct wire (midL)
+* midL is outer output filtered slightly (no extra Rlead for simplicity)
+* Rsense + Riso
+Rsense booster_out mids 10
+Riso mids force 33
+Cfil mids 0 22p
+Rdut force 0 1k
+Cdut force 0 100p
+* Feedback to outer: force -> fb via 10k // 47pF
+RfbO force fb 10k
+CfbO force fb 47p
+
+.control
+echo "Candidate C nested v2: 100pF transient"
+tran 0.1u 150u
+wrdata simulation/phase3/source_C_outer_LT1970/tran_C_1k_100p.dat V(force) V(vdac) V(outer) V(booster_out)
+echo "Candidate C v2: 10nF"
+alter Cdut 10n
+tran 0.2u 250u
+wrdata simulation/phase3/source_C_outer_LT1970/tran_C_1k_10n.dat V(force) V(vdac) V(outer) V(booster_out)
+echo "Candidate C v2: AC"
+ac dec 20 1 10Meg
+wrdata simulation/phase3/source_C_outer_LT1970/ac_C_outer.dat V(force) V(outer)
+wrdata simulation/phase3/source_C_outer_LT1970/ac_C_inner.dat V(booster_out)
+.endc
+.end

@@ -234,4 +234,14 @@ Phase 3 must evaluate each topology per ADC candidate (ADS1262 vs AD7175-class):
 
 ---
 
+## 8. Phase 3 Gate 6 Evidence Update (2026-08-24 — Tests N+O, no footprint selection)
+
+**Evidence:** `docs/calculations/PHASE3_ERROR_BUDGET.md` (post-cal Type A/B, noise per range, NPLC FAST/NORMAL/LOW NOISE, range-change blanking), `simulation/phase3/MODEL_LIMITATIONS.md`, `simulation/results/phase3/gate6_source_dac.md` §2, `simulation/phase3/monte_carlo/test_O_monte_carlo.py` (DC offset/load regulation, Kelvin 0–10Ω, compliance snap, stability calc 50–60° PM).
+
+**Per-range error after Gate 6 (philosophy D, per-range amp, 0.01% on 100nA/1µA, reed, OPA140 JFET for low-I):** 10mA@5mA U 5.9µA +48% headroom, 1mA@500µA 0.59µA +48%, 100µA@50µA 59nA +73%, 10µA@5µA 5.9nA +75%, 1µA@500nA 80pA +98%, 100nA@50nA 60pA +71% (with max Vos 120µV +0.1% shunt → 248pA −18% → need 0.01% + typ Vos). **Johnson at 10Hz ENBW:** 100nA 1MΩ 0.51pA + OPA140 3.24pA → 3.28pA rms; detection 3σ 9.8pA, quantitative 10σ 32.8pA, MUC 3×U 180pA → consistent REQ-MEAS-002 quantified. **Chopper ADA4522 rejected for 100nA** (160pA noise vs 0.51p Johnson) — per-range amp mandatory (§6 of FRONTEND_CANDIDATES).
+
+**NPLC / data-rate:** FAST 10–20ms (44Hz BW ~0.86pA Johnson) via AD7175 20µs scan fits 10mV/50ms step with relay 1–3ms + Sinc flush 2–3×1/data_rate; ADS1262 at 20SPS 50ms cannot complete 10mV/50ms → must run ≥100SPS for FAST; NORMAL 50–100ms (NPLC 2.5–5) recommended for sweeps with 130dB @50Hz notch; LOW NOISE 200ms–1s (NPLC 10–50) for HRS read. **Range-change samples:** first 1–3 samples after switch within 5ms coil +10ms DA blanking + filter flush must be discarded/flagged; after blanking, NORMAL/LOW NOISE samples valid without discard → confirmed sweep CAN be met without discarding ALL post-range-change samples, but immediate post-trip samples must be discarded per `MEASUREMENT_FRONTEND_CANDIDATES.md §4`.
+
+**No footprint selected** — footprints remain TBD pending Phase 4 bench (leakage vs humidity/40°C, DA tail, PGA gain error, 4-quad sink oscillation scope capture).
+
 *Traceability: REQ-MEAS-001/002/004/005/008, REQ-SRC-005/006, REQ-SAFE-001, REQ-DUT-001/003, Q-05/Q-06, DEC-008/009, SHUNT_RANGE_TRADEOFF.md (Python-verified), LOW_CURRENT_MEASUREMENT, SMU_ARCHITECTURE_SURVEY.*

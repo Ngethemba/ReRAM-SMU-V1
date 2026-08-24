@@ -59,6 +59,21 @@ Versioning: `0.y.z` pre-release (no hardware), `1.y.z` after V1 release.
 - OPEN_QUESTIONS.md (Q-01/02/03/05/10/11) and REQUIREMENTS_TRACEABILITY updated; STATUS marked PHASE 2 — CORRECTED / READY FOR PHASE 3.
 - No schematic/PCB/BOM created; no component order.
 
+
+## [Unreleased] — Phase 3 Simulation (Tests A-O) — 2026-08-24
+
+### Added
+- simulation/phase3/ 11 subdirs (common, source_A/B/C, compliance, kelvin, measurement, leakage, range_switch, fault, dac_adc, monte_carlo) + simulation/results/phase3/ 6 gate summaries (116+ sim files, 251-pt POR, 2977-row energy transients rc=0).
+- Tests A-O per corrected plan: A LT1970A floor 4mV/4% FS coercion, B coercion 6/6 PASS, C Kelvin 160/160 V_FORCE equation, D open-sense latch OFF 0.5nA, E JFET buffer <1%@1GΩ, F C_DOWN budget 80pF@5V, G bipolar B midscale+PGA32, H trip MC 150/130/120%, I energy 61× cap underest, J R_iso 33-47Ω tradeoff, K safe seq 23.5ms, L POR 200ms supervisor, M leakage 1pA Good PASS, N AD5764 SELECT 20V 305µV half codes, O Candidate A SELECT 50°/6.5% B fallback 60°/3.2% C prototype 57°→16.6%.
+- docs/calculations/PHASE3_ERROR_BUDGET.md (29KB Type A/B k=2, Johnson+en/in+ADC+leakage, NPLC FAST 10-20ms/NORMAL 50-100ms/LOW 200ms-1s).
+- simulation/phase3/MODEL_LIMITATIONS.md (15KB per-gate table, LT1970A/ADA4522/OPA140/AD5686R/5764/ADR4525/LTC6655/ADS1262/AD7175/reed, what models vs bench).
+- simulation/results/phase3/PHASE3_RESULTS.md (15/15 PASS, summary table Candidate/DAC/ADC, failed/inconclusive, model limitations).
+- docs/architecture/PHASE3_ARCHITECTURE_SELECTION.md (SELECT A LT1970A, FALLBACK B, REQUIRES PROTOTYPE C; DAC AD5764, ADC AD7175/ADS1262).
+- docs/research/PHASE3_RESEARCH_SUMMARY.md (gates 1-6 quantitative).
+
+### Notes
+- No KiCad schematic/PCB/BOM/hardware — Phase 3 simulation only, next Phase 4 on authorization.
+
 ### Notes
 - No ReRAM-SMU schematic/PCB/BOM simulated or created in this session — correct for architecture phase. All candidates `PROVISIONAL / REQUIRES VERIFICATION` until simulation.
 

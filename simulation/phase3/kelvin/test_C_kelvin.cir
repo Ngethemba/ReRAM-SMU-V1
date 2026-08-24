@@ -1,0 +1,62 @@
+* ReRAM-SMU V1 — Test C: Differential Kelvin Servo — Reference Case
+* sim/phase3/kelvin/test_C_kelvin.cir
+* Run: "E:/ReRAM-SMU V1/tools/setup/ngspice-portable/Spice64/bin/ngspice_con.exe" -b test_C_kelvin.cir
+* Date: 2026-08-24
+*
+* Reference case per TASK: DUT 1kΩ, R_lead 1Ω per lead (2Ω total), R_shunt 2.5Ω (10mA range, 25mV FS)
+*            V_SET 0.5V (also swept -5..+5 in DC), rails ±12V, R_iso 10Ω (feedback AFTER R_iso)
+*            Low-side shunt OUTSIDE Kelvin loop — SENSE encloses DUT only (IR-11)
+*            High-Z buffers ideal (no load) — direct node pick
+*            Behavioral servo: V_FORCE = clamp( Aol*(V_SET - Vsense), -12, +12 )  Aol=1e5
+*            Vsense = V(dut_hi) - V(dut_lo)  (= V_DUT)
+*            Canonical verified: V_FORCE = V_DUT + V_SHUNT + I*R_LEAD_total + I*R_iso
+*
+* Demonstrates FORCE tracks SENSE with lead/shunt compensation.
+
+* --- Reference source ---
+Vset vset 0 DC 0.5
+
+* --- Ideal Kelvin servo (behavioral power stage) ---
+* Use min(max()) for rail clamping — ngspice has no limit() in B sources
+Bforce force 0 V = min(max( 1e5*( V(vset) - V(dut_hi,dut_lo) ), -12), 12)
+
+* --- Force path ---
+Riso      force force_p 10
+Rlead_hi  force_p dut_hi 1
+Rdut      dut_hi dut_lo 1k
+Rlead_lo  dut_lo shunt_hi 1
+Rshunt    shunt_hi 0 2.5
+
+* --- Analysis ---
+.control
+* 1) Operating point at V_SET=0.5V
+op
+echo === OP at V_SET=0.5V ===
+print v(vset) v(force) v(force_p) v(dut_hi) v(dut_lo) v(shunt_hi) v(dut_hi,dut_lo)
+let vsense = v(dut_hi) - v(dut_lo)
+let idut = (v(dut_hi)-v(dut_lo))/1k
+let vshunt = v(shunt_hi)
+let v_leads = idut*2
+let v_riso = idut*10
+let vforce_calc = vsense + vshunt + v_leads + v_riso
+let vdut_error = vsense - v(vset)
+let headroom = 12 - abs(v(force))
+print vsense idut vshunt v_leads v_riso vforce_calc v(force) vdut_error headroom
+echo --- PASS thresholds: |V_DUT error| <0.5mV, headroom >1V, no oscillation (INCONCLUSIVE ideal) ---
+* Report canonical equation check
+print v(force) - vforce_calc
+
+* 2) DC sweep bipolar -5..+5 to verify both polarities and headroom
+echo === DC sweep V_SET -5 to +5 ===
+dc Vset -5 5 0.5
+* After DC, print selected points via manual op at corners is easier with separate runs;
+* here we just confirm sweep converged (21 points)
+print v(vset) v(force) v(dut_hi,dut_lo) v(shunt_hi)
+
+* 3) Transient — ideal behavioral has no dynamics, so flat (INCONCLUSIVE for phase margin)
+* Use simple tran on DC point to show no oscillation
+tran 0.05m 2m
+print v(vset) v(force) v(dut_hi,dut_lo) v(shunt_hi)
+
+.endc
+.end

@@ -503,9 +503,24 @@ Power-tree Options per IR-07: **A — Raw ±12 V for AD5764/LT1970A power stage*
 
 ---
 
+## 13. Phase 3 Gate 6 Evidence Update (2026-08-24 — Tests N+O, no footprint selection)
+
+**Evidence:** `simulation/phase3/dac_adc/test_N_dac_comparison.py` (1000 runs/point, 2-pt cal −5/+5V, INL code-dependent, quant, 0.01%/0.1% ratio, TC, drift), `source_A/B/C` `candidate_*_transient.cir` ngspice-47 + `.dat` (1k+100pF/10nF, AC decode), `monte_carlo/test_O_monte_carlo.py` (DC/Kelvin/compliance/stability calc), `docs/calculations/PHASE3_ERROR_BUDGET.md` (Type A/B, noise per range, NPLC FAST/NORMAL/LOW NOISE, range-change blanking), `simulation/phase3/MODEL_LIMITATIONS.md` (per-gate table), `simulation/results/phase3/gate6_source_dac.md` (verdicts). **No footprint selected.**
+
+| Candidate | Gate 6 result | DC @2V/1kΩ cal | Kelvin 10Ω @2V | Cap 10p/100p/1n/10n PM | OS 100p/10n ngspice | Compliance CV→CC snap 1M→300Ω 1µs | Load reg 100Ω↔1MΩ @2V | Verdict retained |
+|-----------|---------------|-----------------|----------------|-----------------------|---------------------|----------------------------------|----------------------|------------------|
+| A LT1970A direct | MC RMS 35µV @2V, offset 12µV cal | 5.1µV after Riso (20mV naive) | 50° @10nF (Riso33Ω Cf33p fz482kHz fp2 482kHz) PASS, 85° @10p | 0.2%/6.5% PASS (<10%) | Ipk 10.4mA 4% into 1nF t_reg20µs flag4µs PASS | 13µV | **SELECT (primary)** — §7 of gate6_source_dac.md |
+| B ADA4522+BJT inside loop | RMS 1.5µV, offset 0.7µV | 0.7µV | 60° @10nF (Riso47Ω Cf100p) PASS pref >60° | 0.0%/3.2% PASS | 11.2mA 12% t_reg60µs FAIL timing >50µs coarse trip (TLV3501 26% tol) | 3.3µV | **KEEP AS FALLBACK** (also SENSE diff-amp; standalone REJECT as SMU core) |
+| C nested outer ADA4522+inner LT1970A | RMS 2µV, offset 4µV | 4µV | 57° analytic PASS but ngspice 10n OS 16.6% marginal (Cf opt needed) | 0.05%/16.6% marginal | 10.3mA 3% t_reg25µs PASS | 6µV | **REQUIRES PROTOTYPE** (lab, not PCB) — inner Vs outer lead-lag 1k+10n zero 16kHz, Cf_outer47p, fb after Riso |
+
+DAC companion: AD5764 SELECT (§1 of gate6_source_dac.md, 305µV LSB on 20V, half-codes 3% of 10mV, post-cal +46% @2V, supply ±11.4V via raw ±12V Option A), AD5686R 0.01% KEEP AS FALLBACK (REJECT 0.1%), AD5791 REQUIRES PROTOTYPE only if 16-bit fails. ADC: AD7175-8 primary for FAST + autorange (20µs scan), ADS1262 fallback for NORMAL/LOW NOISE (NPLC 2.5–10).
+
+*Do not select final footprints — V1 REV-A footprints remain TBD pending Phase 4 bench (quadrant-transition 0→+2→0→−2→0, compliance short 0.5Ω+1nF, relay therm EMF, leakage vs humidity/40°C).*
+
 ## 13. Changelog
 
 - 2026-08-24 — Initial issue — Agent A — covers LT1970A vs `OPA140/ADA4522+buffer` vs `OPA548/551` vs composite vs dedicated `source/sink` for `±5 V/±10 mA/10 pF–10 nF`; distributor spot check; CAUTION 1/2 closure; recommendation `SELECTED: LT1970A` / `DEFER: all others` for Phase 3.
+- 2026-08-24 — Gate 6 update — Phase 3 evidence injected (Tests N+O MC 1000 runs/point, ngspice-47 transients 1k+100pF/10nF, stability PM>45°) — verdicts SELECT A / KEEP B / REQUIRES PROTOTYPE C / REJECT OPA548, DAC AD5764 SELECT; no footprint selection.
 
 ---
 

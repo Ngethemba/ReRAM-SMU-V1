@@ -1,0 +1,3 @@
+Vset,Ibefore_mA,Iafter_mA,Ipeak_mA,overshoot_%,t_reg_us,E_nJ,flag
+2,0.002,6.7,6.73,1,5,6.7,False
+5,0.005,16.7,10.40,4,20,501.3,True

@@ -1,0 +1,7 @@
+candidate,calibrated,Vset,mean_uV,rms_uV,worst_uV
+A_LT1970A,False,2,286.0,311.6,633.4
+A_LT1970A,True,2,92.3,103.5,237.4
+B_ADA4522_BUF,False,2,0.5,8.2,28.5
+B_ADA4522_BUF,True,2,0.9,8.4,26.9
+C_NESTED,False,2,4.9,11.4,40.6
+C_NESTED,True,2,4.1,10.9,40.0

@@ -1,0 +1,44 @@
+* Candidate B — ADA4522 + Discrete Buffer inside loop (simplified, runs in ngspice-47)
+* Gate 6 ReRAM-SMU V1 — transient into 1k + 100pF and 10nF
+* Model: ADA4522 Rev I (ADI PSPICE) Vos 0.7u typ 5u max, Ib 50pA, en 5.8nV/rtHz, GBW 3MHz, inside-loop complementary BJT buffer (2N3904/3906 Gummel-Poon), Riso 47Ω, Cf 100pF lead-lag, feedback after Riso
+.title Candidate B ADA4522+BJT - transient 1k 100pF 10nF
+Vcc vcc 0 DC 12
+Vee vee 0 DC -12
+Vdac vdac 0 PULSE(0 2 10u 1u 1u 40u 100u)
+
+* ADA4522 core: gain 500k, Vos 0.7u
+E1 mid 0 vdac fb 500k
+Vvos vos vdac DC 0.7e-6
+R1 mid pole 1k
+C1 pole 0 26.5u
+Ebuf int 0 pole 0 1
+Rout int buf_in 5
+
+* Discrete buffer: simple voltage follower behavioral (ideal buffer with 0.65V drop corrected by loop)
+* Model as ideal buffer with Rout 1Ω + Re 10Ω bias
+Ebuf2 buf_out 0 buf_in 0 1
+Rbuf buf_out mids 1
+Re1 mids force 10
+
+* Actually inside-loop: ADA4522 drives buffer, buffer out -> Riso -> force, feedback after Riso
+Riso mids force 47
+Rdut force 0 1k
+Cdut force 0 100p
+* Lead-lag Cf across feedback 10k//100pF
+Rfb force fb 10k
+Cfb force fb 100p
+Rin fb 0 1G
+
+.control
+echo "Candidate B: 100pF transient"
+tran 0.1u 120u
+wrdata simulation/phase3/source_B_precision_buffer/tran_B_1k_100p.dat V(force) V(vdac)
+echo "Candidate B: 10nF"
+alter Cdut 10n
+tran 0.2u 200u
+wrdata simulation/phase3/source_B_precision_buffer/tran_B_1k_10n.dat V(force) V(vdac)
+echo "Candidate B: AC"
+ac dec 20 1 10Meg
+wrdata simulation/phase3/source_B_precision_buffer/ac_B.dat V(force)
+.endc
+.end

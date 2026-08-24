@@ -1,0 +1,39 @@
+* Test K - Range switching faults: hot-switch glitch vs safe BBM
+* Shunts: R1=2.5 (10mA), R2=25 (1mA), DUT 1k at 2V => I~2mA, but compliance not modeled here
+* Switches S1 S2 are ideal break-before-make vs make-before-break
+.title TestK range switch
+
+.param R1=2.5
+.param R2=25
+.param Rdut=1k
+.param Vsrc=2
+
+Vsrc src 0 DC 2
+* Shunt branch: src -> S1 -> R1 -> mid -> R2 -> ...? Actually shunt is low-side: DUT -> shunt -> GND
+* Topology: src -> Rdut -> node shunt_hi -> shunt -> GND, sense across shunt
+Rdut src shunt_hi {Rdut}
+* Two shunts in parallel via switches to GND
+S1 shunt_hi g1 0 0 SW
+S2 shunt_hi g2 0 0 SW
+Rsh1 g1 0 {R1}
+Rsh2 g2 0 {R2}
+
+.model SW SW(Ron=0.1 Roff=1G Vt=2.5 Vh=0.2)
+
+* Gate drives: correct BBM: S1 breaks at 10us, S2 makes at 16us (6ms gap simplified to 6us for sim)
+* For speed, use us scale: gap 5us corresponds to spec 5ms but scaled 1000x for sim runtime
+Vg1 g1 0 PWL(0 5 9.9u 5 10u 0 30u 0)
+Vg2 g2 0 PWL(0 0 15.9u 0 16u 5 30u 5)
+
+* Alternative MBB would be Vg2 rising at 9u overlapping: for second run alter.
+* Kelvin sense: we measure V(shunt_hi) which equals I*R_eff
+
+.options gmin=1e-12
+
+.control
+tran 0.05u 30u uic
+wrdata simulation/phase3/range_switch/test_K_wr.dat v(shunt_hi) v(g1) v(g2)
+write simulation/phase3/range_switch/test_K.raw v(shunt_hi)
+.endc
+
+.end

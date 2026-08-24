@@ -304,6 +304,33 @@ No FINAL promotion until Phase 3 simulation gates pass. Specs must not be propag
 
 ---
 
+
+### DEC-026 — Phase 3 Source Architecture Selection
+
+- **Date:** 2026-08-24
+- **Status:** SELECTED FOR SCHEMATIC (Phase 3 evidence)
+- **Requirement(s):** REQ-SRC-001/002/006, REQ-SAFE-001, REQ-PWR-003
+- **Alternatives considered:** Candidate A LT1970A direct, Candidate B ADA4522+BJT buffer, Candidate C outer+LT1970A nested (DEC-025).
+- **Evidence examined:** simulation/results/phase3/PHASE3_RESULTS.md + gate6_source_dac.md (Tests O, A+B, C+D, F+J, I); ngspice A PM50° OS6.5%@10nF (0.2%@100p) 12µV@2V 4µs 1% ISRC/ISNK, B PM60° OS3.2% 0.7µV but coarse trip >10µs, C PM57° analytic OS16.6% marginal; Kelvin 160/160 PASS, compliance coercion 6/6 PASS, POR 200ms PASS.
+- **Decision:** **Candidate A LT1970A direct SELECT (primary)** for REV-A schematic; **Candidate B KEEP AS FALLBACK** (precision alternate, no integrated limit); **Candidate C REQUIRES PROTOTYPE** (do not layout until bench, lead-lag tuning needed).
+- **Rationale:** Only A delivers 4-quadrant ±500mA (10mA need) + 1% separate source/sink limit 4µs + ENABLE/TSD in one pad with lowest effort and PASS >45° (50°/6.5%). B best DC (0.7µV) but fails 4µs envelope; C best lifecycle/accuracy but 16.6% OS marginal → prototype-gated per Phase 3 exit criteria.
+- **Consequences:** Schematic capture may begin with A; B kept for V1.1 if LT1970A offset uncorrectable; C lab experiment parallel.
+- **Verification status:** SIMULATED — bench POR/leakage/DA/therm EMF/humidity still required per MODEL_LIMITATIONS.
+- **Provenance:** LT1970A 1970afc, ADA4522 RevI, OPA140 RevF, ngspice-47, LTspice 26.0.2.1, PHASE3_RESULTS.
+
+### DEC-027 — Phase 3 DAC/ADC/Reference Selection
+
+- **Date:** 2026-08-24
+- **Status:** SELECTED FOR SCHEMATIC
+- **Requirement(s):** REQ-MEAS-007/008, REQ-SRC-001/002, REQ-PWR-003
+- **Alternatives considered:** AD5686R 0-5V→×2 (0.01% 10ppm RG vs 0.1% REJECT), AD5764 actual 20V 305µV half codes ±11.4V, AD5791 20-bit prototype-only; ADS1262 vs AD7175-8; ADR4525 vs LTC6655LN.
+- **Evidence examined:** simulation/phase3/dac_adc/test_N_dac_comparison.py 1000 MC 2-pt cal at ±5V; AD5764 2V +46% headroom k=2, 0.1V +9%/−19%, AD5686R 0.01% +48% @2V; 10mV step 1.5% AD5686R vs 3.0% AD5764 <10% criterion; PHASE3_ERROR_BUDGET Type A/B.
+- **Decision:** **DAC SELECT AD5764** (20V 305µV, INL±305µV, no gain-stage, half codes OK, raw ±12V Option A 0.6V margin) with LTC6655LN-2.5 primary / ADR4525 fallback; fallback AD5686R 0-5V→×2 with 0.01% RG kept; **ADC SELECT AD7175-8 primary** (250kSPS 20µs Sinc5+1) for FAST 10-20ms + autorange, **ADS1262 fallback** for NORMAL/LOW; hybrid PGA per-range D (25mV 10/1mA→3.13×, etc.) + per-range JFET/reed.
+- **Rationale:** AD5764 simplest meeting REQ-MEAS-007 with margin at ±2V primary without precision-resistor gain stage; LSB equal in volts to AD5686R; supply via raw ±12V (IR-07). AD7175 fastest for 23.5ms switch seq + NPLC without discarding samples.
+- **Consequences:** Schematic capture with primary selections; alternates kept second-source; no procurement.
+- **Verification status:** SIMULATED — drift/hysteresis/humidity/package parasitics bench required.
+- **Provenance:** AD5686R RevF, AD5764 RevF (no ±5V mode), AD5791 RevF, ADR4525 RevG, LTC6655 fb, ADS1262/AD7175 datasheets, ngspice-47, PHASE3_RESULTS.
+
 ## Decision Index
 
 | ID | Subject | Status | Date |
