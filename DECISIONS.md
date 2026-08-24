@@ -372,6 +372,10 @@ No FINAL promotion until Phase 3 simulation gates pass. Specs must not be propag
 | DEC-040 | Pre-ERC Kelvin LT5400 Promotion | ACCEPTED | 2026-08-25 |
 | DEC-041 | Pre-ERC AD5764 Rail Margin Guaranteed at IC | ACCEPTED | 2026-08-25 |
 | DEC-042 | Pre-ERC ADS1262 Bipolar ±2.5V Preference | SELECTED FOR SCHEMATIC | 2026-08-25 |
+| DEC-043 | Pre-ERC Gate 3 ADS1262 Table 6-1 Correct Pinout | ACCEPTED | 2026-08-25 |
+| DEC-044 | Pre-ERC Gate 3 AD5764 32-Pin C-Grade | ACCEPTED | 2026-08-25 |
+| DEC-045 | Pre-ERC Gate 3 Buffer Arithmetic Correction | ACCEPTED | 2026-08-25 |
+| DEC-046 | Pre-ERC Gate 3 BAV199 & LT5400 EP Floating | ACCEPTED | 2026-08-25 |
 
 ---
 
@@ -545,5 +549,40 @@ No FINAL promotion until Phase 3 simulation gates pass. Specs must not be propag
 
 ---
 *Append new decisions at the end. Never delete a decision — supersede it with a new DEC entry referencing the old one.*
+
+
+### DEC-043 — Pre-ERC Gate 3 ADS1262IPW Table 6-1 Correct Pinout
+
+- **Date:** 2026-08-25
+- **Status:** ACCEPTED — SUPERSEDES previous ADS1262 symbol (AVDD 1 etc)
+- **Evidence:** TI SBAS661C Table 6-1 TSSOP-28 PW: 1 AIN8 2 AIN9 3 AINCOM 4 CAPP 5 CAPN 6 AVDD 7 AVSS 8 REFOUT 9 START 10 CS 11 SCLK 12 DIN 13 DOUT/DRDY 14 DRDY 15 XTAL1/CLKIN 16 XTAL2 17 BYPASS 18 DGND 19 DVDD 20 RESET/PWDN 21 AIN0 22 AIN1 23 AIN2 24 AIN3 25 AIN4 26 AIN5 27 AIN6 28 AIN7 — no REFP/REFN, ref via AIN0-5 multifunction, mandatory CAPP-CAPN 4.7nF C0G, REFOUT 1uF+0.1uF, BYPASS 1uF, XTAL1->DGND internal.
+- **Decision:** **ADS1262IPW symbol rebuilt per Table 6-1, 28 pins, correct types, C-grade not needed (TI only one grade). Allocation: AIN0=SHUNT_P, AIN1=SHUNT_N, AIN2=REFP LTC6655-2.5, AIN3=REFN GND.**
+- **Verification:** PIN AUDIT PASS (28 pins), KiCad parser exit 0.
+
+### DEC-044 — Pre-ERC Gate 3 AD5764 32-Pin TQFP Rev F & C-Grade
+
+- **Date:** 2026-08-25
+- **Status:** ACCEPTED — SUPERSEDES 20-pin placeholder and ARUZ A-grade
+- **Evidence:** ADI Rev F Table 6-1: 1 SYNC 2 SCLK 3 SDIN 4 SDO 5 CLR 6 LDAC 7 D0 8 D1 9 RSTOUT 10 RSTIN 11 DGND 12 DVCC 13 AVDD 14 PGND 15 AVSS 16 ISCC 17 AGNDD 18 VOUTD 19 VOUTC 20 AGNDC 21 AGNDB 22 VOUTB 23 VOUTA 24 AGNDA 25 REFAB 26 REFCD 27 NC 28 REFGND 29 NC 30 AVSS 31 AVDD 32 BIN/2sCOMP — VOUTA-D output, not input. Grade: C-grade INL ±1LSB (CSUZ) vs A-grade ±4LSB (ARUZ) — Phase-3 ±1LSB assumption requires C-grade.
+- **Decision:** **AD5764 symbol rebuilt 32-pin TQFP, VOUTA-D output, value AD5764CSUZ (was ARUZ), footprint TQFP-32 7x7 P0.8 correct.**
+- **Verification:** PIN AUDIT PASS (32 pins), parser exit 0.
+
+### DEC-045 — Pre-ERC Gate 3 Buffer Arithmetic Correction
+
+- **Date:** 2026-08-25
+- **Status:** ACCEPTED — CORRECTS 1000× unit errors in ADS1262_BUFFER_TABLE.md
+- **Evidence:** OPA140 0.5pA×100k=50nV (was 50µV), 0.5pA×1M=0.5µV (was 0.5mV), 10pA×1M=10µV (was 10mV), 7.5pA×1M=7.5µV (was 7.5mV). Recalculated: 1µA 0.00005% typ (was 0.05%), 100nA 0.0005% typ (was 0.5%).
+- **Decision:** **Buffer table corrected, MUC impact: 1nA MUC on 100nA FS 1% — 0.5µV/100mV=0.0005% <<1% — buffer easily meets, direct 2% would fail — buffer mandatory proven.**
+- **Verification:** CALCULATED.
+
+### DEC-046 — Pre-ERC Gate 3 BAV199 Leakage & LT5400 EP
+
+- **Date:** 2026-08-25
+- **Status:** ACCEPTED
+- **Evidence:** BAV199 3pA typical at VR=25V 25°C, max nA at VR=75V — not guaranteed. LT5400A-1 MSOP-8 EP pin 9 floating per datasheet (not GND).
+- **Decision:** **PRIMARY 1µA/100nA clamp AFTER OPA140 buffer (BAV199 after buffer, 3pA does not load shunt), pre-buffer BAV199 DNP/prototype with max-leak justification. LT5400 EP pin 9 floating (passive, not power_in GND).**
+- **Verification:** SCHEMATIC NOTE + PIN AUDIT PASS (LT5400 9 pins, EP passive).
+
+---
 
 ---

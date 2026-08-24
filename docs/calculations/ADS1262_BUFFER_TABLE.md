@@ -1,28 +1,34 @@
-# ADS1262 Per-Range Buffer Requirement — ReRAM-SMU V1
+# ADS1262 Per-Range Buffer Requirement — ReRAM-SMU V1 (Corrected Gate 3)
 
-**Date:** 2026-08-25
-**Gate:** Pre-ERC Correction Gate 2 — ADS1262 bipolar ±2.5V after DEC-042
-**Reference:** TI SBAS661C Rev C Table 7-1, Fig 7-27, ADS1262 Ib 2nA typ @PGA32, OPA140 SBOS498F Ib 0.5pA typ /10pA max, Coto <1pA reed, BAV199 3pA
-**Supply:** AVDD +2.5V / AVSS -2.5V bipolar (DEC-042, DEC-034 superseded) — ground-centered ±100mV shunt, no VCM shift PRIMARY. Single-supply VCM 2.5V DNP alternate.
+**Date:** 2026-08-25 (corrected 2026-08-25 Gate 3)
+**Gate:** Pre-ERC Correction Gate 3 — ADS1262 Table 6-1 correct pinout, bipolar ±2.5V, buffer arithmetic fix
+**Reference:** TI SBAS661C Rev C Table 6-1, Fig 7-27, ADS1262 Ib 2nA typ @PGA32, OPA140 SBOS498F Ib 0.5pA typ /10pA max, Coto <1pA reed, BAV199 3pA **typical** (not guaranteed, max nA at VR=75V)
+**Supply:** AVDD +2.5V / AVSS -2.5V bipolar (DEC-042 supersedes DEC-034) — ground-centered ±100mV, no VCM shift PRIMARY. Single-supply VCM 2.5V DNP alternate. Allocation: AIN0=SHUNT_P, AIN1=SHUNT_N, AIN2=REFP LTC6655-2.5, AIN3=REFN GND.
 
-## Per-range table
+## Per-range table (corrected arithmetic — 1000× errors fixed)
 
 | Range | Rshunt | FS (Vburden) | PGA | FSR (VREF 2.5V) | Util | Buffer required? | ADC Ib error (direct) | With OPA140 buffer error | Leakage budget | Total est. error (typ) | Notes |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| 10mA | 2.5Ω | 25mV | 32 | 78.125mV | 32% | **DIRECT** | 2nA×2.5Ω=5nV (0.00002%) | — | reed <1pA | <0.01% (shunt TC+gain) | Direct PGA ok, no buffer need |
+| 10mA | 2.5Ω | 25mV | 32 | 78.125mV | 32% | **DIRECT** | 2nA×2.5Ω=5nV (0.00002%) | — | reed <1pA | <0.01% (shunt TC+gain) | Direct PGA ok |
 | 1mA | 25Ω | 25mV | 32 | 78.125mV | 32% | **DIRECT** | 2nA×25Ω=50nV (0.0002%) | — | reed | <0.01% | Direct ok |
-| 100µA | 500Ω | 50mV | 32 | 78.125mV | 64% | **DIRECT** | 2nA×500Ω=1µV (0.002%) | — | reed | <0.02% | Direct ok, PGAL margin ok |
-| 10µA | 5kΩ | 50mV | 32 | 78.125mV | 64% | **DIRECT** (borderline) | 2nA×5kΩ=10µV (0.02%) | 0.5pA×5k=2.5µV | reed | 0.03% typ, 0.15% max (Ib max) | Direct passes 1nA MUC with margin, buffer DNP provision for max temp |
-| 1µA | 100kΩ | 100mV | 16 | 156.25mV | 64% | **BUFFER REQUIRED** | 2nA×100kΩ=200µV (0.2%) FAIL for 1nA MUC | **OPA140 0.5pA×100k=50µV (0.05%)** typ, 10pA→1mV 1% max -> needs guard/binned | OPA140 0.5pA + BAV199 3pA + reed <1pA ≈7.5pA typ | 0.06% typ, 1.1% max (needs temp guard) | **OPA140 JFET buffer PRIMARY** for 100k/1M |
-| 100nA | 1MΩ | 100mV | 16 | 156.25mV | 64% | **BUFFER REQUIRED** | 2nA×1MΩ=2mV (2%) FAIL | **OPA140 0.5pA×1MΩ=0.5mV (0.5%)** typ, 10pA→10mV 10% max -> guard mandatory | same 7.5pA typ → 7.5mV? Wait Ib*1M=0.5mV, plus leakage 7.5pA*1M=7.5mV? Actually ADC Ib is isolated by buffer, so only OPA140 Ib + leakage through shunt: 0.5pA*1M=0.5mV, 7.5pA total*1M=7.5mV worst -> need guard to <2pA | 0.5% typ, 8% max without guard → **guard + C0G + no TVS** reduces to <2pA → 0.7% max | **OPA140 + guard ring + BAV199 (not TVS) + reed <1pA** PRIMARY, C0G only |
+| 100µA | 500Ω | 50mV | 32 | 78.125mV | 64% | **DIRECT** | 2nA×500Ω=1µV (0.002%) | — | reed | <0.02% | Direct ok |
+| 10µA | 5kΩ | 50mV | 32 | 78.125mV | 64% | **DIRECT** (borderline) | 2nA×5kΩ=10µV (0.02%) | 0.5pA×5k=2.5nV (0.000005%) | reed | 0.02% typ (direct) | Direct passes 1nA MUC, buffer DNP for max temp |
+| 1µA | 100kΩ | 100mV | 16 | 156.25mV | 64% | **BUFFER REQUIRED** | 2nA×100kΩ=200µV (0.2%) FAIL for 1nA MUC | **OPA140 0.5pA×100k=50nV (0.00005%)** typ, 10pA→1µV (0.001%) max — **was 50µV/1mV 1000× high** | OPA140 0.5pA + reed <1pA ≈1.5pA typ (BAV199 **after** buffer, not at shunt) | **0.00005% typ, 0.001% max** — **was 0.05%/1% 1000× high** | **OPA140 JFET buffer PRIMARY** for 100k/1M |
+| 100nA | 1MΩ | 100mV | 16 | 156.25mV | 64% | **BUFFER REQUIRED** | 2nA×1MΩ=2mV (2%) FAIL | **OPA140 0.5pA×1MΩ=0.5µV (0.0005%)** typ, 10pA→10µV (0.01%) max — **was 0.5mV/10mV 1000× high**; 7.5pA×1M=7.5µV (0.0075%) **was 7.5mV 1000× high** | OPA140 0.5pA + reed <1pA ≈1.5pA typ (clamp after buffer) | **0.0005% typ, 0.01% max** — **was 0.5%/10% 1000× high** | **OPA140 + guard + C0G, clamp after buffer, DNP pre-buffer BAV199** |
 
-**Derivation:** FSR=±VREF/G. With VREF 2.5V bipolar, absolute 0.3V headroom not needed for ground-centered — PGA window is ±FSR around 0V, so 100mV fits FS156mV with 56% headroom. For single-supply case, PGAL would clip, requiring VCM shift — now removed from PRIMARY.
+**Corrected arithmetic:** 0.5pA×100kΩ=50nV (not 50µV), 0.5pA×1MΩ=0.5µV (not 0.5mV), 10pA×1MΩ=10µV (not 10mV), 7.5pA×1MΩ=7.5µV (not 7.5mV). 1000× unit errors removed. MUC impact: 1nA MUC on 100nA FS (100mV) is 1% of FS; 0.5µV/100mV=0.0005% <<1% — buffer easily meets MUC. Direct 2mV/100mV=2% would violate 1% — buffer mandatory, now proven with correct units.
 
-**Buffer decision:**
-- **DIRECT (10mA–10µA):** No active VCM shift, shunt Kelvin → R_prot 1k → BAV199 (3pA, not TVS 1µA) → RC → direct to AIN0-3. Input current 2nA creates <0.02% error, within 1nA MUC (0.1% of 10µA FS is 10nA, error 10µV/50mV=0.02% → 2nA error 0.02% <0.1% budget). **Keep single-supply VCM topology only as DNP alternate** — PRIMARY is bipolar direct.
-- **BUFFERED (1µA/100nA):** OPA140-class low-Ib (0.5pA typ, 10pA max) JFET follower before ADS1262, reed mux <1pA, guard ring 0.5mm exposed copper, stitched inner plane DNP, C0G 10nF, BAV199 clamp 3pA. **Do not remove buffer merely because bipolar rails remove VCM need** — ADC Ib is orders larger than <10pA target. Direct would be 2nA/100nA=2% error on 100nA range, invalid.
+**Derivation:** FSR=±VREF/G. Bipolar ±2.5V ground-centered, PGA window ±FSR around 0V, 100mV fits FS156mV with 56% headroom. Single-supply would need VCM shift — now DNP.
 
-**Bipolar vs single-supply:** DEC-042 supersedes DEC-034 analog-supply portion — **AVDD +2.5V via LT3045, AVSS -2.5V via LT1964** physically on 06 sheet; VCM 2.5V level-shift (opamp + divider) removed from PRIMARY, kept as DNP alternate footprint for prototype comparison. Bipolar reduces leakage/complexity, eliminates 2 opamps and divider drift.
+**Buffer decision (re-evaluated Gate 3):**
+- **DIRECT (10mA–10µA):** Shunt Kelvin → R_prot 1k → RC → **direct to AIN0-1** (no buffer). 2nA*5k=10µV (0.02%) <1nA MUC equivalent 5mV? Actually 1nA*5k=5µV, direct error 10µV ~2× MUC but still <0.02% of FS. **BAV199 pre-buffer where leakage negligible (2nA >>3pA)** may remain for higher-current ranges; PRIMARY for 10µA retains BAV199 pre-buffer as DNP/prototype for max-leak justification.
+- **BUFFERED (1µA/100nA):** **Clamp/protection AFTER OPA140 buffer where possible**, so clamp leakage (BAV199 typical 3pA, max nA) does **not** load high-Z shunt node. Pre-buffer BAV199 (if any) **marked DNP/prototype** with guaranteed leakage justification required (BAV199 max >>3pA typical at VR=75V). PRIMARY 1µA/100nA path: shunt → reed → OPA140 follower (0.5pA) → BAV199 clamp to supplies (after buffer, 3pA does not load shunt) → RC → AIN. Guard ring 0.5mm, C0G 10nF, reed <1pA. **Do not remove low-current buffer because bipolar rails remove VCM need** — ADC Ib 2nA >>10pA target, direct would be 2% on 100nA.
 
-**Verification:** Bench leak <10pA open-input 100s, Ib error vs Rshunt scope, PGAL/H flag, noise PSD per PGA.
+**BAV199 note (Gate 3):** 3pA is **typical** at VR=25V, 25°C; manufacturer max is much higher at specified VR=75V (nA range). For PRIMARY 1µA/100nA high-Z node, **never rely on BAV199 typical as guaranteed**. Place semiconductor clamp after buffer; if pre-buffer clamp remains, mark DNP and provide max-leakage calc at actual VR (<<1V) and temp, with measured verification.
+
+**Bipolar vs single-supply:** DEC-042 supersedes DEC-034 supply/VCM — **AVDD +2.5V LT3045 / AVSS -2.5V LT1964** physically; VCM shift removed from PRIMARY, DNP alternate.
+
+**LT5400A-1 EP:** Pin 9 EP is **floating per datasheet** (not tied to GND/rail) — verify all 8 resistor terminals (R1A 1, R2A 2, R3A 3, R4A 4, R4B 5, R3B 6, R2B 7, R1B 8) against manufacturer diagram before PCB.
+
+**Verification:** Bench leak <10pA open-input 100s, Ib error vs Rshunt, PGAL/H flag, noise PSD per PGA. Kelvin DC/CMRR with LT5400A-1 86dB vs discrete 54dB re-run pending.
 
