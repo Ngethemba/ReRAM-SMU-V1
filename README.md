@@ -2,8 +2,10 @@
 
 **Homemade precision SMU for low-voltage ReRAM / memristive device characterization and precision-electronics education.**
 
-> ⚠️ **Project Stage: Phase 0 — Workspace and Tooling**
-> No schematic, no PCB, no BOM has been validated. All architecture is provisional and requires verification. This is an engineering instrument project, not a hobby circuit.
+> ⚠️ **Project Stage: Phase 2 — Architecture & Candidate Component Verification — COMPLETE**
+> No schematic, no PCB, no BOM has been validated. All architecture is provisional and requires simulation verification. This is an engineering instrument project, not a hobby circuit.
+
+**Repository:** `https://github.com/Ngethemba/ReRAM-SMU-V1` — **PRIVATE**, branch `master`, 4 commits (`d5a6100`, `7b967de`, `3658117`, `57531ec`).
 
 ## What This Is
 
@@ -18,7 +20,8 @@ It is simultaneously an **educational platform** covering precision analog, DAC/
 
 ## Current Status
 
-- **Phase:** `Phase 0 — Workspace and Tooling`
+- **Phase:** `Phase 2 — Architecture & Candidate Component Verification — COMPLETE → Phase 3 ready`
+- **Repository:** [`https://github.com/Ngethemba/ReRAM-SMU-V1`](https://github.com/Ngethemba/ReRAM-SMU-V1) (PRIVATE)
 - **Dashboard:** [`STATUS.md`](STATUS.md)
 - **Requirements:** [`REQUIREMENTS.md`](REQUIREMENTS.md) — confirmed / provisional / future separated
 - **Risks & Decisions:** [`RISKS.md`](RISKS.md) · [`DECISIONS.md`](DECISIONS.md)
