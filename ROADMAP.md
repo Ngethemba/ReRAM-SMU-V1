@@ -59,7 +59,7 @@
 
 ---
 
-## Phase 3 — Precision Voltage-Source Subsystem
+## Phase 3 — Precision Voltage-Source Subsystem [EXPANDED — ABSORBED PHASES 4–6]
 
 **Objective:** Design and simulate the voltage source chain: reference → DAC → conditioning amp → output stage.
 
@@ -70,11 +70,16 @@
 | — | Headroom / dropout / thermal analysis done |
 | — | Design reviewed; no PCB yet |
 
+**Re-baseline note (2026-08-25):** Original Roadmap Phases 4–6 scope was absorbed into **Expanded Phase 3** as documented in `simulation/results/phase3/` (Tests A-O, Gates 1-6) and corrective reviews `PHASE3_INDEPENDENT_REVIEW_CORRECTIONS.md`, `PHASE3_CORRECTIVE_RESULTS.md`, `R5_1_TOPOLOGY_CORRECT_VENDOR_RESULTS.md` (vendor LT1970.sub with corrected low-side shared shunt + differential Kelvin). All Phase 4–6 exit criteria were satisfied within Expanded Phase 3:
+- Phase 4 (Current Measurement): shunts 2.5Ω–1MΩ + ADA4522/OPA140 + ADS1262 (primary) + noise/leakage budgeting — see `docs/calculations/SHUNT_RANGE_TRADEOFF.md`, `PHASE3_ERROR_BUDGET.md`, Tests G/E/M.
+- Phase 5 (Hardware Compliance): LT1970A continuous CC (shared shunt) + TLV3501 emergency trip (open-collector pull-ups to 3.3V) + FILTER DNP/open baseline + R_iso 33/47Ω + CV↔CC transitions 50µA/100µA/1mA/10mA + ISRC/ISNK — see `R5_1` and `COMPLIANCE_ARCHITECTURE.md`.
+- Phase 6 (Integrated): end-to-end source+measure+compliance+Kelvin co-simulation, power tree, grounding (one continuous plane), guard, thermal, Monte Carlo — see `PHASE3_RESULTS.md` Gates 1-6.
+
 ---
 
-## Phase 4 — Current Measurement Subsystem
+## Phase 4 — Current Measurement Subsystem — **COMPLETED AS PART OF EXPANDED PHASE 3 / CONSOLIDATED (2026-08-25)**
 
-**Objective:** Design and simulate the current measurement chain: shunts → mux/relays → sense amp → ADC.
+**Original objective:** Design and simulate the current measurement chain: shunts → mux/relays → sense amp → ADC.
 
 | Entry | Exit |
 |-------|------|
@@ -83,11 +88,13 @@
 | — | Leakage / relay / PCB contamination risks quantified |
 | — | ADC noise / INL impact budgeted |
 
+**Status:** `CONSOLIDATED` — see Expanded Phase 3 artifacts above; retained for history, no separate phase execution. Do not re-enter.
+
 ---
 
-## Phase 5 — Hardware Compliance
+## Phase 5 — Hardware Compliance — **COMPLETED AS PART OF EXPANDED PHASE 3 / CONSOLIDATED (2026-08-25)**
 
-**Objective:** Design and simulate the hardware compliance / protection loop independent of firmware.
+**Original objective:** Design and simulate the hardware compliance / protection loop independent of firmware.
 
 | Entry | Exit |
 |-------|------|
@@ -95,17 +102,21 @@
 | — | Fault injection plan written (`docs/test/`) |
 | — | Compliance verified independent of MCU |
 
+**Status:** `CONSOLIDATED` — see Expanded Phase 3 (Tests A/B/H/I/J/K/L, R5.1). FILTER DNP/open baseline, pull-ups to 3.3V, R_iso provision, differential Kelvin.
+
 ---
 
-## Phase 6 — Integrated Simulation
+## Phase 6 — Integrated Simulation — **COMPLETED AS PART OF EXPANDED PHASE 3 / CONSOLIDATED (2026-08-25)**
 
-**Objective:** Co-simulate source + measure + compliance + power as a system.
+**Original objective:** Co-simulate source + measure + compliance + power as a system.
 
 | Entry | Exit |
 |-------|------|
 | Subsystems simulated | End-to-end I–V sweep simulated (bipolar, range transitions) |
 | — | Supply / ground / coupling effects simulated where practical |
 | — | Simulation review checklist passed |
+
+**Status:** `CONSOLIDATED` — see Expanded Phase 3 (Tests O, R5.1 stability 10pF–1nF, Kelvin, faults, Monte Carlo). PM inconclusive (encrypted macro) → prototype gate remains.
 
 ---
 
