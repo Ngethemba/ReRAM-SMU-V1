@@ -1,0 +1,79 @@
+# ---> KiCad
+*.bak
+*.bck
+*-backups/
+*.kicad_prl
+*.kicad_pcb-bak
+fp-info-cache
+*~
+
+# KiCad autosave / lock
+~*.kicad_pcb
+~*.kicad_sch
+*.lck
+
+# ---> Build artifacts
+build/
+out/
+dist/
+*.o
+*.elf
+*.hex
+*.bin
+*.map
+*.lst
+
+# ---> Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+.env/
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# ---> Simulation temp
+*.raw
+*.log
+*.net
+*.cir.raw
+simulation/results/tmp/
+ltspice/*.log
+ngspice/*.out
+
+# ---> IDE / OS
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---> Large transient artifacts (keep sources, ignore generated bulk)
+# Uncomment if needed:
+# measurements/raw/tmp/
+# *.csv.bak
+
+# ---> Secrets / local config
+.env.local
+*.key
+*.pem
+
+# ---> Keep these (do NOT ignore)
+# !hardware/kicad/*.kicad_sch
+# !hardware/kicad/*.kicad_pcb
+# !simulation/spice/*.asc
+# !simulation/spice/*.cir
+# !simulation/python/*.py
+# !firmware/**/*
+# !software/**/*
+# !docs/**/*
+# !bom/**/*
+# !tools/scripts/**/*
