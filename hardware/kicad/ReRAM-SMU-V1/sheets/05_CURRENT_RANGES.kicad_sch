@@ -22,8 +22,8 @@
 			(property "Value" "C" (at 0.00 -1.27 0) (effects (font (size 1.27 1.27))))
 			(symbol "C_0_0" (polyline (pts (xy -0.762 0.762) (xy 0.762 0.762)) (stroke (width 0.254))) (polyline (pts (xy -0.762 -0.762) (xy 0.762 -0.762)) (stroke (width 0.254))))
 			(symbol "C_1_0" (pin passive line (at 0.00 2.54 270) (length 1.27) (name "1") (number "1")) (pin passive line (at 0.00 -2.54 90) (length 1.27) (name "2") (number "2"))))
-		(symbol "power:GND" (pin_numbers hide) (power) (property "Reference" "#PWR" (at 0.00 -3.81 0) (effects (font (size 1.27 1.27)) (hide yes))) (symbol "GND_0_0" (polyline (pts (xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54) (xy -1.27 -1.27) (xy 0 -1.27)) (stroke (width 0)))))
-		(symbol "power:+5V" (pin_numbers hide) (power) (property "Reference" "#PWR" (at 0.00 3.81 0) (effects (font (size 1.27 1.27)) (hide yes))) (symbol "+5V_0_0" (polyline (pts (xy 0 0) (xy 0 -1.27)) (stroke (width 0))) (polyline (pts (xy -0.635 0) (xy 0 1.27) (xy 0.635 0) (xy -0.635 0)) (stroke (width 0)))))
+		(symbol "power:GND" (pin_numbers hide) (power) (property "Reference" "#PWR" (at 0.00 -3.81 0) (effects (font (size 1.27 1.27)) (hide yes))) (symbol "GND_0_0" (polyline (pts (xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54) (xy -1.27 -1.27) (xy 0 -1.27)) (stroke (width 0.254)))))
+		(symbol "power:+5V" (pin_numbers hide) (power) (property "Reference" "#PWR" (at 0.00 3.81 0) (effects (font (size 1.27 1.27)) (hide yes))) (symbol "+5V_0_0" (polyline (pts (xy 0 0) (xy 0 -1.27)) (stroke (width 0.254))) (polyline (pts (xy -0.635 0) (xy 0 1.27) (xy 0.635 0) (xy -0.635 0)) (stroke (width 0.254)))))
 		(symbol "Custom:REED_RELAY_SPST" (pin_numbers hide) (in_bom yes) (on_board yes)
 			(property "Reference" "K" (at 0.00 5.08 0) (effects (font (size 1.27 1.27))))
 			(property "Value" "REED" (at 0.00 -5.08 0) (effects (font (size 1.27 1.27))))
@@ -206,8 +206,8 @@
 	(wire (pts (xy 160 60) (xy 160 40)) (stroke (width 0.15) (type default)) (uuid "ws-lt-p"))
 
 	; Coil drives (illustrative, to MCU drivers)
-	(wire (pts (xy 30 52) (xy 15 60)) (stroke (width 0) (type default)) (uuid "drv-w1"))
-	(wire (pts (xy 60 52) (xy 15 70)) (stroke (width 0) (type default)) (uuid "drv-w2"))
+	(wire (pts (xy 30 52) (xy 15 60)) (stroke (width 0.254) (type default)) (uuid "drv-w1"))
+	(wire (pts (xy 60 52) (xy 15 70)) (stroke (width 0.254) (type default)) (uuid "drv-w2"))
 
 	(text "05_CURRENT_RANGES — Gate D detailed: 6 shared low-side shunts, Kelvin taps at R pad (NOT relay pole), BBM, safe default K6 NC=1M" (at 9.91 5.08 0) (effects (font (size 1.0 1.0)) (justify left)))
 	(text "A: 10mA 2.49R 25mV B: 1mA 24.9R 25mV C: 100uA 499R 50mV D: 10uA 4.99k 50mV E: 1uA 100k 100mV *0.01%* F: 100nA 1M 100mV *0.01% 10ppm NC SAFE* — Force relays TQ2 / Sense Coto9007 <1pA" (at 9.91 7.87 0) (effects (font (size 0.9 0.9)) (justify left)))
