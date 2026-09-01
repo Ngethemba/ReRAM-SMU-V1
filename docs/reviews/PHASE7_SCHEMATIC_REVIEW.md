@@ -257,4 +257,26 @@ All marked `DNP` / `PROTOTYPE-TUNE` / `PROVISION ONLY`:
 * Tool: `E:/KiCad/bin/kicad-cli.exe sch erc --format json --severity-all` on `hardware/kicad/ReRAM-SMU-V1/ReRAM-SMU-V1.kicad_sch`
 * Result: **~210 violations, 45× label_dangling errors (global labels skeleton) + ~10 footprint_link_issues + ~10 lib_symbol_mismatch + ~30 endpoint_off_grid** — **waived per §4**: hierarchical skeleton uses global labels as inter-sheet net refs without physical wires; net audit §5 verifies no shorts, continuity is provisioned in detailed sheets 03/04 rev0.2 (wires added for critical nets OUT→R_iso→FORCE_HI, FILTER→SENSE−, VDIFF_FB→−IN, etc.). **Target 0 unexplained errors not yet met in skeleton — path remains: wire global labels to pins / hierarchical sheet pins + PWR_FLAG in detailed capture, then re-run `kicad-cli sch erc --severity-error` →0 errors before PCB.**
 * Detailed sheets alone: 03 rev0.2 22 symbols (U301 + R301/302 + C301–306 + R303–310 + D301/302 + TP), 04 rev0.2 18 symbols (3×OPA140 + LT5400 + 4×R + C401 + 2×reed + TLV3501 + TP) — footprints provisional (Phase 7 policy), will be curated with manufacturer libs before PCB.
+---
+
+## Update 2026-09-01 — Yolo Verification (kicad-cli 9.0.8 + ngspice 45.2)
+
+**Environment:** WSL Ubuntu 26.04, kicad 9.0.8+dfsg-1, ngspice 45.2 KLU, python 3.14.4, .venv 3.14, yolo mode (sandbox off)
+
+**ERC Real (`kicad-cli sch erc --severity-error`):** 122 errors
+- `pin_not_connected 86` (TP, NC pins, DAC/OPA unconnected)
+- `wire_dangling 26` (root tiny wires 0.05–0.14mm near origin, plus 5V/GND stubs)
+- `power_pin_not_driven 10` (OPA V+ / V-, LT1970 VEE/VCC, PWR_FLAG missing in 05/06 before fix)
+- `/`: 26 wire_dangling, `/01_POWER/`:25, `/02_DAC/`:31, `/03_OUTPUT/`:27, `/04_KELVIN/`:13, `/05/06/07/08/09/`:0 error (fixed via 6751935/2c78781)
+- Total with warnings: 438 (error 122 + warning 316)
+- Lite audit: 32 dangling /79 (critical 0, SPI1/2 3 shared, RELAY 2 shared)
+
+**Netlist (`kicad-cli sch export netlist --format kicadsexpr`):** 25 nets, critical present: FORCE_HI/LO, SENSE_HI/LO, LT1970_SENSE_P/N, VCSRC/VCSNK, VSET, VREF_2V5, nPOR, etc. Missing: RELAY_DRV_K1..K6, SPI1/2 (global labels not yet pinned to coil/SPI pins — audit counts 2 but netlist node 0, needs pin-tip Manhattan wire)
+
+**BOM (`kicad-cli sch export bom --format-preset CSV`):** 9.0K, 9 refs grouped, written to `hardware/kicad/bom_yolo.csv` (Refs,Value,Footprint,Qty,DNP) — annotation warning present
+
+**Artifacts:** `hardware/kicad/erc_*_yolo.json`, `netlist_*_yolo.xml`, `bom_yolo.csv`, `erc_audit_lite.json`
+
+**Next to reach error 0:** Add PWR_FLAG for power pins, no_connect for NC (AD5764 27/29, etc.), wire TP to net, delete root dangling wires, run `kicad-cli sch annotate` to fix duplicate refs
+
 
