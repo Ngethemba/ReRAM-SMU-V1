@@ -1,0 +1,7407 @@
+(export
+	(version "E")
+	(design
+		(source "E:\\ReRAM-SMU V1\\hardware\\kicad\\ReRAM-SMU-V1\\ReRAM-SMU-V1.kicad_sch")
+		(date "2026-08-24T21:59:44")
+		(tool "Eeschema 10.0.5")
+		(sheet
+			(number "1")
+			(name "/")
+			(tstamps "/")
+			(title_block
+				(title "ReRAM-SMU-V1 Root")
+				(company "ReRAM-SMU V1")
+				(rev "0.1")
+				(date "2026-08-25")
+				(source "ReRAM-SMU-V1.kicad_sch")
+				(comment
+					(number "1")
+					(value "")
+				)
+				(comment
+					(number "2")
+					(value "")
+				)
+				(comment
+					(number "3")
+					(value "")
+				)
+				(comment
+					(number "4")
+					(value "")
+				)
+				(comment
+					(number "5")
+					(value "")
+				)
+				(comment
+					(number "6")
+					(value "")
+				)
+				(comment
+					(number "7")
+					(value "")
+				)
+				(comment
+					(number "8")
+					(value "")
+				)
+				(comment
+					(number "9")
+					(value "")
+				)
+			)
+		)
+		(sheet
+			(number "2")
+			(name "/01_POWER/")
+			(tstamps "/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410/")
+			(title_block
+				(title "01_POWER")
+				(company "ReRAM-SMU V1")
+				(rev "0.2")
+				(date "2026-08-25")
+				(source "01_POWER.kicad_sch")
+				(comment
+					(number "1")
+					(value "Gate A - Detailed Power: EXT +-12V, protection, rails, refs, POR")
+				)
+				(comment
+					(number "2")
+					(value "")
+				)
+				(comment
+					(number "3")
+					(value "")
+				)
+				(comment
+					(number "4")
+					(value "")
+				)
+				(comment
+					(number "5")
+					(value "")
+				)
+				(comment
+					(number "6")
+					(value "")
+				)
+				(comment
+					(number "7")
+					(value "")
+				)
+				(comment
+					(number "8")
+					(value "")
+				)
+				(comment
+					(number "9")
+					(value "")
+				)
+			)
+		)
+		(sheet
+			(number "3")
+			(name "/04_KELVIN_SENSE/")
+			(tstamps "/d6c4e942-2b3b-4529-97eb-1972926d7be4/")
+			(title_block
+				(title "04_KELVIN_SENSE")
+				(company "ReRAM-SMU V1")
+				(rev "0.1")
+				(date "2026-08-25")
+				(source "04_KELVIN_SENSE.kicad_sch")
+				(comment
+					(number "1")
+					(value "")
+				)
+				(comment
+					(number "2")
+					(value "")
+				)
+				(comment
+					(number "3")
+					(value "")
+				)
+				(comment
+					(number "4")
+					(value "")
+				)
+				(comment
+					(number "5")
+					(value "")
+				)
+				(comment
+					(number "6")
+					(value "")
+				)
+				(comment
+					(number "7")
+					(value "")
+				)
+				(comment
+					(number "8")
+					(value "")
+				)
+				(comment
+					(number "9")
+					(value "")
+				)
+			)
+		)
+		(sheet
+			(number "4")
+			(name "/07_COMPLIANCE_TRIP/")
+			(tstamps "/c1545d20-d0ab-43f2-8b71-fe14a31222b6/")
+			(title_block
+				(title "07_COMPLIANCE_TRIP")
+				(company "ReRAM-SMU V1")
+				(rev "0.2")
+				(date "2026-08-25")
+				(source "07_COMPLIANCE_TRIP.kicad_sch")
+				(comment
+					(number "1")
+					(value "Phase 7 Detailed — LT1970 CC + TLV3501 Emergency + SR Latch")
+				)
+				(comment
+					(number "2")
+					(value "")
+				)
+				(comment
+					(number "3")
+					(value "")
+				)
+				(comment
+					(number "4")
+					(value "")
+				)
+				(comment
+					(number "5")
+					(value "")
+				)
+				(comment
+					(number "6")
+					(value "")
+				)
+				(comment
+					(number "7")
+					(value "")
+				)
+				(comment
+					(number "8")
+					(value "")
+				)
+				(comment
+					(number "9")
+					(value "")
+				)
+			)
+		)
+		(sheet
+			(number "5")
+			(name "/02_DAC_SOURCE_COMMAND/")
+			(tstamps "/8c56a8c3-3994-4cae-a60d-b819d8d325e9/")
+			(title_block
+				(title "02_DAC_SOURCE_COMMAND")
+				(company "ReRAM-SMU V1")
+				(rev "0.2")
+				(date "2026-08-25")
+				(source "02_DAC_SOURCE_COMMAND.kicad_sch")
+				(comment
+					(number "1")
+					(value "Gate B - Detailed AD5764 + VCSRC/VCSNK conditioning + slew provision")
+				)
+				(comment
+					(number "2")
+					(value "")
+				)
+				(comment
+					(number "3")
+					(value "")
+				)
+				(comment
+					(number "4")
+					(value "")
+				)
+				(comment
+					(number "5")
+					(value "")
+				)
+				(comment
+					(number "6")
+					(value "")
+				)
+				(comment
+					(number "7")
+					(value "")
+				)
+				(comment
+					(number "8")
+					(value "")
+				)
+				(comment
+					(number "9")
+					(value "")
+				)
+			)
+		)
+		(sheet
+			(number "6")
+			(name "/05_CURRENT_RANGES/")
+			(tstamps "/d84b2960-2c0a-4911-aebd-5ed091de2a27/")
+			(title_block
+				(title "05_CURRENT_RANGES")
+				(company "ReRAM-SMU V1 — Gate D detailed")
+				(rev "0.2")
+				(date "2026-08-25")
+				(source "05_CURRENT_RANGES.kicad_sch")
+				(comment
+					(number "1")
+					(value "")
+				)
+				(comment
+					(number "2")
+					(value "")
+				)
+				(comment
+					(number "3")
+					(value "")
+				)
+				(comment
+					(number "4")
+					(value "")
+				)
+				(comment
+					(number "5")
+					(value "")
+				)
+				(comment
+					(number "6")
+					(value "")
+				)
+				(comment
+					(number "7")
+					(value "")
+				)
+				(comment
+					(number "8")
+					(value "")
+				)
+				(comment
+					(number "9")
+					(value "")
+				)
+			)
+		)
+		(sheet
+			(number "7")
+			(name "/08_MCU_USB_CONTROL/")
+			(tstamps "/5209bd66-21c1-40c7-bb8f-311a0bc92798/")
+			(title_block
+				(title "08_MCU_USB_CONTROL")
+				(company "ReRAM-SMU V1")
+				(rev "0.2")
+				(date "2026-08-25")
+				(source "08_MCU_USB_CONTROL.kicad_sch")
+				(comment
+					(number "1")
+					(value "Phase 7 Detailed — STM32G474 + USB-C + drivers + watchdog + ENABLE")
+				)
+				(comment
+					(number "2")
+					(value "")
+				)
+				(comment
+					(number "3")
+					(value "")
+				)
+				(comment
+					(number "4")
+					(value "")
+				)
+				(comment
+					(number "5")
+					(value "")
+				)
+				(comment
+					(number "6")
+					(value "")
+				)
+				(comment
+					(number "7")
+					(value "")
+				)
+				(comment
+					(number "8")
+					(value "")
+				)
+				(comment
+					(number "9")
+					(value "")
+				)
+			)
+		)
+		(sheet
+			(number "8")
+			(name "/03_OUTPUT_STAGE/")
+			(tstamps "/9bc2aa88-40ab-44c2-973d-19750c3be40e/")
+			(title_block
+				(title "03_OUTPUT_STAGE")
+				(company "ReRAM-SMU V1")
+				(rev "0.1")
+				(date "2026-08-25")
+				(source "03_OUTPUT_STAGE.kicad_sch")
+				(comment
+					(number "1")
+					(value "")
+				)
+				(comment
+					(number "2")
+					(value "")
+				)
+				(comment
+					(number "3")
+					(value "")
+				)
+				(comment
+					(number "4")
+					(value "")
+				)
+				(comment
+					(number "5")
+					(value "")
+				)
+				(comment
+					(number "6")
+					(value "")
+				)
+				(comment
+					(number "7")
+					(value "")
+				)
+				(comment
+					(number "8")
+					(value "")
+				)
+				(comment
+					(number "9")
+					(value "")
+				)
+			)
+		)
+		(sheet
+			(number "9")
+			(name "/06_CURRENT_FRONTEND_ADC/")
+			(tstamps "/3c75b4fc-a71b-41b3-bb48-07e98a90a08b/")
+			(title_block
+				(title "06_CURRENT_FRONTEND_ADC")
+				(company "ReRAM-SMU V1 — Gate F detailed")
+				(rev "0.2")
+				(date "2026-08-25")
+				(source "06_CURRENT_FRONTEND_ADC.kicad_sch")
+				(comment
+					(number "1")
+					(value "")
+				)
+				(comment
+					(number "2")
+					(value "")
+				)
+				(comment
+					(number "3")
+					(value "")
+				)
+				(comment
+					(number "4")
+					(value "")
+				)
+				(comment
+					(number "5")
+					(value "")
+				)
+				(comment
+					(number "6")
+					(value "")
+				)
+				(comment
+					(number "7")
+					(value "")
+				)
+				(comment
+					(number "8")
+					(value "")
+				)
+				(comment
+					(number "9")
+					(value "")
+				)
+			)
+		)
+		(sheet
+			(number "10")
+			(name "/09_DUT_CONNECTOR_GUARD/")
+			(tstamps "/fc658584-aa1d-4ef8-95c1-b13e37f668ce/")
+			(title_block
+				(title "09_DUT_CONNECTOR_GUARD")
+				(company "ReRAM-SMU V1")
+				(rev "0.2")
+				(date "2026-08-25")
+				(source "09_DUT_CONNECTOR_GUARD.kicad_sch")
+				(comment
+					(number "1")
+					(value "Phase 7 Detailed — 4-wire Kelvin + shield/guard + keepout + TP policy")
+				)
+				(comment
+					(number "2")
+					(value "")
+				)
+				(comment
+					(number "3")
+					(value "")
+				)
+				(comment
+					(number "4")
+					(value "")
+				)
+				(comment
+					(number "5")
+					(value "")
+				)
+				(comment
+					(number "6")
+					(value "")
+				)
+				(comment
+					(number "7")
+					(value "")
+				)
+				(comment
+					(number "8")
+					(value "")
+				)
+				(comment
+					(number "9")
+					(value "")
+				)
+			)
+		)
+	)
+	(components
+		(comp
+			(ref "C_3V3_OUT")
+			(value "10uF + 100nF +3V3")
+			(footprint "Capacitor_SMD:C_0805_2012Metric")
+			(fields
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0805_2012Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "01_POWER")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/01_POWER.kicad_sch")
+			)
+			(sheetpath
+				(names "/01_POWER/")
+				(tstamps "/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410/")
+			)
+			(tstamps "10101010-1010-4101-8101-101010101010")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C_BULK_N")
+			(value "47uF 25V X5R 1210 -12V bulk")
+			(footprint "Capacitor_SMD:C_1210_3225Metric")
+			(fields
+				(field
+					(name "Footprint") "Capacitor_SMD:C_1210_3225Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "01_POWER")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/01_POWER.kicad_sch")
+			)
+			(sheetpath
+				(names "/01_POWER/")
+				(tstamps "/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410/")
+			)
+			(tstamps "77777777-7777-4777-8777-777777777777")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C_BULK_P")
+			(value "47uF 25V X5R 1210 + 10uF 100nF decoupling bulk +12V")
+			(footprint "Capacitor_SMD:C_1210_3225Metric")
+			(fields
+				(field
+					(name "Footprint") "Capacitor_SMD:C_1210_3225Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "01_POWER")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/01_POWER.kicad_sch")
+			)
+			(sheetpath
+				(names "/01_POWER/")
+				(tstamps "/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410/")
+			)
+			(tstamps "66666666-6666-4666-8666-666666666666")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C_IN_5V")
+			(value "10uF + 100nF at LT3045 IN")
+			(footprint "Capacitor_SMD:C_0805_2012Metric")
+			(fields
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0805_2012Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "01_POWER")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/01_POWER.kicad_sch")
+			)
+			(sheetpath
+				(names "/01_POWER/")
+				(tstamps "/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410/")
+			)
+			(tstamps "cccccccc-cccc-4ccc-8ccc-cccccccccccc")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C_NR2V5")
+			(value "0.1uF NR LTC6655-2.5")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
+			(fields
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "01_POWER")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/01_POWER.kicad_sch")
+			)
+			(sheetpath
+				(names "/01_POWER/")
+				(tstamps "/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410/")
+			)
+			(tstamps "90909090-9090-4909-8909-909090909090")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C_NR5V")
+			(value "0.1uF NR pin to GND LTC6655 noise reduction")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
+			(fields
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "01_POWER")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/01_POWER.kicad_sch")
+			)
+			(sheetpath
+				(names "/01_POWER/")
+				(tstamps "/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410/")
+			)
+			(tstamps "50505050-5050-4505-8505-505050505050")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C_OE")
+			(value "100nF OE debounce")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
+			(fields
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "01_POWER")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/01_POWER.kicad_sch")
+			)
+			(sheetpath
+				(names "/01_POWER/")
+				(tstamps "/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410/")
+			)
+			(tstamps "f1f1f1f1-f1f1-4f1f-8f1f-f1f1f1f1f1f1")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C_OUT_5V")
+			(value "10uF X5R 0805 + 4.7uF at LT3045 OUT low ESR")
+			(footprint "Capacitor_SMD:C_0805_2012Metric")
+			(fields
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0805_2012Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "01_POWER")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/01_POWER.kicad_sch")
+			)
+			(sheetpath
+				(names "/01_POWER/")
+				(tstamps "/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410/")
+			)
+			(tstamps "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C_REF2V5_IN")
+			(value "0.1uF VIN bypass LTC6655-2.5")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
+			(fields
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "01_POWER")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/01_POWER.kicad_sch")
+			)
+			(sheetpath
+				(names "/01_POWER/")
+				(tstamps "/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410/")
+			)
+			(tstamps "70707070-7070-4707-8707-707070707070")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C_REF2V5_OUT")
+			(value "10uF X7R + 0.1uF VOUT LTC6655-2.5")
+			(footprint "Capacitor_SMD:C_0805_2012Metric")
+			(fields
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0805_2012Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "01_POWER")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/01_POWER.kicad_sch")
+			)
+			(sheetpath
+				(names "/01_POWER/")
+				(tstamps "/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410/")
+			)
+			(tstamps "80808080-8080-4808-8808-808080808080")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C_REF5V_IN")
+			(value "0.1uF VIN bypass LTC6655-5")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
+			(fields
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "01_POWER")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/01_POWER.kicad_sch")
+			)
+			(sheetpath
+				(names "/01_POWER/")
+				(tstamps "/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410/")
+			)
+			(tstamps "30303030-3030-4303-8303-303030303030")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C_REF5V_OUT")
+			(value "10uF X7R + 0.1uF VOUT LTC6655-5 per DS: 2.7-50uF, 10uF rec")
+			(footprint "Capacitor_SMD:C_0805_2012Metric")
+			(fields
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0805_2012Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "01_POWER")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/01_POWER.kicad_sch")
+			)
+			(sheetpath
+				(names "/01_POWER/")
+				(tstamps "/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410/")
+			)
+			(tstamps "40404040-4040-4404-8404-404040404040")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C_SET_5V")
+			(value "4.7uF SET cap for noise/program stability")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
+			(fields
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "01_POWER")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/01_POWER.kicad_sch")
+			)
+			(sheetpath
+				(names "/01_POWER/")
+				(tstamps "/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410/")
+			)
+			(tstamps "eeeeeeee-eeee-4eee-8eee-eeeeeeeeeeee")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "D1")
+			(value "SS14 Schottky reverse protection +12V")
+			(footprint "Diode_SMD:D_SMA")
+			(fields
+				(field
+					(name "Footprint") "Diode_SMD:D_SMA")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "D_Schottky")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "01_POWER")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/01_POWER.kicad_sch")
+			)
+			(sheetpath
+				(names "/01_POWER/")
+				(tstamps "/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410/")
+			)
+			(tstamps "44444444-4444-4444-8444-444444444444")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "D2")
+			(value "SS14 Schottky reverse protection -12V")
+			(footprint "Diode_SMD:D_SMA")
+			(fields
+				(field
+					(name "Footprint") "Diode_SMD:D_SMA")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "D_Schottky")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "01_POWER")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/01_POWER.kicad_sch")
+			)
+			(sheetpath
+				(names "/01_POWER/")
+				(tstamps "/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410/")
+			)
+			(tstamps "55555555-5555-4555-8555-555555555555")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "F1")
+			(value "Polyfuse 500mA 30V 1206 Bourns MF-MSMF050-2")
+			(footprint "Fuse:Fuse_1206_3216Metric")
+			(fields
+				(field
+					(name "Footprint") "Fuse:Fuse_1206_3216Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "01_POWER")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/01_POWER.kicad_sch")
+			)
+			(sheetpath
+				(names "/01_POWER/")
+				(tstamps "/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410/")
+			)
+			(tstamps "22222222-2222-4222-8222-222222222222")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "F2")
+			(value "Polyfuse 500mA 30V 1206 -12V rail")
+			(footprint "Fuse:Fuse_1206_3216Metric")
+			(fields
+				(field
+					(name "Footprint") "Fuse:Fuse_1206_3216Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "01_POWER")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/01_POWER.kicad_sch")
+			)
+			(sheetpath
+				(names "/01_POWER/")
+				(tstamps "/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410/")
+			)
+			(tstamps "33333333-3333-4333-8333-333333333333")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "J1")
+			(value "POWER_IN +-12V EXT 3.5mm pitch screw terminal")
+			(footprint "Connector_Screw:Connector_Screw_Terminal_3.5mm_3pin")
+			(datasheet "External bench +-12V 1A current-limited, no mains on PCB REQ-PWR-001")
+			(fields
+				(field
+					(name "Footprint") "Connector_Screw:Connector_Screw_Terminal_3.5mm_3pin")
+				(field
+					(name "Datasheet") "External bench +-12V 1A current-limited, no mains on PCB REQ-PWR-001")
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Connector_Generic")
+				(part "Conn_03x01_Odd_Even")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "01_POWER")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/01_POWER.kicad_sch")
+			)
+			(sheetpath
+				(names "/01_POWER/")
+				(tstamps "/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410/")
+			)
+			(tstamps "11111111-1111-4111-8111-111111111111")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "L1")
+			(value "10uH ferrite bead Murata BLM31PG121SN1 + LC pi 10uH/2x10uF for +5V_A")
+			(footprint "Inductor_SMD:L_1206_3216Metric")
+			(fields
+				(field
+					(name "Footprint") "Inductor_SMD:L_1206_3216Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "L")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "01_POWER")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/01_POWER.kicad_sch")
+			)
+			(sheetpath
+				(names "/01_POWER/")
+				(tstamps "/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410/")
+			)
+			(tstamps "88888888-8888-4888-8888-888888888888")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R_OE_PD")
+			(value "10k pulldown OUTPUT_ENABLE safe default")
+			(footprint "Resistor_SMD:R_0603_1608Metric")
+			(fields
+				(field
+					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "01_POWER")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/01_POWER.kicad_sch")
+			)
+			(sheetpath
+				(names "/01_POWER/")
+				(tstamps "/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410/")
+			)
+			(tstamps "d1d1d1d1-d1d1-4d1d-8d1d-d1d1d1d1d1d1")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R_OE_SER")
+			(value "1k series gate OUTPUT_ENABLE to LT1970 EN")
+			(footprint "Resistor_SMD:R_0603_1608Metric")
+			(fields
+				(field
+					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "01_POWER")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/01_POWER.kicad_sch")
+			)
+			(sheetpath
+				(names "/01_POWER/")
+				(tstamps "/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410/")
+			)
+			(tstamps "e1e1e1e1-e1e1-4e1e-8e1e-e1e1e1e1e1e1")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R_PG5V")
+			(value "100k pull-up PG to +3V3")
+			(footprint "Resistor_SMD:R_0603_1608Metric")
+			(fields
+				(field
+					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "01_POWER")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/01_POWER.kicad_sch")
+			)
+			(sheetpath
+				(names "/01_POWER/")
+				(tstamps "/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410/")
+			)
+			(tstamps "dddddddd-dddd-4ddd-8ddd-dddddddddddd")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R_POR_PU")
+			(value "10k pull-up RESET_N to +3V3")
+			(footprint "Resistor_SMD:R_0603_1608Metric")
+			(fields
+				(field
+					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "01_POWER")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/01_POWER.kicad_sch")
+			)
+			(sheetpath
+				(names "/01_POWER/")
+				(tstamps "/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410/")
+			)
+			(tstamps "c1c1c1c1-c1c1-4c1c-8c1c-c1c1c1c1c1c1")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R_SENSE_DIV1")
+			(value "100k SENSE divider top for supervisor check +5V")
+			(footprint "Resistor_SMD:R_0603_1608Metric")
+			(fields
+				(field
+					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "01_POWER")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/01_POWER.kicad_sch")
+			)
+			(sheetpath
+				(names "/01_POWER/")
+				(tstamps "/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410/")
+			)
+			(tstamps "b1b1b1b1-b1b1-4b1b-8b1b-b1b1b1b1b1b1")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R_SET1")
+			(value "12.4k 0.1% SET for 5.0V (VSET=100uA*R)")
+			(footprint "Resistor_SMD:R_0603_1608Metric")
+			(fields
+				(field
+					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "01_POWER")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/01_POWER.kicad_sch")
+			)
+			(sheetpath
+				(names "/01_POWER/")
+				(tstamps "/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410/")
+			)
+			(tstamps "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "TP1")
+			(value "TP_VREF_5V")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "ReRAM_SMU")
+				(part "TestPoint")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "01_POWER")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/01_POWER.kicad_sch")
+			)
+			(sheetpath
+				(names "/01_POWER/")
+				(tstamps "/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410/")
+			)
+			(tstamps "a2a2a2a2-a2a2-4a2a-8a2a-a2a2a2a2a2a2")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "TP2")
+			(value "TP_VREF_2V5")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "ReRAM_SMU")
+				(part "TestPoint")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "01_POWER")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/01_POWER.kicad_sch")
+			)
+			(sheetpath
+				(names "/01_POWER/")
+				(tstamps "/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410/")
+			)
+			(tstamps "b2b2b2b2-b2b2-4b2b-8b2b-b2b2b2b2b2b2")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "TP3")
+			(value "TP_+5V_A")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "ReRAM_SMU")
+				(part "TestPoint")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "01_POWER")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/01_POWER.kicad_sch")
+			)
+			(sheetpath
+				(names "/01_POWER/")
+				(tstamps "/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410/")
+			)
+			(tstamps "c2c2c2c2-c2c2-4c2c-8c2c-c2c2c2c2c2c2")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "TP4")
+			(value "TP_+3V3")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "ReRAM_SMU")
+				(part "TestPoint")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "01_POWER")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/01_POWER.kicad_sch")
+			)
+			(sheetpath
+				(names "/01_POWER/")
+				(tstamps "/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410/")
+			)
+			(tstamps "d2d2d2d2-d2d2-4d2d-8d2d-d2d2d2d2d2d2")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "TP5")
+			(value "TP_+12V_A")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "ReRAM_SMU")
+				(part "TestPoint")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "01_POWER")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/01_POWER.kicad_sch")
+			)
+			(sheetpath
+				(names "/01_POWER/")
+				(tstamps "/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410/")
+			)
+			(tstamps "e2e2e2e2-e2e2-4e2e-8e2e-e2e2e2e2e2e2")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "TP6")
+			(value "TP_-12V_A")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "ReRAM_SMU")
+				(part "TestPoint")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "01_POWER")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/01_POWER.kicad_sch")
+			)
+			(sheetpath
+				(names "/01_POWER/")
+				(tstamps "/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410/")
+			)
+			(tstamps "f2f2f2f2-f2f2-4f2f-8f2f-f2f2f2f2f2f2")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "TP7")
+			(value "TP_POR_RESET_N")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "ReRAM_SMU")
+				(part "TestPoint")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "01_POWER")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/01_POWER.kicad_sch")
+			)
+			(sheetpath
+				(names "/01_POWER/")
+				(tstamps "/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410/")
+			)
+			(tstamps "12121212-1212-4121-8121-121212121212")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "TP8")
+			(value "TP_OUTPUT_ENABLE")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "ReRAM_SMU")
+				(part "TestPoint")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "01_POWER")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/01_POWER.kicad_sch")
+			)
+			(sheetpath
+				(names "/01_POWER/")
+				(tstamps "/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410/")
+			)
+			(tstamps "13131313-1313-4131-8131-131313131313")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U1")
+			(value "LT3045EDD +5V_A 500mA 0.8uVrms ILIM PG")
+			(footprint "Package_DFN:DFN-12_3x3mm_P0.45mm_EP")
+			(fields
+				(field
+					(name "Footprint") "Package_DFN:DFN-12_3x3mm_P0.45mm_EP")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "ReRAM_SMU")
+				(part "LT3045")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "01_POWER")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/01_POWER.kicad_sch")
+			)
+			(sheetpath
+				(names "/01_POWER/")
+				(tstamps "/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410/")
+			)
+			(tstamps "99999999-9999-4999-8999-999999999999")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "5")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U2")
+			(value "TLV1117-33 +3V3 800mA from +5V_A LDO")
+			(footprint "Package_TO_SOT_SMD:SOT-223-3_TabPin2")
+			(fields
+				(field
+					(name "Footprint") "Package_TO_SOT_SMD:SOT-223-3_TabPin2")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "01_POWER")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/01_POWER.kicad_sch")
+			)
+			(sheetpath
+				(names "/01_POWER/")
+				(tstamps "/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410/")
+			)
+			(tstamps "ffffffff-ffff-4fff-8fff-ffffffffffff")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U3")
+			(value "LTC6655BHMS8-5.0 DAC REF 5.0V LN 0.775uVpp")
+			(footprint "Package_SO:MSOP-8_3x3mm_P0.65mm")
+			(fields
+				(field
+					(name "Footprint") "Package_SO:MSOP-8_3x3mm_P0.65mm")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "ReRAM_SMU")
+				(part "LTC6655-5")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "01_POWER")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/01_POWER.kicad_sch")
+			)
+			(sheetpath
+				(names "/01_POWER/")
+				(tstamps "/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410/")
+			)
+			(tstamps "20202020-2020-4202-8202-202020202020")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U4")
+			(value "LTC6655BHMS8-2.5 ADC REF 2.5V LN")
+			(footprint "Package_SO:MSOP-8_3x3mm_P0.65mm")
+			(fields
+				(field
+					(name "Footprint") "Package_SO:MSOP-8_3x3mm_P0.65mm")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "ReRAM_SMU")
+				(part "LTC6655-2V5")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "01_POWER")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/01_POWER.kicad_sch")
+			)
+			(sheetpath
+				(names "/01_POWER/")
+				(tstamps "/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410/")
+			)
+			(tstamps "60606060-6060-4606-8606-606060606060")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U5")
+			(value "TPS3808G33 supervisor +3V3 Vth2.93V 200ms")
+			(footprint "Package_TO_SOT_SMD:SOT-23-6")
+			(fields
+				(field
+					(name "Footprint") "Package_TO_SOT_SMD:SOT-23-6")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "ReRAM_SMU")
+				(part "TPS3808")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "01_POWER")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/01_POWER.kicad_sch")
+			)
+			(sheetpath
+				(names "/01_POWER/")
+				(tstamps "/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410/")
+			)
+			(tstamps "a1a1a1a1-a1a1-4a1a-8a1a-a1a1a1a1a1a1")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "4")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U?")
+			(value "~")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "power")
+				(part "PWR_FLAG")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "01_POWER")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/01_POWER.kicad_sch")
+			)
+			(sheetpath
+				(names "/01_POWER/")
+				(tstamps "/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410/")
+			)
+			(tstamps "1a1a1a1a-1a1a-41a1-81a1-1a1a1a1a1a1a" "16161616-1616-4161-8161-161616161616"
+				"15151515-1515-4151-8151-151515151515" "22212121-2121-4212-8212-212122112121"
+				"21212121-2121-4212-8212-212121212121" "20222222-2022-4222-8222-202222222022"
+				"1f1f1f1f-1f1f-41f1-81f1-1f1f1f1f1f1f" "17171717-1717-4171-8171-171717171717"
+				"1b1b1b1b-1b1b-41b1-81b1-1b1b1b1b1b1b" "1d1d1d1d-1d1d-41d1-81d1-1d1d1d1d1d1d"
+				"18181818-1818-4181-8181-181818181818" "19191919-1919-4191-8191-191919191919"
+				"1e1e1e1e-1e1e-41e1-81e1-1e1e1e1e1e1e" "1c1c1c1c-1c1c-41c1-81c1-1c1c1c1c1c1c"
+				"14141414-1414-4141-8141-141414141414"
+			)
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "K1")
+			(value "Reed relay G6K PRIMARY <1pA open-sense")
+			(footprint "Relay_THT:Relay_SPDT_Coto_9007")
+			(fields
+				(field
+					(name "Footprint") "Relay_THT:Relay_SPDT_Coto_9007")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "04_KELVIN_SENSE")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/04_KELVIN_SENSE.kicad_sch")
+			)
+			(sheetpath
+				(names "/04_KELVIN_SENSE/")
+				(tstamps "/d6c4e942-2b3b-4529-97eb-1972926d7be4/")
+			)
+			(tstamps "3f1a014d-a6a9-4bb9-b4f7-8fb87d14ee6d")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U1")
+			(value "OPA140 SENSE_HI buffer PRIMARY >10GΩ 5pF")
+			(footprint "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm")
+			(fields
+				(field
+					(name "Footprint") "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "OpAmp")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "04_KELVIN_SENSE")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/04_KELVIN_SENSE.kicad_sch")
+			)
+			(sheetpath
+				(names "/04_KELVIN_SENSE/")
+				(tstamps "/d6c4e942-2b3b-4529-97eb-1972926d7be4/")
+			)
+			(tstamps "2e8e741f-4a64-4c58-8ff0-87c79b402b56")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "8")
+						)
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U2")
+			(value "OPA140 SENSE_LO buffer PRIMARY")
+			(footprint "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm")
+			(fields
+				(field
+					(name "Footprint") "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "OpAmp")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "04_KELVIN_SENSE")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/04_KELVIN_SENSE.kicad_sch")
+			)
+			(sheetpath
+				(names "/04_KELVIN_SENSE/")
+				(tstamps "/d6c4e942-2b3b-4529-97eb-1972926d7be4/")
+			)
+			(tstamps "f086d214-f080-4e9b-8040-28a50dc85bd1")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "8")
+						)
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U3")
+			(value "Diff amp OPA140 finite BW 10MHz")
+			(footprint "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm")
+			(fields
+				(field
+					(name "Footprint") "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "OpAmp")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "04_KELVIN_SENSE")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/04_KELVIN_SENSE.kicad_sch")
+			)
+			(sheetpath
+				(names "/04_KELVIN_SENSE/")
+				(tstamps "/d6c4e942-2b3b-4529-97eb-1972926d7be4/")
+			)
+			(tstamps "93446157-86ac-4e8b-9a57-b18ca45e64d0")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "8")
+						)
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C1")
+			(value "100nF 0603 AVDD decoupling X7R close pin1")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
+			(fields
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "02_DAC_SOURCE_COMMAND")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/02_DAC_SOURCE_COMMAND.kicad_sch")
+			)
+			(sheetpath
+				(names "/02_DAC_SOURCE_COMMAND/")
+				(tstamps "/8c56a8c3-3994-4cae-a60d-b819d8d325e9/")
+			)
+			(tstamps "2222bbbb-2222-4bbb-8222-bbbb2222bbbb")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C2")
+			(value "10uF 1210 AVDD bulk")
+			(footprint "Capacitor_SMD:C_1210_3225Metric")
+			(fields
+				(field
+					(name "Footprint") "Capacitor_SMD:C_1210_3225Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "02_DAC_SOURCE_COMMAND")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/02_DAC_SOURCE_COMMAND.kicad_sch")
+			)
+			(sheetpath
+				(names "/02_DAC_SOURCE_COMMAND/")
+				(tstamps "/8c56a8c3-3994-4cae-a60d-b819d8d325e9/")
+			)
+			(tstamps "3333cccc-3333-4ccc-8333-cccc3333cccc")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C3")
+			(value "100nF AVSS decoupling")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
+			(fields
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "02_DAC_SOURCE_COMMAND")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/02_DAC_SOURCE_COMMAND.kicad_sch")
+			)
+			(sheetpath
+				(names "/02_DAC_SOURCE_COMMAND/")
+				(tstamps "/8c56a8c3-3994-4cae-a60d-b819d8d325e9/")
+			)
+			(tstamps "4444dddd-4444-4ddd-8444-dddd4444dddd")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C4")
+			(value "10uF AVSS bulk")
+			(footprint "Capacitor_SMD:C_1210_3225Metric")
+			(fields
+				(field
+					(name "Footprint") "Capacitor_SMD:C_1210_3225Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "02_DAC_SOURCE_COMMAND")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/02_DAC_SOURCE_COMMAND.kicad_sch")
+			)
+			(sheetpath
+				(names "/02_DAC_SOURCE_COMMAND/")
+				(tstamps "/8c56a8c3-3994-4cae-a60d-b819d8d325e9/")
+			)
+			(tstamps "5555eeee-5555-4eee-8555-eeee5555eeee")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C5")
+			(value "100nF DVCC decoupling + 10uF bulk close pin3")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
+			(fields
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "02_DAC_SOURCE_COMMAND")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/02_DAC_SOURCE_COMMAND.kicad_sch")
+			)
+			(sheetpath
+				(names "/02_DAC_SOURCE_COMMAND/")
+				(tstamps "/8c56a8c3-3994-4cae-a60d-b819d8d325e9/")
+			)
+			(tstamps "6666ffff-6666-4fff-8666-ffff6666ffff")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C6")
+			(value "10uF 0805 VOUTA REFAB decoupling? Actually REF pin 0.1uF+10uF")
+			(footprint "Capacitor_SMD:C_0805_2012Metric")
+			(fields
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0805_2012Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "02_DAC_SOURCE_COMMAND")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/02_DAC_SOURCE_COMMAND.kicad_sch")
+			)
+			(sheetpath
+				(names "/02_DAC_SOURCE_COMMAND/")
+				(tstamps "/8c56a8c3-3994-4cae-a60d-b819d8d325e9/")
+			)
+			(tstamps "7777aaaa-7777-4aaa-8777-aaaa7777aaaa")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C_SLEW")
+			(value "1nF DNP/PROTOTYPE-TUNE shunt to GND (tau 1us, 20us @10k)")
+			(footprint "Capacitor_SMD:C_0805_2012Metric")
+			(fields
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0805_2012Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "02_DAC_SOURCE_COMMAND")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/02_DAC_SOURCE_COMMAND.kicad_sch")
+			)
+			(sheetpath
+				(names "/02_DAC_SOURCE_COMMAND/")
+				(tstamps "/8c56a8c3-3994-4cae-a60d-b819d8d325e9/")
+			)
+			(tstamps "ddddeeee-dddd-4eee-8ddd-eeeeddddeeee")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "D_SNK_H")
+			(value "BAT54S clamp VCSNK to +5V_A")
+			(footprint "Diode_SMD:D_SOT-23")
+			(fields
+				(field
+					(name "Footprint") "Diode_SMD:D_SOT-23")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "D_Schottky")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "02_DAC_SOURCE_COMMAND")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/02_DAC_SOURCE_COMMAND.kicad_sch")
+			)
+			(sheetpath
+				(names "/02_DAC_SOURCE_COMMAND/")
+				(tstamps "/8c56a8c3-3994-4cae-a60d-b819d8d325e9/")
+			)
+			(tstamps "22224444-2222-4444-8222-444422224444")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "D_SNK_L")
+			(value "BAT54S clamp VCSNK to GND")
+			(footprint "Diode_SMD:D_SOT-23")
+			(fields
+				(field
+					(name "Footprint") "Diode_SMD:D_SOT-23")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "D_Schottky")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "02_DAC_SOURCE_COMMAND")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/02_DAC_SOURCE_COMMAND.kicad_sch")
+			)
+			(sheetpath
+				(names "/02_DAC_SOURCE_COMMAND/")
+				(tstamps "/8c56a8c3-3994-4cae-a60d-b819d8d325e9/")
+			)
+			(tstamps "33335555-3333-4555-8333-555533335555")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "D_SRC_H")
+			(value "BAT54S clamp VCSRC to +5V_A")
+			(footprint "Diode_SMD:D_SOT-23")
+			(fields
+				(field
+					(name "Footprint") "Diode_SMD:D_SOT-23")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "D_Schottky")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "02_DAC_SOURCE_COMMAND")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/02_DAC_SOURCE_COMMAND.kicad_sch")
+			)
+			(sheetpath
+				(names "/02_DAC_SOURCE_COMMAND/")
+				(tstamps "/8c56a8c3-3994-4cae-a60d-b819d8d325e9/")
+			)
+			(tstamps "aaaabbbb-aaaa-4bbb-8aaa-bbbbaaaabbbc")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "D_SRC_L")
+			(value "BAT54S clamp VCSRC to GND never negative")
+			(footprint "Diode_SMD:D_SOT-23")
+			(fields
+				(field
+					(name "Footprint") "Diode_SMD:D_SOT-23")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "D_Schottky")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "02_DAC_SOURCE_COMMAND")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/02_DAC_SOURCE_COMMAND.kicad_sch")
+			)
+			(sheetpath
+				(names "/02_DAC_SOURCE_COMMAND/")
+				(tstamps "/8c56a8c3-3994-4cae-a60d-b819d8d325e9/")
+			)
+			(tstamps "bbbbaaaa-bbbb-4aaa-8bbb-aaaabbbbaaaa")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R_BIN")
+			(value "0R to GND BIN=0 offset binary (or DNP to +3V3 for 2s comp)")
+			(footprint "Resistor_SMD:R_0603_1608Metric")
+			(fields
+				(field
+					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "02_DAC_SOURCE_COMMAND")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/02_DAC_SOURCE_COMMAND.kicad_sch")
+			)
+			(sheetpath
+				(names "/02_DAC_SOURCE_COMMAND/")
+				(tstamps "/8c56a8c3-3994-4cae-a60d-b819d8d325e9/")
+			)
+			(tstamps "bbbbcccc-bbbb-4ccc-8bbb-ccccbbbbcccc")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R_CLR")
+			(value "10k pull-up CLR_N to +3V3")
+			(footprint "Resistor_SMD:R_0603_1608Metric")
+			(fields
+				(field
+					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "02_DAC_SOURCE_COMMAND")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/02_DAC_SOURCE_COMMAND.kicad_sch")
+			)
+			(sheetpath
+				(names "/02_DAC_SOURCE_COMMAND/")
+				(tstamps "/8c56a8c3-3994-4cae-a60d-b819d8d325e9/")
+			)
+			(tstamps "9999cccc-9999-4ccc-8999-cccc9999cccc")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R_LDAC")
+			(value "10k pull-up LDAC_N to +3V3 default latched")
+			(footprint "Resistor_SMD:R_0603_1608Metric")
+			(fields
+				(field
+					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "02_DAC_SOURCE_COMMAND")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/02_DAC_SOURCE_COMMAND.kicad_sch")
+			)
+			(sheetpath
+				(names "/02_DAC_SOURCE_COMMAND/")
+				(tstamps "/8c56a8c3-3994-4cae-a60d-b819d8d325e9/")
+			)
+			(tstamps "8888bbbb-8888-4bbb-8888-bbbb8888bbbb")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R_RESET")
+			(value "10k pull-up RESET_N to +3V3")
+			(footprint "Resistor_SMD:R_0603_1608Metric")
+			(fields
+				(field
+					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "02_DAC_SOURCE_COMMAND")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/02_DAC_SOURCE_COMMAND.kicad_sch")
+			)
+			(sheetpath
+				(names "/02_DAC_SOURCE_COMMAND/")
+				(tstamps "/8c56a8c3-3994-4cae-a60d-b819d8d325e9/")
+			)
+			(tstamps "aaaabbbb-aaaa-4bbb-8aaa-bbbbaaaabbbb")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R_SLEW")
+			(value "1k DNP/PROTOTYPE-TUNE slew RC series VOUTA->VSET")
+			(footprint "Resistor_SMD:R_0805_2012Metric")
+			(fields
+				(field
+					(name "Footprint") "Resistor_SMD:R_0805_2012Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "02_DAC_SOURCE_COMMAND")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/02_DAC_SOURCE_COMMAND.kicad_sch")
+			)
+			(sheetpath
+				(names "/02_DAC_SOURCE_COMMAND/")
+				(tstamps "/8c56a8c3-3994-4cae-a60d-b819d8d325e9/")
+			)
+			(tstamps "ccccdddd-cccc-4ddd-8ccc-ddddccccdddd")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R_SLEW_PD2")
+			(value "DNP placeholder - slew RC shares VSET pulldown already")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "02_DAC_SOURCE_COMMAND")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/02_DAC_SOURCE_COMMAND.kicad_sch")
+			)
+			(sheetpath
+				(names "/02_DAC_SOURCE_COMMAND/")
+				(tstamps "/8c56a8c3-3994-4cae-a60d-b819d8d325e9/")
+			)
+			(tstamps "44446666-4444-4666-8444-666644446666")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R_SNK1")
+			(value "30k 0.1% VDAC to VCSNK summing")
+			(footprint "Resistor_SMD:R_0603_1608Metric")
+			(fields
+				(field
+					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "02_DAC_SOURCE_COMMAND")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/02_DAC_SOURCE_COMMAND.kicad_sch")
+			)
+			(sheetpath
+				(names "/02_DAC_SOURCE_COMMAND/")
+				(tstamps "/8c56a8c3-3994-4cae-a60d-b819d8d325e9/")
+			)
+			(tstamps "cccc1111-cccc-4111-8ccc-1111cccc1111")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R_SNK2")
+			(value "30k 0.1% VREF_5V to VCSNK node")
+			(footprint "Resistor_SMD:R_0603_1608Metric")
+			(fields
+				(field
+					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "02_DAC_SOURCE_COMMAND")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/02_DAC_SOURCE_COMMAND.kicad_sch")
+			)
+			(sheetpath
+				(names "/02_DAC_SOURCE_COMMAND/")
+				(tstamps "/8c56a8c3-3994-4cae-a60d-b819d8d325e9/")
+			)
+			(tstamps "dddd2222-dddd-4222-8ddd-2222dddd2222")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R_SNK3")
+			(value "20k 0.1% GND to VCSNK node")
+			(footprint "Resistor_SMD:R_0603_1608Metric")
+			(fields
+				(field
+					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "02_DAC_SOURCE_COMMAND")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/02_DAC_SOURCE_COMMAND.kicad_sch")
+			)
+			(sheetpath
+				(names "/02_DAC_SOURCE_COMMAND/")
+				(tstamps "/8c56a8c3-3994-4cae-a60d-b819d8d325e9/")
+			)
+			(tstamps "eeee3333-eeee-4333-8eee-3333eeee3333")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R_SNKF")
+			(value "20k 0.1% feedback VCSNK")
+			(footprint "Resistor_SMD:R_0603_1608Metric")
+			(fields
+				(field
+					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "02_DAC_SOURCE_COMMAND")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/02_DAC_SOURCE_COMMAND.kicad_sch")
+			)
+			(sheetpath
+				(names "/02_DAC_SOURCE_COMMAND/")
+				(tstamps "/8c56a8c3-3994-4cae-a60d-b819d8d325e9/")
+			)
+			(tstamps "ffff4444-ffff-4444-8fff-4444ffff4444")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R_SNK_CLAMP")
+			(value "100R series VCSNK to LT1970")
+			(footprint "Resistor_SMD:R_0603_1608Metric")
+			(fields
+				(field
+					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "02_DAC_SOURCE_COMMAND")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/02_DAC_SOURCE_COMMAND.kicad_sch")
+			)
+			(sheetpath
+				(names "/02_DAC_SOURCE_COMMAND/")
+				(tstamps "/8c56a8c3-3994-4cae-a60d-b819d8d325e9/")
+			)
+			(tstamps "11113333-1111-4333-8111-333311113333")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R_SRC1")
+			(value "30k 0.1% VDAC to summing node VCSRC")
+			(footprint "Resistor_SMD:R_0603_1608Metric")
+			(fields
+				(field
+					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "02_DAC_SOURCE_COMMAND")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/02_DAC_SOURCE_COMMAND.kicad_sch")
+			)
+			(sheetpath
+				(names "/02_DAC_SOURCE_COMMAND/")
+				(tstamps "/8c56a8c3-3994-4cae-a60d-b819d8d325e9/")
+			)
+			(tstamps "11112222-1111-4222-8111-222211112222")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R_SRC2")
+			(value "30k 0.1% VREF_5V to VCSRC summing node")
+			(footprint "Resistor_SMD:R_0603_1608Metric")
+			(fields
+				(field
+					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "02_DAC_SOURCE_COMMAND")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/02_DAC_SOURCE_COMMAND.kicad_sch")
+			)
+			(sheetpath
+				(names "/02_DAC_SOURCE_COMMAND/")
+				(tstamps "/8c56a8c3-3994-4cae-a60d-b819d8d325e9/")
+			)
+			(tstamps "33334444-3333-4444-8333-444433334444")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R_SRC3")
+			(value "20k 0.1% GND to VCSRC node (divider set gain 0.25+offset 2.5)")
+			(footprint "Resistor_SMD:R_0603_1608Metric")
+			(fields
+				(field
+					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "02_DAC_SOURCE_COMMAND")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/02_DAC_SOURCE_COMMAND.kicad_sch")
+			)
+			(sheetpath
+				(names "/02_DAC_SOURCE_COMMAND/")
+				(tstamps "/8c56a8c3-3994-4cae-a60d-b819d8d325e9/")
+			)
+			(tstamps "55556666-5555-4666-8555-666655556666")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R_SRCF")
+			(value "20k 0.1% feedback VCSRC non-inv gain 1.5x trim")
+			(footprint "Resistor_SMD:R_0603_1608Metric")
+			(fields
+				(field
+					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "02_DAC_SOURCE_COMMAND")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/02_DAC_SOURCE_COMMAND.kicad_sch")
+			)
+			(sheetpath
+				(names "/02_DAC_SOURCE_COMMAND/")
+				(tstamps "/8c56a8c3-3994-4cae-a60d-b819d8d325e9/")
+			)
+			(tstamps "77778888-7777-4888-8777-888877778888")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R_SRC_CLAMP")
+			(value "100R series clamp protection VCSRC to LT1970")
+			(footprint "Resistor_SMD:R_0603_1608Metric")
+			(fields
+				(field
+					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "02_DAC_SOURCE_COMMAND")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/02_DAC_SOURCE_COMMAND.kicad_sch")
+			)
+			(sheetpath
+				(names "/02_DAC_SOURCE_COMMAND/")
+				(tstamps "/8c56a8c3-3994-4cae-a60d-b819d8d325e9/")
+			)
+			(tstamps "9999aaaa-9999-4aaa-8999-aaaa9999aaaa")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R_VSET_PD")
+			(value "100k pulldown VSET safe 0V at POR/DAC high-Z")
+			(footprint "Resistor_SMD:R_0603_1608Metric")
+			(fields
+				(field
+					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "02_DAC_SOURCE_COMMAND")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/02_DAC_SOURCE_COMMAND.kicad_sch")
+			)
+			(sheetpath
+				(names "/02_DAC_SOURCE_COMMAND/")
+				(tstamps "/8c56a8c3-3994-4cae-a60d-b819d8d325e9/")
+			)
+			(tstamps "eeeeffff-eeee-4fff-8eee-ffffeeeeffff")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "TP1")
+			(value "TP_VREF_5V")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "ReRAM_SMU")
+				(part "TestPoint")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "02_DAC_SOURCE_COMMAND")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/02_DAC_SOURCE_COMMAND.kicad_sch")
+			)
+			(sheetpath
+				(names "/02_DAC_SOURCE_COMMAND/")
+				(tstamps "/8c56a8c3-3994-4cae-a60d-b819d8d325e9/")
+			)
+			(tstamps "55557777-5555-4777-8555-777755557777")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "TP2")
+			(value "TP_DAC_VOUTA_raw")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "ReRAM_SMU")
+				(part "TestPoint")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "02_DAC_SOURCE_COMMAND")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/02_DAC_SOURCE_COMMAND.kicad_sch")
+			)
+			(sheetpath
+				(names "/02_DAC_SOURCE_COMMAND/")
+				(tstamps "/8c56a8c3-3994-4cae-a60d-b819d8d325e9/")
+			)
+			(tstamps "66668888-6666-4888-8666-888866668888")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "TP3")
+			(value "TP_VSET_filtered")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "ReRAM_SMU")
+				(part "TestPoint")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "02_DAC_SOURCE_COMMAND")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/02_DAC_SOURCE_COMMAND.kicad_sch")
+			)
+			(sheetpath
+				(names "/02_DAC_SOURCE_COMMAND/")
+				(tstamps "/8c56a8c3-3994-4cae-a60d-b819d8d325e9/")
+			)
+			(tstamps "77779999-7777-4999-8777-999977779999")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "TP4")
+			(value "TP_VCSRC")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "ReRAM_SMU")
+				(part "TestPoint")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "02_DAC_SOURCE_COMMAND")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/02_DAC_SOURCE_COMMAND.kicad_sch")
+			)
+			(sheetpath
+				(names "/02_DAC_SOURCE_COMMAND/")
+				(tstamps "/8c56a8c3-3994-4cae-a60d-b819d8d325e9/")
+			)
+			(tstamps "8888aaaa-8888-4aaa-8888-aaaa8888aaaa")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "TP5")
+			(value "TP_VCSNK")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "ReRAM_SMU")
+				(part "TestPoint")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "02_DAC_SOURCE_COMMAND")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/02_DAC_SOURCE_COMMAND.kicad_sch")
+			)
+			(sheetpath
+				(names "/02_DAC_SOURCE_COMMAND/")
+				(tstamps "/8c56a8c3-3994-4cae-a60d-b819d8d325e9/")
+			)
+			(tstamps "9999bbbb-9999-4bbb-8999-bbbb9999bbbb")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "TP6")
+			(value "TP_DAC_VOUTB_raw (VCSRC src)")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "ReRAM_SMU")
+				(part "TestPoint")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "02_DAC_SOURCE_COMMAND")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/02_DAC_SOURCE_COMMAND.kicad_sch")
+			)
+			(sheetpath
+				(names "/02_DAC_SOURCE_COMMAND/")
+				(tstamps "/8c56a8c3-3994-4cae-a60d-b819d8d325e9/")
+			)
+			(tstamps "aaaa1111-aaaa-4111-8aaa-1111aaaa1111")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "TP7")
+			(value "TP_DAC_VOUTC_raw (VCSNK src)")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "ReRAM_SMU")
+				(part "TestPoint")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "02_DAC_SOURCE_COMMAND")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/02_DAC_SOURCE_COMMAND.kicad_sch")
+			)
+			(sheetpath
+				(names "/02_DAC_SOURCE_COMMAND/")
+				(tstamps "/8c56a8c3-3994-4cae-a60d-b819d8d325e9/")
+			)
+			(tstamps "bbbb2222-bbbb-4222-8bbb-2222bbbb2222")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "TP8")
+			(value "TP_DAC_VOUTD_raw (spare/emergency thr)")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "ReRAM_SMU")
+				(part "TestPoint")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "02_DAC_SOURCE_COMMAND")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/02_DAC_SOURCE_COMMAND.kicad_sch")
+			)
+			(sheetpath
+				(names "/02_DAC_SOURCE_COMMAND/")
+				(tstamps "/8c56a8c3-3994-4cae-a60d-b819d8d325e9/")
+			)
+			(tstamps "cccc3333-cccc-4333-8ccc-3333cccc3333")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U1")
+			(value "AD5764ARUZ PRIMARY 5V ref 20V span 305uV LSB 1LSB INL")
+			(footprint "Package_LQFP:LQFP-32_7x7mm_P0.8mm")
+			(fields
+				(field
+					(name "Footprint") "Package_LQFP:LQFP-32_7x7mm_P0.8mm")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "ReRAM_SMU")
+				(part "AD5764")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "02_DAC_SOURCE_COMMAND")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/02_DAC_SOURCE_COMMAND.kicad_sch")
+			)
+			(sheetpath
+				(names "/02_DAC_SOURCE_COMMAND/")
+				(tstamps "/8c56a8c3-3994-4cae-a60d-b819d8d325e9/")
+			)
+			(tstamps "1111aaaa-1111-4aaa-8111-aaaa1111aaaa")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "5")
+						)
+						(pin
+							(num "6")
+						)
+						(pin
+							(num "7")
+						)
+						(pin
+							(num "8")
+						)
+						(pin
+							(num "9")
+						)
+						(pin
+							(num "18")
+						)
+						(pin
+							(num "17")
+						)
+						(pin
+							(num "14")
+						)
+						(pin
+							(num "19")
+						)
+						(pin
+							(num "15")
+						)
+						(pin
+							(num "20")
+						)
+						(pin
+							(num "16")
+						)
+						(pin
+							(num "10")
+						)
+						(pin
+							(num "11")
+						)
+						(pin
+							(num "12")
+						)
+						(pin
+							(num "13")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U2")
+			(value "ADA4522-1 VCSRC conditioning 0.25x+2.5V + clamp")
+			(footprint "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm")
+			(fields
+				(field
+					(name "Footprint") "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "ReRAM_SMU")
+				(part "ADA4522-1")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "02_DAC_SOURCE_COMMAND")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/02_DAC_SOURCE_COMMAND.kicad_sch")
+			)
+			(sheetpath
+				(names "/02_DAC_SOURCE_COMMAND/")
+				(tstamps "/8c56a8c3-3994-4cae-a60d-b819d8d325e9/")
+			)
+			(tstamps "ffff1111-ffff-4111-8fff-1111ffff1111")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "8")
+						)
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "6")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U3")
+			(value "ADA4522-1 VCSNK conditioning 0.25x+2.5V + clamp")
+			(footprint "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm")
+			(fields
+				(field
+					(name "Footprint") "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "ReRAM_SMU")
+				(part "ADA4522-1")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "02_DAC_SOURCE_COMMAND")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/02_DAC_SOURCE_COMMAND.kicad_sch")
+			)
+			(sheetpath
+				(names "/02_DAC_SOURCE_COMMAND/")
+				(tstamps "/8c56a8c3-3994-4cae-a60d-b819d8d325e9/")
+			)
+			(tstamps "ffff2222-ffff-4222-8fff-2222ffff2222")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "8")
+						)
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "6")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U?")
+			(value "~")
+			(fields
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "power")
+				(part "GND")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "02_DAC_SOURCE_COMMAND")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/02_DAC_SOURCE_COMMAND.kicad_sch")
+			)
+			(sheetpath
+				(names "/02_DAC_SOURCE_COMMAND/")
+				(tstamps "/8c56a8c3-3994-4cae-a60d-b819d8d325e9/")
+			)
+			(tstamps "dddd4444-dddd-4444-8ddd-4444dddd4444" "5555bbbb-5555-4bbb-8bbb-bbbb5555bbbb"
+				"33339999-3333-4999-8333-999933339999" "4444aaaa-4444-4aaa-8444-aaaa4444aaaa"
+				"eeee5555-eeee-4555-8eee-5555eeee5555" "ffff6666-ffff-4666-8fff-6666ffff6666"
+				"22228888-2222-4888-8222-888822228888" "11117777-1111-4777-8111-777711117777"
+			)
+			(units
+				(unit
+					(name "A")
+					(pins)
+				)
+			)
+		)
+		(comp
+			(ref "C_FILTER")
+			(value "DNP - FILTER open baseline provision 1nF-100nF (LOOP_TUNE)")
+			(footprint "Capacitor_SMD:C_0805_2012Metric")
+			(fields
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0805_2012Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "03_OUTPUT_STAGE")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/03_OUTPUT_STAGE.kicad_sch")
+			)
+			(sheetpath
+				(names "/03_OUTPUT_STAGE/")
+				(tstamps "/9bc2aa88-40ab-44c2-973d-19750c3be40e/")
+			)
+			(tstamps "8a2b3579-0169-4cd9-af0b-34b0d7858c87")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R_ISO33")
+			(value "33 DNP/PROTOTYPE-TUNE")
+			(footprint "Resistor_SMD:R_0805_2012Metric")
+			(fields
+				(field
+					(name "Footprint") "Resistor_SMD:R_0805_2012Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "03_OUTPUT_STAGE")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/03_OUTPUT_STAGE.kicad_sch")
+			)
+			(sheetpath
+				(names "/03_OUTPUT_STAGE/")
+				(tstamps "/9bc2aa88-40ab-44c2-973d-19750c3be40e/")
+			)
+			(tstamps "426d7a62-9cc0-4d43-933f-5eb26cf00a28")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R_ISO47")
+			(value "47 PRIMARY selectable")
+			(footprint "Resistor_SMD:R_0805_2012Metric")
+			(fields
+				(field
+					(name "Footprint") "Resistor_SMD:R_0805_2012Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "03_OUTPUT_STAGE")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/03_OUTPUT_STAGE.kicad_sch")
+			)
+			(sheetpath
+				(names "/03_OUTPUT_STAGE/")
+				(tstamps "/9bc2aa88-40ab-44c2-973d-19750c3be40e/")
+			)
+			(tstamps "346abfd9-92f2-452c-bbab-a81b256f95e7")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U1")
+			(value "LT1970A PRIMARY TSSOP-20 +-12V")
+			(footprint "Package_SO:TSSOP-20_6.5x4.4mm_P0.65mm_ThermalPad")
+			(fields
+				(field
+					(name "Footprint") "Package_SO:TSSOP-20_6.5x4.4mm_P0.65mm_ThermalPad")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "Device")
+				(part "OpAmp")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "03_OUTPUT_STAGE")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sheets/03_OUTPUT_STAGE.kicad_sch")
+			)
+			(sheetpath
+				(names "/03_OUTPUT_STAGE/")
+				(tstamps "/9bc2aa88-40ab-44c2-973d-19750c3be40e/")
+			)
+			(tstamps "0a5c0f43-b46d-41e1-9b06-13e797520eb9")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "8")
+						)
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+	)
+	(groups)
+	(variants)
+	(libparts
+		(libpart
+			(lib "Connector_Generic")
+			(part "Conn_03x01_Odd_Even")
+			(fields
+				(field
+					(name "Reference") "J")
+				(field
+					(name "Value") "Conn_03x01")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "Pin_1")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "Pin_2")
+					(type "passive")
+				)
+				(pin
+					(num "3")
+					(name "Pin_3")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "Device")
+			(part "C")
+			(fields
+				(field
+					(name "Reference") "C")
+				(field
+					(name "Value") "C")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "Device")
+			(part "D_Schottky")
+			(fields
+				(field
+					(name "Reference") "D")
+				(field
+					(name "Value") "D_Schottky")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "Device")
+			(part "L")
+			(fields
+				(field
+					(name "Reference") "L")
+				(field
+					(name "Value") "L")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "Device")
+			(part "OpAmp")
+			(fields
+				(field
+					(name "Reference") "U")
+				(field
+					(name "Value") "OpAmp")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "OUT")
+					(type "output")
+				)
+				(pin
+					(num "2")
+					(name "-")
+					(type "input")
+				)
+				(pin
+					(num "3")
+					(name "+")
+					(type "input")
+				)
+				(pin
+					(num "4")
+					(name "V-")
+					(type "power_in")
+				)
+				(pin
+					(num "8")
+					(name "V+")
+					(type "power_in")
+				)
+			)
+		)
+		(libpart
+			(lib "Device")
+			(part "R")
+			(fields
+				(field
+					(name "Reference") "R")
+				(field
+					(name "Value") "R")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "ReRAM_SMU")
+			(part "AD5764")
+			(docs "https://www.analog.com/media/en/technical-documentation/data-sheets/AD5764.pdf Rev A p1 AVDD/AVSS +-11.4 to +-16.5V DAC quad 16b VOUT +-10V with REF 5V INL +-1LSB SPI 30MHz")
+			(fields
+				(field
+					(name "Reference") "U")
+				(field
+					(name "Value") "AD5764ARUZ")
+				(field
+					(name "Footprint") "Package_LQFP:LQFP-32_7x7mm_P0.8mm")
+				(field
+					(name "Datasheet") "https://www.analog.com/media/en/technical-documentation/data-sheets/AD5764.pdf Rev A p1 AVDD/AVSS +-11.4 to +-16.5V DAC quad 16b VOUT +-10V with REF 5V INL +-1LSB SPI 30MHz")
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "AVDD")
+					(type "power_in")
+				)
+				(pin
+					(num "2")
+					(name "AVSS")
+					(type "power_in")
+				)
+				(pin
+					(num "3")
+					(name "DVCC")
+					(type "power_in")
+				)
+				(pin
+					(num "4")
+					(name "DGND")
+					(type "power_in")
+				)
+				(pin
+					(num "5")
+					(name "AGND")
+					(type "power_in")
+				)
+				(pin
+					(num "6")
+					(name "REFAB")
+					(type "input")
+				)
+				(pin
+					(num "7")
+					(name "REFCD")
+					(type "input")
+				)
+				(pin
+					(num "8")
+					(name "REF_GND")
+					(type "input")
+				)
+				(pin
+					(num "9")
+					(name "RESET_N")
+					(type "input")
+				)
+				(pin
+					(num "10")
+					(name "VOUTA")
+					(type "input")
+				)
+				(pin
+					(num "11")
+					(name "VOUTB")
+					(type "input")
+				)
+				(pin
+					(num "12")
+					(name "VOUTC")
+					(type "input")
+				)
+				(pin
+					(num "13")
+					(name "VOUTD")
+					(type "input")
+				)
+				(pin
+					(num "14")
+					(name "SCLK")
+					(type "input")
+				)
+				(pin
+					(num "15")
+					(name "SYNC_N")
+					(type "input")
+				)
+				(pin
+					(num "16")
+					(name "SDIN")
+					(type "input")
+				)
+				(pin
+					(num "17")
+					(name "SDO")
+					(type "output")
+				)
+				(pin
+					(num "18")
+					(name "LDAC_N")
+					(type "input")
+				)
+				(pin
+					(num "19")
+					(name "CLR_N")
+					(type "input")
+				)
+				(pin
+					(num "20")
+					(name "BIN2SCOMP")
+					(type "input")
+				)
+			)
+		)
+		(libpart
+			(lib "ReRAM_SMU")
+			(part "ADA4522-1")
+			(docs "https://www.analog.com/media/en/technical-documentation/data-sheets/ada4522-1_4522-2_4522-4.pdf Rev I Vos 5uV TCVos 22nV/C")
+			(fields
+				(field
+					(name "Reference") "U")
+				(field
+					(name "Value") "ADA4522-1ARZ")
+				(field
+					(name "Footprint") "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm")
+				(field
+					(name "Datasheet") "https://www.analog.com/media/en/technical-documentation/data-sheets/ada4522-1_4522-2_4522-4.pdf Rev I Vos 5uV TCVos 22nV/C")
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "2")
+					(name "-")
+					(type "input")
+				)
+				(pin
+					(num "3")
+					(name "+")
+					(type "input")
+				)
+				(pin
+					(num "4")
+					(name "V-")
+					(type "power_in")
+				)
+				(pin
+					(num "6")
+					(name "OUT")
+					(type "output")
+				)
+				(pin
+					(num "8")
+					(name "V+")
+					(type "power_in")
+				)
+			)
+		)
+		(libpart
+			(lib "ReRAM_SMU")
+			(part "LT3045")
+			(docs "https://www.analog.com/media/en/technical-documentation/data-sheets/3045fb.pdf VIN 1.8-20V VOUT 5.0V 0.8uVrms 20V 500mA PSRR 120dB")
+			(fields
+				(field
+					(name "Reference") "U")
+				(field
+					(name "Value") "LT3045EDD#PBF")
+				(field
+					(name "Footprint") "Package_DFN:DFN-12_3x3mm_P0.45mm")
+				(field
+					(name "Datasheet") "https://www.analog.com/media/en/technical-documentation/data-sheets/3045fb.pdf VIN 1.8-20V VOUT 5.0V 0.8uVrms 20V 500mA PSRR 120dB")
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "VIN")
+					(type "power_in")
+				)
+				(pin
+					(num "2")
+					(name "VOUT")
+					(type "power_out")
+				)
+				(pin
+					(num "3")
+					(name "GND")
+					(type "power_in")
+				)
+				(pin
+					(num "4")
+					(name "SET")
+					(type "input")
+				)
+				(pin
+					(num "5")
+					(name "PG")
+					(type "input")
+				)
+			)
+		)
+		(libpart
+			(lib "ReRAM_SMU")
+			(part "LTC6655-2V5")
+			(docs "https://www.analog.com/media/en/technical-documentation/data-sheets/6655fb.pdf Rev B p1 VIN 3.5-36V VOUT 2.5V 0.775uVpp LN grade 1uF OUT cap")
+			(fields
+				(field
+					(name "Reference") "U")
+				(field
+					(name "Value") "LTC6655BHMS8-2.5")
+				(field
+					(name "Footprint") "Package_SO:MSOP-8_3x3mm_P0.65mm")
+				(field
+					(name "Datasheet") "https://www.analog.com/media/en/technical-documentation/data-sheets/6655fb.pdf Rev B p1 VIN 3.5-36V VOUT 2.5V 0.775uVpp LN grade 1uF OUT cap")
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "VIN")
+					(type "power_in")
+				)
+				(pin
+					(num "2")
+					(name "VOUT")
+					(type "power_out")
+				)
+				(pin
+					(num "3")
+					(name "GND")
+					(type "power_in")
+				)
+				(pin
+					(num "4")
+					(name "NR")
+					(type "input")
+				)
+			)
+		)
+		(libpart
+			(lib "ReRAM_SMU")
+			(part "LTC6655-5")
+			(docs "https://www.analog.com/media/en/technical-documentation/data-sheets/6655fb.pdf Rev B p1 VIN 3.5-36V VOUT 5.0V 0.025% 0.775uVpp 2ppm/C max")
+			(fields
+				(field
+					(name "Reference") "U")
+				(field
+					(name "Value") "LTC6655BHM-5.0")
+				(field
+					(name "Footprint") "Package_SO:MSOP-8_3x3mm_P0.65mm")
+				(field
+					(name "Datasheet") "https://www.analog.com/media/en/technical-documentation/data-sheets/6655fb.pdf Rev B p1 VIN 3.5-36V VOUT 5.0V 0.025% 0.775uVpp 2ppm/C max")
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "VIN")
+					(type "power_in")
+				)
+				(pin
+					(num "2")
+					(name "VOUT")
+					(type "power_out")
+				)
+				(pin
+					(num "3")
+					(name "GND")
+					(type "power_in")
+				)
+				(pin
+					(num "4")
+					(name "NR")
+					(type "input")
+				)
+			)
+		)
+		(libpart
+			(lib "ReRAM_SMU")
+			(part "TPS3808")
+			(docs "TI TPS3808 datasheet supervisor Vth 3.07V delay 200ms open-drain")
+			(fields
+				(field
+					(name "Reference") "U")
+				(field
+					(name "Value") "TPS3808G33/TLV803S33")
+				(field
+					(name "Footprint") "Package_TO_SOT_SMD:SOT-23-6")
+				(field
+					(name "Datasheet") "TI TPS3808 datasheet supervisor Vth 3.07V delay 200ms open-drain")
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "VDD")
+					(type "power_in")
+				)
+				(pin
+					(num "2")
+					(name "GND")
+					(type "power_in")
+				)
+				(pin
+					(num "3")
+					(name "SENSE")
+					(type "input")
+				)
+				(pin
+					(num "4")
+					(name "RESET_N")
+					(type "output")
+				)
+			)
+		)
+		(libpart
+			(lib "ReRAM_SMU")
+			(part "TestPoint")
+			(fields
+				(field
+					(name "Reference") "TP")
+				(field
+					(name "Value") "TP")
+				(field
+					(name "Footprint") "TestPoint:TestPoint_Pad_D1.5mm")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "power")
+			(part "GND")
+			(fields
+				(field
+					(name "Reference") "#PWR")
+				(field
+					(name "Value")
+				)
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+		)
+		(libpart
+			(lib "power")
+			(part "PWR_FLAG")
+			(fields
+				(field
+					(name "Reference") "#FLG")
+				(field
+					(name "Value")
+				)
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "power_out")
+				)
+			)
+		)
+	)
+	(libraries
+		(library
+			(logical "Connector_Generic")
+			(uri "${KICAD10_SYMBOL_DIR}/Connector_Generic.kicad_sym")
+		)
+		(library
+			(logical "Device")
+			(uri "${KICAD10_SYMBOL_DIR}/Device.kicad_sym")
+		)
+		(library
+			(logical "power")
+			(uri "${KICAD10_SYMBOL_DIR}/power.kicad_sym")
+		)
+	)
+	(nets
+		(net
+			(code "3")
+			(name "+5V_A")
+			(class "Default")
+			(node
+				(ref "U2")
+				(pin "4")
+				(pinfunction "V-_4")
+				(pintype "power_in")
+			)
+		)
+		(net
+			(code "5")
+			(name "+12V_A")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "9")
+				(pinfunction "RESET_N_9")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "12")
+			(name "DAC_CLR_N")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "10")
+				(pinfunction "VOUTA_10")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "25")
+			(name "Net-(U1-GND)")
+			(class "Default")
+			(node
+				(ref "C_SET_5V")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "3")
+				(pinfunction "GND_3")
+				(pintype "power_in")
+			)
+		)
+		(net
+			(code "32")
+			(name "VREF_5V")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "4")
+				(pinfunction "DGND_4")
+				(pintype "power_in")
+			)
+		)
+		(net
+			(code "34")
+			(name "nPOR")
+			(class "Default")
+			(node
+				(ref "U5")
+				(pin "4")
+				(pinfunction "RESET_N_4")
+				(pintype "output")
+			)
+		)
+		(net
+			(code "35")
+			(name "unconnected-(C1-Pad1)")
+			(class "Default")
+			(node
+				(ref "C1")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "36")
+			(name "unconnected-(C1-Pad2)")
+			(class "Default")
+			(node
+				(ref "C1")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "37")
+			(name "unconnected-(C2-Pad1)")
+			(class "Default")
+			(node
+				(ref "C2")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "38")
+			(name "unconnected-(C2-Pad2)")
+			(class "Default")
+			(node
+				(ref "C2")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "39")
+			(name "unconnected-(C3-Pad1)")
+			(class "Default")
+			(node
+				(ref "C3")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "40")
+			(name "unconnected-(C3-Pad2)")
+			(class "Default")
+			(node
+				(ref "C3")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "41")
+			(name "unconnected-(C4-Pad1)")
+			(class "Default")
+			(node
+				(ref "C4")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "42")
+			(name "unconnected-(C4-Pad2)")
+			(class "Default")
+			(node
+				(ref "C4")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "43")
+			(name "unconnected-(C5-Pad1)")
+			(class "Default")
+			(node
+				(ref "C5")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "44")
+			(name "unconnected-(C5-Pad2)")
+			(class "Default")
+			(node
+				(ref "C5")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "45")
+			(name "unconnected-(C6-Pad1)")
+			(class "Default")
+			(node
+				(ref "C6")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "46")
+			(name "unconnected-(C6-Pad2)")
+			(class "Default")
+			(node
+				(ref "C6")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "47")
+			(name "unconnected-(C_3V3_OUT-Pad1)")
+			(class "Default")
+			(node
+				(ref "C_3V3_OUT")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "48")
+			(name "unconnected-(C_3V3_OUT-Pad2)")
+			(class "Default")
+			(node
+				(ref "C_3V3_OUT")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "49")
+			(name "unconnected-(C_BULK_N-Pad1)")
+			(class "Default")
+			(node
+				(ref "C_BULK_N")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "50")
+			(name "unconnected-(C_BULK_N-Pad2)")
+			(class "Default")
+			(node
+				(ref "C_BULK_N")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "51")
+			(name "unconnected-(C_BULK_P-Pad1)")
+			(class "Default")
+			(node
+				(ref "C_BULK_P")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "52")
+			(name "unconnected-(C_BULK_P-Pad2)")
+			(class "Default")
+			(node
+				(ref "C_BULK_P")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "53")
+			(name "unconnected-(C_FILTER-Pad1)")
+			(class "Default")
+			(node
+				(ref "C_FILTER")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "54")
+			(name "unconnected-(C_FILTER-Pad2)")
+			(class "Default")
+			(node
+				(ref "C_FILTER")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "55")
+			(name "unconnected-(C_IN_5V-Pad1)")
+			(class "Default")
+			(node
+				(ref "C_IN_5V")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "56")
+			(name "unconnected-(C_IN_5V-Pad2)")
+			(class "Default")
+			(node
+				(ref "C_IN_5V")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "57")
+			(name "unconnected-(C_NR2V5-Pad1)")
+			(class "Default")
+			(node
+				(ref "C_NR2V5")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "58")
+			(name "unconnected-(C_NR2V5-Pad2)")
+			(class "Default")
+			(node
+				(ref "C_NR2V5")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "59")
+			(name "unconnected-(C_NR5V-Pad1)")
+			(class "Default")
+			(node
+				(ref "C_NR5V")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "60")
+			(name "unconnected-(C_NR5V-Pad2)")
+			(class "Default")
+			(node
+				(ref "C_NR5V")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "61")
+			(name "unconnected-(C_OE-Pad1)")
+			(class "Default")
+			(node
+				(ref "C_OE")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "62")
+			(name "unconnected-(C_OE-Pad2)")
+			(class "Default")
+			(node
+				(ref "C_OE")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "63")
+			(name "unconnected-(C_OUT_5V-Pad1)")
+			(class "Default")
+			(node
+				(ref "C_OUT_5V")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "64")
+			(name "unconnected-(C_OUT_5V-Pad2)")
+			(class "Default")
+			(node
+				(ref "C_OUT_5V")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "65")
+			(name "unconnected-(C_REF2V5_IN-Pad1)")
+			(class "Default")
+			(node
+				(ref "C_REF2V5_IN")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "66")
+			(name "unconnected-(C_REF2V5_IN-Pad2)")
+			(class "Default")
+			(node
+				(ref "C_REF2V5_IN")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "67")
+			(name "unconnected-(C_REF2V5_OUT-Pad1)")
+			(class "Default")
+			(node
+				(ref "C_REF2V5_OUT")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "68")
+			(name "unconnected-(C_REF2V5_OUT-Pad2)")
+			(class "Default")
+			(node
+				(ref "C_REF2V5_OUT")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "69")
+			(name "unconnected-(C_REF5V_IN-Pad1)")
+			(class "Default")
+			(node
+				(ref "C_REF5V_IN")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "70")
+			(name "unconnected-(C_REF5V_IN-Pad2)")
+			(class "Default")
+			(node
+				(ref "C_REF5V_IN")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "71")
+			(name "unconnected-(C_REF5V_OUT-Pad1)")
+			(class "Default")
+			(node
+				(ref "C_REF5V_OUT")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "72")
+			(name "unconnected-(C_REF5V_OUT-Pad2)")
+			(class "Default")
+			(node
+				(ref "C_REF5V_OUT")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "73")
+			(name "unconnected-(C_SET_5V-Pad2)")
+			(class "Default")
+			(node
+				(ref "C_SET_5V")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "74")
+			(name "unconnected-(C_SLEW-Pad1)")
+			(class "Default")
+			(node
+				(ref "C_SLEW")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "75")
+			(name "unconnected-(C_SLEW-Pad2)")
+			(class "Default")
+			(node
+				(ref "C_SLEW")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "76")
+			(name "unconnected-(D1-Pad1)")
+			(class "Default")
+			(node
+				(ref "D1")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "77")
+			(name "unconnected-(D1-Pad2)")
+			(class "Default")
+			(node
+				(ref "D1")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "78")
+			(name "unconnected-(D2-Pad1)")
+			(class "Default")
+			(node
+				(ref "D2")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "79")
+			(name "unconnected-(D2-Pad2)")
+			(class "Default")
+			(node
+				(ref "D2")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "80")
+			(name "unconnected-(D_SNK_H-Pad1)")
+			(class "Default")
+			(node
+				(ref "D_SNK_H")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "81")
+			(name "unconnected-(D_SNK_H-Pad2)")
+			(class "Default")
+			(node
+				(ref "D_SNK_H")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "82")
+			(name "unconnected-(D_SNK_L-Pad1)")
+			(class "Default")
+			(node
+				(ref "D_SNK_L")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "83")
+			(name "unconnected-(D_SNK_L-Pad2)")
+			(class "Default")
+			(node
+				(ref "D_SNK_L")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "84")
+			(name "unconnected-(D_SRC_H-Pad1)")
+			(class "Default")
+			(node
+				(ref "D_SRC_H")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "85")
+			(name "unconnected-(D_SRC_H-Pad2)")
+			(class "Default")
+			(node
+				(ref "D_SRC_H")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "86")
+			(name "unconnected-(D_SRC_L-Pad1)")
+			(class "Default")
+			(node
+				(ref "D_SRC_L")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "87")
+			(name "unconnected-(D_SRC_L-Pad2)")
+			(class "Default")
+			(node
+				(ref "D_SRC_L")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "88")
+			(name "unconnected-(F1-Pad1)")
+			(class "Default")
+			(node
+				(ref "F1")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "89")
+			(name "unconnected-(F1-Pad2)")
+			(class "Default")
+			(node
+				(ref "F1")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "90")
+			(name "unconnected-(F2-Pad1)")
+			(class "Default")
+			(node
+				(ref "F2")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "91")
+			(name "unconnected-(F2-Pad2)")
+			(class "Default")
+			(node
+				(ref "F2")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "92")
+			(name "unconnected-(J1-Pin_1-Pad1)")
+			(class "Default")
+			(node
+				(ref "J1")
+				(pin "1")
+				(pinfunction "Pin_1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "93")
+			(name "unconnected-(J1-Pin_2-Pad2)")
+			(class "Default")
+			(node
+				(ref "J1")
+				(pin "2")
+				(pinfunction "Pin_2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "94")
+			(name "unconnected-(J1-Pin_3-Pad3)")
+			(class "Default")
+			(node
+				(ref "J1")
+				(pin "3")
+				(pinfunction "Pin_3_3")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "95")
+			(name "unconnected-(K1-Pad1)")
+			(class "Default")
+			(node
+				(ref "K1")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "96")
+			(name "unconnected-(K1-Pad2)")
+			(class "Default")
+			(node
+				(ref "K1")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "97")
+			(name "unconnected-(L1-Pad1)")
+			(class "Default")
+			(node
+				(ref "L1")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "98")
+			(name "unconnected-(L1-Pad2)")
+			(class "Default")
+			(node
+				(ref "L1")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "99")
+			(name "unconnected-(R_BIN-Pad1)")
+			(class "Default")
+			(node
+				(ref "R_BIN")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "100")
+			(name "unconnected-(R_BIN-Pad2)")
+			(class "Default")
+			(node
+				(ref "R_BIN")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "101")
+			(name "unconnected-(R_CLR-Pad1)")
+			(class "Default")
+			(node
+				(ref "R_CLR")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "102")
+			(name "unconnected-(R_CLR-Pad2)")
+			(class "Default")
+			(node
+				(ref "R_CLR")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "103")
+			(name "unconnected-(R_ISO33-Pad1)")
+			(class "Default")
+			(node
+				(ref "R_ISO33")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "104")
+			(name "unconnected-(R_ISO33-Pad2)")
+			(class "Default")
+			(node
+				(ref "R_ISO33")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "105")
+			(name "unconnected-(R_ISO47-Pad1)")
+			(class "Default")
+			(node
+				(ref "R_ISO47")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "106")
+			(name "unconnected-(R_ISO47-Pad2)")
+			(class "Default")
+			(node
+				(ref "R_ISO47")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "107")
+			(name "unconnected-(R_LDAC-Pad1)")
+			(class "Default")
+			(node
+				(ref "R_LDAC")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "108")
+			(name "unconnected-(R_LDAC-Pad2)")
+			(class "Default")
+			(node
+				(ref "R_LDAC")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "109")
+			(name "unconnected-(R_OE_PD-Pad1)")
+			(class "Default")
+			(node
+				(ref "R_OE_PD")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "110")
+			(name "unconnected-(R_OE_PD-Pad2)")
+			(class "Default")
+			(node
+				(ref "R_OE_PD")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "111")
+			(name "unconnected-(R_OE_SER-Pad1)")
+			(class "Default")
+			(node
+				(ref "R_OE_SER")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "112")
+			(name "unconnected-(R_OE_SER-Pad2)")
+			(class "Default")
+			(node
+				(ref "R_OE_SER")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "113")
+			(name "unconnected-(R_PG5V-Pad1)")
+			(class "Default")
+			(node
+				(ref "R_PG5V")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "114")
+			(name "unconnected-(R_PG5V-Pad2)")
+			(class "Default")
+			(node
+				(ref "R_PG5V")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "115")
+			(name "unconnected-(R_POR_PU-Pad1)")
+			(class "Default")
+			(node
+				(ref "R_POR_PU")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "116")
+			(name "unconnected-(R_POR_PU-Pad2)")
+			(class "Default")
+			(node
+				(ref "R_POR_PU")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "117")
+			(name "unconnected-(R_RESET-Pad1)")
+			(class "Default")
+			(node
+				(ref "R_RESET")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "118")
+			(name "unconnected-(R_RESET-Pad2)")
+			(class "Default")
+			(node
+				(ref "R_RESET")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "119")
+			(name "unconnected-(R_SENSE_DIV1-Pad1)")
+			(class "Default")
+			(node
+				(ref "R_SENSE_DIV1")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "120")
+			(name "unconnected-(R_SENSE_DIV1-Pad2)")
+			(class "Default")
+			(node
+				(ref "R_SENSE_DIV1")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "121")
+			(name "unconnected-(R_SET1-Pad1)")
+			(class "Default")
+			(node
+				(ref "R_SET1")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "122")
+			(name "unconnected-(R_SET1-Pad2)")
+			(class "Default")
+			(node
+				(ref "R_SET1")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "123")
+			(name "unconnected-(R_SLEW-Pad1)")
+			(class "Default")
+			(node
+				(ref "R_SLEW")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "124")
+			(name "unconnected-(R_SLEW-Pad2)")
+			(class "Default")
+			(node
+				(ref "R_SLEW")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "125")
+			(name "unconnected-(R_SLEW_PD2-Pad1)")
+			(class "Default")
+			(node
+				(ref "R_SLEW_PD2")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "126")
+			(name "unconnected-(R_SLEW_PD2-Pad2)")
+			(class "Default")
+			(node
+				(ref "R_SLEW_PD2")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "127")
+			(name "unconnected-(R_SNK1-Pad1)")
+			(class "Default")
+			(node
+				(ref "R_SNK1")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "128")
+			(name "unconnected-(R_SNK1-Pad2)")
+			(class "Default")
+			(node
+				(ref "R_SNK1")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "129")
+			(name "unconnected-(R_SNK2-Pad1)")
+			(class "Default")
+			(node
+				(ref "R_SNK2")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "130")
+			(name "unconnected-(R_SNK2-Pad2)")
+			(class "Default")
+			(node
+				(ref "R_SNK2")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "131")
+			(name "unconnected-(R_SNK3-Pad1)")
+			(class "Default")
+			(node
+				(ref "R_SNK3")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "132")
+			(name "unconnected-(R_SNK3-Pad2)")
+			(class "Default")
+			(node
+				(ref "R_SNK3")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "133")
+			(name "unconnected-(R_SNKF-Pad1)")
+			(class "Default")
+			(node
+				(ref "R_SNKF")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "134")
+			(name "unconnected-(R_SNKF-Pad2)")
+			(class "Default")
+			(node
+				(ref "R_SNKF")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "135")
+			(name "unconnected-(R_SNK_CLAMP-Pad1)")
+			(class "Default")
+			(node
+				(ref "R_SNK_CLAMP")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "136")
+			(name "unconnected-(R_SNK_CLAMP-Pad2)")
+			(class "Default")
+			(node
+				(ref "R_SNK_CLAMP")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "137")
+			(name "unconnected-(R_SRC1-Pad1)")
+			(class "Default")
+			(node
+				(ref "R_SRC1")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "138")
+			(name "unconnected-(R_SRC1-Pad2)")
+			(class "Default")
+			(node
+				(ref "R_SRC1")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "139")
+			(name "unconnected-(R_SRC2-Pad1)")
+			(class "Default")
+			(node
+				(ref "R_SRC2")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "140")
+			(name "unconnected-(R_SRC2-Pad2)")
+			(class "Default")
+			(node
+				(ref "R_SRC2")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "141")
+			(name "unconnected-(R_SRC3-Pad1)")
+			(class "Default")
+			(node
+				(ref "R_SRC3")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "142")
+			(name "unconnected-(R_SRC3-Pad2)")
+			(class "Default")
+			(node
+				(ref "R_SRC3")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "143")
+			(name "unconnected-(R_SRCF-Pad1)")
+			(class "Default")
+			(node
+				(ref "R_SRCF")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "144")
+			(name "unconnected-(R_SRCF-Pad2)")
+			(class "Default")
+			(node
+				(ref "R_SRCF")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "145")
+			(name "unconnected-(R_SRC_CLAMP-Pad1)")
+			(class "Default")
+			(node
+				(ref "R_SRC_CLAMP")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "146")
+			(name "unconnected-(R_SRC_CLAMP-Pad2)")
+			(class "Default")
+			(node
+				(ref "R_SRC_CLAMP")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "147")
+			(name "unconnected-(R_VSET_PD-Pad1)")
+			(class "Default")
+			(node
+				(ref "R_VSET_PD")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "148")
+			(name "unconnected-(R_VSET_PD-Pad2)")
+			(class "Default")
+			(node
+				(ref "R_VSET_PD")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "149")
+			(name "unconnected-(TP1-Pad1)")
+			(class "Default")
+			(node
+				(ref "TP1")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "150")
+			(name "unconnected-(TP1-Pad1)_1")
+			(class "Default")
+			(node
+				(ref "TP1")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "151")
+			(name "unconnected-(TP2-Pad1)")
+			(class "Default")
+			(node
+				(ref "TP2")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "152")
+			(name "unconnected-(TP2-Pad1)_1")
+			(class "Default")
+			(node
+				(ref "TP2")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "153")
+			(name "unconnected-(TP3-Pad1)")
+			(class "Default")
+			(node
+				(ref "TP3")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "154")
+			(name "unconnected-(TP3-Pad1)_1")
+			(class "Default")
+			(node
+				(ref "TP3")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "155")
+			(name "unconnected-(TP4-Pad1)")
+			(class "Default")
+			(node
+				(ref "TP4")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "156")
+			(name "unconnected-(TP4-Pad1)_1")
+			(class "Default")
+			(node
+				(ref "TP4")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "157")
+			(name "unconnected-(TP5-Pad1)")
+			(class "Default")
+			(node
+				(ref "TP5")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "158")
+			(name "unconnected-(TP5-Pad1)_1")
+			(class "Default")
+			(node
+				(ref "TP5")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "159")
+			(name "unconnected-(TP6-Pad1)")
+			(class "Default")
+			(node
+				(ref "TP6")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "160")
+			(name "unconnected-(TP6-Pad1)_1")
+			(class "Default")
+			(node
+				(ref "TP6")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "161")
+			(name "unconnected-(TP7-Pad1)")
+			(class "Default")
+			(node
+				(ref "TP7")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "162")
+			(name "unconnected-(TP7-Pad1)_1")
+			(class "Default")
+			(node
+				(ref "TP7")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "163")
+			(name "unconnected-(TP8-Pad1)")
+			(class "Default")
+			(node
+				(ref "TP8")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "164")
+			(name "unconnected-(TP8-Pad1)_1")
+			(class "Default")
+			(node
+				(ref "TP8")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "165")
+			(name "unconnected-(U1-+-Pad3)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "3")
+				(pinfunction "+_3")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "166")
+			(name "unconnected-(U1-+-Pad3)_1")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "3")
+				(pinfunction "+_3")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "167")
+			(name "unconnected-(U1---Pad2)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "2")
+				(pinfunction "-_2")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "168")
+			(name "unconnected-(U1---Pad2)_1")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "2")
+				(pinfunction "-_2")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "169")
+			(name "unconnected-(U1-AGND-Pad5)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "5")
+				(pinfunction "AGND_5")
+				(pintype "power_in")
+			)
+		)
+		(net
+			(code "170")
+			(name "unconnected-(U1-AVDD-Pad1)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "1")
+				(pinfunction "AVDD_1")
+				(pintype "power_in")
+			)
+		)
+		(net
+			(code "171")
+			(name "unconnected-(U1-AVSS-Pad2)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "2")
+				(pinfunction "AVSS_2")
+				(pintype "power_in")
+			)
+		)
+		(net
+			(code "172")
+			(name "unconnected-(U1-BIN2SCOMP-Pad20)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "20")
+				(pinfunction "BIN2SCOMP_20")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "173")
+			(name "unconnected-(U1-CLR_N-Pad19)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "19")
+				(pinfunction "CLR_N_19")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "174")
+			(name "unconnected-(U1-DVCC-Pad3)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "3")
+				(pinfunction "DVCC_3")
+				(pintype "power_in")
+			)
+		)
+		(net
+			(code "175")
+			(name "unconnected-(U1-LDAC_N-Pad18)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "18")
+				(pinfunction "LDAC_N_18")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "176")
+			(name "unconnected-(U1-OUT-Pad1)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "1")
+				(pinfunction "OUT_1")
+				(pintype "output")
+			)
+		)
+		(net
+			(code "177")
+			(name "unconnected-(U1-OUT-Pad1)_1")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "1")
+				(pinfunction "OUT_1")
+				(pintype "output")
+			)
+		)
+		(net
+			(code "178")
+			(name "unconnected-(U1-PG-Pad5)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "5")
+				(pinfunction "PG_5")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "179")
+			(name "unconnected-(U1-REFAB-Pad6)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "6")
+				(pinfunction "REFAB_6")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "180")
+			(name "unconnected-(U1-REFCD-Pad7)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "7")
+				(pinfunction "REFCD_7")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "181")
+			(name "unconnected-(U1-REF_GND-Pad8)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "8")
+				(pinfunction "REF_GND_8")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "182")
+			(name "unconnected-(U1-SCLK-Pad14)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "14")
+				(pinfunction "SCLK_14")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "183")
+			(name "unconnected-(U1-SDIN-Pad16)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "16")
+				(pinfunction "SDIN_16")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "184")
+			(name "unconnected-(U1-SDO-Pad17)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "17")
+				(pinfunction "SDO_17")
+				(pintype "output")
+			)
+		)
+		(net
+			(code "185")
+			(name "unconnected-(U1-SET-Pad4)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "4")
+				(pinfunction "SET_4")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "186")
+			(name "unconnected-(U1-SYNC_N-Pad15)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "15")
+				(pinfunction "SYNC_N_15")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "187")
+			(name "unconnected-(U1-V+-Pad8)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "8")
+				(pinfunction "V+_8")
+				(pintype "power_in")
+			)
+		)
+		(net
+			(code "188")
+			(name "unconnected-(U1-V+-Pad8)_1")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "8")
+				(pinfunction "V+_8")
+				(pintype "power_in")
+			)
+		)
+		(net
+			(code "189")
+			(name "unconnected-(U1-V--Pad4)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "4")
+				(pinfunction "V-_4")
+				(pintype "power_in")
+			)
+		)
+		(net
+			(code "190")
+			(name "unconnected-(U1-V--Pad4)_1")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "4")
+				(pinfunction "V-_4")
+				(pintype "power_in")
+			)
+		)
+		(net
+			(code "191")
+			(name "unconnected-(U1-VIN-Pad1)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "1")
+				(pinfunction "VIN_1")
+				(pintype "power_in")
+			)
+		)
+		(net
+			(code "192")
+			(name "unconnected-(U1-VOUT-Pad2)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "2")
+				(pinfunction "VOUT_2")
+				(pintype "power_out")
+			)
+		)
+		(net
+			(code "193")
+			(name "unconnected-(U1-VOUTB-Pad11)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "11")
+				(pinfunction "VOUTB_11")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "194")
+			(name "unconnected-(U1-VOUTC-Pad12)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "12")
+				(pinfunction "VOUTC_12")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "195")
+			(name "unconnected-(U1-VOUTD-Pad13)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "13")
+				(pinfunction "VOUTD_13")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "196")
+			(name "unconnected-(U2-+-Pad3)")
+			(class "Default")
+			(node
+				(ref "U2")
+				(pin "3")
+				(pinfunction "+_3")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "197")
+			(name "unconnected-(U2-+-Pad3)_1")
+			(class "Default")
+			(node
+				(ref "U2")
+				(pin "3")
+				(pinfunction "+_3")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "198")
+			(name "unconnected-(U2---Pad2)")
+			(class "Default")
+			(node
+				(ref "U2")
+				(pin "2")
+				(pinfunction "-_2")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "199")
+			(name "unconnected-(U2---Pad2)_1")
+			(class "Default")
+			(node
+				(ref "U2")
+				(pin "2")
+				(pinfunction "-_2")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "200")
+			(name "unconnected-(U2-OUT-Pad1)_1")
+			(class "Default")
+			(node
+				(ref "U2")
+				(pin "1")
+				(pinfunction "OUT_1")
+				(pintype "output")
+			)
+		)
+		(net
+			(code "201")
+			(name "unconnected-(U2-OUT-Pad6)")
+			(class "Default")
+			(node
+				(ref "U2")
+				(pin "6")
+				(pinfunction "OUT_6")
+				(pintype "output")
+			)
+		)
+		(net
+			(code "202")
+			(name "unconnected-(U2-Pad1)")
+			(class "Default")
+			(node
+				(ref "U2")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "203")
+			(name "unconnected-(U2-Pad2)")
+			(class "Default")
+			(node
+				(ref "U2")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "204")
+			(name "unconnected-(U2-V+-Pad8)")
+			(class "Default")
+			(node
+				(ref "U2")
+				(pin "8")
+				(pinfunction "V+_8")
+				(pintype "power_in")
+			)
+		)
+		(net
+			(code "205")
+			(name "unconnected-(U2-V+-Pad8)_1")
+			(class "Default")
+			(node
+				(ref "U2")
+				(pin "8")
+				(pinfunction "V+_8")
+				(pintype "power_in")
+			)
+		)
+		(net
+			(code "206")
+			(name "unconnected-(U2-V--Pad4)")
+			(class "Default")
+			(node
+				(ref "U2")
+				(pin "4")
+				(pinfunction "V-_4")
+				(pintype "power_in")
+			)
+		)
+		(net
+			(code "207")
+			(name "unconnected-(U3-+-Pad3)")
+			(class "Default")
+			(node
+				(ref "U3")
+				(pin "3")
+				(pinfunction "+_3")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "208")
+			(name "unconnected-(U3-+-Pad3)_1")
+			(class "Default")
+			(node
+				(ref "U3")
+				(pin "3")
+				(pinfunction "+_3")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "209")
+			(name "unconnected-(U3---Pad2)")
+			(class "Default")
+			(node
+				(ref "U3")
+				(pin "2")
+				(pinfunction "-_2")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "210")
+			(name "unconnected-(U3---Pad2)_1")
+			(class "Default")
+			(node
+				(ref "U3")
+				(pin "2")
+				(pinfunction "-_2")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "211")
+			(name "unconnected-(U3-GND-Pad3)")
+			(class "Default")
+			(node
+				(ref "U3")
+				(pin "3")
+				(pinfunction "GND_3")
+				(pintype "power_in")
+			)
+		)
+		(net
+			(code "212")
+			(name "unconnected-(U3-NR-Pad4)")
+			(class "Default")
+			(node
+				(ref "U3")
+				(pin "4")
+				(pinfunction "NR_4")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "213")
+			(name "unconnected-(U3-OUT-Pad1)_1")
+			(class "Default")
+			(node
+				(ref "U3")
+				(pin "1")
+				(pinfunction "OUT_1")
+				(pintype "output")
+			)
+		)
+		(net
+			(code "214")
+			(name "unconnected-(U3-OUT-Pad6)")
+			(class "Default")
+			(node
+				(ref "U3")
+				(pin "6")
+				(pinfunction "OUT_6")
+				(pintype "output")
+			)
+		)
+		(net
+			(code "215")
+			(name "unconnected-(U3-V+-Pad8)")
+			(class "Default")
+			(node
+				(ref "U3")
+				(pin "8")
+				(pinfunction "V+_8")
+				(pintype "power_in")
+			)
+		)
+		(net
+			(code "216")
+			(name "unconnected-(U3-V+-Pad8)_1")
+			(class "Default")
+			(node
+				(ref "U3")
+				(pin "8")
+				(pinfunction "V+_8")
+				(pintype "power_in")
+			)
+		)
+		(net
+			(code "217")
+			(name "unconnected-(U3-V--Pad4)")
+			(class "Default")
+			(node
+				(ref "U3")
+				(pin "4")
+				(pinfunction "V-_4")
+				(pintype "power_in")
+			)
+		)
+		(net
+			(code "218")
+			(name "unconnected-(U3-V--Pad4)_1")
+			(class "Default")
+			(node
+				(ref "U3")
+				(pin "4")
+				(pinfunction "V-_4")
+				(pintype "power_in")
+			)
+		)
+		(net
+			(code "219")
+			(name "unconnected-(U3-VIN-Pad1)")
+			(class "Default")
+			(node
+				(ref "U3")
+				(pin "1")
+				(pinfunction "VIN_1")
+				(pintype "power_in")
+			)
+		)
+		(net
+			(code "220")
+			(name "unconnected-(U3-VOUT-Pad2)")
+			(class "Default")
+			(node
+				(ref "U3")
+				(pin "2")
+				(pinfunction "VOUT_2")
+				(pintype "power_out")
+			)
+		)
+		(net
+			(code "221")
+			(name "unconnected-(U4-GND-Pad3)")
+			(class "Default")
+			(node
+				(ref "U4")
+				(pin "3")
+				(pinfunction "GND_3")
+				(pintype "power_in")
+			)
+		)
+		(net
+			(code "222")
+			(name "unconnected-(U4-NR-Pad4)")
+			(class "Default")
+			(node
+				(ref "U4")
+				(pin "4")
+				(pinfunction "NR_4")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "223")
+			(name "unconnected-(U4-VIN-Pad1)")
+			(class "Default")
+			(node
+				(ref "U4")
+				(pin "1")
+				(pinfunction "VIN_1")
+				(pintype "power_in")
+			)
+		)
+		(net
+			(code "224")
+			(name "unconnected-(U4-VOUT-Pad2)")
+			(class "Default")
+			(node
+				(ref "U4")
+				(pin "2")
+				(pinfunction "VOUT_2")
+				(pintype "power_out")
+			)
+		)
+		(net
+			(code "225")
+			(name "unconnected-(U5-GND-Pad2)")
+			(class "Default")
+			(node
+				(ref "U5")
+				(pin "2")
+				(pinfunction "GND_2")
+				(pintype "power_in")
+			)
+		)
+		(net
+			(code "226")
+			(name "unconnected-(U5-SENSE-Pad3)")
+			(class "Default")
+			(node
+				(ref "U5")
+				(pin "3")
+				(pinfunction "SENSE_3")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "227")
+			(name "unconnected-(U5-VDD-Pad1)")
+			(class "Default")
+			(node
+				(ref "U5")
+				(pin "1")
+				(pinfunction "VDD_1")
+				(pintype "power_in")
+			)
+		)
+	)
+)

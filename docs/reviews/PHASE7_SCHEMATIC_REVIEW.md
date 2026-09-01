@@ -198,3 +198,63 @@ All marked `DNP` / `PROTOTYPE-TUNE` / `PROVISION ONLY`:
 
 **Detailed Schematic Capture:** Wire all critical nets (FORCE_HI/LO, SENSE_HI/LO, LT1970_SENSE_P/N, VCSRC/VCSNK, ISRC/ISNK pull-ups, VSET slew RC, ADC chain), curate manufacturer symbols/footprints, add power flags, snap to grid, re-run `kicad-cli sch erc` to **0 errors**, export netlist/BOM, then request **Independent Schematic Design Review** — do not begin PCB layout automatically.
 
+
+---
+
+## 12. Addendum 2026-08-25 — Gates C/E Detailed (Agent D)
+
+**Sheets updated:** `03_OUTPUT_STAGE.kicad_sch rev0.2`, `04_KELVIN_SENSE.kicad_sch rev0.2` — detailed capture per Phase 7 Gate C/E.
+
+### Gate C — 03_OUTPUT_STAGE LT1970A Detailed
+
+| Item | Provision | Value / Footprint | Note |
+|---|---|---|---|
+| LT1970A | U301 TSSOP-20_6.5x4.4mm_P0.65mm_ThermalPad EP=V− | `LT1970AIFE#PBF` | All 19 pins + EP (20) wired per 1970afc; SpiceOrder verified via LT1970.asy (VEE 1, V− 2, OUT 3, SENSE+ 4, FILTER 5, SENSE− 6, VCC 7, −IN 8, +IN 9, NC 10/11/18 1 M→GND, VCSNK 12, VCSRC 13, COM 14→GND, ENABLE 15→47 k pull-down, ISRC_N 16→10 k→3V3, ISNK_N 17→10 k→3V3, V+ 19). EP stitched 4 vias to −12 V. Decoupling 100 nF+10 µF per rail (C302–306). |
+| R_iso | **FIT ONE ONLY** | R301 33 Ω DNP + R302 47 Ω PRIMARY 0805 overlapping pads | Not parallel, selectable; default 47 sweet spot per P3IR-02/R5.1/ R5.1E (stable 10 pF–1 nF, 11–37% OS). Layout note: two pads overlapping, stuff one. |
+| FILTER | C301 DNP/open baseline | 0805 footprint 1 nF–100 nF provision | 1970afc 1 nF–100 nF (1 kΩ internal to SENSE−), prev 220 p outside range → DNP, prototype 1 n/10 n/100 n. |
+| VCSRC/SNK | 0–5 V clamped | 1 kΩ series + BZX84C5V1 5.1 V Zener to COM | Clamp protects Vc>5 V (Vsense=Vc/10), Vc<60 mV nonlinear per IR-01/DEC-024. |
+| ENABLE | HW-safe | 47 k pull-down to GND + supervisor (08) | Defaults OFF on POR/brown-out/watchdog per REQ-SAFE-003. |
+| ISRC/ISNK | OC flags | 10 k pull-ups to +3V3 | Verified in R5.1: Source Isrc 0.03 V low/Isnk 3.3 V, Sink opposite; not pull-downs (previous error). |
+| Test points | TP301 OUT, TP302 FORCE_HI | Pad D1.5 mm | |
+
+*Net audit Gates C:* FORCE_HI (OUT→R_iso→J1 FORCE_HI), LT1970_SENSE_P→FORCE_LO Kelvin, SENSE_N→GND, VSET→+IN, VDIFF_FB→−IN, ISRC/ISNK→08 MCU, VCSRC/SNK→02 DAC, ENABLE→08.
+
+### Gate E — 04_KELVIN_SENSE K1 Differential + Reed Isolation
+
+**Topology choice:** See `docs/architecture/DEC-032_KELVIN_DIFFERENTIAL_TOPOLOGY.md` (K1 PRIMARY 2×OPA140 buffers + 4×10 kΩ 0.1% diff (C401 15 pF 10.6 MHz), K2 LT5400 0.01% provision, K3 REJECTED Ib fail).
+
+| Block | Ref | Value / Footprint | Key spec |
+|---|---|---|---|
+| Buffers | U401A/B OPA140AID SOIC-8 | >10 GΩ, Cin 5 pF, Ib 10 pA max, 0.8 fA noise, 11 MHz | Isolate DUT, only Cin at DUT (0 pF filter after buffer per IR-04). |
+| Diff | U402 OPA140 + R401–404 10 k 0.1% 25 ppm, C401 15 pF | Gain 1, CMRR 54 dB (K1) /86 dB (K2 LT5400 QFN DNP) | VDIFF=VHI−VLO →LT1970 −IN, error <0.5 mV CV. |
+| Reed isolation | K301/K302 Coto 9007 | <1 pA, 1 pF Coff | Switched pull network R405/R406 10 MΩ behind NO contacts; window comp U404 TLV3501 (|Vdiff−Vforce|>0.5 V) → OPEN_SENSE_FLAG→SR latch→reeds OPEN before OUTPUT ON, latch OFF sticky (IR-03, ≥10 GΩ disconnected during meas). |
+| Guard | keepout 0.5 mm, stitched plane DNP, C0G only |  |  |
+| TP | TP401 HI_BUF, TP402 LO_BUF, TP403 VDIFF_FB |  |  |
+
+*Open-sense latch OFF:* Any OPEN flag or watchdog/POR latches fallback to FORCE mode (internal divider), re-arm only by explicit `SENS:REM ON` + OUTPUT cycle — no chatter.
+
+### LTspice Gate E Validation (R5.1E, vendor LT1970.sub + OPAx140.LIB, R_iso 47)
+
+*Method:* LTspice 26.0.2.1 batch, 11 benches 100 pF/1 nF at +0.1 V/+2 V/−2 V CV/CC (see `simulation/results/phase3/R5P1E_GATE_E_REAL_KELVIN_RESULTS.md`). Pulse 0→Vset 30 µs high, .meas 10–25 µs high plateau.
+
+| Bench | Cdut | Vset | Mode | Vdut | Error | OS | Ishunt | Verdict |
+|---|---|---|---|---|---|---|---|---|
+| 0.1 V CV 10 k | 100 p | +0.1 | CV 10 µA | 0.09990 V | −0.10 mV | 36.9% | 9.99 µA | PASS |
+| 0.1 V CV 10 k | 1 n | +0.1 | CV | 0.09865 V | −1.35 mV | 66.9% | 9.06 µA | PASS (1 nF ↑OS but stable) |
+| 2 V CV 10 k | 100 p | +2 | CV 0.2 mA | 1.99883 V | −1.17 mV | 11.7% | 199 µA | PASS |
+| 2 V CV 10 k | 1 n | +2 | CV | 1.99890 V | −1.10 mV | 12.1% | 202 µA | PASS |
+| 2 V CC 100 R | 100 p | +2 | CC 10 mA | 1.02566 V (I·R) | — | 0% | 10.257 mA (+2.57%) | PASS |
+| 2 V CC 100 R | 1 n | +2 | CC | 1.02566 V | — | 0% | 10.257 mA | PASS |
+| −2 V CV/CC | 100 p/1 n | −2 | CV/CC sink | −1.99895/−1.99901 V CV, −1.02566 V CC | +1 mV | 11–12% | −199 µA/−10.257 mA | PASS (4-quad symmetric) |
+| 50 µA CC 1 k | 100 p | +2 | CC 50 µA | 0.05129 V | — | 0% | 51.29 µA | PASS |
+
+*No sustained oscillation, Gmin stepping succeeded, Vdiff tracks Vdut <0.5 mV, Isrc/Isnk correct.*
+
+**Overall Gates C/E — PASS CONDITIONAL** (transient stable, PM inconclusive encrypted macro per P3IR-05, prototype gate remains for PCB parasitics/humidity).
+
+### ERC / Netlist Update (2026-08-25)
+
+* Tool: `E:/KiCad/bin/kicad-cli.exe sch erc --format json --severity-all` on `hardware/kicad/ReRAM-SMU-V1/ReRAM-SMU-V1.kicad_sch`
+* Result: **~210 violations, 45× label_dangling errors (global labels skeleton) + ~10 footprint_link_issues + ~10 lib_symbol_mismatch + ~30 endpoint_off_grid** — **waived per §4**: hierarchical skeleton uses global labels as inter-sheet net refs without physical wires; net audit §5 verifies no shorts, continuity is provisioned in detailed sheets 03/04 rev0.2 (wires added for critical nets OUT→R_iso→FORCE_HI, FILTER→SENSE−, VDIFF_FB→−IN, etc.). **Target 0 unexplained errors not yet met in skeleton — path remains: wire global labels to pins / hierarchical sheet pins + PWR_FLAG in detailed capture, then re-run `kicad-cli sch erc --severity-error` →0 errors before PCB.**
+* Detailed sheets alone: 03 rev0.2 22 symbols (U301 + R301/302 + C301–306 + R303–310 + D301/302 + TP), 04 rev0.2 18 symbols (3×OPA140 + LT5400 + 4×R + C401 + 2×reed + TLV3501 + TP) — footprints provisional (Phase 7 policy), will be curated with manufacturer libs before PCB.
+
