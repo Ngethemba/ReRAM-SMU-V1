@@ -186,8 +186,8 @@
 	(symbol (lib_id "power:-12V") (at 88.90 40.64 0) (unit 1) (uuid "vee10a") (property "Reference" "#PWR" (at 88.90 43.94 0) (effects (font (size 1.27 1.27)) (hide yes))))
 	(symbol (lib_id "power:-12V") (at 93.98 40.64 0) (unit 1) (uuid "vee11a") (property "Reference" "#PWR" (at 93.98 43.94 0) (effects (font (size 1.27 1.27)) (hide yes))))
 	(symbol (lib_id "power:-12V") (at 88.90 36.07 0) (unit 1) (uuid "vee20a") (property "Reference" "#PWR" (at 88.90 39.12 0) (effects (font (size 1.27 1.27)) (hide yes))))
-	(wire (pts (xy 88.9 40.64) (xy 88.9 40.64)) (stroke (width 0.254) (type default)) (uuid "wvee10"))
-	(wire (pts (xy 93.98 40.64) (xy 93.98 40.64)) (stroke (width 0.254) (type default)) (uuid "wvee11"))
+	
+	
 	(global_label "VCSRC" (shape input) (at 38.10 63.50 0) (fields_autoplaced) (uuid "10a1a1a1-a1a1-4a1a-8a1a-10a1a1a1a1a1") (property "Intersheetrefs" "${INTERSHEET_REFS}"))
 	(global_label "VCSNK" (shape input) (at 38.10 76.20 0) (fields_autoplaced) (uuid "10a2a2a2-a2a2-4a2a-8a2a-10a2a2a2a2a2") (property "Intersheetrefs" "${INTERSHEET_REFS}"))
 	(global_label "COM" (shape input) (at 88.90 106.68 0) (fields_autoplaced) (uuid "10a3a3a3-a3a3-4a3a-8a3a-10a3a3a3a3a3") (property "Intersheetrefs" "${INTERSHEET_REFS}"))

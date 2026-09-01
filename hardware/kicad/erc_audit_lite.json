@@ -19,7 +19,7 @@
         "VSET"
       ],
       "global_count": 15,
-      "wire_count": 61,
+      "wire_count": 59,
       "symbol_types": {
         "ReRAM_SMU:LT1970A": 1,
         "Device:R": 10,
@@ -84,7 +84,7 @@
         "nPOR"
       ],
       "global_count": 11,
-      "wire_count": 101,
+      "wire_count": 99,
       "symbol_types": {
         "Connector_Generic:Conn_03x01_Odd_Even": 1,
         "Device:R": 9,
@@ -128,7 +128,7 @@
         "VTRIP_REF"
       ],
       "global_count": 22,
-      "wire_count": 12,
+      "wire_count": 11,
       "symbol_types": {
         "Device:R": 14,
         "Device:C": 5,
@@ -213,7 +213,7 @@
         "VSET"
       ],
       "global_count": 19,
-      "wire_count": 118,
+      "wire_count": 116,
       "symbol_types": {
         "ReRAM_SMU:AD5764": 1,
         "Device:C": 7,

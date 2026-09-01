@@ -287,7 +287,7 @@
 	(symbol (lib_id "power:PWR_FLAG") (at 33.02 50.80 0) (unit 1) (uuid "33339999-3333-4999-8333-999933339999"))
 	(symbol (lib_id "power:PWR_FLAG") (at 50.80 63.50 0) (unit 1) (uuid "4444aaaa-4444-4aaa-8444-aaaa4444aaaa"))
 	(symbol (lib_id "power:GND") (at 50.80 45.72 0) (unit 1) (uuid "5555bbbb-5555-4bbb-8bbb-bbbb5555bbbb"))
-	(wire (pts (xy 33.02 63.5) (xy 33.02 63.5)) (stroke (width 0.254) (type default)))
+	
 	(wire (pts (xy 50.8 53.34) (xy 50.8 50.8)) (stroke (width 0.254) (type default)))
 	(wire (pts (xy 68.58 63.5) (xy 73.66 63.5)) (stroke (width 0.254) (type default)))
 	(wire (pts (xy 73.66 63.5) (xy 76.2 63.5)) (stroke (width 0.254) (type default)))
@@ -395,7 +395,7 @@
 	(wire (pts (xy 119.380 35.560) (xy 127.000 38.100)) (stroke (width 0.254) (type default)) (uuid "db857687-2e8f-4864-8235-087377804009"))
 	(wire (pts (xy 119.380 30.480) (xy 127.000 38.100)) (stroke (width 0.254) (type default)) (uuid "05cbc83a-ab6c-4a46-861c-d9788fbe32cc"))
 	(wire (pts (xy 134.620 33.020) (xy 127.000 38.100)) (stroke (width 0.254) (type default)) (uuid "b3132ec6-57c9-414a-aa48-7f771c72edfa"))
-	(wire (pts (xy 127.000 38.100) (xy 127.000 38.100)) (stroke (width 0.254) (type default)) (uuid "93a12ea9-0590-475c-9133-0017219b74c8"))
+	
 	(wire (pts (xy 119.380 83.820) (xy 149.860 81.280)) (stroke (width 0.254) (type default)) (uuid "34994aed-4e80-471e-9789-7dc3df962146"))
 	(wire (pts (xy 119.380 78.740) (xy 149.860 81.280)) (stroke (width 0.254) (type default)) (uuid "e0873fb4-6b16-44e1-8233-e650b59153f3"))
 	(wire (pts (xy 134.620 81.280) (xy 149.860 81.280)) (stroke (width 0.254) (type default)) (uuid "c9cb9075-e811-4058-99c3-70efe6094dd6"))

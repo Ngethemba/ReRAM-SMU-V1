@@ -177,7 +177,7 @@
 
 ))    (global_label "ISENSE_P_K" (shape input) (at 14.99 119.89 0) (uuid "isense-p-07b") (property "Intersheetrefs" "${INTERSHEET_REFS}"))    (global_label "ISENSE_N_K" (shape input) (at 14.99 130.05 0) (uuid "isense-n-07b") (property "Intersheetrefs" "${INTERSHEET_REFS}"))
     (wire (pts (xy 15 125) (xy 15 120)) (stroke (width 0.254) (type default)) (uuid "w-shunt-p-alias-07"))
-    (wire (pts (xy 15 130) (xy 15 130)) (stroke (width 0.254) (type default)) (uuid "w-shunt-n-alias-07"))
+    
     (wire (pts (xy 15 125) (xy 15 120)) (stroke (width 0.254) (type default)) (uuid "w-shunt-kelvin-07"))
     (global_label "VREF_2V5" (shape input) (at 95.00 80.01 0) (uuid "vref25-07b") (property "Intersheetrefs" "${INTERSHEET_REFS}"))
     (wire (pts (xy 95 85) (xy 95 80)) (stroke (width 0.254) (type default)) (uuid "w-vtrip-vref-07"))

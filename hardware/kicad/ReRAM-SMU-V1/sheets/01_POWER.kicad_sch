@@ -302,14 +302,14 @@
 	(wire (pts (xy 43.18 30.48) (xy 50.8 30.48)) (stroke (width 0) (type default)))
 	(wire (pts (xy 55.88 30.48) (xy 60.96 30.48)) (stroke (width 0) (type default)))
 	(wire (pts (xy 63.5 30.48) (xy 68.58 30.48)) (stroke (width 0) (type default)))
-	(wire (pts (xy 73.66 30.48) (xy 73.66 30.48)) (stroke (width 0) (type default)))
+	
 	(wire (pts (xy 83.82 30.48) (xy 88.9 30.48)) (stroke (width 0) (type default)))
 	(wire (pts (xy 88.9 30.48) (xy 111.76 30.48)) (stroke (width 0) (type default)))
 	(wire (pts (xy 132.08 30.48) (xy 137.16 30.48)) (stroke (width 0) (type default)))
 	(wire (pts (xy 142.24 30.48) (xy 147.32 30.48)) (stroke (width 0) (type default)))
 	(wire (pts (xy 132.08 63.5) (xy 137.16 63.5)) (stroke (width 0) (type default)))
 	(wire (pts (xy 142.24 63.5) (xy 147.32 63.5)) (stroke (width 0) (type default)))
-	(wire (pts (xy 83.82 81.28) (xy 83.82 81.28)) (stroke (width 0) (type default)))
+	
 	(wire (pts (xy 78.74 81.28) (xy 81.28 81.28)) (stroke (width 0) (type default)))
 	(wire (pts (xy 83.82 81.28) (xy 88.9 81.28)) (stroke (width 0) (type default)))
 	(wire (pts (xy 88.9 81.28) (xy 96.52 81.28)) (stroke (width 0) (type default)))
