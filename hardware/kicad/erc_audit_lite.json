@@ -34,7 +34,7 @@
         "power:PWR_FLAG": 1
       },
       "has_pwr_flag": true,
-      "off_grid_endpoints": 62
+      "off_grid_endpoints": 48
     },
     "sheets/06_CURRENT_FRONTEND_ADC.kicad_sch": {
       "global_labels": [
@@ -54,7 +54,7 @@
         "VREF_2V5"
       ],
       "global_count": 18,
-      "wire_count": 183,
+      "wire_count": 184,
       "symbol_types": {
         "Device:R": 6,
         "Device:D": 4,
@@ -63,10 +63,11 @@
         "Custom:OPA140": 2,
         "ReRAM_SMU:ADS1262IPW": 1,
         "power:GND": 3,
-        "power:+5V": 3
+        "power:+5V": 3,
+        "power:PWR_FLAG": 1
       },
-      "has_pwr_flag": false,
-      "off_grid_endpoints": 118
+      "has_pwr_flag": true,
+      "off_grid_endpoints": 114
     },
     "sheets/01_POWER.kicad_sch": {
       "global_labels": [
@@ -99,7 +100,7 @@
         "power:GND": 9
       },
       "has_pwr_flag": true,
-      "off_grid_endpoints": 40
+      "off_grid_endpoints": 37
     },
     "sheets/07_COMPLIANCE_TRIP.kicad_sch": {
       "global_labels": [
@@ -111,6 +112,8 @@
         "FAULT_LATCH_QB",
         "FW_CLEAR",
         "GND",
+        "ISENSE_N_K",
+        "ISENSE_P_K",
         "ISNK",
         "ISRC",
         "MCU_ENABLE_REQ",
@@ -121,17 +124,18 @@
         "SHUNT_SENSE_P",
         "VCSNK",
         "VCSRC",
+        "VREF_2V5",
         "VTRIP_REF"
       ],
-      "global_count": 19,
-      "wire_count": 8,
+      "global_count": 22,
+      "wire_count": 12,
       "symbol_types": {
         "Device:R": 14,
         "Device:C": 5,
         "Device:D_Schottky": 3
       },
       "has_pwr_flag": true,
-      "off_grid_endpoints": 130
+      "off_grid_endpoints": 132
     },
     "sheets/04_KELVIN_SENSE.kicad_sch": {
       "global_labels": [
@@ -161,7 +165,7 @@
         "power:PWR_FLAG": 1
       },
       "has_pwr_flag": true,
-      "off_grid_endpoints": 43
+      "off_grid_endpoints": 38
     },
     "sheets/05_CURRENT_RANGES.kicad_sch": {
       "global_labels": [
@@ -180,14 +184,15 @@
         "RELAY_DRV_K6"
       ],
       "global_count": 13,
-      "wire_count": 36,
+      "wire_count": 37,
       "symbol_types": {
         "Device:R": 6,
         "Custom:REED_RELAY_SPST": 10,
-        "Custom:REED_RELAY_SPST_NC": 2
+        "Custom:REED_RELAY_SPST_NC": 2,
+        "power:PWR_FLAG": 1
       },
-      "has_pwr_flag": false,
-      "off_grid_endpoints": 83
+      "has_pwr_flag": true,
+      "off_grid_endpoints": 82
     },
     "sheets/02_DAC_SOURCE_COMMAND.kicad_sch": {
       "global_labels": [
@@ -220,7 +225,7 @@
         "power:PWR_FLAG": 3
       },
       "has_pwr_flag": true,
-      "off_grid_endpoints": 43
+      "off_grid_endpoints": 40
     },
     "sheets/08_MCU_USB_CONTROL.kicad_sch": {
       "global_labels": [
@@ -272,7 +277,7 @@
         "Device:C": 6
       },
       "has_pwr_flag": true,
-      "off_grid_endpoints": 175
+      "off_grid_endpoints": 170
     },
     "sheets/09_DUT_CONNECTOR_GUARD.kicad_sch": {
       "global_labels": [
@@ -290,14 +295,14 @@
         "SHIELD"
       ],
       "global_count": 12,
-      "wire_count": 3,
+      "wire_count": 8,
       "symbol_types": {
         "Connector:Banana_Jack_4": 1,
         "Device:R": 11,
         "Device:C": 3
       },
       "has_pwr_flag": true,
-      "off_grid_endpoints": 97
+      "off_grid_endpoints": 93
     },
     "ReRAM-SMU-V1.kicad_sch": {
       "global_labels": [],
@@ -324,10 +329,10 @@
     "+12V": 2,
     "-12V": 2,
     "+3V3": 6,
-    "ISENSE_P_K": 2,
-    "ISENSE_N_K": 2,
+    "ISENSE_P_K": 3,
+    "ISENSE_N_K": 3,
     "GND_KELVIN_STAR": 2,
-    "VREF_2V5": 3,
+    "VREF_2V5": 4,
     "SPI2_SCK": 3,
     "SPI2_MOSI": 3,
     "SPI2_MISO": 3,
