@@ -1458,16 +1458,7 @@
 		)
 		(uuid "05cbc83a-ab6c-4a46-861c-d9788fbe32cc")
 	)
-	(wire
-		(pts
-			(xy 33.02 69.85) (xy 33.02 73.66)
-		)
-		(stroke
-			(width 0.254)
-			(type default)
-		)
-		(uuid "0ae6ea7c-cc4f-4ee6-9f9c-83249809569c")
-	)
+	
 	(wire
 		(pts
 			(xy 106.68 87.63) (xy 91.44 63.5)
@@ -1508,16 +1499,7 @@
 		)
 		(uuid "1a6cd2e9-4f49-4062-b005-e739ea159ecc")
 	)
-	(wire
-		(pts
-			(xy 71.12 81.28) (xy 81.28 81.28)
-		)
-		(stroke
-			(width 0.254)
-			(type default)
-		)
-		(uuid "1af31547-4adc-47b5-817a-08c4f1ee880e")
-	)
+	
 	(wire
 		(pts
 			(xy 127 23.5) (xy 127 38.1)
@@ -1610,7 +1592,7 @@
 	)
 	(wire
 		(pts
-			(xy 30.48 50.8) (xy 33.02 50.8)
+			(xy 30.48 50.8) (xy 33.0200 52.0700)
 		)
 		(stroke
 			(width 0.254)
@@ -1650,7 +1632,7 @@
 	)
 	(wire
 		(pts
-			(xy 33.02 50.8) (xy 30.48 73.66)
+			(xy 33.0200 52.0700) (xy 30.48 73.66)
 		)
 		(stroke
 			(width 0.254)
@@ -1778,29 +1760,11 @@
 		)
 		(uuid "5a33ca65-8bed-46d0-9093-c3f5901169ad")
 	)
+	
+	
 	(wire
 		(pts
-			(xy 106.68 63.5) (xy 106.68 81.28)
-		)
-		(stroke
-			(width 0.254)
-			(type default)
-		)
-		(uuid "5c7b3869-e602-4248-af13-be7f5bfbb6ae")
-	)
-	(wire
-		(pts
-			(xy 119.38 33.02) (xy 124.46 33.02)
-		)
-		(stroke
-			(width 0.254)
-			(type default)
-		)
-		(uuid "5e81e478-6d57-44d9-b85c-2da45c894a1c")
-	)
-	(wire
-		(pts
-			(xy 33.02 45.72) (xy 33.02 50.8)
+			(xy 33.02 45.72) (xy 33.0200 52.0700)
 		)
 		(stroke
 			(width 0.254)
@@ -1828,16 +1792,7 @@
 		)
 		(uuid "63234750-3a4f-406e-9b0a-c5d0750f8c8f")
 	)
-	(wire
-		(pts
-			(xy 50.8 53.34) (xy 50.8 50.8)
-		)
-		(stroke
-			(width 0.254)
-			(type default)
-		)
-		(uuid "6438e669-fd45-40ef-95bf-a7c188e0b899")
-	)
+	
 	(wire
 		(pts
 			(xy 35.56 45.72) (xy 40.64 45.72)
@@ -1850,7 +1805,7 @@
 	)
 	(wire
 		(pts
-			(xy 33.02 50.8) (xy 33.02 60.96)
+			(xy 33.0200 52.0700) (xy 33.02 60.96)
 		)
 		(stroke
 			(width 0.254)
@@ -1870,7 +1825,7 @@
 	)
 	(wire
 		(pts
-			(xy 68.58 66.04) (xy 33.02 50.8)
+			(xy 68.58 66.04) (xy 33.0200 52.0700)
 		)
 		(stroke
 			(width 0.254)
@@ -1878,16 +1833,7 @@
 		)
 		(uuid "788d1dcb-7e12-485f-9074-6009cf9a32e4")
 	)
-	(wire
-		(pts
-			(xy 78.74 63.5) (xy 86.36 63.5)
-		)
-		(stroke
-			(width 0.254)
-			(type default)
-		)
-		(uuid "828ad80f-44e2-4256-b2f1-899d1d38b1a3")
-	)
+	
 	(wire
 		(pts
 			(xy 33.02 55.88) (xy 40.64 45.72)
@@ -1910,7 +1856,7 @@
 	)
 	(wire
 		(pts
-			(xy 30.48 45.72) (xy 33.02 50.8)
+			(xy 30.48 45.72) (xy 33.0200 52.0700)
 		)
 		(stroke
 			(width 0.254)
@@ -2048,26 +1994,8 @@
 		)
 		(uuid "b3132ec6-57c9-414a-aa48-7f771c72edfa")
 	)
-	(wire
-		(pts
-			(xy 129.54 33.02) (xy 139.7 33.02)
-		)
-		(stroke
-			(width 0.254)
-			(type default)
-		)
-		(uuid "b74a0a59-3bdb-48ea-984a-85036a1ae1e3")
-	)
-	(wire
-		(pts
-			(xy 142.24 33.02) (xy 147.32 33.02)
-		)
-		(stroke
-			(width 0.254)
-			(type default)
-		)
-		(uuid "c1cd9b60-6dc8-4654-8595-eed846517102")
-	)
+	
+	
 	(wire
 		(pts
 			(xy 142.24 25.56) (xy 149.86 33.02)
@@ -2310,7 +2238,7 @@
 	)
 	(wire
 		(pts
-			(xy 35.56 50.8) (xy 33.02 50.8)
+			(xy 35.56 50.8) (xy 33.0200 52.0700)
 		)
 		(stroke
 			(width 0.254)
@@ -2338,16 +2266,7 @@
 		)
 		(uuid "f7b47821-6e3f-4e90-a8e0-d016dfb6f738")
 	)
-	(wire
-		(pts
-			(xy 106.68 63.5) (xy 106.68 33.02)
-		)
-		(stroke
-			(width 0.254)
-			(type default)
-		)
-		(uuid "fabe65a4-0721-40d1-9a73-fc88a34eec17")
-	)
+	
 	(wire
 		(pts
 			(xy 45.72 88.9) (xy 80 88.9)
@@ -5828,4 +5747,217 @@
 			)
 		)
 	)
+	(wire (pts (xy 33.0200 71.1200) (xy 35.5600 71.1200)) (stroke (width 0.254) (type default)) (uuid "a082650b-4404-49fe-a3f1-38e3684c887e"))
+	(wire (pts (xy 33.0200 73.6600) (xy 35.5600 73.6600)) (stroke (width 0.254) (type default)) (uuid "de0fd08f-0ccf-4fba-bc34-2d619cd69eb4"))
+	(wire (pts (xy 33.0200 76.2000) (xy 35.5600 76.2000)) (stroke (width 0.254) (type default)) (uuid "98ce35ac-df15-48eb-9298-5d298de08a09"))
+	(wire (pts (xy 68.5800 60.9600) (xy 71.1200 60.9600)) (stroke (width 0.254) (type default)) (uuid "acfb7afb-cc64-4c4b-8632-1f2d9bb925eb"))
+	(wire (pts (xy 63.5000 83.8200) (xy 66.0400 83.8200)) (stroke (width 0.254) (type default)) (uuid "deed51f8-ad44-4a12-a64a-387033f9f276"))
+	(wire (pts (xy 127.0000 27.9400) (xy 129.5400 27.9400)) (stroke (width 0.254) (type default)) (uuid "b79d4d55-227b-4750-9f7b-c8ca153376fb"))
+	(wire (pts (xy 127.0000 76.2000) (xy 129.5400 76.2000)) (stroke (width 0.254) (type default)) (uuid "ebe54b43-c3d3-4f00-beac-02b0c78754e6"))
+	(wire (pts (xy 127.0000 86.3600) (xy 129.5400 86.3600)) (stroke (width 0.254) (type default)) (uuid "c3b5d742-8504-4294-b6cd-e22652fc9429"))
+	(symbol (lib_id "power:PWR_FLAG") (at 35.5600 69.8500 0) (unit 1)
+		(exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+		(uuid "e7071a56-9ac5-4ac1-9e58-1c91b7d7b378")
+		(property "Reference" "#PWR1749" (at 35.5600 69.8500 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Value" "PWR_FLAG" (at 35.5600 69.8500 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Footprint" "" (at 35.5600 69.8500 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Datasheet" "" (at 35.5600 69.8500 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Description" "" (at 35.5600 69.8500 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(pin "1" (uuid "85d193b5-8007-4d47-afd6-e54fc607d528"))
+		(instances (project "ReRAM-SMU-V1" (path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/8c56a8c3-3994-4cae-a60d-b819d8d325e9" (reference "#PWR1749") (unit 1)))
+	)
+	(symbol (lib_id "power:PWR_FLAG") (at 35.5600 72.3900 0) (unit 1)
+		(exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+		(uuid "3c667374-e0f4-4529-b3c1-c8ac8b38caff")
+		(property "Reference" "#PWR80E7" (at 35.5600 72.3900 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Value" "PWR_FLAG" (at 35.5600 72.3900 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Footprint" "" (at 35.5600 72.3900 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Datasheet" "" (at 35.5600 72.3900 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Description" "" (at 35.5600 72.3900 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(pin "1" (uuid "7aaf1c83-ed57-43d2-ae13-31045d630340"))
+		(instances (project "ReRAM-SMU-V1" (path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/8c56a8c3-3994-4cae-a60d-b819d8d325e9" (reference "#PWR80E7") (unit 1)))
+	)
+	(symbol (lib_id "power:PWR_FLAG") (at 35.5600 74.9300 0) (unit 1)
+		(exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+		(uuid "116d8eab-ddbd-4d57-8cca-a305520f1b9a")
+		(property "Reference" "#PWRE282" (at 35.5600 74.9300 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Value" "PWR_FLAG" (at 35.5600 74.9300 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Footprint" "" (at 35.5600 74.9300 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Datasheet" "" (at 35.5600 74.9300 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Description" "" (at 35.5600 74.9300 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(pin "1" (uuid "e9d16e2c-463c-489f-b1d5-812f1dee5bb1"))
+		(instances (project "ReRAM-SMU-V1" (path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/8c56a8c3-3994-4cae-a60d-b819d8d325e9" (reference "#PWRE282") (unit 1)))
+	)
+	(symbol (lib_id "power:PWR_FLAG") (at 71.1200 59.6900 0) (unit 1)
+		(exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+		(uuid "fbe74075-0b5c-4b41-ba48-8a643159b6e3")
+		(property "Reference" "#PWR53C7" (at 71.1200 59.6900 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Value" "PWR_FLAG" (at 71.1200 59.6900 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Footprint" "" (at 71.1200 59.6900 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Datasheet" "" (at 71.1200 59.6900 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Description" "" (at 71.1200 59.6900 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(pin "1" (uuid "5993c9c3-0f48-4c02-9ba0-7472580e071e"))
+		(instances (project "ReRAM-SMU-V1" (path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/8c56a8c3-3994-4cae-a60d-b819d8d325e9" (reference "#PWR53C7") (unit 1)))
+	)
+	(symbol (lib_id "power:PWR_FLAG") (at 66.0400 82.5500 0) (unit 1)
+		(exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+		(uuid "b70301d2-1b24-424a-abd8-65108315812d")
+		(property "Reference" "#PWR9966" (at 66.0400 82.5500 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Value" "PWR_FLAG" (at 66.0400 82.5500 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Footprint" "" (at 66.0400 82.5500 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Datasheet" "" (at 66.0400 82.5500 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Description" "" (at 66.0400 82.5500 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(pin "1" (uuid "01773e16-3148-4a3d-832b-b0d0405f4deb"))
+		(instances (project "ReRAM-SMU-V1" (path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/8c56a8c3-3994-4cae-a60d-b819d8d325e9" (reference "#PWR9966") (unit 1)))
+	)
+	(symbol (lib_id "power:PWR_FLAG") (at 129.5400 26.6700 0) (unit 1)
+		(exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+		(uuid "dae830b5-88f8-4851-863c-9751f2d6ae70")
+		(property "Reference" "#PWRD51A" (at 129.5400 26.6700 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Value" "PWR_FLAG" (at 129.5400 26.6700 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Footprint" "" (at 129.5400 26.6700 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Datasheet" "" (at 129.5400 26.6700 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Description" "" (at 129.5400 26.6700 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(pin "1" (uuid "123f8ca6-5d7c-4df2-bb6b-083802a20a29"))
+		(instances (project "ReRAM-SMU-V1" (path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/8c56a8c3-3994-4cae-a60d-b819d8d325e9" (reference "#PWRD51A") (unit 1)))
+	)
+	(symbol (lib_id "power:PWR_FLAG") (at 129.5400 74.9300 0) (unit 1)
+		(exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+		(uuid "113485bc-b292-49aa-98b8-22a26c145fe8")
+		(property "Reference" "#PWR797D" (at 129.5400 74.9300 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Value" "PWR_FLAG" (at 129.5400 74.9300 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Footprint" "" (at 129.5400 74.9300 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Datasheet" "" (at 129.5400 74.9300 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Description" "" (at 129.5400 74.9300 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(pin "1" (uuid "8edef703-bc9a-4891-9a9f-f9981bbea9e3"))
+		(instances (project "ReRAM-SMU-V1" (path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/8c56a8c3-3994-4cae-a60d-b819d8d325e9" (reference "#PWR797D") (unit 1)))
+	)
+	(symbol (lib_id "power:PWR_FLAG") (at 129.5400 85.0900 0) (unit 1)
+		(exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+		(uuid "df0e815e-adf5-44cd-a3da-905f943427ee")
+		(property "Reference" "#PWR623C" (at 129.5400 85.0900 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Value" "PWR_FLAG" (at 129.5400 85.0900 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Footprint" "" (at 129.5400 85.0900 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Datasheet" "" (at 129.5400 85.0900 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Description" "" (at 129.5400 85.0900 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(pin "1" (uuid "204a333b-349b-422e-9c77-384b104074a0"))
+		(instances (project "ReRAM-SMU-V1" (path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/8c56a8c3-3994-4cae-a60d-b819d8d325e9" (reference "#PWR623C") (unit 1)))
+	)
+
+	(no_connect (at 88.9000 66.0400) (uuid "49346189-c1de-4630-831a-c29cd8208657"))
+
+	(no_connect (at 33.0200 49.5300) (uuid "e2c14c85-e4bf-4cca-8d11-a20209707b3e"))
+	(no_connect (at 33.0200 58.4200) (uuid "0b2aa460-e170-433f-8eb4-3df53689f321"))
+	(no_connect (at 33.0200 62.2300) (uuid "0e15e099-bac5-4a99-8591-11662c370be7"))
+	(no_connect (at 33.0200 63.5000) (uuid "8ced6b9f-e216-4230-a6e8-8c171943b264"))
+	(no_connect (at 30.4800 69.8500) (uuid "e000be8c-1cb3-4712-98f8-14b265dfaa1f"))
+	(no_connect (at 50.8000 62.2300) (uuid "7c694014-dfe3-4344-a878-8672369bdc35"))
+	(no_connect (at 30.4800 74.9300) (uuid "064d95e9-a453-471c-91fb-48a3d0a8f586"))
+	(no_connect (at 30.4800 77.4700) (uuid "ab2b2005-e965-421a-9e10-7c9db21dc294"))
+	(no_connect (at 68.5800 48.2600) (uuid "95213545-7a17-430f-82c2-6d00b386a16f"))
+	(no_connect (at 68.5800 50.8000) (uuid "7b029bb3-7272-4055-a4eb-d8d638bf8b91"))
+	(no_connect (at 68.5800 52.0700) (uuid "7a2b1860-8143-4a81-be76-44cdc1e8f75b"))
+	(no_connect (at 30.4800 82.5500) (uuid "9851f2b1-fb2d-4ea1-8267-fe0e3d45ba36"))
+	(no_connect (at 68.5800 55.8800) (uuid "26131da1-d57a-453a-95c0-997ac88cb0d9"))
+	(no_connect (at 68.5800 58.4200) (uuid "4121e636-8387-4c6f-8609-8726776eea28"))
+	(no_connect (at 53.3400 81.2800) (uuid "818c3d53-db38-4958-8c4d-88c63366b2e1"))
+	(no_connect (at 55.8800 81.2800) (uuid "54a4b89d-52e9-4e7d-9439-32c55373ee03"))
+	(no_connect (at 63.5000 81.2800) (uuid "efd8327b-40b7-4ee2-b50f-f418421e5e7c"))
+	(no_connect (at 68.5800 77.4700) (uuid "63a93dac-c00a-4d02-8fc2-85109aec2978"))
+	(no_connect (at 60.9600 83.8200) (uuid "42d60d8d-db82-44be-9717-97bc934e7a64"))
+	(no_connect (at 73.6600 73.6600) (uuid "ac17fb6b-b038-4422-b57b-3ab4305b9490"))
+	(no_connect (at 66.0400 81.2800) (uuid "480e08ef-7785-47ee-9311-8c26137944d9"))
+	(no_connect (at 91.4400 66.0400) (uuid "d6d27df6-04ff-42f7-a64f-f062bdab1e4d"))
+	(no_connect (at 68.5800 91.4400) (uuid "25422670-70ae-401a-944f-7e7933ced4ac"))
+	(no_connect (at 68.5800 99.0600) (uuid "343333eb-47c7-496c-b176-312397265397"))
+	(no_connect (at 102.8700 63.5000) (uuid "fba01a98-4851-4fdd-b529-a09271b6cdcf"))
+	(no_connect (at 68.5800 106.6800) (uuid "0fd7f975-3d44-4c02-9f62-0deba9766d25"))
+	(no_connect (at 127.0000 39.3700) (uuid "2066ba8e-ef13-4b00-8279-85bea3254657"))
+	(no_connect (at 142.2400 25.6500) (uuid "5eb588d9-40d4-45ac-8758-1e48790b8781"))
+	(no_connect (at 142.2400 30.7300) (uuid "c3ce3047-1e5b-463f-8aae-3da102fed3d1"))
+	(no_connect (at 149.8600 35.5600) (uuid "8c3a9009-a122-49a1-9e31-e664715f0c4e"))
+	(no_connect (at 149.8600 83.8200) (uuid "db98dee7-493c-4179-971d-b3d6a12023dd"))
+	(symbol (lib_id "power:PWR_FLAG") (at 50.8000 80.0100 0) (unit 1)
+		(exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+		(uuid "51becdbd-85f8-46f2-9302-7a4f39f4cdd0")
+		(property "Reference" "#PWR471A" (at 50.8000 80.0100 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Value" "PWR_FLAG" (at 50.8000 80.0100 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Footprint" "" (at 50.8000 80.0100 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Datasheet" "" (at 50.8000 80.0100 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Description" "" (at 50.8000 80.0100 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(pin "1" (uuid "d8af2bd8-99be-46e9-8705-f8215c63dada"))
+		(instances (project "ReRAM-SMU-V1" (path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/8c56a8c3-3994-4cae-a60d-b819d8d325e9" (reference "#PWR471A") (unit 1)))
+	)
+	(symbol (lib_id "power:PWR_FLAG") (at 58.4200 80.0100 0) (unit 1)
+		(exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+		(uuid "0fd63ddc-11eb-4ae4-b96e-51009e2da819")
+		(property "Reference" "#PWR2509" (at 58.4200 80.0100 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Value" "PWR_FLAG" (at 58.4200 80.0100 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Footprint" "" (at 58.4200 80.0100 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Datasheet" "" (at 58.4200 80.0100 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Description" "" (at 58.4200 80.0100 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(pin "1" (uuid "33623b1d-68ae-4226-b61d-6d00c3a58b61"))
+		(instances (project "ReRAM-SMU-V1" (path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/8c56a8c3-3994-4cae-a60d-b819d8d325e9" (reference "#PWR2509") (unit 1)))
+	)
+	(symbol (lib_id "power:PWR_FLAG") (at 60.9600 80.0100 0) (unit 1)
+		(exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+		(uuid "4ee88605-88bd-450f-ae55-e550311e6a6d")
+		(property "Reference" "#PWR2E7E" (at 60.9600 80.0100 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Value" "PWR_FLAG" (at 60.9600 80.0100 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Footprint" "" (at 60.9600 80.0100 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Datasheet" "" (at 60.9600 80.0100 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Description" "" (at 60.9600 80.0100 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(pin "1" (uuid "b3833207-819e-40ab-ad3e-7749f679ffd7"))
+		(instances (project "ReRAM-SMU-V1" (path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/8c56a8c3-3994-4cae-a60d-b819d8d325e9" (reference "#PWR2E7E") (unit 1)))
+	)
+	(symbol (lib_id "power:PWR_FLAG") (at 33.0200 57.1500 0) (unit 1)
+		(exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+		(uuid "59867676-6d89-425a-a7b5-f0c0cee4edb2")
+		(property "Reference" "#PWR5F66" (at 33.0200 57.1500 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Value" "PWR_FLAG" (at 33.0200 57.1500 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Footprint" "" (at 33.0200 57.1500 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Datasheet" "" (at 33.0200 57.1500 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Description" "" (at 33.0200 57.1500 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(pin "1" (uuid "883a4822-f95b-47cb-916a-ee568d9fa042"))
+		(instances (project "ReRAM-SMU-V1" (path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/8c56a8c3-3994-4cae-a60d-b819d8d325e9" (reference "#PWR5F66") (unit 1)))
+	)
+	(symbol (lib_id "power:PWR_FLAG") (at 68.5800 46.9900 0) (unit 1)
+		(exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+		(uuid "b34b9fdc-8fe5-4b76-b3fd-2d8003fe5f6d")
+		(property "Reference" "#PWRA9F8" (at 68.5800 46.9900 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Value" "PWR_FLAG" (at 68.5800 46.9900 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Footprint" "" (at 68.5800 46.9900 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Datasheet" "" (at 68.5800 46.9900 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Description" "" (at 68.5800 46.9900 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(pin "1" (uuid "73aac67e-c21b-4d4a-a705-6d7efcaa2b7d"))
+		(instances (project "ReRAM-SMU-V1" (path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/8c56a8c3-3994-4cae-a60d-b819d8d325e9" (reference "#PWRA9F8") (unit 1)))
+	)
+	(symbol (lib_id "power:PWR_FLAG") (at 68.5800 49.5300 0) (unit 1)
+		(exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+		(uuid "091c1d88-9db7-4aa5-93f0-799ed802e991")
+		(property "Reference" "#PWR2A9B" (at 68.5800 49.5300 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Value" "PWR_FLAG" (at 68.5800 49.5300 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Footprint" "" (at 68.5800 49.5300 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Datasheet" "" (at 68.5800 49.5300 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(property "Description" "" (at 68.5800 49.5300 0) (effects (font (size 1.27 1.27)) (hide yes)))
+		(pin "1" (uuid "03382396-4ef3-4e4b-ba6f-a48d0ae82f5d"))
+		(instances (project "ReRAM-SMU-V1" (path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/8c56a8c3-3994-4cae-a60d-b819d8d325e9" (reference "#PWR2A9B") (unit 1)))
+	)
+
+	
+	
+	
+	
+	(wire (pts (xy 50.8000 81.2800) (xy 50.8000 81.2800)) (stroke (width 0.254) (type default)) (uuid "5fc4c50b-0057-4ef9-88b2-67c257b81072"))
+	(wire (pts (xy 58.4200 81.2800) (xy 58.4200 81.2800)) (stroke (width 0.254) (type default)) (uuid "88e18afc-76f7-4eef-b09b-545bbb7d93a2"))
+	(wire (pts (xy 60.9600 81.2800) (xy 60.9600 81.2800)) (stroke (width 0.254) (type default)) (uuid "1f919aa4-c0d1-4e2e-9482-6edf28bb4f98"))
+	
+	
+	
+	
+
+	
+	(wire (pts (xy 50.8000 81.2800) (xy 58.4200 81.2800)) (stroke (width 0.254) (type default)) (uuid "69e471fa-c90f-4b56-a916-b6b4db4c8a0a"))
+	(wire (pts (xy 58.4200 81.2800) (xy 60.9600 81.2800)) (stroke (width 0.254) (type default)) (uuid "0b05f41a-6d1c-4d9b-8207-0ae9fe3768b5"))
+
 )

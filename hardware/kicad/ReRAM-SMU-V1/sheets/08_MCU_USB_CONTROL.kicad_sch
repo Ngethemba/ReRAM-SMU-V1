@@ -233,4 +233,290 @@
     (wire (pts (xy 70 175) (xy 15 181)) (stroke (width 0.254) (type default)) (uuid "53cef6e1-9f26-475c-b8c0-ecd375be7bbd"))
     (wire (pts (xy 30 200) (xy 10 200)) (stroke (width 0.254) (type default)) (uuid "dccfdd50-f6f4-44bd-a983-f780efca5f00"))
 
-))
+)
+	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 9.91 205.90 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "b66ca0de-e21e-46fc-a90b-6b4f3682f2a3")
+		(property "Reference" "#PWR08_300"
+			(at 9.91 205.90 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Value" ""
+			(at 9.91 205.90 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Footprint" ""
+			(at 9.91 205.90 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Datasheet" ""
+			(at 9.91 205.90 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Description" ""
+			(at 9.91 205.90 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(pin "1" (uuid "c230b3e0-9ef9-42ce-8627-02335217fadd"))
+		(instances (project "ReRAM-SMU-V1" (path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410" (reference "#PWR08_300") (unit 1))))
+	)
+
+	(wire (pts (xy 9.91 207.17) (xy 9.91 199.90)) (stroke (width 0.254) (type default)) (uuid "b8b509eb-6dcc-430c-be45-46b7cd2ed7d9"))
+
+	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 20.07 205.90 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "c8d45639-665e-4ba5-a82c-530d5cef8525")
+		(property "Reference" "#PWR08_301"
+			(at 20.07 205.90 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Value" ""
+			(at 20.07 205.90 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Footprint" ""
+			(at 20.07 205.90 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Datasheet" ""
+			(at 20.07 205.90 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Description" ""
+			(at 20.07 205.90 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(pin "1" (uuid "d6270542-4075-40e5-b992-e25acc21ce9f"))
+		(instances (project "ReRAM-SMU-V1" (path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410" (reference "#PWR08_301") (unit 1))))
+	)
+
+	(wire (pts (xy 20.07 207.17) (xy 20.07 199.90)) (stroke (width 0.254) (type default)) (uuid "3c021cc8-5ad4-4d36-8273-2f3cc6fefc51"))
+
+	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 29.97 205.90 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "f65a146a-4124-4751-bc14-e9abbc336176")
+		(property "Reference" "#PWR08_302"
+			(at 29.97 205.90 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Value" ""
+			(at 29.97 205.90 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Footprint" ""
+			(at 29.97 205.90 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Datasheet" ""
+			(at 29.97 205.90 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Description" ""
+			(at 29.97 205.90 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(pin "1" (uuid "42282ccb-e466-4489-8109-272383f659da"))
+		(instances (project "ReRAM-SMU-V1" (path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410" (reference "#PWR08_302") (unit 1))))
+	)
+
+	(wire (pts (xy 29.97 207.17) (xy 29.97 199.90)) (stroke (width 0.254) (type default)) (uuid "2359d7ad-ee90-4160-85d5-cc2ed7aa7052"))
+
+	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 39.88 205.90 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "5a4d06fc-03c5-4cf1-82ed-7cc8ff996d9c")
+		(property "Reference" "#PWR08_303"
+			(at 39.88 205.90 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Value" ""
+			(at 39.88 205.90 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Footprint" ""
+			(at 39.88 205.90 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Datasheet" ""
+			(at 39.88 205.90 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Description" ""
+			(at 39.88 205.90 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(pin "1" (uuid "fe730544-6036-4802-b51b-f4dfcfb58a2c"))
+		(instances (project "ReRAM-SMU-V1" (path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410" (reference "#PWR08_303") (unit 1))))
+	)
+
+	(wire (pts (xy 39.88 207.17) (xy 39.88 199.90)) (stroke (width 0.254) (type default)) (uuid "6c6f328d-bf68-440f-994a-6eb2390be6ca"))
+
+	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 50.04 205.90 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "eb976349-21cb-4567-b6c4-ea628e2f3ac4")
+		(property "Reference" "#PWR08_304"
+			(at 50.04 205.90 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Value" ""
+			(at 50.04 205.90 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Footprint" ""
+			(at 50.04 205.90 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Datasheet" ""
+			(at 50.04 205.90 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Description" ""
+			(at 50.04 205.90 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(pin "1" (uuid "5abe0b45-e9e5-4606-a826-a381afc103ff"))
+		(instances (project "ReRAM-SMU-V1" (path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410" (reference "#PWR08_304") (unit 1))))
+	)
+
+	(wire (pts (xy 50.04 207.17) (xy 50.04 199.90)) (stroke (width 0.254) (type default)) (uuid "896366a6-0046-4477-80c4-e0e6ebfed074"))
+
+	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 59.94 205.90 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "430d1740-4eeb-4f83-8fe3-f68e305f4ea5")
+		(property "Reference" "#PWR08_305"
+			(at 59.94 205.90 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Value" ""
+			(at 59.94 205.90 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Footprint" ""
+			(at 59.94 205.90 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Datasheet" ""
+			(at 59.94 205.90 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Description" ""
+			(at 59.94 205.90 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(pin "1" (uuid "69944c90-330c-40b8-8ee0-e8f04084feee"))
+		(instances (project "ReRAM-SMU-V1" (path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410" (reference "#PWR08_305") (unit 1))))
+	)
+
+	(wire (pts (xy 59.94 207.17) (xy 59.94 199.90)) (stroke (width 0.254) (type default)) (uuid "3f829df3-0e3d-4213-853b-69471861eef7"))
+
+	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 33.00 210.00 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "54bf2e40-124a-4eff-a38c-71e678c3bade")
+		(property "Reference" "#PWR08_306"
+			(at 33.00 210.00 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Value" ""
+			(at 33.00 210.00 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Footprint" ""
+			(at 33.00 210.00 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Datasheet" ""
+			(at 33.00 210.00 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Description" ""
+			(at 33.00 210.00 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(pin "1" (uuid "77fd5574-f7c7-43c2-a76d-8c5d09a7f063"))
+		(instances (project "ReRAM-SMU-V1" (path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410" (reference "#PWR08_306") (unit 1))))
+	)
+
+	(wire (pts (xy 33.00 211.27) (xy 33.00 212.54)) (stroke (width 0.254) (type default)) (uuid "00e2e6b8-af80-40f6-8b0c-309ff0a532aa"))
+
+	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 36.00 210.00 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d54c4eff-0dc1-4209-a10d-a1fa4cebff99")
+		(property "Reference" "#PWR08_307"
+			(at 36.00 210.00 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Value" ""
+			(at 36.00 210.00 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Footprint" ""
+			(at 36.00 210.00 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Datasheet" ""
+			(at 36.00 210.00 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Description" ""
+			(at 36.00 210.00 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(pin "1" (uuid "47a7738a-494c-4b2f-ab04-8939123a2833"))
+		(instances (project "ReRAM-SMU-V1" (path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410" (reference "#PWR08_307") (unit 1))))
+	)
+
+	(wire (pts (xy 36.00 211.27) (xy 36.00 212.54)) (stroke (width 0.254) (type default)) (uuid "cdf7271c-da56-4d71-8651-c72f20759158"))
+
+	(no_connect (at 26 210) (uuid "5a9a19e5-7493-4ce0-abb9-95f5834f6966"))
+
+	(no_connect (at 26 210) (uuid "3e20254c-463f-4aa9-be0e-5885c1a7b9ab"))
+
+	(no_connect (at 26 210) (uuid "c6ab3d9b-5223-4461-b0b4-3a5720c084d5"))
+)
