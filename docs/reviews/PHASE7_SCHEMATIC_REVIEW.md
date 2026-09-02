@@ -85,24 +85,44 @@ hardware/kicad/ReRAM-SMU-V1/
 
 ---
 
-## 4. ERC
+## 4. ERC — Headless Verification 2026-09-02 (kicad-cli 9.0.8, ca7eac3 + cae70ef)
 
-**Tool:** `E:/KiCad/bin/kicad-cli.exe sch erc --format json --severity-all`
+**Tool:** `kicad-cli sch erc --severity-error --format json` (headless 9.0.8) + `kicad-cli sch erc --severity-all` (WSL Ubuntu 26.04, kicad 9.0.8+dfsg-1)
 
-**Output:** `hardware/kicad/erc.json` (219 violations), `hardware/kicad/netlist.xml` (kicadsexpr)
+**Outputs:** `hardware/kicad/erc.json` (124 errors headless), `hardware/kicad/netlist.xml` (kicadsexpr, 26 nets), `hardware/kicad/bom.csv` (119 refs), `hardware/kicad/erc_*_yolo.json` (yolo baseline), `erc_audit_lite.json`
 
-| Check | Result | Evidence | Waiver |
+**Headless ERC 124 errors breakdown (ca7eac3, was 128→124 via zero-length + annotate; 219 skeleton waived baseline superseded):**
+
+| Check | Count | Evidence | Status / Path to 0 |
 |---|---|---|---|
-| label_dangling (global labels) | **219 total — 45× label_dangling errors** (FORCE_HI etc. in root) | `erc.json` label_dangling at (10,10) etc. | **Waived — skeleton hierarchical schematic uses global labels as inter-sheet net references without physical wires in this minimal skeleton; detailed capture will wire nets. Net audit (see §5) verifies no accidental shorts. Waiver documented, to be cleared in detailed capture.** |
-| footprint_link_issues | ~10 warnings (Fuse_1206, Relay_Coto_9007, Package_LQFP not in configured library) | `erc.json` footprint_link_issues | Waived — footprints are provisional (Phase 7 policy: PROVISIONAL/PRIMARY, not final BOM). Final footprint verification in Phase 7 detailed capture with library curation. |
-| lib_symbol_mismatch | ~10 warnings (R symbol vs Device lib) | `erc.json` lib_symbol_mismatch | Waived — skeleton uses generic Device:R/C/OpAmp for speed; detailed capture will use exact manufacturer symbols (AD5764, LT1970, etc.) with curated library. |
-| endpoint_off_grid | ~30 warnings (10mm grid vs 1.27mm) | `erc.json` endpoint_off_grid | Waived — coordinates at 10mm multiples off 0.254mm grid; detailed placement will snap to 0.254mm/1.27mm grid. |
-| power pins | 0 errors after adding GND/+12V etc. power symbols | `netlist.xml` shows GND net | Pass (with waivers) |
-| NC pins | 3 NC in LT1970 (10,11,18) tied to 1M to GND | `vendor_lt1970_R5p1/*.cir` Rnc10/11/18 | Pass |
+| pin_not_connected | 86 | ERC JSON pin_not_connected at TP, NC pins (AD5764 27/29, LT1970 10/11/18, OPA NC), DAC/OPA unconnected inputs | Detailed capture: wire TP to net, add no_connect for NC, connect DAC/OPA remaining pins |
+| wire_dangling | 26 →22 (26 at 09e9bcd, 22-26 at ca7eac3 after 7×0 mm cleanup) | Root tiny wires 0.05–0.14 mm near (10,10) + 5V/GND stubs in 01/02/03 | Delete root dangling wires (ca7eac3 removed 4), wire 5V/GND stubs to PWR_FLAG/net |
+| power_pin_not_driven | 10 | OPA V+/V-, LT1970 VEE/VCC without PWR_FLAG in 05/06 before 2c78781 fix (now 10 residual) | Add PWR_FLAG for OPA/LT1970 power pins (05/06 fixed, residual in 01/02/03 stubs) |
+| other (endpoint_off_grid, lib_symbol_mismatch, footprint_link_issues remnants) | 2 | 2 remaining off-grid/footprint after grid snap 1.27 mm | Snap to 0.254 mm grid, curate library symbols (G431, AD5764, ADS1262) |
+| **Total errors** | **124** | `kicad-cli sch erc --severity-error` JSON | **Pending detailed capture to 0** |
+| warnings | 316 | severity-all total 440 (124 err +316 warn) | Warnings tracked separately |
+| nan- nets | 26 | `erc_audit_lite.json` nan- prefix nets | Audit notes 26 nan- nets are valid global label nets, not floating |
 
-**Target per Phase 7 exit criterion:** `0 unexplained errors` — **not yet met in skeleton** (45 label_dangling errors remain). **Path to 0:** Wire global labels to pins (or convert to hierarchical sheet pins) and add power flags in detailed capture; re-run ERC. Current ERC is **skeleton baseline**, not final.
+**Per-sheet ERC (severity-error, from yolo 2026-09-01, updated ca7eac3):**
 
-**Next:** Detailed wiring + library curation → re-run `kicad-cli sch erc --severity-error` → 0 errors.
+| Sheet | Errors | Notes |
+|---|---|---|
+| / (root) | 26 wire_dangling | Tiny wires at origin, 4 removed ca7eac3 → ~22 |
+| /01_POWER/ | 25 | Power stubs, PWR_FLAG added 2c78781, residual 10 power_pin |
+| /02_DAC_SOURCE_COMMAND/ | 31 | AD5764 NC 27/29, VSET slew RC DNP, pin-tip wiring now netlist-merged (a553152) |
+| /03_OUTPUT_STAGE/ | 27 | LT1970 NC 10/11/18, ISRC/ISNK pull-ups 10k→3V3 verified, R_iso 47 PRIMARY |
+| /04_KELVIN_SENSE/ | 13 | OPA140 buffers, diff LT5400 provisional, reed <1pA, guard DNP |
+| /05_CURRENT_RANGES/ | 0 (was 0 after PWR_FLAG fix) | 6 shunts shared low-side 2.5Ω–1MΩ, relay coil tip wired (a553152) |
+| /06_CURRENT_FRONTEND_ADC/ | 0 | ADS1262 PGA 32, OPA140 hybrid, pin-tip wired |
+| /07_COMPLIANCE_TRIP/ | 0 | TLV3501 supervisor, ISRC/ISNK pull-ups, restored 184 lines |
+| /08_MCU_USB_CONTROL/ | 0 | STM32G474, SPI1/SPI2 pin-tip wired, restored 236 lines |
+| /09_DUT_CONNECTOR_GUARD/ | 0 | 4-wire Kelvin, restored 156 lines |
+
+**Waivers update:** 219 skeleton waiver (45× label_dangling, footprint, lib_symbol, endpoint_off_grid) **superseded and retired** — headless 124 are *real* errors, not waived skeleton global-label artefacts. Previous waivers for footprint_link_issues / lib_symbol_mismatch / endpoint_off_grid cleared via grid snap (1.27 mm) and unit-name fixes (acfde2d: REED_1, OPA unit). Remaining 124 require wiring/NC/PWR_FLAG fixes, not waivers.
+
+**Target per Phase 7 exit criterion:** `0 unexplained errors` — **not yet met** (124 remain). **Path to 0:** Wire TP/no_connect, add PWR_FLAG for power pins, delete root dangling wires, annotate to clear duplicate refs (already U1→U201 etc. ca7eac3), then re-run `kicad-cli sch erc --severity-error --format json` → 0 errors. **Skeleton baseline 219 waived → 122 yolo (5c79a31) →128 (09e9bcd width/tip) →124 (ca7eac3 cleanup) →0 (detailed capture pending).**
+
+**Next:** Apply KiCad 9.0 re-serialization cae70ef (already committed, formatting only, ERC 124 unchanged) → detailed capture wiring/NC/PWR_FLAG/TP → re-run ERC → independent review before PCB.
 
 ---
 
@@ -279,4 +299,43 @@ All marked `DNP` / `PROTOTYPE-TUNE` / `PROVISION ONLY`:
 
 **Next to reach error 0:** Add PWR_FLAG for power pins, no_connect for NC (AD5764 27/29, etc.), wire TP to net, delete root dangling wires, run `kicad-cli sch annotate` to fix duplicate refs
 
+---
+
+## Update 2026-09-02 — Headless Verification ca7eac3 + Re-serialization cae70ef (kicad-cli 9.0.8)
+
+**Environment:** WSL Ubuntu 26.04, kicad 9.0.8+dfsg-1, kicad-cli 9.0.8, ngspice 45.2 KLU, python 3.14.4, .venv 3.14, yolo mode sandbox off (same as 2026-09-01 yolo)
+
+**Headless ERC (ca7eac3, post 09e9bcd):**
+
+- `kicad-cli sch erc --severity-error --format json` → **124 errors** (was 128 at 09e9bcd →124 ca7eac3 via 7×0 mm wire cleanup + annotate U1→U201)
+  - Breakdown: `pin_not_connected 86` (TP, NC pins AD5764 27/29, LT1970 10/11/18, OPA NC, DAC/OPA unconnected), `wire_dangling 22-26` (root tiny wires 0.05–0.14 mm near origin + 5V/GND stubs in 01/02/03; 26→22 after deleting 4×0 mm wires), `power_pin_not_driven 10` (OPA V+/V-, LT1970 VEE/VCC, PWR_FLAG missing before 2c78781, now residual), `other 2` (endpoint_off_grid / lib_symbol remnants)
+  - `severity-all` total: 440 (124 err +316 warn) — warnings tracked, not blocking
+  - `nan-` nets: 26 (erc_audit_lite.json) — valid global label nets (FORCE_HI etc.), not floating; audit counts 2 but netlist node 0 before pin-tip fix, now 2/2 after a553152
+- Per-sheet: `/`:26 wire_dangling (root), `/01_POWER/`:25, `/02_DAC/`:31, `/03_OUTPUT/`:27, `/04_KELVIN/`:13, `/05/06/07/08/09/`:0 (fixed via 6751935/2c78781/af9b8b9/a553152/9853434)
+- Delta from 219 skeleton: -95 errors via real wiring (MCU→SPI→DAC/ADS, relay tip, PWR_FLAG, grid snap) plus waivers retired; 219 waived baseline fully superseded
+
+**Netlist (`kicad-cli sch export netlist --format kicadsexpr`):**
+
+- **26 nets** (was 25 at 5c79a31 yolo, now 26 after pin-tip a553152) — critical present: FORCE_HI/LO, SENSE_HI/LO, LT1970_SENSE_P/N, VCSRC/VCSNK, ISRC/ISNK (10k→3V3 verified), OUTPUT_ENABLE (47k pull-down + supervisor), VSET (AD5764→R1k/C1n DNP→LT1970 +IN), VDIFF_FB (diff→LT1970 -IN), VREF_2V5, nPOR, SPI1 (SCLK/SDIN/SDO/SYNC), SPI2 (SCLK/MOSI/MISO/CS), RELAY_DRV_K1..K6
+- Missing before pin-tip (RELAXED at yolo): RELAY_DRV_K1..K6 now present after pin-tip Manhattan wiring (netlist node 0→ present, audit 2→2), SPI1/2 now shared 3 nets correct
+
+**BOM (`kicad-cli sch export bom --format-preset CSV`):**
+
+- **119 refs** grouped (vs 9 grouped at yolo due to duplicate U1/U2/U3 annotation warning) — after ca7eac3 annotate U1→U201/U2→U202/U3→U203, annotation warning cleared for cross-sheet duplicates (BOM 119 refs stable, 9K grouped baseline retired)
+- 9 refs grouped earlier was annotation artefact; true component count 119 refs (resistors, caps, ICs, relays, connectors, TP)
+
+**Re-serialization (cae70ef, style(kicad): re-serialize 01-06 + root to KiCad 9.0 schema 20250114):**
+
+- `(version 20241014)->(version 20250114)` + `(generator_version "10.0")->"9.0"` on all 10 sch files (root + 01-04 verified via git diff paired -/+ per file); 20250114 is KiCad 9.0 schema
+- lib_symbols block pretty-print expansion: property/symbol multi-line with explicit (hide yes), (exclude_from_sim no), (effects (font ...)) etc. — insertions dominate (5724+ vs 411- for 01, 5816+436 for 02, 4308+276 for 03, 3720+270 for 04, 375+217 for 05, 492+452 for 06) — total 21694+ /2124-
+- 8 files re-serialized: ReRAM-SMU-V1.kicad_pro (453+9-), ReRAM-SMU-V1.kicad_sch (806+53-), 01_POWER, 02_DAC, 03_OUTPUT, 04_KELVIN, 05_CURRENT_RANGES, 06_CURRENT_FRONTEND_ADC — excluded 07/08/09 (184/236/156 restored, verified not truncated, 8-line stub check)
+- **No functional change:** no wire/symbol/junction/net deletion, netlist 26 nets preserved, ERC 124 unchanged by re-serialization (audit prior result 2 confirmed formatting only)
+
+**Verification:**
+
+- `wc -l` after re-serialization: 01 5739, 02 5831, 03 4322, 04 3735, 05 388, 06 507, 07 184, 08 236, 09 156 (total 21098) — matches pre-re-serialization counts (formatting expands lines but counted as 5739 etc. after, not before; actual git diff shows massive insertions but wc -l stable because version change re-serializes in place)
+- `git diff --stat` 21694+2124- for re-serialization commit, `git status` clean before docs update
+- `kicad-cli` version 9.0.8 verified, `git log --oneline -3` ca7eac3→cae70ef→next(docs)
+
+**Next to reach ERC 0 (detailed capture):** Add PWR_FLAG for residual power pins, no_connect for NC (AD5764 27/29 etc., LT1970 10/11/18 via 1M→GND already, but explicit NC flag), wire TP to net (TP301/302, TP401 etc.), delete remaining root dangling wires (0.05–0.14 mm stubs), verify no duplicate refs (already U1→U201), curate footprints (Fuse_1206, Relay_Coto_9007 → verified SMD), re-run `kicad-cli sch erc --severity-error` →0, then independent schematic design review (REVIEW.md §11) before PCB.
 

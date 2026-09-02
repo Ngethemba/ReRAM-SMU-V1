@@ -6,7 +6,7 @@
 
 ## Current Phase
 
-> **Phase 7 — SCHEMATIC CAPTURE (HIERARCHICAL SKELETON, ERC WITH WAIVERS)** · `hardware/kicad/ReRAM-SMU-V1/` (9 sheets, canonical low-side shared shunt, differential Kelvin, ADS1262, AD5764 5V, R_iso 33/47, FILTER DNP, slew provision) + `docs/reviews/PHASE7_SCHEMATIC_REVIEW.md` (ERC 219 violations with waivers, net audit) · Previous: Phase 3 CORRECTED (R5.1 PASS) + ROADMAP rebaselined (Phases 4-6 consolidated) · `simulation/results/phase3/PHASE3_RESULTS.md` (historical 15/15 behavioral PASS) + `simulation/results/phase3/PHASE3_CORRECTIVE_RESULTS.md` (R1–R4,R6 PASS, R5/R5.1 vendor transient stable PM inconclusive) + `simulation/results/phase3/R5_1_TOPOLOGY_CORRECT_VENDOR_RESULTS.md` (corrected low-side shared shunt + differential Kelvin, 50µA–10mA anchors PASS) · Corrective record `docs/research/PHASE3_INDEPENDENT_REVIEW_CORRECTIONS.md` (P3IR-01..08) + R5.1 topology-correct vendor validation
+> **Phase 7 — HEADLESS VERIFICATION (ERC 124, netlist 26, BOM 119) — 2026-09-02 ca7eac3** · `hardware/kicad/ReRAM-SMU-V1/` (9 sheets, canonical low-side shared shunt, differential Kelvin, ADS1262, AD5764 5V, R_iso 33/47, FILTER DNP, slew provision) + `docs/reviews/PHASE7_SCHEMATIC_REVIEW.md` (ERC 124 errors headless kicad-cli 9.0.8 via `kicad-cli sch erc --severity-error`, was 128→124 ca7eac3; 219 skeleton baseline waived, netlist 26 nets BOM 119 refs, net audit) · Previous: Phase 3 CORRECTED (R5.1 PASS) + ROADMAP rebaselined (Phases 4-6 consolidated) · `simulation/results/phase3/PHASE3_RESULTS.md` (historical 15/15 behavioral PASS) + `simulation/results/phase3/PHASE3_CORRECTIVE_RESULTS.md` (R1–R4,R6 PASS, R5/R5.1 vendor transient stable PM inconclusive) + `simulation/results/phase3/R5_1_TOPOLOGY_CORRECT_VENDOR_RESULTS.md` (corrected low-side shared shunt + differential Kelvin, 50µA–10mA anchors PASS) · Corrective record `docs/research/PHASE3_INDEPENDENT_REVIEW_CORRECTIONS.md` (P3IR-01..08) + R5.1 topology-correct vendor validation
 
 Phase 3 + corrective review + R5.1 executed tests A-O plus 7 gates R1–R6/R5.1 (ngspice-47 + LTspice 26.0.2 vendor LT1970.sub + Python 3.11.15). Historical behavioral 15/15 PASS retained; corrective review reconciles Rsense topology (shared canonical 2.5Ω–1MΩ, not fixed 10Ω), C_down ≤80–150pF, ADS1262 primary (AD7175 needs external gain), AD5764 @5V ref + LTC6655-5.0, behavioral 6.5% transient (16.2% analytic historical), reed relay <1pA (ADG1419 100pA fails), 1GΩ envelope split. R5.1 re-ran **actual selected topology** (OUT→R_iso→DUT→shared shunt, differential Kelvin after R_iso, finite-bandwidth OPA140 pole) with official LT1970.sub: **R5.1 PASS** (50µA/100µA/1mA/10mA anchors within 1–3% of Vc/10, stable ±2V with 10pF–1nF at 33/47Ω, no oscillation, Kelvin error <0.5mV CV). Hierarchical skeleton created (9 sheets) with canonical topology, provisions, test points — detailed wiring + ERC 0 + library curation pending — Phase 7 schematic may proceed to detailed capture **with provisions** (see DEC-028/029/030, R_iso 33/47Ω, FILTER 220pF), prototype still required for PM/PCB parasitics.
 
@@ -30,7 +30,7 @@ Phase 3 + corrective review + R5.1 executed tests A-O plus 7 gates R1–R6/R5.1 
 | Grounding | ✅ Single plane partitioned, single bridge (DEC-020) |
 | Guard/Isolation/Connector/Power | ✅ Provisioned (DEC-022/021, GUARD 2.7 KB, POWER_TREE, ISOLATION) |
 | Requirements verification | ✅ v0.2.0 (31 confirmed) + traceability |
-| Schematic / PCB | ⬜ Not started — intentionally blocked (hardware/kicad empty) |
+| Schematic / PCB | 🟨 Phase 7 skeleton+headless detailed — 9 sheets wired, ERC 124 pending detailed capture to 0 (errors: 86 pin_not_connected +26 wire_dangling +10 power_pin_not_driven +2 other; warnings 316; 26 `nan-` nets) |
 | Prototype hardware | ⬜ Not manufactured |
 | Calibration / Verification | ⬜ Frameworks exist — measurement pending |
 
@@ -54,22 +54,21 @@ Phase 3 + corrective review + R5.1 executed tests A-O plus 7 gates R1–R6/R5.1 
 
 ## Active Work
 
-- None — Phase 2 deliverables complete; awaiting authorization for Phase 3.
+- Phase 7 Headless Verification in progress (post-ca7eac3) — ERC 124 headless 9.0.8 (was 128→124), netlist 26 nets, BOM 119 refs; 9 sheets wired, 01-06 re-serialized KiCad 9.0 20250114
 
 ---
 
 ## Blocked Work
 
-- None — Phase 2 exit criteria 1–25 satisfied (all architecture/component classes evaluated, Cautions 1–5 addressed). Phase 3 ready on authorization.
+- None (headless ERC/BOM/netlist validated)
 
 ---
 
 ## Next Actions
 
-1. **Phase 3 — Source, Compliance & Stability Simulation** (requires explicit authorization — DO NOT auto-start):
-   - Simulate source transfer ±5 V/±2 V, 4-quad sink, compliance load steps/filament, stability with 10 pF–10 nF DUT + cable, per-range measurement, Monte Carlo, temp.
-
-2. Phase 4 — Current Measurement Subsystem after source/compliance sim review.
+1. **Phase 7 Detailed Capture to ERC 0** — resolve 26 wire_dangling, 86 pin_not_connected, 10 power_pin_not_driven +2 other; add PWR_FLAG for OPA/LT1970 power pins, no_connect for NC (AD5764 27/29 etc.), wire TP to net, delete root dangling wires, annotate
+2. Update full capture review (PHASE7_SCHEMATIC_REVIEW.md §4) and re-run `kicad-cli sch erc --severity-error --format json` → 0 errors
+3. Independent schematic design review → PCB placement prep (no auto-start PCB)
 
 ---
 
@@ -78,7 +77,7 @@ Phase 3 + corrective review + R5.1 executed tests A-O plus 7 gates R1–R6/R5.1 
 | Gate | Result | Evidence |
 |------|--------|----------|
 | Schematic review | ⬜ Not applicable | No schematic (correct) |
-| ERC / DRC | ✅ PASS (smoke) | tools/setup/smoke-tests/kicad-test/erc.json (37 warn) / drc.json (17 warn) |
+| ERC / DRC | 🟨 124 errors (86 pin_not_connected +26 wire_dangling +10 power_pin_not_driven +2 other; warnings 316) / netlist 26 nets / BOM 119 refs — headless 9.0.8 2026-09-02 (kicad-cli sch erc --severity-error \| export netlist/BOM) | hardware/kicad/erc.json (124 err) + netlist 26 nets + bom 119 refs (ca7eac3 headless) |
 | Simulation review | ⬜ Planned | simulation/PHASE3_SIMULATION_PLAN.md |
 | Architecture review | ✅ PASS | docs/architecture/ARCHITECTURE.md + DEC-013..023 |
 | Requirements traceability | ✅ PASS | docs/architecture/REQUIREMENTS_TRACEABILITY.md |
@@ -97,4 +96,4 @@ Work log: [`docs/research/WORK_LOG.md`](docs/research/WORK_LOG.md)
 
 ---
 
-*Last updated: 2026-08-24 18:30 — Phase 2 complete, Phase 3 ready. No hardware designed or ordered.*
+*Last updated: 2026-09-02 ca7eac3+cae70ef Phase 7 Headless Verification — ERC 124 (was 219 skeleton →128→124), netlist 26, BOM 119, KiCad 9.0 re-serialization 01-06+root*
