@@ -1,7 +1,7 @@
 (kicad_sch
-	(version 20241014)
+	(version 20250114)
 	(generator "eeschema")
-	(generator_version "10.0")
+	(generator_version "9.0")
 	(uuid "fa7fb658-b8fb-4591-89e6-07138b38eeb7")
 	(paper "A4")
 	(title_block
@@ -12,274 +12,3724 @@
 		(comment 1 "Gate E - K1 was 4x10k 0.1%/25ppm 54dB -> LT5400 86dB PRIMARY — INSUFFICIENT for 0.5mV; PROMOTED LT5400 matched network PRIMARY 0.01%/0.2ppm 86dB (K1 DNP alternate), reed open-sense latch OFF")
 	)
 	(lib_symbols
-		(symbol "Device:R" (pin_numbers hide) (pin_names (offset 0)) (in_bom yes) (on_board yes)
-			(property "Reference" "R" (at 0.00 1.27 0) (effects (font (size 1.27 1.27))))
-			(property "Value" "R" (at 0.00 -1.27 0) (effects (font (size 1.27 1.27))))
-			(property "Footprint" "" (at 0.00 -2.54 0) (effects (font (size 1.27 1.27)) (hide yes)))
-			(symbol "R_0_0" (rectangle (start -1.27 -2.54) (end 1.27 2.54) (stroke (width 0.254) (type default)) (fill (type none))))
-			(symbol "R_1_0" (pin passive line (at 0.00 3.81 270) (length 2.032) (name "1") (number "1")) (pin passive line (at 0.00 -3.81 90) (length 2.032) (name "2") (number "2"))))
-		(symbol "Device:C" (pin_numbers hide) (pin_names (offset 0)) (in_bom yes) (on_board yes)
-			(property "Reference" "C" (at 0.00 1.27 0) (effects (font (size 1.27 1.27))))
-			(property "Value" "C" (at 0.00 -1.27 0) (effects (font (size 1.27 1.27))))
-			(symbol "C_0_0" (polyline (pts (xy -0.762 0.762) (xy 0.762 0.762)) (stroke (width 0.254))) (polyline (pts (xy -0.762 -0.762) (xy 0.762 -0.762)) (stroke (width 0.254))))
-			(symbol "C_1_0" (pin passive line (at 0.00 2.54 270) (length 1.27) (name "1") (number "1")) (pin passive line (at 0.00 -2.54 90) (length 1.27) (name "2") (number "2"))))
-		(symbol "power:GND" (pin_numbers hide) (power) (property "Reference" "#PWR" (at 0.00 -3.81 0) (effects (font (size 1.27 1.27)) (hide yes))) (symbol "GND_0_0" (polyline (pts (xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54) (xy -1.27 -1.27) (xy 0 -1.27)) (stroke (width 0.254)))))
-		(symbol "power:+12V" (pin_numbers hide) (power) (property "Reference" "#PWR" (at 0.00 3.81 0) (effects (font (size 1.27 1.27)) (hide yes))) (symbol "+12V_0_0" (polyline (pts (xy -1.27 0) (xy 0 -1.27) (xy 1.27 0) (xy 0 0) (xy 0 1.27) (xy -1.27 1.27) (xy 1.27 1.27)) (stroke (width 0.254))) (pin power_in line (at 0.00 -3.81 90) (length 0) (name "+12V") (number "1"))))
-		(symbol "power:-12V" (pin_numbers hide) (power) (property "Reference" "#PWR" (at 0.00 -3.81 0) (effects (font (size 1.27 1.27)) (hide yes))) (symbol "-12V_0_0" (polyline (pts (xy -1.27 0) (xy 0 -1.27) (xy 1.27 0)) (stroke (width 0.254))) (pin power_in line (at 0.00 3.81 270) (length 0) (name "-12V") (number "1"))))
-		(symbol "power:PWR_FLAG" (power) (property "Reference" "#FLG" (at 0.00 -3.81 0) (effects (font (size 1.27 1.27)) (hide yes))) (symbol "PWR_FLAG_0_0" (polyline (pts (xy -1.27 1.27) (xy 1.27 1.27) (xy 1.27 -1.27) (xy -1.27 -1.27) (xy -1.27 1.27)) (stroke (width 0.254))) (pin power_out line (at 0.00 1.27 270) (length 0) (name "1") (number "1"))))
-		(symbol "ReRAM_SMU:OPA140" (in_bom yes) (on_board yes)
-			(property "Reference" "U" (at 0.00 3.81 0) (effects (font (size 1.27 1.27))))
-			(property "Value" "OPA140AID" (at 0.00 -3.81 0) (effects (font (size 1.27 1.27))))
-			(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" (at 0.00 -5.08 0) (effects (font (size 1.27 1.27)) (hide yes)))
-			(property "Datasheet" "https://www.ti.com/lit/ds/sbos498 SBOS498F Ib10pA Vos120uV GBW11MHz en5.1nV JFET" (at 0.00 -6.35 0) (effects (font (size 1 1)) (hide yes)))
-			(symbol "OPA140_0_0" (rectangle (start -5.08 -5.08) (end 5.08 5.08) (stroke (width 0.254) (type default)) (fill (type background))))
-			(symbol "OPA140_1_0"
-				(pin input line (at -7.62 2.54 0) (length 2.54) (name "-IN") (number "2"))
-				(pin input line (at -7.62 -2.54 0) (length 2.54) (name "+IN") (number "3"))
-				(pin power_in line (at 0.00 7.62 270) (length 2.54) (name "V+") (number "7"))
-				(pin power_in line (at 0.00 -7.62 90) (length 2.54) (name "V-") (number "4"))
-				(pin power_out line (at 7.62 0.00 180) (length 2.54) (name "OUT") (number "6"))
+		(symbol "Device:C"
+			(pin_numbers
+				(hide yes)
 			)
-		)
-		(symbol "ReRAM_SMU:LT5400" (in_bom yes) (on_board yes)
-			(property "Reference" "U" (at 0.00 3.81 0) (effects (font (size 1.27 1.27))))
-			(property "Value" "LT5400A-1" (at 0.00 -3.81 0) (effects (font (size 1.27 1.27))))
-			(property "Footprint" "Package_SO:MSOP-8_3x3mm_P0.65mm_EP" (at 0.00 -5.08 0) (effects (font (size 1.27 1.27)) (hide yes)))
-			(property "Datasheet" "https://www.analog.com/media/en/technical-documentation/data-sheets/5400fc.pdf LT5400A-1 10k/10k 1:1 MSOP-8 EP, 0.01% 0.2ppm (was A-3 1:10 QFN-16)" (at 0.00 -6.35 0) (effects (font (size 1 1)) (hide yes)))
-			(symbol "LT5400_0_0" (rectangle (start -7.62 -5.08) (end 7.62 5.08) (stroke (width 0.254) (type default)) (fill (type background))))
-			(symbol "LT5400_1_0"
-				(pin passive line (at -10.16 3.81 0) (length 2.54) (name "R1A") (number "1"))
-				(pin passive line (at -10.16 1.27 0) (length 2.54) (name "R2A") (number "2"))
-				(pin passive line (at -10.16 -1.27 0) (length 2.54) (name "R3A") (number "3"))
-				(pin passive line (at -10.16 -3.81 0) (length 2.54) (name "R4A") (number "4"))
-				(pin passive line (at 10.16 -3.81 180) (length 2.54) (name "R4B") (number "5"))
-				(pin passive line (at 10.16 -1.27 180) (length 2.54) (name "R3B") (number "6"))
-				(pin passive line (at 10.16 1.27 180) (length 2.54) (name "R2B") (number "7"))
-				(pin passive line (at 10.16 3.81 180) (length 2.54) (name "R1B") (number "8"))
-				(pin passive line (at 0.00 -7.62 90) (length 2.54) (name "EP") (number "9"))
+			(pin_names
+				(offset 0)
 			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "C"
+				(at 0 1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "C"
+				(at 0 -1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "C_0_0"
+				(polyline
+					(pts
+						(xy -0.762 0.762) (xy 0.762 0.762)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.762 -0.762) (xy 0.762 -0.762)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "C_1_0"
+				(pin passive line
+					(at 0 2.54 270)
+					(length 1.27)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -2.54 90)
+					(length 1.27)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
 		)
-		(symbol "ReRAM_SMU:COTO9007" (in_bom yes) (on_board yes)
-			(property "Reference" "K" (at 0.00 3.81 0) (effects (font (size 1.27 1.27))))
-			(property "Value" "COTO9007-05-00" (at 0.00 -3.81 0) (effects (font (size 1.27 1.27))))
-			(property "Footprint" "Relay_THT:Relay_SPDT_Coto_9007" (at 0.00 -5.08 0) (effects (font (size 1.27 1.27)) (hide yes)))
-			(property "Datasheet" "Coto 9007 <1pA 1pF Coff 10G leakage" (at 0.00 -6.35 0) (effects (font (size 1 1)) (hide yes)))
-			(symbol "COTO9007_0_0" (rectangle (start -5.08 -3.81) (end 5.08 3.81) (stroke (width 0.254) (type default)) (fill (type background))))
+		(symbol "Device:R"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "R"
+				(at 0 1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "R"
+				(at 0 -1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "R_0_0"
+				(rectangle
+					(start -1.27 -2.54)
+					(end 1.27 2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "R_1_0"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 2.032)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 2.032)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "ReRAM_SMU:COTO9007"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "K"
+				(at 0 3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "COTO9007-05-00"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Relay_THT:Relay_SPDT_Coto_9007"
+				(at 0 -5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "Coto 9007 <1pA 1pF Coff 10G leakage"
+				(at 0 -6.35 0)
+				(effects
+					(font
+						(size 1 1)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "COTO9007_0_0"
+				(rectangle
+					(start -5.08 -3.81)
+					(end 5.08 3.81)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
 			(symbol "COTO9007_1_0"
-				(pin passive line (at -7.62 0.00 0) (length 2.54) (name "A") (number "1"))
-				(pin passive line (at 7.62 0.00 180) (length 2.54) (name "B") (number "2"))
-				(pin input line (at 0.00 -6.35 90) (length 2.54) (name "COIL+") (number "3"))
-				(pin input line (at 0.00 6.35 270) (length 2.54) (name "COIL-") (number "4"))
+				(pin passive line
+					(at -7.62 0 0)
+					(length 2.54)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 0 6.35 270)
+					(length 2.54)
+					(name "COIL-"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 0 -6.35 90)
+					(length 2.54)
+					(name "COIL+"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 7.62 0 180)
+					(length 2.54)
+					(name "B"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
 			)
+			(embedded_fonts no)
 		)
-		(symbol "ReRAM_SMU:TLV3501" (in_bom yes) (on_board yes)
-			(property "Reference" "U" (at 0.00 3.81 0) (effects (font (size 1.27 1.27))))
-			(property "Value" "TLV3501AIDBVT" (at 0.00 -3.81 0) (effects (font (size 1.27 1.27))))
-			(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6" (at 0.00 -5.08 0) (effects (font (size 1.27 1.27)) (hide yes)))
-			(property "Datasheet" "TI TLV3501 6.5mV Vos comparator for open-sense window" (at 0.00 -6.35 0) (effects (font (size 1 1)) (hide yes)))
-			(symbol "TLV3501_0_0" (rectangle (start -3.81 -3.81) (end 3.81 3.81) (stroke (width 0.254) (type default)) (fill (type background))))
+		(symbol "ReRAM_SMU:LT5400"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "U"
+				(at 0 3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "LT5400A-1"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Package_SO:MSOP-8_3x3mm_P0.65mm_EP"
+				(at 0 -5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://www.analog.com/media/en/technical-documentation/data-sheets/5400fc.pdf LT5400A-1 10k/10k 1:1 MSOP-8 EP, 0.01% 0.2ppm (was A-3 1:10 QFN-16)"
+				(at 0 -6.35 0)
+				(effects
+					(font
+						(size 1 1)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "LT5400_0_0"
+				(rectangle
+					(start -7.62 -5.08)
+					(end 7.62 5.08)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+			(symbol "LT5400_1_0"
+				(pin passive line
+					(at -10.16 3.81 0)
+					(length 2.54)
+					(name "R1A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -10.16 1.27 0)
+					(length 2.54)
+					(name "R2A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -10.16 -1.27 0)
+					(length 2.54)
+					(name "R3A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -10.16 -3.81 0)
+					(length 2.54)
+					(name "R4A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -7.62 90)
+					(length 2.54)
+					(name "EP"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 10.16 3.81 180)
+					(length 2.54)
+					(name "R1B"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 10.16 1.27 180)
+					(length 2.54)
+					(name "R2B"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 10.16 -1.27 180)
+					(length 2.54)
+					(name "R3B"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 10.16 -3.81 180)
+					(length 2.54)
+					(name "R4B"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "ReRAM_SMU:OPA140"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "U"
+				(at 0 3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "OPA140AID"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
+				(at 0 -5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://www.ti.com/lit/ds/sbos498 SBOS498F Ib10pA Vos120uV GBW11MHz en5.1nV JFET"
+				(at 0 -6.35 0)
+				(effects
+					(font
+						(size 1 1)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "OPA140_0_0"
+				(rectangle
+					(start -5.08 -5.08)
+					(end 5.08 5.08)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+			(symbol "OPA140_1_0"
+				(pin input line
+					(at -7.62 2.54 0)
+					(length 2.54)
+					(name "-IN"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -7.62 -2.54 0)
+					(length 2.54)
+					(name "+IN"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 0 7.62 270)
+					(length 2.54)
+					(name "V+"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 0 -7.62 90)
+					(length 2.54)
+					(name "V-"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_out line
+					(at 7.62 0 180)
+					(length 2.54)
+					(name "OUT"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "ReRAM_SMU:TLV3501"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "U"
+				(at 0 3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "TLV3501AIDBVT"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
+				(at 0 -5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "TI TLV3501 6.5mV Vos comparator for open-sense window"
+				(at 0 -6.35 0)
+				(effects
+					(font
+						(size 1 1)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "TLV3501_0_0"
+				(rectangle
+					(start -3.81 -3.81)
+					(end 3.81 3.81)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
 			(symbol "TLV3501_1_0"
-				(pin input line (at -6.35 1.27 0) (length 2.54) (name "+IN") (number "1"))
-				(pin input line (at -6.35 -1.27 0) (length 2.54) (name "-IN") (number "2"))
-				(pin power_in line (at 0.00 6.35 270) (length 2.54) (name "V+") (number "3"))
-				(pin power_in line (at 0.00 -6.35 90) (length 2.54) (name "V-") (number "4"))
-				(pin output line (at 6.35 0.00 180) (length 2.54) (name "OUT") (number "5"))
+				(pin input line
+					(at -6.35 1.27 0)
+					(length 2.54)
+					(name "+IN"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -6.35 -1.27 0)
+					(length 2.54)
+					(name "-IN"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 0 6.35 270)
+					(length 2.54)
+					(name "V+"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 0 -6.35 90)
+					(length 2.54)
+					(name "V-"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 6.35 0 180)
+					(length 2.54)
+					(name "OUT"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "ReRAM_SMU:TestPoint"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "TP"
+				(at 0 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "TP"
+				(at 0 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "TestPoint_0_0"
+				(circle
+					(center 0 0)
+					(radius 1.27)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "TestPoint_1_0"
+				(pin passive line
+					(at 0 -2.54 90)
+					(length 1.27)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "power:+12V"
+			(power)
+			(pin_numbers
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "#PWR"
+				(at 0 3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "+12V_0_0"
+				(polyline
+					(pts
+						(xy -1.27 0) (xy 0 -1.27) (xy 1.27 0) (xy 0 0) (xy 0 1.27) (xy -1.27 1.27) (xy 1.27 1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin power_in line
+					(at 0 -3.81 90)
+					(length 0)
+					(name "+12V"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "power:-12V"
+			(power)
+			(pin_numbers
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "#PWR"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "-12V_0_0"
+				(polyline
+					(pts
+						(xy -1.27 0) (xy 0 -1.27) (xy 1.27 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin power_in line
+					(at 0 3.81 270)
+					(length 0)
+					(name "-12V"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "power:GND"
+			(power)
+			(pin_numbers
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "#PWR"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "GND_0_0"
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54) (xy -1.27 -1.27) (xy 0 -1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "power:PWR_FLAG"
+			(power)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "#FLG"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "PWR_FLAG_0_0"
+				(polyline
+					(pts
+						(xy -1.27 1.27) (xy 1.27 1.27) (xy 1.27 -1.27) (xy -1.27 -1.27) (xy -1.27 1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin power_out line
+					(at 0 1.27 270)
+					(length 0)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+	)
+	(text "K3 REJECTED: INA Ib 350pA-35nA fails 10pA budget @1GΩ (2%->35V error), INA116 800uV Vos 20uV/C drift slower"
+		(exclude_from_sim no)
+		(at 9.91 29.97 0)
+		(effects
+			(font
+				(size 1 1)
+			)
+			(justify left bottom)
+		)
+		(uuid "05e4d903-413a-4af9-ae7c-4026a564053f")
+	)
+	(text "K1: SENSE_HI->K301(reed N/C for test)->U401A OPA140 fol(5pF Cin, 10G) ->R401/R402 + U402 OPA140 diff G=1 (10k 0.1%) ->VDIFF_FB->LT1970 -IN (03)"
+		(exclude_from_sim no)
+		(at 9.91 14.99 0)
+		(effects
+			(font
+				(size 1 1)
+			)
+			(justify left bottom)
+		)
+		(uuid "0ad497be-58ae-4ce4-8146-c89840cdcf41")
+	)
+	(text "Wiring: VDIFF_FB->03 LT1970 -IN, SENSE_HI/LO + FORCE_HI/LO from 09 DUT connector, OPEN_SENSE_FLAG + KELVIN_ENABLE from 08 MCU, supplies +-12V_A"
+		(exclude_from_sim no)
+		(at 9.91 100.08 0)
+		(effects
+			(font
+				(size 1 1)
+			)
+			(justify left bottom)
+		)
+		(uuid "1faff903-2711-4b53-adaa-960186b81b26")
+	)
+	(text "     SENSE_LO->K302->U401B ->R403/R404 ->same diff; C401 15p 10MHz pole; TP401/402/403; decoupling 100nF+10uF per OPA140"
+		(exclude_from_sim no)
+		(at 9.91 20.07 0)
+		(effects
+			(font
+				(size 1 1)
+			)
+			(justify left bottom)
+		)
+		(uuid "2f5c56f9-eec3-44ba-944f-da9e6156a784")
+	)
+	(text "04_KELVIN_SENSE REV0.2 GATE E: DEC-032 K1 PRIMARY (DEC-029 reed <1pA latch OFF)"
+		(exclude_from_sim no)
+		(at 9.91 9.91 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "30f7b72b-fd56-4dd2-ba1a-762e70f3009a")
+	)
+	(text "Simulation: vendor LT1970.sub + OPAx140.LIB gate E at +0.1V/+2V/-2V 100pF/1nF Riso47 10k CV + 100R CC (10mA) + 1k CC (50uA) - see vendor_lt1970_R5p1E"
+		(exclude_from_sim no)
+		(at 9.91 104.9 0)
+		(effects
+			(font
+				(size 1 1)
+			)
+			(justify left bottom)
+		)
+		(uuid "4e63cb39-d6a1-4d40-9a92-e2eaaf72d7bb")
+	)
+	(text "         Measurement mode: K301/K302 OPEN (Coff 1pF, <1pA) DUT sees only OPA140 Cin 5pF, no DC load (IR-03 switched, >=10G or disconnected). Fallback FORCE mode latched until SENS:REM ON + OUTPUT cycle."
+		(exclude_from_sim no)
+		(at 9.91 39.88 0)
+		(effects
+			(font
+				(size 1 1)
+			)
+			(justify left bottom)
+		)
+		(uuid "7d0e3ace-6eaf-4343-9705-d89afa25783f")
+	)
+	(text "Open-sense: weak 10M pull R405/R406 behind K301/K302 NO-> window comp U404 TLV3501 |Vdiff-Vforce|>0.5V flags OPEN_SENSE_FLAG -> SR latch (08 MCU) -> reeds OPEN before OUTPUT ON, latch OFF"
+		(exclude_from_sim no)
+		(at 9.91 35.05 0)
+		(effects
+			(font
+				(size 1 1)
+			)
+			(justify left bottom)
+		)
+		(uuid "83a2e21a-ed08-4fd4-937c-a13d20b3c646")
+	)
+	(text "Guard: SENSE pair guarded trace, keepout, stitching per GUARD_STRATEGY (not driven revA), leakage path OPA140 Ib + reed <2pA total."
+		(exclude_from_sim no)
+		(at 9.91 44.96 0)
+		(effects
+			(font
+				(size 1 1)
+			)
+			(justify left bottom)
+		)
+		(uuid "e0c3262b-b842-4eda-b9f2-c7ddcf18eddd")
+	)
+	(text "K2 provision: U403 LT5400 MSOP-8 overlapping R401-404 footprint, DNP K1, FIT K2 for 0.01% CMRR 86dB (K1 54dB -> LT5400 86dB PRIMARY adequate, cal removes gain)"
+		(exclude_from_sim no)
+		(at 9.91 24.89 0)
+		(effects
+			(font
+				(size 1 1)
+			)
+			(justify left bottom)
+		)
+		(uuid "e0f557e4-e47f-4daa-9d03-89fd0790b7b5")
+	)
+	(wire
+		(pts
+			(xy 38.1 60.96) (xy 15.24 63.5)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "010ba4db-35fc-453b-b02e-7d376a02e2de")
+	)
+	(wire
+		(pts
+			(xy 45.72 27.94) (xy 35.56 25.4)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "08447628-3b90-4500-b639-09670aaaa56f")
+	)
+	(wire
+		(pts
+			(xy 83.82 27.94) (xy 83.82 58.42)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "0bea20ae-fc32-4649-88ee-9c792dc117f7")
+	)
+	(wire
+		(pts
+			(xy 60.96 41.91) (xy 83.82 27.94)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "1e7c9a33-2001-473e-b953-014430e59bc3")
+	)
+	(wire
+		(pts
+			(xy 35.56 59.69) (xy 15.24 63.5)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "1f71d806-5adc-4451-ac90-5f64bdcc5a09")
+	)
+	(wire
+		(pts
+			(xy 25.4 26.67) (xy 35.56 25.4)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "207c58a9-7777-413a-9f80-531de9a9264b")
+	)
+	(wire
+		(pts
+			(xy 38.1 66.04) (xy 15.24 63.5)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "250a9232-e565-4313-a134-ff13402011ae")
+	)
+	(wire
+		(pts
+			(xy 45.72 38.1) (xy 60.96 45.72)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "3e3b731b-d51d-4555-8eb0-00ef96a9dd3b")
+	)
+	(wire
+		(pts
+			(xy 76.2 48.26) (xy 83.82 27.94)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "41f6592d-d8ae-40d3-9490-09409900b61e")
+	)
+	(wire
+		(pts
+			(xy 71.12 27.94) (xy 83.82 27.94)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "4669d5f8-d1e3-4b54-9f42-b31c66244e45")
+	)
+	(wire
+		(pts
+			(xy 73.66 67.31) (xy 71.12 88.9)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "4e97dde1-ab05-44d6-b0b4-0dece81ff7d5")
+	)
+	(wire
+		(pts
+			(xy 93.98 64.77) (xy 116.84 50.8)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "4fc54ccb-b6c4-4ad0-9eb1-640866d7e5a6")
+	)
+	(wire
+		(pts
+			(xy 106.68 80.01) (xy 126.99 86.36)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "50c4f4dd-d373-4e2e-ab19-b07afe399af1")
+	)
+	(wire
+		(pts
+			(xy 45.72 63.5) (xy 60.96 55.88)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "518500b4-2daf-4cfc-9291-bd7222fd1076")
+	)
+	(wire
+		(pts
+			(xy 71.12 52.07) (xy 83.82 27.94)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "69c11210-addc-403c-9218-d66927ba79ef")
+	)
+	(wire
+		(pts
+			(xy 73.66 110.49) (xy 73.66 111.76)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "6a4cc8b8-8086-41a8-884d-f31127bbac74")
+	)
+	(wire
+		(pts
+			(xy 76.2 53.34) (xy 83.82 27.94)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "6fbc29aa-c6ef-4d8a-8831-8789077d89a0")
+	)
+	(wire
+		(pts
+			(xy 35.56 25.4) (xy 35.56 41.91)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "73903bf5-9961-477a-a2fd-85820ab34364")
+	)
+	(wire
+		(pts
+			(xy 73.66 72.39) (xy 71.12 88.9)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "7449f13e-ca64-4eff-808b-017a45858c4a")
+	)
+	(wire
+		(pts
+			(xy 45.72 78.74) (xy 71.12 88.9)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "74652437-f7ca-43c0-a531-f4f682025657")
+	)
+	(wire
+		(pts
+			(xy 71.12 41.91) (xy 83.82 27.94)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "7bcd891b-6234-4078-9f6a-86076fc1b872")
+	)
+	(wire
+		(pts
+			(xy 60.96 49.53) (xy 83.82 27.94)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "7e3a2a6b-839b-4295-b8c4-6fb329c664c1")
+	)
+	(wire
+		(pts
+			(xy 60.96 52.07) (xy 83.82 27.94)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "81f35dbd-40d5-4b66-85c5-09d573496d10")
+	)
+	(wire
+		(pts
+			(xy 93.98 72.39) (xy 71.12 88.9)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "83ed0716-2e4d-49d2-896f-0b20a02f57d8")
+	)
+	(wire
+		(pts
+			(xy 25.4 67.31) (xy 15.24 63.5)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "85a843e9-70e6-49d9-9f76-ea73f77758d1")
+	)
+	(wire
+		(pts
+			(xy 100.33 87.63) (xy 126.99 86.36)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "8bbbad0d-3864-4d49-9a69-e797eff26097")
+	)
+	(wire
+		(pts
+			(xy 93.98 67.31) (xy 116.84 50.8)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "92832495-52d0-49fe-94b9-bbf0a01c766c")
+	)
+	(wire
+		(pts
+			(xy 73.66 64.77) (xy 71.12 88.9)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "971e361e-1e64-4bd0-b860-172ca787c371")
+	)
+	(wire
+		(pts
+			(xy 93.98 69.85) (xy 71.12 88.9)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "9d665a4b-219c-48a7-931b-c510de71e869")
+	)
+	(wire
+		(pts
+			(xy 106.68 92.71) (xy 126.99 86.36)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "a2d7df85-b47a-4f4f-8bc1-6cde51bba13c")
+	)
+	(wire
+		(pts
+			(xy 60.96 59.69) (xy 71.12 88.9)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "a4e2cdbd-e365-421d-ba8c-8bd0a02801e3")
+	)
+	(wire
+		(pts
+			(xy 45.72 71.12) (xy 15.24 71.12)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "aa54b6e1-98db-4292-843b-c9ae18d5173e")
+	)
+	(wire
+		(pts
+			(xy 73.66 69.85) (xy 71.12 88.9)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "b2acdfba-7611-4fec-a60a-71df071a746d")
+	)
+	(wire
+		(pts
+			(xy 96.52 66.04) (xy 116.84 50.8)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "b5b6589e-47d1-4562-85a6-9a9b56312241")
+	)
+	(wire
+		(pts
+			(xy 35.56 67.31) (xy 15.24 63.5)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "c205e4a0-ffc4-4b79-bfb4-ca9852bb2d34")
+	)
+	(wire
+		(pts
+			(xy 45.72 73.66) (xy 71.12 88.9)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "c8629f65-9ff7-4b7e-8cea-91f902d87843")
+	)
+	(wire
+		(pts
+			(xy 71.12 22.86) (xy 83.82 27.94)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "ccfc4963-075e-4d35-a636-64f628238d13")
+	)
+	(wire
+		(pts
+			(xy 25.4 74.93) (xy 15.24 71.12)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "ce8b9e76-4be1-4f21-8e42-7028f0cf4abd")
+	)
+	(wire
+		(pts
+			(xy 45.72 55.88) (xy 15.24 63.5)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "d154c5f8-1424-4986-9cc2-619302bca6b0")
+	)
+	(wire
+		(pts
+			(xy 45.72 22.86) (xy 35.56 25.4)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "d1b750b8-8850-478e-b8d5-9f85f4a2264a")
+	)
+	(wire
+		(pts
+			(xy 45.72 30.48) (xy 35.56 25.4)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "d24430ca-580b-4b14-833d-063b0f6ee9f3")
+	)
+	(wire
+		(pts
+			(xy 88.9 83.82) (xy 71.12 88.9)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "d3b00e65-c2a9-4ff3-9639-155fb343c2a5")
+	)
+	(wire
+		(pts
+			(xy 38.1 35.56) (xy 35.56 25.4)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "d64a4836-b02c-40ee-a04a-a20c97b46a8f")
+	)
+	(wire
+		(pts
+			(xy 100.33 85.09) (xy 126.99 86.36)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "dfacd82a-bf8c-4645-9642-13a8b6ed8446")
+	)
+	(wire
+		(pts
+			(xy 71.12 49.53) (xy 83.82 27.94)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "e8d42bb5-c59b-4c8e-9255-094cc7547e35")
+	)
+	(wire
+		(pts
+			(xy 45.72 45.72) (xy 35.56 25.4)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "f2a36d14-e52c-47f9-9bc7-3aac8c73edcb")
+	)
+	(wire
+		(pts
+			(xy 71.12 59.69) (xy 71.12 88.9)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "f65a1233-f989-4f29-8313-0a079aab75ec")
+	)
+	(wire
+		(pts
+			(xy 96.52 60.96) (xy 116.84 50.8)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "f862024d-6e18-414b-929c-cde3060415f9")
+	)
+	(wire
+		(pts
+			(xy 83.82 25.4) (xy 83.82 27.94)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "f8f0a356-5677-41ab-a177-eea702d41d2a")
+	)
+	(wire
+		(pts
+			(xy 25.4 34.29) (xy 15.24 38.1)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "f988a8c1-951b-4711-aa3a-22554c3acfac")
+	)
+	(wire
+		(pts
+			(xy 38.1 40.64) (xy 35.56 25.4)
+		)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(uuid "fa174308-d91c-4023-b38f-41b82b90115a")
+	)
+	(global_label "+12V"
+		(shape input)
+		(at 83.82 27.94 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "0dd77b94-7a38-4703-80a6-e6ad68affd8e")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at -0.0001 -0.0001 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
-		(symbol "ReRAM_SMU:TestPoint" (in_bom yes) (on_board yes)
-			(property "Reference" "TP" (at 0.00 2.54 0) (effects (font (size 1.27 1.27))))
-			(property "Value" "TP" (at 0.00 -2.54 0) (effects (font (size 1.27 1.27))))
-			(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm" (at 0.00 -3.81 0) (effects (font (size 1.27 1.27)) (hide yes)))
-			(symbol "TestPoint_0_0" (circle (center 0 0) (radius 1.27) (stroke (width 0.254)) (fill (type none))))
-			(symbol "TestPoint_1_0" (pin passive line (at 0.00 -2.54 90) (length 1.27) (name "1") (number "1"))))
 	)
-	(symbol (lib_id "ReRAM_SMU:OPA140") (at 45.72 38.10 0) (unit 1) (uuid "c401c401-c401-4c01-8c01-c401c401c401")
-		(property "Reference" "U401A" (at 45.72 43.18 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "OPA140AID SENSE_HI buffer >10G 5pF" (at 45.72 32.00 0) (effects (font (size 0.9 0.9))))
-		(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" (at 45.72 29.97 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(global_label "FORCE_HI"
+		(shape input)
+		(at 15.24 88.9 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "15d014c6-f861-4d2a-88e9-f41d431a59bc")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at -0.0001 -0.0001 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 	)
-	(symbol (lib_id "ReRAM_SMU:OPA140") (at 45.72 63.50 0) (unit 1) (uuid "c402c402-c402-4c02-8c02-c402c402c402")
-		(property "Reference" "U401B" (at 45.72 68.58 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "OPA140AID SENSE_LO buffer" (at 45.72 57.40 0) (effects (font (size 0.9 0.9))))
-		(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" (at 45.72 55.12 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(global_label "-12V"
+		(shape input)
+		(at 71.12 88.9 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "1870469b-2987-468b-93aa-f844b9728f01")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at -0.0001 -0.0001 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 	)
-	(symbol (lib_id "ReRAM_SMU:OPA140") (at 83.82 50.80 0) (unit 1) (uuid "c403c403-c403-4c03-8c03-c403c403c403")
-		(property "Reference" "U402" (at 83.82 58.42 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "OPA140AID diff gain=1 K1 PRIMARY" (at 83.82 41.91 0) (effects (font (size 0.9 0.9))))
-		(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" (at 83.82 39.88 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(global_label "SENSE_LO"
+		(shape input)
+		(at 15.24 63.5 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "26483ca4-f46c-479f-9aa5-fc1010bf2088")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at -0.0001 -0.0001 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 	)
-	(symbol (lib_id "ReRAM_SMU:LT5400") (at 83.82 68.58 0) (unit 1) (uuid "c404c404-c404-4c04-8c04-c404c404c404")
-		(property "Reference" "U403" (at 83.82 71.12 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "LT5400-3 DNP K2 provision 0.01% tracking" (at 83.82 61.98 0) (effects (font (size 0.7 0.7))))
-		(property "Footprint" "Package_DFN:MSOP-8_3x3mm_P0.65mm_EP" (at 83.82 59.94 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(global_label "OPEN_SENSE_FLAG"
+		(shape output)
+		(at 127 86.36 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "653f888e-55a4-41cc-bbf8-5115504835aa")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at -0.0001 -0.0001 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 	)
-	(symbol (lib_id "Device:R") (at 60.96 45.72 0) (unit 1) (uuid "r301r301-r301-4r01-8r01-r301r301r301")
-		(property "Reference" "R401" (at 60.96 48.26 0) (effects (font (size 1 1))))
-		(property "Value" "10k 0.1% 25ppm thin-film R1 diff" (at 60.96 40.64 0) (effects (font (size 0.8 0.8))))
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric" (at 60.96 38.61 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(global_label "GND"
+		(shape input)
+		(at 73.66 111.76 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "700488b7-5b6e-49da-b0ec-c53c34defe1a")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at -0.0001 -0.0001 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 	)
-	(symbol (lib_id "Device:R") (at 60.96 55.88 0) (unit 1) (uuid "r302r302-r302-4r02-8r02-r302r302r302")
-		(property "Reference" "R402" (at 60.96 58.42 0) (effects (font (size 1 1))))
-		(property "Value" "10k 0.1% R2" (at 60.96 50.80 0) (effects (font (size 0.8 0.8))))
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric" (at 60.96 48.77 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(global_label "SENSE_HI"
+		(shape input)
+		(at 15.24 38.1 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "7397d1ca-a9bc-435f-9bc0-46092c699ae5")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at -0.0001 -0.0001 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 	)
-	(symbol (lib_id "Device:R") (at 71.12 45.72 0) (unit 1) (uuid "r303r303-r303-4r03-8r03-r303r303r303")
-		(property "Reference" "R403" (at 71.12 48.26 0) (effects (font (size 1 1))))
-		(property "Value" "10k 0.1% R3" (at 71.12 40.64 0) (effects (font (size 0.8 0.8))))
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric" (at 71.12 38.61 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(global_label "FORCE_LO"
+		(shape input)
+		(at 15.24 71.12 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "a5651dc6-e351-4893-bd20-c748ed7eda0b")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at -0.0001 -0.0001 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 	)
-	(symbol (lib_id "Device:R") (at 71.12 55.88 0) (unit 1) (uuid "r304r304-r304-4r04-8r04-r304r304r304")
-		(property "Reference" "R404" (at 71.12 58.42 0) (effects (font (size 1 1))))
-		(property "Value" "10k 0.1% R4" (at 71.12 50.80 0) (effects (font (size 0.8 0.8))))
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric" (at 71.12 48.77 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(global_label "KELVIN_ENABLE"
+		(shape input)
+		(at 35.56 25.4 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "a8289cd2-4569-4178-ac64-8ca1b83b3713")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at -0.0001 -0.0001 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 	)
-	(symbol (lib_id "Device:C") (at 96.52 63.50 0) (unit 1) (uuid "c405c405-c405-4c05-8c05-c405c405c405")
-		(property "Reference" "C401" (at 96.52 66.04 0) (effects (font (size 1 1))))
-		(property "Value" "15p C0G diff BW pole 10MHz (1k*15p)" (at 96.52 58.42 0) (effects (font (size 0.8 0.8))))
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 96.52 56.39 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(global_label "VDIFF_FB"
+		(shape output)
+		(at 116.84 50.8 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "ee20cf59-1b64-44e3-80d2-81e21c7adc0f")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at -0.0001 -0.0001 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 	)
-	(symbol (lib_id "Device:R") (at 35.56 38.10 0) (unit 1) (uuid "k301k301-k301-4k01-8k01-k301k301k301")
-		(property "Reference" "K301" (at 35.56 43.18 0) (effects (font (size 1 1))))
-		(property "Value" "COTO9007 SENSE_HI reed <1pA Coff 1pF latch OFF" (at 35.56 32.00 0) (effects (font (size 0.8 0.8))))
-		(property "Footprint" "Relay_THT:Relay_SPDT_Coto_9007" (at 35.56 29.97 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(symbol
+		(lib_id "ReRAM_SMU:TestPoint")
+		(at 96.52 50.8 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "0e71d1ac-98bd-4d7f-a1fc-3e0f98986a6b")
+		(property "Reference" "TP11"
+			(at 96.52 53.34 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Value" "TP_DIFF VDIFF_FB"
+			(at 96.52 45.72 0)
+			(effects
+				(font
+					(size 0.8 0.8)
+				)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
+			(at 96.52 43.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 96.52 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 96.52 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "1e6aceb9-c46b-4abf-823d-4675542de10b")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/d6c4e942-2b3b-4529-97eb-1972926d7be4"
+					(reference "TP11")
+					(unit 1)
+				)
+			)
+		)
 	)
-	(symbol (lib_id "Device:R") (at 35.56 63.50 0) (unit 1) (uuid "k302k302-k302-4k02-8k02-k302k302k302")
-		(property "Reference" "K302" (at 35.56 68.58 0) (effects (font (size 1 1))))
-		(property "Value" "COTO9007 SENSE_LO reed <1pA latch OFF" (at 35.56 57.40 0) (effects (font (size 0.8 0.8))))
-		(property "Footprint" "Relay_THT:Relay_SPDT_Coto_9007" (at 35.56 55.12 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(symbol
+		(lib_id "Device:R")
+		(at 71.12 45.72 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "344fe726-4dcd-4aae-a75a-4f0c452d1720")
+		(property "Reference" "R5"
+			(at 71.12 48.26 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Value" "10k 0.1% R3"
+			(at 71.12 40.64 0)
+			(effects
+				(font
+					(size 0.8 0.8)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 71.12 38.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 71.12 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 71.12 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d5042817-6dc5-442c-a0b1-c27637a13a31")
+		)
+		(pin "2"
+			(uuid "4c1df6be-7cdc-4e84-9f8d-6e5261e7b4e1")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/d6c4e942-2b3b-4529-97eb-1972926d7be4"
+					(reference "R5")
+					(unit 1)
+				)
+			)
+		)
 	)
-	(symbol (lib_id "Device:R") (at 25.40 30.48 0) (unit 1) (uuid "r305r305-r305-4r05-8r05-r305r305r305")
-		(property "Reference" "R405" (at 25.40 33.02 0) (effects (font (size 1 1))))
-		(property "Value" "10M pull SENSE_HI test network behind K301 (switched, no DC during meas)" (at 25.40 25.91 0) (effects (font (size 0.7 0.7))))
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric" (at 25.40 23.88 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(symbol
+		(lib_id "power:+12V")
+		(at 83.82 25.4 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "42bd44b2-568e-4f8f-a85e-e5d211ee805d")
+		(property "Reference" "#U0116"
+			(at 83.82 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 83.82 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 83.82 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 83.82 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 83.82 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d4387976-1bc5-4e03-9963-9334e0e868d8")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/d6c4e942-2b3b-4529-97eb-1972926d7be4"
+					(reference "#U0116")
+					(unit 1)
+				)
+			)
+		)
 	)
-	(symbol (lib_id "Device:R") (at 25.40 71.12 0) (unit 1) (uuid "r306r306-r306-4r06-8r06-r306r306r306")
-		(property "Reference" "R406" (at 25.40 73.66 0) (effects (font (size 1 1))))
-		(property "Value" "10M pull SENSE_LO behind K302" (at 25.40 66.04 0) (effects (font (size 0.7 0.7))))
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric" (at 25.40 64.01 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(symbol
+		(lib_id "ReRAM_SMU:TLV3501")
+		(at 106.68 86.36 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "478ee214-2925-4eaa-8690-91fe51801dbc")
+		(property "Reference" "U8"
+			(at 106.68 91.44 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Value" "TLV3501 window |VDIFF-V_FORCE|>0.5V open-sense comp"
+			(at 106.68 80.01 0)
+			(effects
+				(font
+					(size 0.7 0.7)
+				)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
+			(at 106.68 77.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 106.68 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 106.68 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "eca8e2c7-a36b-485c-84d2-7481e2a55024")
+		)
+		(pin "2"
+			(uuid "cea23f01-2b53-4b23-9860-5bccc6aa8e9e")
+		)
+		(pin "3"
+			(uuid "d0ad1df9-474b-4a5b-b3f4-936fa4cc3437")
+		)
+		(pin "4"
+			(uuid "3957ac7b-8db6-439f-94ac-e7e5696d1015")
+		)
+		(pin "5"
+			(uuid "3fb52b5a-7842-473c-9533-c58b20dbc56a")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/d6c4e942-2b3b-4529-97eb-1972926d7be4"
+					(reference "U8")
+					(unit 1)
+				)
+			)
+		)
 	)
-	(symbol (lib_id "ReRAM_SMU:TLV3501") (at 106.68 86.36 0) (unit 1) (uuid "u404u404-u404-4u04-8u04-u404u404u404")
-		(property "Reference" "U404" (at 106.68 91.44 0) (effects (font (size 1 1))))
-		(property "Value" "TLV3501 window |VDIFF-V_FORCE|>0.5V open-sense comp" (at 106.68 80.01 0) (effects (font (size 0.7 0.7))))
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6" (at 106.68 77.98 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(symbol
+		(lib_id "ReRAM_SMU:TestPoint")
+		(at 55.88 38.1 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "5605b12b-19e5-459f-afce-896fd108d3b2")
+		(property "Reference" "TP9"
+			(at 55.88 40.64 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Value" "TP_SENSE_HI_BUF"
+			(at 55.88 33.02 0)
+			(effects
+				(font
+					(size 0.8 0.8)
+				)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
+			(at 55.88 30.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 55.88 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 55.88 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "376ef240-9ac6-47eb-a48f-abe784463bb7")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/d6c4e942-2b3b-4529-97eb-1972926d7be4"
+					(reference "TP9")
+					(unit 1)
+				)
+			)
+		)
 	)
-	(symbol (lib_id "Device:C") (at 45.72 25.40 0) (unit 1) (uuid "c406c406-c406-4c06-8c06-c406c406c406")
-		(property "Reference" "C402" (at 45.72 27.94 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "100nF OPA140 V+ dec" (at 45.72 20.07 0) (effects (font (size 0.8 0.8))))
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 45.72 18.03 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(symbol
+		(lib_id "ReRAM_SMU:TestPoint")
+		(at 55.88 63.5 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "6514a5a8-4432-4b71-a619-2181645d4727")
+		(property "Reference" "TP10"
+			(at 55.88 66.04 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Value" "TP_SENSE_LO_BUF"
+			(at 55.88 58.42 0)
+			(effects
+				(font
+					(size 0.8 0.8)
+				)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
+			(at 55.88 56.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 55.88 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 55.88 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "f70f1997-2186-4541-8a98-3b93f464eb17")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/d6c4e942-2b3b-4529-97eb-1972926d7be4"
+					(reference "TP10")
+					(unit 1)
+				)
+			)
+		)
 	)
-	(symbol (lib_id "Device:C") (at 45.72 76.20 0) (unit 1) (uuid "c407c407-c407-4c07-8c07-c407c407c407")
-		(property "Reference" "C403" (at 45.72 78.74 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "10uF OPA140 V+ bulk" (at 45.72 71.12 0) (effects (font (size 0.8 0.8))))
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric" (at 45.72 69.09 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(symbol
+		(lib_id "Device:R")
+		(at 71.12 55.88 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "7aac69b6-5561-43ae-a96d-b2d0bae0fdd7")
+		(property "Reference" "R6"
+			(at 71.12 58.42 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Value" "10k 0.1% R4"
+			(at 71.12 50.8 0)
+			(effects
+				(font
+					(size 0.8 0.8)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 71.12 48.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 71.12 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 71.12 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "905b14bb-19ee-4174-af0f-5a0374b4091e")
+		)
+		(pin "2"
+			(uuid "ef36514a-5ad9-4238-896c-6d506c5d8c7e")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/d6c4e942-2b3b-4529-97eb-1972926d7be4"
+					(reference "R6")
+					(unit 1)
+				)
+			)
+		)
 	)
-	(symbol (lib_id "Device:C") (at 71.12 25.40 0) (unit 1) (uuid "c408c408-c408-4c08-8c08-c408c408c408")
-		(property "Reference" "C404" (at 71.12 27.94 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "100nF OPA140 V- dec" (at 71.12 20.07 0) (effects (font (size 0.8 0.8))))
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 71.12 18.03 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(symbol
+		(lib_id "Device:R")
+		(at 60.96 55.88 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "7e06d4eb-30f8-40b2-9b64-2f0565086ddf")
+		(property "Reference" "R4"
+			(at 60.96 58.42 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Value" "10k 0.1% R2"
+			(at 60.96 50.8 0)
+			(effects
+				(font
+					(size 0.8 0.8)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 60.96 48.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 60.96 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 60.96 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "7dd73697-7ffa-4b19-81b5-c4a3396a57e8")
+		)
+		(pin "2"
+			(uuid "a6965109-6448-4377-9e04-5cf2099dc938")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/d6c4e942-2b3b-4529-97eb-1972926d7be4"
+					(reference "R4")
+					(unit 1)
+				)
+			)
+		)
 	)
-	(symbol (lib_id "ReRAM_SMU:TestPoint") (at 55.88 38.10 0) (unit 1) (uuid "tp401tp4-tp40-4tp4-8tp4-tp401tp401tp")
-		(property "Reference" "TP401" (at 55.88 40.64 0) (effects (font (size 1 1))))
-		(property "Value" "TP_SENSE_HI_BUF" (at 55.88 33.02 0) (effects (font (size 0.8 0.8))))
-		(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm" (at 55.88 30.99 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(symbol
+		(lib_id "Device:R")
+		(at 25.4 30.48 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "88ace7e0-8947-45e1-90bd-7a21ff90679e")
+		(property "Reference" "R1"
+			(at 25.4 33.02 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Value" "10M pull SENSE_HI test network behind K301 (switched, no DC during meas)"
+			(at 25.4 25.91 0)
+			(effects
+				(font
+					(size 0.7 0.7)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 25.4 23.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 25.4 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 25.4 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "f53b74e9-3b79-4b5d-923e-87c147f3d99e")
+		)
+		(pin "2"
+			(uuid "d3993d5b-8c55-49b2-ad23-5c53c52d5cbb")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/d6c4e942-2b3b-4529-97eb-1972926d7be4"
+					(reference "R1")
+					(unit 1)
+				)
+			)
+		)
 	)
-	(symbol (lib_id "ReRAM_SMU:TestPoint") (at 55.88 63.50 0) (unit 1) (uuid "tp402tp4-tp40-4tp4-8tp4-tp402tp402tp")
-		(property "Reference" "TP402" (at 55.88 66.04 0) (effects (font (size 1 1))))
-		(property "Value" "TP_SENSE_LO_BUF" (at 55.88 58.42 0) (effects (font (size 0.8 0.8))))
-		(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm" (at 55.88 56.39 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(symbol
+		(lib_id "Device:R")
+		(at 60.96 45.72 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "9bf0fc16-f797-4ebf-8969-0d05baa071de")
+		(property "Reference" "R3"
+			(at 60.96 48.26 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Value" "10k 0.1% 25ppm thin-film R1 diff"
+			(at 60.96 40.64 0)
+			(effects
+				(font
+					(size 0.8 0.8)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 60.96 38.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 60.96 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 60.96 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "0cb303f2-9cf6-4f90-a20c-65e34f9fe540")
+		)
+		(pin "2"
+			(uuid "163fd7fe-07ed-42fd-808e-f30b7d33693d")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/d6c4e942-2b3b-4529-97eb-1972926d7be4"
+					(reference "R3")
+					(unit 1)
+				)
+			)
+		)
 	)
-	(symbol (lib_id "ReRAM_SMU:TestPoint") (at 96.52 50.80 0) (unit 1) (uuid "tp403tp4-tp40-4tp4-8tp4-tp403tp403tp")
-		(property "Reference" "TP403" (at 96.52 53.34 0) (effects (font (size 1 1))))
-		(property "Value" "TP_DIFF VDIFF_FB" (at 96.52 45.72 0) (effects (font (size 0.8 0.8))))
-		(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm" (at 96.52 43.43 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(symbol
+		(lib_id "power:GND")
+		(at 88.9 83.82 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "ae5bd47e-3fbd-43b3-9c0f-6e099a33fd11")
+		(property "Reference" "#U0118"
+			(at 88.9 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 88.9 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 88.9 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 88.9 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 88.9 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/d6c4e942-2b3b-4529-97eb-1972926d7be4"
+					(reference "#U0118")
+					(unit 1)
+				)
+			)
+		)
 	)
-	(symbol (lib_id "power:GND") (at 88.90 83.82 0) (unit 1) (uuid "gnd1gnd1-gnd1-4gnd-8gnd-gnd1gnd1gnd1"))
-	(symbol (lib_id "power:+12V") (at 83.82 25.40 0) (unit 1) (uuid "p12ap12a-p12a-4p12-8p12-p12ap12ap12a"))
-	(symbol (lib_id "power:-12V") (at 71.12 86.36 0) (unit 1) (uuid "n12an12a-n12a-4n12-8n12-n12an12an12a"))
-	(symbol (lib_id "power:PWR_FLAG") (at 73.66 109.22 0) (unit 1) (uuid "flg1flg1-flg1-4flg-8flg-flg1flg1flg1"))
-	(global_label "SENSE_HI" (shape input) (at 15.24 38.10 0) (fields_autoplaced) (uuid "lbl401lb-lbl4-4lbl-8lbl-lbl401lbl401") (property "Intersheetrefs" "${INTERSHEET_REFS}"))
-	(global_label "SENSE_LO" (shape input) (at 15.24 63.50 0) (fields_autoplaced) (uuid "lbl402lb-lbl4-4lbl-8lbl-lbl402lbl402") (property "Intersheetrefs" "${INTERSHEET_REFS}"))
-	(global_label "FORCE_HI" (shape input) (at 15.24 88.90 0) (fields_autoplaced) (uuid "lbl403lb-lbl4-4lbl-8lbl-lbl403lbl403") (property "Intersheetrefs" "${INTERSHEET_REFS}"))
-	(global_label "FORCE_LO" (shape input) (at 15.24 71.12 0) (fields_autoplaced) (uuid "lbl404lb-lbl4-4lbl-8lbl-lbl404lbl404") (property "Intersheetrefs" "${INTERSHEET_REFS}"))
-	(global_label "VDIFF_FB" (shape output) (at 116.84 50.80 0) (fields_autoplaced) (uuid "lbl405lb-lbl4-4lbl-8lbl-lbl405lbl405") (property "Intersheetrefs" "${INTERSHEET_REFS}"))
-	(global_label "OPEN_SENSE_FLAG" (shape output) (at 127.00 86.36 0) (fields_autoplaced) (uuid "lbl406lb-lbl4-4lbl-8lbl-lbl406lbl406") (property "Intersheetrefs" "${INTERSHEET_REFS}"))
-	(global_label "KELVIN_ENABLE" (shape input) (at 35.56 25.40 0) (fields_autoplaced) (uuid "lbl407lb-lbl4-4lbl-8lbl-lbl407lbl407") (property "Intersheetrefs" "${INTERSHEET_REFS}"))
-	(global_label "GND" (shape input) (at 73.66 111.76 0) (fields_autoplaced) (uuid "lbl408lb-lbl4-4lbl-8lbl-lbl408lbl408") (property "Intersheetrefs" "${INTERSHEET_REFS}"))
-	(global_label "+12V" (shape input) (at 83.82 27.94 0) (fields_autoplaced) (uuid "lbl409lb-lbl4-4lbl-8lbl-lbl409lbl409") (property "Intersheetrefs" "${INTERSHEET_REFS}"))
-	(global_label "-12V" (shape input) (at 71.12 88.90 0) (fields_autoplaced) (uuid "lbl410lb-lbl4-4lbl-8lbl-lbl410lbl410") (property "Intersheetrefs" "${INTERSHEET_REFS}"))
-	(text "04_KELVIN_SENSE REV0.2 GATE E: DEC-032 K1 PRIMARY (DEC-029 reed <1pA latch OFF)" (at 9.91 9.91 0) (effects (font (size 1.27 1.27)) (justify left bottom)))
-	(text "K1: SENSE_HI->K301(reed N/C for test)->U401A OPA140 fol(5pF Cin, 10G) ->R401/R402 + U402 OPA140 diff G=1 (10k 0.1%) ->VDIFF_FB->LT1970 -IN (03)" (at 9.91 14.99 0) (effects (font (size 1 1)) (justify left bottom)))
-	(text "     SENSE_LO->K302->U401B ->R403/R404 ->same diff; C401 15p 10MHz pole; TP401/402/403; decoupling 100nF+10uF per OPA140" (at 9.91 20.07 0) (effects (font (size 1 1)) (justify left bottom)))
-	(text "K2 provision: U403 LT5400 MSOP-8 overlapping R401-404 footprint, DNP K1, FIT K2 for 0.01% CMRR 86dB (K1 54dB -> LT5400 86dB PRIMARY adequate, cal removes gain)" (at 9.91 24.89 0) (effects (font (size 1 1)) (justify left bottom)))
-	(text "K3 REJECTED: INA Ib 350pA-35nA fails 10pA budget @1GΩ (2%->35V error), INA116 800uV Vos 20uV/C drift slower" (at 9.91 29.97 0) (effects (font (size 1 1)) (justify left bottom)))
-	(text "Open-sense: weak 10M pull R405/R406 behind K301/K302 NO-> window comp U404 TLV3501 |Vdiff-Vforce|>0.5V flags OPEN_SENSE_FLAG -> SR latch (08 MCU) -> reeds OPEN before OUTPUT ON, latch OFF" (at 9.91 35.05 0) (effects (font (size 1 1)) (justify left bottom)))
-	(text "         Measurement mode: K301/K302 OPEN (Coff 1pF, <1pA) DUT sees only OPA140 Cin 5pF, no DC load (IR-03 switched, >=10G or disconnected). Fallback FORCE mode latched until SENS:REM ON + OUTPUT cycle." (at 9.91 39.88 0) (effects (font (size 1 1)) (justify left bottom)))
-	(text "Guard: SENSE pair guarded trace, keepout, stitching per GUARD_STRATEGY (not driven revA), leakage path OPA140 Ib + reed <2pA total." (at 9.91 44.96 0) (effects (font (size 1 1)) (justify left bottom)))
-	(text "Wiring: VDIFF_FB->03 LT1970 -IN, SENSE_HI/LO + FORCE_HI/LO from 09 DUT connector, OPEN_SENSE_FLAG + KELVIN_ENABLE from 08 MCU, supplies +-12V_A" (at 9.91 100.08 0) (effects (font (size 1 1)) (justify left bottom)))
-	(text "Simulation: vendor LT1970.sub + OPAx140.LIB gate E at +0.1V/+2V/-2V 100pF/1nF Riso47 10k CV + 100R CC (10mA) + 1k CC (50uA) - see vendor_lt1970_R5p1E" (at 9.91 104.90 0) (effects (font (size 1 1)) (justify left bottom)))
-	(wire (pts (xy 45.72 38.1) (xy 60.96 45.72)) (stroke (width 0.254) (type default)) (uuid "w401w401-w401-4w01-8w01-w401w401w401"))
-	(wire (pts (xy 45.72 63.5) (xy 60.96 55.88)) (stroke (width 0.254) (type default)) (uuid "w402w402-w402-4w02-8w02-w402w402w402"))
-
-
-
-
-
-
-
-
-
-
-	(wire (pts (xy 38.100 40.640) (xy 35.560 25.400)) (stroke (width 0.254) (type default)) (uuid "fa174308-d91c-4023-b38f-41b82b90115a"))
-	(wire (pts (xy 38.100 35.560) (xy 35.560 25.400)) (stroke (width 0.254) (type default)) (uuid "d64a4836-b02c-40ee-a04a-a20c97b46a8f"))
-	(wire (pts (xy 45.720 45.720) (xy 35.560 25.400)) (stroke (width 0.254) (type default)) (uuid "f2a36d14-e52c-47f9-9bc7-3aac8c73edcb"))
-	(wire (pts (xy 45.720 30.480) (xy 35.560 25.400)) (stroke (width 0.254) (type default)) (uuid "d24430ca-580b-4b14-833d-063b0f6ee9f3"))
-	(wire (pts (xy 38.100 66.040) (xy 15.240 63.500)) (stroke (width 0.254) (type default)) (uuid "250a9232-e565-4313-a134-ff13402011ae"))
-	(wire (pts (xy 38.100 60.960) (xy 15.240 63.500)) (stroke (width 0.254) (type default)) (uuid "010ba4db-35fc-453b-b02e-7d376a02e2de"))
-	(wire (pts (xy 45.720 71.120) (xy 15.240 71.120)) (stroke (width 0.254) (type default)) (uuid "aa54b6e1-98db-4292-843b-c9ae18d5173e"))
-	(wire (pts (xy 45.720 55.880) (xy 15.240 63.500)) (stroke (width 0.254) (type default)) (uuid "d154c5f8-1424-4986-9cc2-619302bca6b0"))
-	(wire (pts (xy 76.200 53.340) (xy 83.820 27.940)) (stroke (width 0.254) (type default)) (uuid "6fbc29aa-c6ef-4d8a-8831-8789077d89a0"))
-	(wire (pts (xy 76.200 48.260) (xy 83.820 27.940)) (stroke (width 0.254) (type default)) (uuid "41f6592d-d8ae-40d3-9490-09409900b61e"))
-	(wire (pts (xy 83.820 58.420) (xy 83.820 27.940)) (stroke (width 0.254) (type default)) (uuid "e1910b08-c439-452f-86e1-889497f79e21"))
-	(wire (pts (xy 83.820 43.180) (xy 83.820 27.940)) (stroke (width 0.254) (type default)) (uuid "0bea20ae-fc32-4649-88ee-9c792dc117f7"))
-	(wire (pts (xy 73.660 72.390) (xy 71.120 88.900)) (stroke (width 0.254) (type default)) (uuid "7449f13e-ca64-4eff-808b-017a45858c4a"))
-	(wire (pts (xy 73.660 69.850) (xy 71.120 88.900)) (stroke (width 0.254) (type default)) (uuid "b2acdfba-7611-4fec-a60a-71df071a746d"))
-	(wire (pts (xy 73.660 67.310) (xy 71.120 88.900)) (stroke (width 0.254) (type default)) (uuid "4e97dde1-ab05-44d6-b0b4-0dece81ff7d5"))
-	(wire (pts (xy 73.660 64.770) (xy 71.120 88.900)) (stroke (width 0.254) (type default)) (uuid "971e361e-1e64-4bd0-b860-172ca787c371"))
-	(wire (pts (xy 93.980 64.770) (xy 116.840 50.800)) (stroke (width 0.254) (type default)) (uuid "4fc54ccb-b6c4-4ad0-9eb1-640866d7e5a6"))
-	(wire (pts (xy 93.980 67.310) (xy 116.840 50.800)) (stroke (width 0.254) (type default)) (uuid "92832495-52d0-49fe-94b9-bbf0a01c766c"))
-	(wire (pts (xy 93.980 69.850) (xy 71.120 88.900)) (stroke (width 0.254) (type default)) (uuid "9d665a4b-219c-48a7-931b-c510de71e869"))
-	(wire (pts (xy 93.980 72.390) (xy 71.120 88.900)) (stroke (width 0.254) (type default)) (uuid "83ed0716-2e4d-49d2-896f-0b20a02f57d8"))
-	(wire (pts (xy 60.960 49.530) (xy 83.820 27.940)) (stroke (width 0.254) (type default)) (uuid "7e3a2a6b-839b-4295-b8c4-6fb329c664c1"))
-	(wire (pts (xy 60.960 41.910) (xy 83.820 27.940)) (stroke (width 0.254) (type default)) (uuid "1e7c9a33-2001-473e-b953-014430e59bc3"))
-	(wire (pts (xy 60.960 59.690) (xy 71.120 88.900)) (stroke (width 0.254) (type default)) (uuid "a4e2cdbd-e365-421d-ba8c-8bd0a02801e3"))
-	(wire (pts (xy 60.960 52.070) (xy 83.820 27.940)) (stroke (width 0.254) (type default)) (uuid "81f35dbd-40d5-4b66-85c5-09d573496d10"))
-	(wire (pts (xy 71.120 49.530) (xy 83.820 27.940)) (stroke (width 0.254) (type default)) (uuid "e8d42bb5-c59b-4c8e-9255-094cc7547e35"))
-	(wire (pts (xy 71.120 41.910) (xy 83.820 27.940)) (stroke (width 0.254) (type default)) (uuid "7bcd891b-6234-4078-9f6a-86076fc1b872"))
-	(wire (pts (xy 71.120 59.690) (xy 71.120 88.900)) (stroke (width 0.254) (type default)) (uuid "f65a1233-f989-4f29-8313-0a079aab75ec"))
-	(wire (pts (xy 71.120 52.070) (xy 83.820 27.940)) (stroke (width 0.254) (type default)) (uuid "69c11210-addc-403c-9218-d66927ba79ef"))
-	(wire (pts (xy 96.520 66.040) (xy 116.840 50.800)) (stroke (width 0.254) (type default)) (uuid "b5b6589e-47d1-4562-85a6-9a9b56312241"))
-	(wire (pts (xy 96.520 60.960) (xy 116.840 50.800)) (stroke (width 0.254) (type default)) (uuid "f862024d-6e18-414b-929c-cde3060415f9"))
-	(wire (pts (xy 35.560 41.910) (xy 35.560 25.400)) (stroke (width 0.254) (type default)) (uuid "a3931077-b42d-494e-9428-0807041bd801"))
-	(wire (pts (xy 35.560 34.290) (xy 35.560 25.400)) (stroke (width 0.254) (type default)) (uuid "73903bf5-9961-477a-a2fd-85820ab34364"))
-	(wire (pts (xy 35.560 67.310) (xy 15.240 63.500)) (stroke (width 0.254) (type default)) (uuid "c205e4a0-ffc4-4b79-bfb4-ca9852bb2d34"))
-	(wire (pts (xy 35.560 59.690) (xy 15.240 63.500)) (stroke (width 0.254) (type default)) (uuid "1f71d806-5adc-4451-ac90-5f64bdcc5a09"))
-	(wire (pts (xy 25.400 34.290) (xy 15.240 38.100)) (stroke (width 0.254) (type default)) (uuid "f988a8c1-951b-4711-aa3a-22554c3acfac"))
-	(wire (pts (xy 25.400 26.670) (xy 35.560 25.400)) (stroke (width 0.254) (type default)) (uuid "207c58a9-7777-413a-9f80-531de9a9264b"))
-	(wire (pts (xy 25.400 74.930) (xy 15.240 71.120)) (stroke (width 0.254) (type default)) (uuid "ce8b9e76-4be1-4f21-8e42-7028f0cf4abd"))
-	(wire (pts (xy 25.400 67.310) (xy 15.240 63.500)) (stroke (width 0.254) (type default)) (uuid "85a843e9-70e6-49d9-9f76-ea73f77758d1"))
-	(wire (pts (xy 100.330 87.630) (xy 126.990 86.360)) (stroke (width 0.254) (type default)) (uuid "8bbbad0d-3864-4d49-9a69-e797eff26097"))
-	(wire (pts (xy 100.330 85.090) (xy 126.990 86.360)) (stroke (width 0.254) (type default)) (uuid "dfacd82a-bf8c-4645-9642-13a8b6ed8446"))
-	(wire (pts (xy 106.680 92.710) (xy 126.990 86.360)) (stroke (width 0.254) (type default)) (uuid "a2d7df85-b47a-4f4f-8bc1-6cde51bba13c"))
-	(wire (pts (xy 106.680 80.010) (xy 126.990 86.360)) (stroke (width 0.254) (type default)) (uuid "50c4f4dd-d373-4e2e-ab19-b07afe399af1"))
-	(wire (pts (xy 45.720 27.940) (xy 35.560 25.400)) (stroke (width 0.254) (type default)) (uuid "08447628-3b90-4500-b639-09670aaaa56f"))
-	(wire (pts (xy 45.720 22.860) (xy 35.560 25.400)) (stroke (width 0.254) (type default)) (uuid "d1b750b8-8850-478e-b8d5-9f85f4a2264a"))
-	(wire (pts (xy 45.720 78.740) (xy 71.120 88.900)) (stroke (width 0.254) (type default)) (uuid "74652437-f7ca-43c0-a531-f4f682025657"))
-	(wire (pts (xy 45.720 73.660) (xy 71.120 88.900)) (stroke (width 0.254) (type default)) (uuid "c8629f65-9ff7-4b7e-8cea-91f902d87843"))
-	(wire (pts (xy 71.120 27.940) (xy 83.820 27.940)) (stroke (width 0.254) (type default)) (uuid "4669d5f8-d1e3-4b54-9f42-b31c66244e45"))
-	(wire (pts (xy 71.120 22.860) (xy 83.820 27.940)) (stroke (width 0.254) (type default)) (uuid "ccfc4963-075e-4d35-a636-64f628238d13"))
-	(wire (pts (xy 88.900 83.820) (xy 71.120 88.900)) (stroke (width 0.254) (type default)) (uuid "d3b00e65-c2a9-4ff3-9639-155fb343c2a5"))
-	(wire (pts (xy 83.820 25.400) (xy 83.820 27.940)) (stroke (width 0.254) (type default)) (uuid "f8f0a356-5677-41ab-a177-eea702d41d2a"))
-	(wire (pts (xy 71.120 86.360) (xy 71.120 88.900)) (stroke (width 0.254) (type default)) (uuid "12d87a70-a0cb-4e03-95f5-4b95e47d5dbf"))
-	(wire (pts (xy 73.660 110.490) (xy 73.660 111.760)) (stroke (width 0.254) (type default)) (uuid "6a4cc8b8-8086-41a8-884d-f31127bbac74"))
-
+	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 73.66 109.22 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "aefaed71-8891-49b4-82c9-b555df3ffead")
+		(property "Reference" "#U0117"
+			(at 73.66 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 73.66 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 73.66 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 73.66 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 73.66 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "b4498107-2f72-462d-bd6c-3d6520ec2c37")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/d6c4e942-2b3b-4529-97eb-1972926d7be4"
+					(reference "#U0117")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 35.56 63.5 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "b3ddaa8d-a056-40cd-964e-26e6cfa17a3f")
+		(property "Reference" "K2"
+			(at 35.56 68.58 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Value" "COTO9007 SENSE_LO reed <1pA latch OFF"
+			(at 35.56 57.4 0)
+			(effects
+				(font
+					(size 0.8 0.8)
+				)
+			)
+		)
+		(property "Footprint" "Relay_THT:Relay_SPDT_Coto_9007"
+			(at 35.56 55.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 35.56 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 35.56 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "12a183a2-1d3b-4b06-bd87-1e80df3a3320")
+		)
+		(pin "2"
+			(uuid "ce51b6a1-6c55-4e23-bc06-c45b8de5eefd")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/d6c4e942-2b3b-4529-97eb-1972926d7be4"
+					(reference "K2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "ReRAM_SMU:OPA140")
+		(at 45.72 38.1 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "c401c401-c401-4c01-8c01-c401c401c401")
+		(property "Reference" "U401A1"
+			(at 45.72 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "OPA140AID SENSE_HI buffer >10G 5pF"
+			(at 45.72 32 0)
+			(effects
+				(font
+					(size 0.9 0.9)
+				)
+			)
+		)
+		(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
+			(at 45.72 29.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 45.72 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 45.72 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "31223bbc-41b6-4864-93d5-4f7ebe35a6bb")
+		)
+		(pin "3"
+			(uuid "4db2f9c9-8e75-4f1b-86c5-603db57ce042")
+		)
+		(pin "7"
+			(uuid "0d0095da-98fe-4faa-8d13-5d0076b2c855")
+		)
+		(pin "4"
+			(uuid "d6ff3348-0583-498f-b9a4-137c546cb3ce")
+		)
+		(pin "6"
+			(uuid "0b0d318d-353c-4edf-9524-ac253a4dd84a")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/d6c4e942-2b3b-4529-97eb-1972926d7be4"
+					(reference "U401A1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "ReRAM_SMU:OPA140")
+		(at 45.72 63.5 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "c402c402-c402-4c02-8c02-c402c402c402")
+		(property "Reference" "U401B1"
+			(at 45.72 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "OPA140AID SENSE_LO buffer"
+			(at 45.72 57.4 0)
+			(effects
+				(font
+					(size 0.9 0.9)
+				)
+			)
+		)
+		(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
+			(at 45.72 55.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 45.72 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 45.72 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "8935316a-027d-491d-a949-26d3c3c4a1a0")
+		)
+		(pin "3"
+			(uuid "40963830-99ac-4238-8ab0-3622d201ea01")
+		)
+		(pin "7"
+			(uuid "54f4043b-9712-4c84-bf53-22735d4c0f4c")
+		)
+		(pin "4"
+			(uuid "e41b8ff3-1592-40c6-b820-65935af474fa")
+		)
+		(pin "6"
+			(uuid "f960e952-75e5-4fd0-b9e3-33e47a52df8e")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/d6c4e942-2b3b-4529-97eb-1972926d7be4"
+					(reference "U401B1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "ReRAM_SMU:OPA140")
+		(at 83.82 50.8 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "c403c403-c403-4c03-8c03-c403c403c403")
+		(property "Reference" "U6"
+			(at 83.82 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "OPA140AID diff gain=1 K1 PRIMARY"
+			(at 83.82 41.91 0)
+			(effects
+				(font
+					(size 0.9 0.9)
+				)
+			)
+		)
+		(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
+			(at 83.82 39.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 83.82 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 83.82 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "afd26267-19c5-4657-b52a-9d8f33b818d3")
+		)
+		(pin "3"
+			(uuid "df70de0e-4b07-447f-8461-5bf8d0f71f4a")
+		)
+		(pin "7"
+			(uuid "ebfbeebf-6e94-4b7b-b314-4d0eb9f41f93")
+		)
+		(pin "4"
+			(uuid "3b9d1631-65e4-40ec-b131-a6990ec16e09")
+		)
+		(pin "6"
+			(uuid "510c6a25-bf7e-413e-96ed-8c085b8410dc")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/d6c4e942-2b3b-4529-97eb-1972926d7be4"
+					(reference "U6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "ReRAM_SMU:LT5400")
+		(at 83.82 68.58 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "c404c404-c404-4c04-8c04-c404c404c404")
+		(property "Reference" "U7"
+			(at 83.82 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LT5400-3 DNP K2 provision 0.01% tracking"
+			(at 83.82 61.98 0)
+			(effects
+				(font
+					(size 0.7 0.7)
+				)
+			)
+		)
+		(property "Footprint" "Package_DFN:MSOP-8_3x3mm_P0.65mm_EP"
+			(at 83.82 59.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 83.82 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 83.82 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "41591784-c641-488b-94de-50986ea61859")
+		)
+		(pin "2"
+			(uuid "e8fe01c2-cf79-42a9-9bb9-d3d7a8272d53")
+		)
+		(pin "3"
+			(uuid "dac5005f-816c-4190-9607-6ebf43c983e9")
+		)
+		(pin "4"
+			(uuid "5deacfd6-fc24-4cf0-8206-8d8a552f3436")
+		)
+		(pin "9"
+			(uuid "b35713af-672c-418b-bfcf-1addc2757b81")
+		)
+		(pin "8"
+			(uuid "6668f9f9-d071-40cc-93dc-240caf41bcf1")
+		)
+		(pin "7"
+			(uuid "afbf3178-5c60-4350-a6d2-955168b99ef1")
+		)
+		(pin "6"
+			(uuid "ee20b010-0866-4b40-b422-646edd23dff8")
+		)
+		(pin "5"
+			(uuid "19e08935-6021-4836-9901-bf5509c973ca")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/d6c4e942-2b3b-4529-97eb-1972926d7be4"
+					(reference "U7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 96.52 63.5 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "c405c405-c405-4c05-8c05-c405c405c405")
+		(property "Reference" "C4"
+			(at 96.52 66.04 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Value" "15p C0G diff BW pole 10MHz (1k*15p)"
+			(at 96.52 58.42 0)
+			(effects
+				(font
+					(size 0.8 0.8)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 96.52 56.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 96.52 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 96.52 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "79d48b1f-685c-4de3-a052-50fe9877c252")
+		)
+		(pin "2"
+			(uuid "a8fbad76-3e2b-44d2-99ce-8252d78be4ad")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/d6c4e942-2b3b-4529-97eb-1972926d7be4"
+					(reference "C4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 45.72 25.4 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "c406c406-c406-4c06-8c06-c406c406c406")
+		(property "Reference" "C1"
+			(at 45.72 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100nF OPA140 V+ dec"
+			(at 45.72 20.07 0)
+			(effects
+				(font
+					(size 0.8 0.8)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 45.72 18.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 45.72 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 45.72 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "dcdbfd2e-5de7-42ba-a512-67c718040b70")
+		)
+		(pin "2"
+			(uuid "0ad641fe-c5f8-4c5f-b5fe-2c758b116a90")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/d6c4e942-2b3b-4529-97eb-1972926d7be4"
+					(reference "C1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 45.72 76.2 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "c407c407-c407-4c07-8c07-c407c407c407")
+		(property "Reference" "C2"
+			(at 45.72 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10uF OPA140 V+ bulk"
+			(at 45.72 71.12 0)
+			(effects
+				(font
+					(size 0.8 0.8)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 45.72 69.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 45.72 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 45.72 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "ca3d1d83-414e-49a1-8145-2f27e8386e91")
+		)
+		(pin "2"
+			(uuid "7be988fa-0f53-4971-90bc-036da7e62082")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/d6c4e942-2b3b-4529-97eb-1972926d7be4"
+					(reference "C2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 71.12 25.4 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "c408c408-c408-4c08-8c08-c408c408c408")
+		(property "Reference" "C3"
+			(at 71.12 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100nF OPA140 V- dec"
+			(at 71.12 20.07 0)
+			(effects
+				(font
+					(size 0.8 0.8)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 71.12 18.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 71.12 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 71.12 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "dd3c6c7c-93fb-4de3-a32e-53a7a480eca5")
+		)
+		(pin "2"
+			(uuid "50b04c64-5eef-493f-be24-a2a0f1aae221")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/d6c4e942-2b3b-4529-97eb-1972926d7be4"
+					(reference "C3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 25.4 71.12 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d5ae9c88-192d-4727-8cee-edc461cfecc9")
+		(property "Reference" "R2"
+			(at 25.4 73.66 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Value" "10M pull SENSE_LO behind K302"
+			(at 25.4 66.04 0)
+			(effects
+				(font
+					(size 0.7 0.7)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 25.4 64.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 25.4 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 25.4 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "5f378f42-ff64-4621-b7fa-7c9a49a70a09")
+		)
+		(pin "2"
+			(uuid "46ac3577-be8e-464a-8f8e-a53b05440e23")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/d6c4e942-2b3b-4529-97eb-1972926d7be4"
+					(reference "R2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 35.56 38.1 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "e5325324-2152-487f-a17f-65f467bf1006")
+		(property "Reference" "K1"
+			(at 35.56 43.18 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Value" "COTO9007 SENSE_HI reed <1pA Coff 1pF latch OFF"
+			(at 35.56 32 0)
+			(effects
+				(font
+					(size 0.8 0.8)
+				)
+			)
+		)
+		(property "Footprint" "Relay_THT:Relay_SPDT_Coto_9007"
+			(at 35.56 29.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 35.56 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 35.56 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "922645b7-7177-4bbf-9ea1-18f80fe7c9a3")
+		)
+		(pin "2"
+			(uuid "fe6d1740-2299-44af-9841-4fceb2ccfa41")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/d6c4e942-2b3b-4529-97eb-1972926d7be4"
+					(reference "K1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:-12V")
+		(at 71.12 86.36 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "f87b6d87-2301-4d97-9736-434f227cd3ee")
+		(property "Reference" "#U0119"
+			(at 71.12 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 71.12 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 71.12 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 71.12 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 71.12 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "3a35055e-17d4-4e94-9b1a-560826e1cc3c")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/d6c4e942-2b3b-4529-97eb-1972926d7be4"
+					(reference "#U0119")
+					(unit 1)
+				)
+			)
+		)
+	)
 )

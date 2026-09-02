@@ -1,7 +1,7 @@
 (kicad_sch
-	(version 20241014)
+	(version 20250114)
 	(generator "eeschema")
-	(generator_version "10.0")
+	(generator_version "9.0")
 	(uuid "8e6967e2-5cef-4639-8996-504c824052a1")
 	(paper "A4")
 	(title_block
@@ -12,415 +12,5728 @@
 		(comment 1 "Gate A - Detailed Power: EXT +-12V, protection, rails, refs, POR")
 	)
 	(lib_symbols
-		(symbol "Device:R" (pin_numbers hide) (pin_names (offset 0)) (in_bom yes) (on_board yes)
-			(property "Reference" "R" (at 0.00 1.27 0) (effects (font (size 1.27 1.27))))
-			(property "Value" "R" (at 0.00 -1.27 0) (effects (font (size 1.27 1.27))))
-			(property "Footprint" "" (at 0.00 -2.54 0) (effects (font (size 1.27 1.27)) (hide yes)))
-			(symbol "R_0_0" (rectangle (start -1.27 -2.54) (end 1.27 2.54) (stroke (width 0.254) (type default)) (fill (type none))))
-			(symbol "R_1_0" (pin passive line (at 0.00 3.81 270) (length 2.032) (name "1") (number "1")) (pin passive line (at 0.00 -3.81 90) (length 2.032) (name "2") (number "2"))))
-		(symbol "Device:C" (pin_numbers hide) (pin_names (offset 0)) (in_bom yes) (on_board yes)
-			(property "Reference" "C" (at 0.00 1.27 0) (effects (font (size 1.27 1.27))))
-			(property "Value" "C" (at 0.00 -1.27 0) (effects (font (size 1.27 1.27))))
-			(symbol "C_0_0" (polyline (pts (xy -0.762 0.762) (xy 0.762 0.762)) (stroke (width 0.254))) (polyline (pts (xy -0.762 -0.762) (xy 0.762 -0.762)) (stroke (width 0.254))))
-			(symbol "C_1_0" (pin passive line (at 0.00 2.54 270) (length 1.27) (name "1") (number "1")) (pin passive line (at 0.00 -2.54 90) (length 1.27) (name "2") (number "2"))))
-		(symbol "Device:L" (pin_numbers hide) (pin_names (offset 0)) (in_bom yes) (on_board yes)
-			(property "Reference" "L" (at 0.00 1.27 0) (effects (font (size 1.27 1.27))))
-			(property "Value" "L" (at 0.00 -1.27 0) (effects (font (size 1.27 1.27))))
-			(symbol "L_0_0" (polyline (pts (xy -2.54 0) (xy -1.905 1.27) (xy -0.635 -1.27) (xy 0.635 1.27) (xy 1.905 -1.27) (xy 2.54 0)) (stroke (width 0.254))))
-			(symbol "L_1_0" (pin passive line (at -3.81 0.00 0) (length 1.27) (name "1") (number "1")) (pin passive line (at 3.81 0.00 180) (length 1.27) (name "2") (number "2"))))
-		(symbol "Device:D_Schottky" (pin_numbers hide) (in_bom yes) (on_board yes)
-			(property "Reference" "D" (at 0.00 1.27 0) (effects (font (size 1.27 1.27))))
-			(property "Value" "D_Schottky" (at 0.00 -1.27 0) (effects (font (size 1.27 1.27))))
-			(symbol "D_Schottky_0_0" (polyline (pts (xy -1.27 -1.27) (xy -1.27 1.27) (xy 1.27 0) (xy -1.27 -1.27)) (stroke (width 0.254))) (polyline (pts (xy 1.27 -1.27) (xy 1.27 1.27)) (stroke (width 0.254))))
-			(symbol "D_Schottky_1_0" (pin passive line (at -2.54 0.00 0) (length 1.27) (name "1") (number "1")) (pin passive line (at 2.54 0.00 180) (length 1.27) (name "2") (number "2"))))
-		(symbol "Connector_Generic:Conn_03x01_Odd_Even" (pin_numbers hide) (pin_names (offset 0)) (in_bom yes) (on_board yes)
-			(property "Reference" "J" (at 0.00 3.81 0) (effects (font (size 1.27 1.27))))
-			(property "Value" "Conn_03x01" (at 0.00 -3.81 0) (effects (font (size 1.27 1.27))))
-			(symbol "Conn_03x01_Odd_Even_0_0" (rectangle (start -2.54 -3.81) (end 2.54 3.81) (stroke (width 0.254) (type default)) (fill (type none))))
-			(symbol "Conn_03x01_Odd_Even_1_0" (pin passive line (at -5.08 2.54 0) (length 2.54) (name "Pin_1") (number "1")) (pin passive line (at -5.08 0.00 0) (length 2.54) (name "Pin_2") (number "2")) (pin passive line (at -5.08 -2.54 0) (length 2.54) (name "Pin_3") (number "3"))))
-		(symbol "power:GND" (pin_numbers hide) (power) (property "Reference" "#PWR" (at 0.00 -3.81 0) (effects (font (size 1.27 1.27)) (hide yes))) (symbol "GND_0_0" (polyline (pts (xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54) (xy -1.27 -1.27) (xy 0 -1.27)) (stroke (width 0)))))
-		(symbol "power:PWR_FLAG" (power) (property "Reference" "#FLG" (at 0.00 -3.81 0) (effects (font (size 1.27 1.27)) (hide yes))) (symbol "PWR_FLAG_0_0" (polyline (pts (xy -1.27 1.27) (xy 1.27 1.27) (xy 1.27 -1.27) (xy -1.27 -1.27) (xy -1.27 1.27)) (stroke (width 0.254))) (pin power_out line (at 0.00 1.27 270) (length 0) (name "1") (number "1"))))
-		(symbol "ReRAM_SMU:LTC6655-5" (in_bom yes) (on_board yes)
-			(property "Reference" "U" (at 0.00 3.81 0) (effects (font (size 1.27 1.27))))
-			(property "Value" "LTC6655BHM-5.0" (at 0.00 -3.81 0) (effects (font (size 1.27 1.27))))
-			(property "Footprint" "Package_SO:MSOP-8_3x3mm_P0.65mm" (at 0.00 -5.08 0) (effects (font (size 1.27 1.27)) (hide yes)))
-			(property "Datasheet" "https://www.analog.com/media/en/technical-documentation/data-sheets/6655fb.pdf Rev B p1 VIN 3.5-36V VOUT 5.0V 0.025% 0.775uVpp 2ppm/C max" (at 0.00 -6.35 0) (effects (font (size 1.27 1.27)) (hide yes)))
-			(symbol "LTC6655-5_0_0" (rectangle (start -5.08 -5.08) (end 5.08 5.08) (stroke (width 0.254) (type default)) (fill (type background))))
-			(symbol "LTC6655-5_1_0"
-				(pin power_in line (at -7.62 2.54 0) (length 2.54) (name "VIN") (number "1"))
-				(pin power_out line (at 7.62 2.54 180) (length 2.54) (name "VOUT") (number "2"))
-				(pin power_in line (at 0.00 -7.62 90) (length 2.54) (name "GND") (number "3"))
-				(pin input line (at -7.62 -2.54 0) (length 2.54) (name "NR") (number "4"))
+		(symbol "Connector_Generic:Conn_03x01_Odd_Even"
+			(pin_numbers
+				(hide yes)
 			)
-		)
-		(symbol "ReRAM_SMU:LTC6655-2V5" (in_bom yes) (on_board yes)
-			(property "Reference" "U" (at 0.00 3.81 0) (effects (font (size 1.27 1.27))))
-			(property "Value" "LTC6655BHMS8-2.5" (at 0.00 -3.81 0) (effects (font (size 1.27 1.27))))
-			(property "Footprint" "Package_SO:MSOP-8_3x3mm_P0.65mm" (at 0.00 -5.08 0) (effects (font (size 1.27 1.27)) (hide yes)))
-			(property "Datasheet" "https://www.analog.com/media/en/technical-documentation/data-sheets/6655fb.pdf Rev B p1 VIN 3.5-36V VOUT 2.5V 0.775uVpp LN grade 1uF OUT cap" (at 0.00 -6.35 0) (effects (font (size 1.27 1.27)) (hide yes)))
-			(symbol "LTC6655-2V5_0_0" (rectangle (start -5.08 -5.08) (end 5.08 5.08) (stroke (width 0.254) (type default)) (fill (type background))))
-			(symbol "LTC6655-2V5_1_0"
-				(pin power_in line (at -7.62 2.54 0) (length 2.54) (name "VIN") (number "1"))
-				(pin power_out line (at 7.62 2.54 180) (length 2.54) (name "VOUT") (number "2"))
-				(pin power_in line (at 0.00 -7.62 90) (length 2.54) (name "GND") (number "3"))
-				(pin input line (at -7.62 -2.54 0) (length 2.54) (name "NR") (number "4"))
+			(pin_names
+				(offset 0)
 			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Conn_03x01"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Conn_03x01_Odd_Even_0_0"
+				(rectangle
+					(start -2.54 -3.81)
+					(end 2.54 3.81)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "Conn_03x01_Odd_Even_1_0"
+				(pin passive line
+					(at -5.08 2.54 0)
+					(length 2.54)
+					(name "Pin_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "Pin_2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -2.54 0)
+					(length 2.54)
+					(name "Pin_3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
 		)
-		(symbol "ReRAM_SMU:LT3045" (in_bom yes) (on_board yes)
-			(property "Reference" "U" (at 0.00 4.57 0) (effects (font (size 1.27 1.27))))
-			(property "Value" "LT3045EDD#PBF" (at 0.00 -4.57 0) (effects (font (size 1.27 1.27))))
-			(property "Footprint" "Package_DFN:DFN-12_3x3mm_P0.45mm" (at 0.00 -5.84 0) (effects (font (size 1.27 1.27)) (hide yes)))
-			(property "Datasheet" "https://www.analog.com/media/en/technical-documentation/data-sheets/3045fb.pdf VIN 1.8-20V VOUT 5.0V 0.8uVrms 20V 500mA PSRR 120dB" (at 0.00 -7.11 0) (effects (font (size 1.27 1.27)) (hide yes)))
-			(symbol "LT3045_0_0" (rectangle (start -5.08 -5.08) (end 5.08 5.08) (stroke (width 0.254) (type default)) (fill (type background))))
+		(symbol "Device:C"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "C"
+				(at 0 1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "C"
+				(at 0 -1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "C_0_0"
+				(polyline
+					(pts
+						(xy -0.762 0.762) (xy 0.762 0.762)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.762 -0.762) (xy 0.762 -0.762)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "C_1_0"
+				(pin passive line
+					(at 0 2.54 270)
+					(length 1.27)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -2.54 90)
+					(length 1.27)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Device:D_Schottky"
+			(pin_numbers
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "D"
+				(at 0 1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "D_Schottky"
+				(at 0 -1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "D_Schottky_0_0"
+				(polyline
+					(pts
+						(xy -1.27 -1.27) (xy -1.27 1.27) (xy 1.27 0) (xy -1.27 -1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 -1.27) (xy 1.27 1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "D_Schottky_1_0"
+				(pin passive line
+					(at -2.54 0 0)
+					(length 1.27)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 2.54 0 180)
+					(length 1.27)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Device:L"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "L"
+				(at 0 1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "L"
+				(at 0 -1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "L_0_0"
+				(polyline
+					(pts
+						(xy -2.54 0) (xy -1.905 1.27) (xy -0.635 -1.27) (xy 0.635 1.27) (xy 1.905 -1.27) (xy 2.54 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "L_1_0"
+				(pin passive line
+					(at -3.81 0 0)
+					(length 1.27)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 3.81 0 180)
+					(length 1.27)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Device:R"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "R"
+				(at 0 1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "R"
+				(at 0 -1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "R_0_0"
+				(rectangle
+					(start -1.27 -2.54)
+					(end 1.27 2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "R_1_0"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 2.032)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 2.032)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "ReRAM_SMU:LT3045"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "U"
+				(at 0 4.57 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "LT3045EDD#PBF"
+				(at 0 -4.57 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Package_DFN:DFN-12_3x3mm_P0.45mm"
+				(at 0 -5.84 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://www.analog.com/media/en/technical-documentation/data-sheets/3045fb.pdf VIN 1.8-20V VOUT 5.0V 0.8uVrms 20V 500mA PSRR 120dB"
+				(at 0 -7.11 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "LT3045_0_0"
+				(rectangle
+					(start -5.08 -5.08)
+					(end 5.08 5.08)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
 			(symbol "LT3045_1_0"
-				(pin power_in line (at -7.62 3.81 0) (length 2.54) (name "VIN") (number "1"))
-				(pin power_out line (at 7.62 3.81 180) (length 2.54) (name "VOUT") (number "2"))
-				(pin power_in line (at 0.00 -7.62 90) (length 2.54) (name "GND") (number "3"))
-				(pin input line (at -7.62 0.00 0) (length 2.54) (name "SET") (number "4"))
-				(pin input line (at -7.62 -3.81 0) (length 2.54) (name "PG") (number "5"))
+				(pin power_in line
+					(at -7.62 3.81 0)
+					(length 2.54)
+					(name "VIN"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -7.62 0 0)
+					(length 2.54)
+					(name "SET"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -7.62 -3.81 0)
+					(length 2.54)
+					(name "PG"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 0 -7.62 90)
+					(length 2.54)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_out line
+					(at 7.62 3.81 180)
+					(length 2.54)
+					(name "VOUT"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
 			)
+			(embedded_fonts no)
 		)
-		(symbol "ReRAM_SMU:TPS3808" (in_bom yes) (on_board yes)
-			(property "Reference" "U" (at 0.00 3.81 0) (effects (font (size 1.27 1.27))))
-			(property "Value" "TPS3808G33/TLV803S33" (at 0.00 -3.81 0) (effects (font (size 1.27 1.27))))
-			(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6" (at 0.00 -5.08 0) (effects (font (size 1.27 1.27)) (hide yes)))
-			(property "Datasheet" "TI TPS3808 datasheet supervisor Vth 3.07V delay 200ms open-drain" (at 0.00 -6.35 0) (effects (font (size 1.27 1.27)) (hide yes)))
-			(symbol "TPS3808_0_0" (rectangle (start -5.08 -3.81) (end 5.08 3.81) (stroke (width 0.254) (type default)) (fill (type background))))
+		(symbol "ReRAM_SMU:LTC6655-2V5"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "U"
+				(at 0 3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "LTC6655BHMS8-2.5"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Package_SO:MSOP-8_3x3mm_P0.65mm"
+				(at 0 -5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://www.analog.com/media/en/technical-documentation/data-sheets/6655fb.pdf Rev B p1 VIN 3.5-36V VOUT 2.5V 0.775uVpp LN grade 1uF OUT cap"
+				(at 0 -6.35 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "LTC6655-2V5_0_0"
+				(rectangle
+					(start -5.08 -5.08)
+					(end 5.08 5.08)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+			(symbol "LTC6655-2V5_1_0"
+				(pin power_in line
+					(at -7.62 2.54 0)
+					(length 2.54)
+					(name "VIN"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -7.62 -2.54 0)
+					(length 2.54)
+					(name "NR"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 0 -7.62 90)
+					(length 2.54)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_out line
+					(at 7.62 2.54 180)
+					(length 2.54)
+					(name "VOUT"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "ReRAM_SMU:LTC6655-5"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "U"
+				(at 0 3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "LTC6655BHM-5.0"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Package_SO:MSOP-8_3x3mm_P0.65mm"
+				(at 0 -5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://www.analog.com/media/en/technical-documentation/data-sheets/6655fb.pdf Rev B p1 VIN 3.5-36V VOUT 5.0V 0.025% 0.775uVpp 2ppm/C max"
+				(at 0 -6.35 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "LTC6655-5_0_0"
+				(rectangle
+					(start -5.08 -5.08)
+					(end 5.08 5.08)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+			(symbol "LTC6655-5_1_0"
+				(pin power_in line
+					(at -7.62 2.54 0)
+					(length 2.54)
+					(name "VIN"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -7.62 -2.54 0)
+					(length 2.54)
+					(name "NR"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 0 -7.62 90)
+					(length 2.54)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_out line
+					(at 7.62 2.54 180)
+					(length 2.54)
+					(name "VOUT"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "ReRAM_SMU:TPS3808"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "U"
+				(at 0 3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "TPS3808G33/TLV803S33"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
+				(at 0 -5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "TI TPS3808 datasheet supervisor Vth 3.07V delay 200ms open-drain"
+				(at 0 -6.35 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "TPS3808_0_0"
+				(rectangle
+					(start -5.08 -3.81)
+					(end 5.08 3.81)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
 			(symbol "TPS3808_1_0"
-				(pin power_in line (at -7.62 1.27 0) (length 2.54) (name "VDD") (number "1"))
-				(pin power_in line (at 0.00 -6.35 90) (length 2.54) (name "GND") (number "2"))
-				(pin input line (at -7.62 -1.27 0) (length 2.54) (name "SENSE") (number "3"))
-				(pin output line (at 7.62 0.00 180) (length 2.54) (name "RESET_N") (number "4"))
+				(pin power_in line
+					(at -7.62 1.27 0)
+					(length 2.54)
+					(name "VDD"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -7.62 -1.27 0)
+					(length 2.54)
+					(name "SENSE"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 0 -6.35 90)
+					(length 2.54)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 7.62 0 180)
+					(length 2.54)
+					(name "RESET_N"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "ReRAM_SMU:TestPoint"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "TP"
+				(at 0 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "TP"
+				(at 0 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "TestPoint_0_0"
+				(circle
+					(center 0 0)
+					(radius 1.27)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "TestPoint_1_0"
+				(pin passive line
+					(at 0 -2.54 90)
+					(length 1.27)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "power:GND"
+			(power)
+			(pin_numbers
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "#PWR"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "GND_0_0"
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54) (xy -1.27 -1.27) (xy 0 -1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "power:PWR_FLAG"
+			(power)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "#FLG"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "PWR_FLAG_0_0"
+				(polyline
+					(pts
+						(xy -1.27 1.27) (xy 1.27 1.27) (xy 1.27 -1.27) (xy -1.27 -1.27) (xy -1.27 1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin power_out line
+					(at 0 1.27 270)
+					(length 0)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+	)
+	(text "Power Domain Table (Option A - V1 baseline, raw +12V_A for power stage)\nRail          Source          Voltage   Current   Consumer                          Filter/Reg class\n+12V_A        J1+12V->F1/D1   +12V raw  ~200mA    LT1970A power stage AVDD          47uF bulk + ferrite + 100nF\n-12V_A        J1-12V->F2/D2   -12V raw  ~200mA    LT1970A AVSS + AD5764 AVSS        47uF bulk + ferrite + 100nF\n+5V_A         LT3045 from +12V_A +5.0V  ~300mA   LTC6655 refs + OPA140 analog + LT3045 SET  10uH LC pi + LT3045 0.8uVrms\n+3V3          TLV1117 from +5V_A 3.3V   ~200mA   STM32G474 + digital + supervisor   10uF+100nF\nVREF_5V       LTC6655-5.0 from +5V_A 5.0V  5mA    AD5764 REFAB+REFCD (spec condition) 10uF+0.1uF OUT 0.1uF NR 0.775uVpp\nVREF_2V5      LTC6655-2.5 from +5V_A 2.5V 5mA    ADS1262 VREF (midscale 2.5V)       10uF+0.1uF OUT 0.1uF NR\nGND           star plane      0V       -       one continuous plane, no split (IR-13)  placement + via stitch + decoupling\nNote: AD5764 AVDD/AVSS =RAW +-12V_A satisfies 11.4V min (insufficient at ±12.5V ±2% (was ±12V ±5% bare) ±5% -> 11.4V exactly, no drop/ripple margin; REQUIREDGuaranteed at IC >=11.8V -> bench 12.5V ±2% or rail-valid 11.6V comparator, see DEC-038); do NOT derive +-10V LDO (IR-07). LT1763 class only for positive +5V_A."
+		(exclude_from_sim no)
+		(at 9.91 139.7 0)
+		(effects
+			(font
+				(size 0.9 0.9)
 			)
 		)
-		(symbol "ReRAM_SMU:TestPoint" (in_bom yes) (on_board yes)
-			(property "Reference" "TP" (at 0.00 2.54 0) (effects (font (size 1.27 1.27))))
-			(property "Value" "TP" (at 0.00 -2.54 0) (effects (font (size 1.27 1.27))))
-			(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm" (at 0.00 -3.81 0) (effects (font (size 1.27 1.27)) (hide yes)))
-			(symbol "TestPoint_0_0" (circle (center 0 0) (radius 1.27) (stroke (width 0.254)) (fill (type none))))
-			(symbol "TestPoint_1_0" (pin passive line (at 0.00 -2.54 90) (length 1.27) (name "1") (number "1"))))
+		(uuid "da535e0e-fb71-4591-9212-60280dd8061a")
 	)
-	(symbol (lib_id "Connector_Generic:Conn_03x01_Odd_Even") (at 25.40 38.10 0) (unit 1) (uuid "11111111-1111-4111-8111-111111111111")
-		(property "Reference" "J1" (at 25.40 33.02 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "POWER_IN +-12V EXT 3.5mm pitch screw terminal" (at 25.40 43.18 0) (effects (font (size 1 1)) (hide no)))
-		(property "Footprint" "Connector_Screw:Connector_Screw_Terminal_3.5mm_3pin" (at 25.40 44.96 0) (effects (font (size 1.27 1.27)) (hide yes)))
-		(property "Datasheet" "External bench +-12V 1A current-limited, no mains on PCB REQ-PWR-001" (at 25.40 46.48 0) (effects (font (size 1 1)) (hide yes)))
+	(text "01_POWER Detailed Gate A rev0.2  External +-12V 1A bench via J1 screw terminal\nF1/F2 polyfuse 500mA + SS14 reverse Schottky D1/D2 + TVS SMAJ12A (DNP) per rail. Bulk 47uF 25V X5R + 10uF + 100nF.\n+12V_A/-12V_A are RAW filtered (Option A: LT1970 + AD5764 run from RAW +-12V, 0.6V margin on AD5764 11.4V min (insufficient at ±12.5V ±2% (was ±12V ±5% bare) ±5% -> 11.4V exactly, no drop/ripple margin; REQUIREDGuaranteed at IC >=11.8V -> bench 12.5V ±2% or rail-valid 11.6V comparator, see DEC-038)). No +-10V LDO (IR-07).\n+5V_A via LT3045EDD (VIN 12V_A, SET 12.4k=5.0V, 10uF OUT, 10uF IN, 4.7uF SET cap, PG 100k to 3V3). PSRR 120dB, 0.8uVrms.\n+3V3 via TLV1117LV33 from +5V_A, 10uF+100nF. Supervision: TPS3808G33 senses +3V3 (Vth2.93), delay 200ms, open-drain RESET_N with 10k PU to 3V3.\nRefs: LTC6655BHMS8-5.0 VIN +5V_A -> VREF_5V for AD5764 REFAB/REFCD. LTC6655BHMS8-2.5 -> VREF_2V5 for ADS1262. Each: 0.1uF VIN, 10uF+0.1uF VOUT (DS 2.7-50uF), 0.1uF NR. Lone-star routing, Kelvin at load.\nPOR/Rail-valid: TPS3808 RESET_N drives OE gate via 1k series + 100nF debounce + 10k PD safe default. HW pulldown 10k on OUTPUT_ENABLE ensures disabled at power-up/brown-out/MCU high-Z. 200ms POR matches Test L. AND with MCU GPIO via 74LVC1G08 (DNP provision).\nPower domains table below. TPs 1-8. All power nets have PWR_FLAG. Decoupling within 2mm of IC."
+		(exclude_from_sim no)
+		(at 9.91 121.92 0)
+		(effects
+			(font
+				(size 1 1)
+			)
+		)
+		(uuid "e2aa69ab-2045-4ca3-b566-6517b927d362")
 	)
-	(symbol (lib_id "Device:R") (at 40.64 30.48 0) (unit 1) (uuid "22222222-2222-4222-8222-222222222222")
-		(property "Reference" "F1" (at 40.64 33.02 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "Polyfuse 500mA 30V 1206 Bourns MF-MSMF050-2" (at 40.64 25.40 0) (effects (font (size 1 1))))
-		(property "Footprint" "Fuse:Fuse_1206_3216Metric" (at 40.64 23.62 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(wire
+		(pts
+			(xy 63.5 30.48) (xy 68.58 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "04495e77-6426-418d-b2a7-5b9810ac194d")
 	)
-	(symbol (lib_id "Device:R") (at 40.64 45.72 0) (unit 1) (uuid "33333333-3333-4333-8333-333333333333")
-		(property "Reference" "F2" (at 40.64 48.26 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "Polyfuse 500mA 30V 1206 -12V rail" (at 40.64 40.64 0) (effects (font (size 1 1))))
-		(property "Footprint" "Fuse:Fuse_1206_3216Metric" (at 40.64 38.86 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(wire
+		(pts
+			(xy 71.12 27.94) (xy 53.34 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "04b76ef4-a5f3-407f-9e1f-07b99134559c")
 	)
-	(symbol (lib_id "Device:D_Schottky") (at 40.64 20.32 90) (unit 1) (uuid "44444444-4444-4444-8444-444444444444")
-		(property "Reference" "D1" (at 43.18 20.32 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "SS14 Schottky reverse protection +12V" (at 43.18 22.86 0) (effects (font (size 1 1))))
-		(property "Footprint" "Diode_SMD:D_SMA" (at 43.18 18.03 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(wire
+		(pts
+			(xy 149.86 30.48) (xy 149.86 33.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "085a3845-79dd-4595-9c2b-080fca0668a6")
 	)
-	(symbol (lib_id "Device:D_Schottky") (at 40.64 55.88 90) (unit 1) (uuid "55555555-5555-4555-8555-555555555555")
-		(property "Reference" "D2" (at 43.18 55.88 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "SS14 Schottky reverse protection -12V" (at 43.18 58.42 0) (effects (font (size 1 1))))
-		(property "Footprint" "Diode_SMD:D_SMA" (at 43.18 53.59 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(wire
+		(pts
+			(xy 73.66 80.01) (xy 88.9 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "09f7d25a-a8c7-46bc-91a2-4b7e41c97362")
 	)
-	(symbol (lib_id "Device:C") (at 53.34 30.48 0) (unit 1) (uuid "66666666-6666-4666-8666-666666666666")
-		(property "Reference" "C_BULK_P" (at 53.34 33.02 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "47uF 25V X5R 1210 + 10uF 100nF decoupling bulk +12V" (at 53.34 25.40 0) (effects (font (size 0.9 0.9))))
-		(property "Footprint" "Capacitor_SMD:C_1210_3225Metric" (at 53.34 23.62 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(wire
+		(pts
+			(xy 81.28 83.82) (xy 81.28 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0bb2330d-c0f6-45bf-a2b0-480dc676f7a0")
 	)
-	(symbol (lib_id "Device:C") (at 53.34 45.72 0) (unit 1) (uuid "77777777-7777-4777-8777-777777777777")
-		(property "Reference" "C_BULK_N" (at 53.34 48.26 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "47uF 25V X5R 1210 -12V bulk" (at 53.34 40.64 0) (effects (font (size 0.9 0.9))))
-		(property "Footprint" "Capacitor_SMD:C_1210_3225Metric" (at 53.34 38.86 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(wire
+		(pts
+			(xy 91.44 77.47) (xy 88.9 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0ff1433f-ef18-4e7f-8e45-9c1856170879")
 	)
-	(symbol (lib_id "Device:L") (at 63.50 30.48 90) (unit 1) (uuid "88888888-8888-4888-8888-888888888888")
-		(property "Reference" "L1" (at 66.04 30.48 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "10uH ferrite bead Murata BLM31PG121SN1 + LC pi 10uH/2x10uF for +5V_A" (at 66.04 33.02 0) (effects (font (size 0.9 0.9))))
-		(property "Footprint" "Inductor_SMD:L_1206_3216Metric" (at 66.04 27.94 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(wire
+		(pts
+			(xy 132.08 66.04) (xy 149.86 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "13df4658-2bea-4a0c-b6a9-745644fca9db")
 	)
-	(symbol (lib_id "ReRAM_SMU:LT3045") (at 81.28 30.48 0) (unit 1) (uuid "99999999-9999-4999-8999-999999999999")
-		(property "Reference" "U1" (at 81.28 38.10 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "LT3045EDD +5V_A 500mA 0.8uVrms ILIM PG" (at 81.28 22.86 0) (effects (font (size 1 1))))
-		(property "Footprint" "Package_DFN:DFN-12_3x3mm_P0.45mm_EP" (at 81.28 20.57 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(wire
+		(pts
+			(xy 40.64 17.78) (xy 53.34 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "159f2163-4744-4a0e-8fdf-91fde8342d10")
 	)
-	(symbol (lib_id "Device:R") (at 81.28 17.78 0) (unit 1) (uuid "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa")
-		(property "Reference" "R_SET1" (at 81.28 20.32 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "12.4k 0.1% SET for 5.0V (VSET=100uA*R)" (at 81.28 14.48 0) (effects (font (size 0.9 0.9))))
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 81.28 12.70 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(wire
+		(pts
+			(xy 63.5 34.29) (xy 53.34 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1698c2fb-c01c-45d8-b3cc-40b6894adcaf")
 	)
-	(symbol (lib_id "Device:C") (at 91.44 30.48 0) (unit 1) (uuid "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb")
-		(property "Reference" "C_OUT_5V" (at 91.44 33.02 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "10uF X5R 0805 + 4.7uF at LT3045 OUT low ESR" (at 91.44 25.40 0) (effects (font (size 0.9 0.9))))
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric" (at 91.44 23.62 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(wire
+		(pts
+			(xy 114.3 17.78) (xy 114.3 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "17583556-4158-499e-94c3-320fa9603237")
 	)
-	(symbol (lib_id "Device:C") (at 71.12 30.48 0) (unit 1) (uuid "cccccccc-cccc-4ccc-8ccc-cccccccccccc")
-		(property "Reference" "C_IN_5V" (at 71.12 33.02 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "10uF + 100nF at LT3045 IN" (at 71.12 25.40 0) (effects (font (size 0.9 0.9))))
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric" (at 71.12 23.62 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(wire
+		(pts
+			(xy 83.82 96.52) (xy 99.06 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1a28eab3-da62-40b6-81ac-244243ceb5c7")
 	)
-	(symbol (lib_id "Device:R") (at 101.60 17.78 0) (unit 1) (uuid "dddddddd-dddd-4ddd-8ddd-dddddddddddd")
-		(property "Reference" "R_PG5V" (at 101.60 20.32 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "100k pull-up PG to +3V3" (at 101.60 14.48 0) (effects (font (size 0.9 0.9))))
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 101.60 12.70 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(wire
+		(pts
+			(xy 81.28 43.18) (xy 91.44 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1ac2cf3a-b2d6-4519-9b6f-b42951874926")
 	)
-	(symbol (lib_id "Device:C") (at 81.28 40.64 0) (unit 1) (uuid "eeeeeeee-eeee-4eee-8eee-eeeeeeeeeeee")
-		(property "Reference" "C_SET_5V" (at 81.28 43.18 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "4.7uF SET cap for noise/program stability" (at 81.28 46.48 0) (effects (font (size 0.9 0.9))))
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 81.28 48.01 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(wire
+		(pts
+			(xy 55.88 30.48) (xy 60.96 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1d300c1d-0608-4de8-8838-5645cb4cbaa8")
 	)
-	(symbol (lib_id "Device:R") (at 114.30 30.48 0) (unit 1) (uuid "ffffffff-ffff-4fff-8fff-ffffffffffff")
-		(property "Reference" "U2" (at 114.30 33.02 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "TLV1117-33 +3V3 800mA from +5V_A LDO" (at 114.30 25.40 0) (effects (font (size 1 1))))
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-223-3_TabPin2" (at 114.30 23.62 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(wire
+		(pts
+			(xy 20.32 40.64) (xy 17.78 38.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "234c34ff-db6f-48a4-b6d6-59392a547597")
 	)
-	(symbol (lib_id "Device:C") (at 114.30 20.32 0) (unit 1) (uuid "10101010-1010-4101-8101-101010101010")
-		(property "Reference" "C_3V3_OUT" (at 114.30 22.86 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "10uF + 100nF +3V3" (at 114.30 17.78 0) (effects (font (size 0.9 0.9))))
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric" (at 114.30 15.49 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(wire
+		(pts
+			(xy 129.54 60.96) (xy 149.86 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "27a0f669-0f7a-435f-8a25-1a470070d4f0")
 	)
-	(symbol (lib_id "ReRAM_SMU:LTC6655-5") (at 139.70 30.48 0) (unit 1) (uuid "20202020-2020-4202-8202-202020202020")
-		(property "Reference" "U3" (at 139.70 38.10 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "LTC6655BHMS8-5.0 DAC REF 5.0V LN 0.775uVpp" (at 139.70 22.86 0) (effects (font (size 0.9 0.9))))
-		(property "Footprint" "Package_SO:MSOP-8_3x3mm_P0.65mm" (at 139.70 20.57 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(wire
+		(pts
+			(xy 142.24 63.5) (xy 147.32 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "290c47da-cb9d-4a70-9a3e-4f293b0e3659")
 	)
-	(symbol (lib_id "Device:C") (at 129.54 30.48 0) (unit 1) (uuid "30303030-3030-4303-8303-303030303030")
-		(property "Reference" "C_REF5V_IN" (at 129.54 33.02 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "0.1uF VIN bypass LTC6655-5" (at 129.54 25.40 0) (effects (font (size 0.9 0.9))))
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 129.54 23.62 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(wire
+		(pts
+			(xy 53.34 25.4) (xy 53.34 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2d1ea0fd-1034-4719-af4c-f5728d723474")
 	)
-	(symbol (lib_id "Device:C") (at 149.86 30.48 0) (unit 1) (uuid "40404040-4040-4404-8404-404040404040")
-		(property "Reference" "C_REF5V_OUT" (at 149.86 33.02 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "10uF X7R + 0.1uF VOUT LTC6655-5 per DS: 2.7-50uF, 10uF rec" (at 149.86 25.40 0) (effects (font (size 0.8 0.8))))
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric" (at 149.86 23.62 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(wire
+		(pts
+			(xy 129.54 27.94) (xy 114.3 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2df3df54-d2e5-4eb2-a8ab-031823adb4e8")
 	)
-	(symbol (lib_id "Device:C") (at 139.70 38.10 90) (unit 1) (uuid "50505050-5050-4505-8505-505050505050")
-		(property "Reference" "C_NR5V" (at 142.24 38.10 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "0.1uF NR pin to GND LTC6655 noise reduction" (at 142.24 40.64 0) (effects (font (size 0.8 0.8))))
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 142.24 36.07 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(wire
+		(pts
+			(xy 101.6 92.71) (xy 101.6 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2e33e053-8b3d-4689-9f06-acebe66589c6")
 	)
-	(symbol (lib_id "ReRAM_SMU:LTC6655-2V5") (at 139.70 63.50 0) (unit 1) (uuid "60606060-6060-4606-8606-606060606060")
-		(property "Reference" "U4" (at 139.70 71.12 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "LTC6655BHMS8-2.5 ADC REF 2.5V LN" (at 139.70 55.88 0) (effects (font (size 0.9 0.9))))
-		(property "Footprint" "Package_SO:MSOP-8_3x3mm_P0.65mm" (at 139.70 53.59 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(wire
+		(pts
+			(xy 88.9 34.29) (xy 91.44 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2ea706b7-77f0-4c1b-93b3-d9d926ef961b")
 	)
-	(symbol (lib_id "Device:C") (at 129.54 63.50 0) (unit 1) (uuid "70707070-7070-4707-8707-707070707070")
-		(property "Reference" "C_REF2V5_IN" (at 129.54 66.04 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "0.1uF VIN bypass LTC6655-2.5" (at 129.54 58.42 0) (effects (font (size 0.9 0.9))))
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 129.54 56.39 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(wire
+		(pts
+			(xy 40.64 22.86) (xy 53.34 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2fff6b0d-23d5-4fe4-b513-0ddb30661ac1")
 	)
-	(symbol (lib_id "Device:C") (at 149.86 63.50 0) (unit 1) (uuid "80808080-8080-4808-8808-808080808080")
-		(property "Reference" "C_REF2V5_OUT" (at 149.86 66.04 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "10uF X7R + 0.1uF VOUT LTC6655-2.5" (at 149.86 58.42 0) (effects (font (size 0.8 0.8))))
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric" (at 149.86 56.39 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(wire
+		(pts
+			(xy 40.64 26.67) (xy 53.34 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3731933b-dd9b-49e1-b34b-ff03c9ad4654")
 	)
-	(symbol (lib_id "Device:C") (at 139.70 71.12 90) (unit 1) (uuid "90909090-9090-4909-8909-909090909090")
-		(property "Reference" "C_NR2V5" (at 142.24 71.12 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "0.1uF NR LTC6655-2.5" (at 142.24 73.66 0) (effects (font (size 0.8 0.8))))
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 142.24 69.09 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(wire
+		(pts
+			(xy 81.28 100.33) (xy 88.9 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "378d3c78-8957-426a-af88-8e25eda1a93b")
 	)
-	(symbol (lib_id "ReRAM_SMU:TPS3808") (at 81.28 81.28 0) (unit 1) (uuid "a1a1a1a1-a1a1-4a1a-8a1a-a1a1a1a1a1a1")
-		(property "Reference" "U5" (at 81.28 88.90 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "TPS3808G33 supervisor +3V3 Vth2.93V 200ms" (at 81.28 73.66 0) (effects (font (size 0.9 0.9))))
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6" (at 81.28 71.37 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(wire
+		(pts
+			(xy 142.24 38.1) (xy 149.86 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3e4063a3-a6e3-49ca-af2b-bb3eb52bc2ff")
 	)
-	(symbol (lib_id "Device:R") (at 71.12 81.28 0) (unit 1) (uuid "b1b1b1b1-b1b1-4b1b-8b1b-b1b1b1b1b1b1")
-		(property "Reference" "R_SENSE_DIV1" (at 71.12 83.82 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "100k SENSE divider top for supervisor check +5V" (at 71.12 76.20 0) (effects (font (size 0.8 0.8))))
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 71.12 74.42 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(wire
+		(pts
+			(xy 88.9 81.28) (xy 96.52 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4be9fd6c-de99-4fca-9aa7-bbfd70621f9b")
 	)
-	(symbol (lib_id "Device:R") (at 91.44 81.28 0) (unit 1) (uuid "c1c1c1c1-c1c1-4c1c-8c1c-c1c1c1c1c1c1")
-		(property "Reference" "R_POR_PU" (at 91.44 83.82 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "10k pull-up RESET_N to +3V3" (at 91.44 76.96 0) (effects (font (size 0.8 0.8))))
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 91.44 76.20 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(wire
+		(pts
+			(xy 83.82 81.28) (xy 88.9 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4ce3232f-2c4f-4c73-a5cb-e2215d4e75da")
 	)
-	(symbol (lib_id "Device:R") (at 101.60 96.52 0) (unit 1) (uuid "d1d1d1d1-d1d1-4d1d-8d1d-d1d1d1d1d1d1")
-		(property "Reference" "R_OE_PD" (at 101.60 99.06 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "10k pulldown OUTPUT_ENABLE safe default" (at 101.60 91.44 0) (effects (font (size 0.9 0.9))))
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 101.60 89.41 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(wire
+		(pts
+			(xy 139.7 50.8) (xy 149.86 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4e2d2cdb-6acc-4061-b5b0-124f290542cd")
 	)
-	(symbol (lib_id "Device:R") (at 81.28 96.52 0) (unit 1) (uuid "e1e1e1e1-e1e1-4e1e-8e1e-e1e1e1e1e1e1")
-		(property "Reference" "R_OE_SER" (at 81.28 99.06 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "1k series gate OUTPUT_ENABLE to LT1970 EN" (at 81.28 91.44 0) (effects (font (size 0.9 0.9))))
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 81.28 89.41 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(wire
+		(pts
+			(xy 53.34 30.48) (xy 53.34 33.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "52e5d231-7568-4542-b468-ba3ee9f61a79")
 	)
-	(symbol (lib_id "Device:C") (at 101.60 106.68 0) (unit 1) (uuid "f1f1f1f1-f1f1-4f1f-8f1f-f1f1f1f1f1f1")
-		(property "Reference" "C_OE" (at 101.60 109.22 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "100nF OE debounce" (at 101.60 101.60 0) (effects (font (size 0.9 0.9))))
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 101.60 99.57 0) (effects (font (size 1.27 1.27)) (hide yes)))
+	(wire
+		(pts
+			(xy 40.64 49.53) (xy 53.34 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5a521106-02bd-4bdb-bed1-592b5c5715f4")
 	)
-	(symbol (lib_id "ReRAM_SMU:TestPoint") (at 149.86 20.32 0) (unit 1) (uuid "a2a2a2a2-a2a2-4a2a-8a2a-a2a2a2a2a2a2")
-		(property "Reference" "TP1" (at 149.86 22.86 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "TP_VREF_5V" (at 149.86 17.78 0) (effects (font (size 0.9 0.9))))
+	(wire
+		(pts
+			(xy 81.28 22.86) (xy 91.44 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5faa4243-a4c5-45a7-a9ca-961ccfcbc273")
 	)
-	(symbol (lib_id "ReRAM_SMU:TestPoint") (at 149.86 53.34 0) (unit 1) (uuid "b2b2b2b2-b2b2-4b2b-8b2b-b2b2b2b2b2b2")
-		(property "Reference" "TP2" (at 149.86 55.88 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "TP_VREF_2V5" (at 149.86 50.80 0) (effects (font (size 0.9 0.9))))
+	(wire
+		(pts
+			(xy 149.86 63.5) (xy 149.86 66.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "662c33a6-2cdb-4fb3-bb3f-6976a5febc46")
 	)
-	(symbol (lib_id "ReRAM_SMU:TestPoint") (at 91.44 20.32 0) (unit 1) (uuid "c2c2c2c2-c2c2-4c2c-8c2c-c2c2c2c2c2c2")
-		(property "Reference" "TP3" (at 91.44 22.86 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "TP_+5V_A" (at 91.44 17.78 0) (effects (font (size 0.9 0.9))))
+	(wire
+		(pts
+			(xy 73.66 82.55) (xy 88.9 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6cadcfa2-2c15-4722-8a34-024f5c23d4e0")
 	)
-	(symbol (lib_id "ReRAM_SMU:TestPoint") (at 114.30 12.70 0) (unit 1) (uuid "d2d2d2d2-d2d2-4d2d-8d2d-d2d2d2d2d2d2")
-		(property "Reference" "TP4" (at 114.30 15.24 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "TP_+3V3" (at 114.30 10.16 0) (effects (font (size 0.9 0.9))))
+	(wire
+		(pts
+			(xy 137.16 71.12) (xy 149.86 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6dde55c5-30e9-427f-ae17-a8f1039f071d")
 	)
-	(symbol (lib_id "ReRAM_SMU:TestPoint") (at 53.34 20.32 0) (unit 1) (uuid "e2e2e2e2-e2e2-4e2e-8e2e-e2e2e2e2e2e2")
-		(property "Reference" "TP5" (at 53.34 22.86 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "TP_+12V_A" (at 53.34 17.78 0) (effects (font (size 0.9 0.9))))
+	(wire
+		(pts
+			(xy 132.08 63.5) (xy 137.16 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6f649140-96e4-409f-a0e6-1c48c7977103")
 	)
-	(symbol (lib_id "ReRAM_SMU:TestPoint") (at 53.34 55.88 0) (unit 1) (uuid "f2f2f2f2-f2f2-4f2f-8f2f-f2f2f2f2f2f2")
-		(property "Reference" "TP6" (at 53.34 58.42 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "TP_-12V_A" (at 53.34 53.34 0) (effects (font (size 0.9 0.9))))
+	(wire
+		(pts
+			(xy 142.24 30.48) (xy 147.32 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6f82994f-670d-4fc5-85f8-e3bc45c7a7ea")
 	)
-	(symbol (lib_id "ReRAM_SMU:TestPoint") (at 101.60 86.36 0) (unit 1) (uuid "12121212-1212-4121-8121-121212121212")
-		(property "Reference" "TP7" (at 101.60 88.90 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "TP_POR_RESET_N" (at 101.60 83.82 0) (effects (font (size 0.9 0.9))))
+	(wire
+		(pts
+			(xy 20.32 35.56) (xy 17.78 38.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "71c6c3f6-3bc9-483b-b891-178c053bdbbf")
 	)
-	(symbol (lib_id "ReRAM_SMU:TestPoint") (at 101.60 114.30 0) (unit 1) (uuid "13131313-1313-4131-8131-131313131313")
-		(property "Reference" "TP8" (at 101.60 116.84 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "TP_OUTPUT_ENABLE" (at 101.60 111.76 0) (effects (font (size 0.9 0.9))))
+	(wire
+		(pts
+			(xy 53.34 43.18) (xy 53.34 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "787b6d4d-d7c3-4c6b-889a-47f14351ad4b")
 	)
-	(symbol (lib_id "power:PWR_FLAG") (at 53.34 30.48 0) (unit 1) (uuid "14141414-1414-4141-8141-141414141414"))
-	(symbol (lib_id "power:PWR_FLAG") (at 53.34 45.72 0) (unit 1) (uuid "15151515-1515-4151-8151-151515151515"))
-	(symbol (lib_id "power:PWR_FLAG") (at 91.44 30.48 0) (unit 1) (uuid "16161616-1616-4161-8161-161616161616"))
-	(symbol (lib_id "power:PWR_FLAG") (at 114.30 30.48 0) (unit 1) (uuid "17171717-1717-4171-8171-171717171717"))
-	(symbol (lib_id "power:PWR_FLAG") (at 149.86 30.48 0) (unit 1) (uuid "18181818-1818-4181-8181-181818181818"))
-	(symbol (lib_id "power:PWR_FLAG") (at 149.86 63.50 0) (unit 1) (uuid "19191919-1919-4191-8191-191919191919"))
-	(symbol (lib_id "power:GND") (at 71.12 35.56 0) (unit 1) (uuid "1a1a1a1a-1a1a-41a1-81a1-1a1a1a1a1a1a"))
-	(symbol (lib_id "power:GND") (at 91.44 35.56 0) (unit 1) (uuid "1b1b1b1b-1b1b-41b1-81b1-1b1b1b1b1b1b"))
-	(symbol (lib_id "power:GND") (at 114.30 25.40 0) (unit 1) (uuid "1c1c1c1c-1c1c-41c1-81c1-1c1c1c1c1c1c"))
-	(symbol (lib_id "power:GND") (at 139.70 50.80 0) (unit 1) (uuid "1d1d1d1d-1d1d-41d1-81d1-1d1d1d1d1d1d"))
-	(symbol (lib_id "power:GND") (at 139.70 83.82 0) (unit 1) (uuid "1e1e1e1e-1e1e-41e1-81e1-1e1e1e1e1e1e"))
-	(symbol (lib_id "power:GND") (at 81.28 101.60 0) (unit 1) (uuid "1f1f1f1f-1f1f-41f1-81f1-1f1f1f1f1f1f"))
-	(symbol (lib_id "power:GND") (at 101.60 101.60 0) (unit 1) (uuid "20222222-2022-4222-8222-202222222022"))
-	(symbol (lib_id "power:GND") (at 53.34 25.40 0) (unit 1) (uuid "21212121-2121-4212-8212-212121212121"))
-	(symbol (lib_id "power:GND") (at 53.34 50.80 0) (unit 1) (uuid "22212121-2121-4212-8212-212122112121"))
-	(wire (pts (xy 30.48 38.1) (xy 38.1 38.1)) (stroke (width 0) (type default)))
-	(wire (pts (xy 43.18 30.48) (xy 50.8 30.48)) (stroke (width 0) (type default)))
-	(wire (pts (xy 55.88 30.48) (xy 60.96 30.48)) (stroke (width 0) (type default)))
-	(wire (pts (xy 63.5 30.48) (xy 68.58 30.48)) (stroke (width 0) (type default)))
-	
-	(wire (pts (xy 83.82 30.48) (xy 88.9 30.48)) (stroke (width 0) (type default)))
-	(wire (pts (xy 88.9 30.48) (xy 111.76 30.48)) (stroke (width 0) (type default)))
-	(wire (pts (xy 132.08 30.48) (xy 137.16 30.48)) (stroke (width 0) (type default)))
-	(wire (pts (xy 142.24 30.48) (xy 147.32 30.48)) (stroke (width 0) (type default)))
-	(wire (pts (xy 132.08 63.5) (xy 137.16 63.5)) (stroke (width 0) (type default)))
-	(wire (pts (xy 142.24 63.5) (xy 147.32 63.5)) (stroke (width 0) (type default)))
-	
-	(wire (pts (xy 78.74 81.28) (xy 81.28 81.28)) (stroke (width 0) (type default)))
-	(wire (pts (xy 83.82 81.28) (xy 88.9 81.28)) (stroke (width 0) (type default)))
-	(wire (pts (xy 88.9 81.28) (xy 96.52 81.28)) (stroke (width 0) (type default)))
-	(wire (pts (xy 81.28 83.82) (xy 81.28 93.98)) (stroke (width 0) (type default)))
-	(wire (pts (xy 83.82 96.52) (xy 99.06 96.52)) (stroke (width 0) (type default)))
-	(wire (pts (xy 101.6 99.06) (xy 101.6 104.14)) (stroke (width 0) (type default)))
-	(global_label "+12V_EXT" (shape input) (at 17.78 38.10 0) (effects (font (size 1.27 1.27))) (uuid "7ea26348-5901-4826-99f3-58b50284e10b"))
-	(global_label "-12V_EXT" (shape input) (at 17.78 45.72 0) (effects (font (size 1.27 1.27))) (uuid "48987989-38c2-4442-882a-b3b7b4406986"))
-	(global_label "+12V_A" (shape output) (at 53.34 30.48 0) (effects (font (size 1.27 1.27))) (uuid "a1111111-1111-4111-8111-a11111111111"))
-	(global_label "-12V_A" (shape output) (at 53.34 45.72 0) (effects (font (size 1.27 1.27))) (uuid "a2222222-2222-4222-8222-a22222222222"))
-	(global_label "+5V_A" (shape output) (at 91.44 30.48 0) (effects (font (size 1.27 1.27))) (uuid "a3333333-3333-4333-8333-a33333333333"))
-	(global_label "+3V3" (shape output) (at 114.30 30.48 0) (effects (font (size 1.27 1.27))) (uuid "a4444444-4444-4334-8444-a44444444444"))
-	(global_label "VREF_5V" (shape output) (at 149.86 30.48 0) (effects (font (size 1.27 1.27))) (uuid "a5555555-5555-4555-8555-a55555555555"))
-	(global_label "VREF_2V5" (shape output) (at 149.86 63.50 0) (effects (font (size 1.27 1.27))) (uuid "a6666666-6666-4666-8666-a66666666666"))
-	(global_label "GND" (shape input) (at 17.78 60.96 0) (effects (font (size 1.27 1.27))) (uuid "a7777777-7777-4777-8777-a77777777777"))
-	(global_label "OUTPUT_ENABLE" (shape output) (at 101.60 96.52 0) (effects (font (size 1.27 1.27))) (uuid "a8888888-8888-4888-8888-a88888888888"))
-	(global_label "nPOR" (shape output) (at 88.90 81.28 0) (effects (font (size 1.27 1.27))) (uuid "a9999999-9999-4999-8999-a99999999999"))
-	(text "01_POWER Detailed Gate A rev0.2  External +-12V 1A bench via J1 screw terminal\nF1/F2 polyfuse 500mA + SS14 reverse Schottky D1/D2 + TVS SMAJ12A (DNP) per rail. Bulk 47uF 25V X5R + 10uF + 100nF.\n+12V_A/-12V_A are RAW filtered (Option A: LT1970 + AD5764 run from RAW +-12V, 0.6V margin on AD5764 11.4V min (insufficient at ±12.5V ±2% (was ±12V ±5% bare) ±5% -> 11.4V exactly, no drop/ripple margin; REQUIREDGuaranteed at IC >=11.8V -> bench 12.5V ±2% or rail-valid 11.6V comparator, see DEC-038)). No +-10V LDO (IR-07).\n+5V_A via LT3045EDD (VIN 12V_A, SET 12.4k=5.0V, 10uF OUT, 10uF IN, 4.7uF SET cap, PG 100k to 3V3). PSRR 120dB, 0.8uVrms.\n+3V3 via TLV1117LV33 from +5V_A, 10uF+100nF. Supervision: TPS3808G33 senses +3V3 (Vth2.93), delay 200ms, open-drain RESET_N with 10k PU to 3V3.\nRefs: LTC6655BHMS8-5.0 VIN +5V_A -> VREF_5V for AD5764 REFAB/REFCD. LTC6655BHMS8-2.5 -> VREF_2V5 for ADS1262. Each: 0.1uF VIN, 10uF+0.1uF VOUT (DS 2.7-50uF), 0.1uF NR. Lone-star routing, Kelvin at load.\nPOR/Rail-valid: TPS3808 RESET_N drives OE gate via 1k series + 100nF debounce + 10k PD safe default. HW pulldown 10k on OUTPUT_ENABLE ensures disabled at power-up/brown-out/MCU high-Z. 200ms POR matches Test L. AND with MCU GPIO via 74LVC1G08 (DNP provision).\nPower domains table below. TPs 1-8. All power nets have PWR_FLAG. Decoupling within 2mm of IC." (at 9.91 121.92 0) (effects (font (size 1 1))))
-	(text "Power Domain Table (Option A - V1 baseline, raw +12V_A for power stage)\nRail          Source          Voltage   Current   Consumer                          Filter/Reg class\n+12V_A        J1+12V->F1/D1   +12V raw  ~200mA    LT1970A power stage AVDD          47uF bulk + ferrite + 100nF\n-12V_A        J1-12V->F2/D2   -12V raw  ~200mA    LT1970A AVSS + AD5764 AVSS        47uF bulk + ferrite + 100nF\n+5V_A         LT3045 from +12V_A +5.0V  ~300mA   LTC6655 refs + OPA140 analog + LT3045 SET  10uH LC pi + LT3045 0.8uVrms\n+3V3          TLV1117 from +5V_A 3.3V   ~200mA   STM32G474 + digital + supervisor   10uF+100nF\nVREF_5V       LTC6655-5.0 from +5V_A 5.0V  5mA    AD5764 REFAB+REFCD (spec condition) 10uF+0.1uF OUT 0.1uF NR 0.775uVpp\nVREF_2V5      LTC6655-2.5 from +5V_A 2.5V 5mA    ADS1262 VREF (midscale 2.5V)       10uF+0.1uF OUT 0.1uF NR\nGND           star plane      0V       -       one continuous plane, no split (IR-13)  placement + via stitch + decoupling\nNote: AD5764 AVDD/AVSS =RAW +-12V_A satisfies 11.4V min (insufficient at ±12.5V ±2% (was ±12V ±5% bare) ±5% -> 11.4V exactly, no drop/ripple margin; REQUIREDGuaranteed at IC >=11.8V -> bench 12.5V ±2% or rail-valid 11.6V comparator, see DEC-038); do NOT derive +-10V LDO (IR-07). LT1763 class only for positive +5V_A." (at 9.91 139.70 0) (effects (font (size 0.9 0.9))))
-
-
-
-
-
-
-
-
-
-
-	(wire (pts (xy 53.34 26.27) (xy 53.34 30.48)) (stroke (width 0) (type default)) (uuid "wire-pwr-correct-53.34-25"))
-	(wire (pts (xy 53.34 51.27) (xy 53.34 45.72)) (stroke (width 0) (type default)) (uuid "wire-pwr-correct-53.34-50"))
-	(wire (pts (xy 91.44 26.27) (xy 91.44 30.48)) (stroke (width 0) (type default)) (uuid "wire-pwr-correct-91.44-25"))
-	(wire (pts (xy 114.3 26.27) (xy 114.3 30.48)) (stroke (width 0) (type default)) (uuid "wire-pwr-correct-114.3-25"))
-	(wire (pts (xy 20.320 40.640) (xy 17.780 38.100)) (stroke (width 0) (type default)) (uuid "234c34ff-db6f-48a4-b6d6-59392a547597"))
-	(wire (pts (xy 20.320 38.100) (xy 17.780 38.100)) (stroke (width 0) (type default)) (uuid "8564fdf1-f40c-4f9b-b7d7-19e8fe10c90c"))
-	(wire (pts (xy 20.320 35.560) (xy 17.780 38.100)) (stroke (width 0) (type default)) (uuid "71c6c3f6-3bc9-483b-b891-178c053bdbbf"))
-	(wire (pts (xy 40.640 34.290) (xy 53.340 30.480)) (stroke (width 0) (type default)) (uuid "ffed28a4-c651-42fe-a5e7-df3d9d7ba00a"))
-	(wire (pts (xy 40.640 26.670) (xy 53.340 30.480)) (stroke (width 0) (type default)) (uuid "3731933b-dd9b-49e1-b34b-ff03c9ad4654"))
-	(wire (pts (xy 40.640 49.530) (xy 53.340 45.720)) (stroke (width 0) (type default)) (uuid "5a521106-02bd-4bdb-bed1-592b5c5715f4"))
-	(wire (pts (xy 40.640 41.910) (xy 53.340 45.720)) (stroke (width 0) (type default)) (uuid "91183c2c-e768-482d-b24c-9926dbfba297"))
-	(wire (pts (xy 40.640 17.780) (xy 53.340 30.480)) (stroke (width 0) (type default)) (uuid "159f2163-4744-4a0e-8fdf-91fde8342d10"))
-	(wire (pts (xy 40.640 22.860) (xy 53.340 30.480)) (stroke (width 0) (type default)) (uuid "2fff6b0d-23d5-4fe4-b513-0ddb30661ac1"))
-	(wire (pts (xy 40.640 53.340) (xy 53.340 45.720)) (stroke (width 0) (type default)) (uuid "d4d0d46b-5adc-4753-b798-2c7ec597b6d5"))
-	(wire (pts (xy 40.640 58.420) (xy 53.340 45.720)) (stroke (width 0) (type default)) (uuid "fbbb9b31-6399-452e-8457-fb1723b0c289"))
-	(wire (pts (xy 53.340 33.020) (xy 53.340 30.480)) (stroke (width 0) (type default)) (uuid "6d030678-f5c0-4552-99d9-181d0e7af4c3"))
-	(wire (pts (xy 53.340 27.940) (xy 53.340 30.480)) (stroke (width 0) (type default)) (uuid "d3f30a6c-9d1d-47de-ae84-c309a9e562fc"))
-	(wire (pts (xy 53.340 48.260) (xy 53.340 45.720)) (stroke (width 0) (type default)) (uuid "98746337-13c5-4333-b24f-d9f60f96c6d2"))
-	(wire (pts (xy 53.340 43.180) (xy 53.340 45.720)) (stroke (width 0) (type default)) (uuid "787b6d4d-d7c3-4c6b-889a-47f14351ad4b"))
-	(wire (pts (xy 63.500 26.670) (xy 53.340 30.480)) (stroke (width 0) (type default)) (uuid "f567e3f5-fff6-4741-800a-75077bbd7a30"))
-	(wire (pts (xy 63.500 34.290) (xy 53.340 30.480)) (stroke (width 0) (type default)) (uuid "1698c2fb-c01c-45d8-b3cc-40b6894adcaf"))
-	(wire (pts (xy 73.660 34.290) (xy 91.440 30.480)) (stroke (width 0) (type default)) (uuid "a1f07ec2-3522-4a3c-b77c-dcfa682a612a"))
-	(wire (pts (xy 88.900 34.290) (xy 91.440 30.480)) (stroke (width 0) (type default)) (uuid "2ea706b7-77f0-4c1b-93b3-d9d926ef961b"))
-	(wire (pts (xy 81.280 22.860) (xy 91.440 30.480)) (stroke (width 0) (type default)) (uuid "5faa4243-a4c5-45a7-a9ca-961ccfcbc273"))
-	(wire (pts (xy 81.280 21.590) (xy 91.440 30.480)) (stroke (width 0) (type default)) (uuid "939a46c1-40e3-403a-a435-9e1705c30e7f"))
-	(wire (pts (xy 81.280 13.970) (xy 91.440 30.480)) (stroke (width 0) (type default)) (uuid "fda55b02-4845-4d73-9e83-f5b6dd987474"))
-	(wire (pts (xy 91.440 33.020) (xy 91.440 30.480)) (stroke (width 0) (type default)) (uuid "3dc02003-63da-4c06-9976-7dc87c0587c0"))
-	(wire (pts (xy 91.440 27.940) (xy 91.440 30.480)) (stroke (width 0) (type default)) (uuid "f03b56e0-4b82-4233-900f-dcbe139b9a75"))
-	(wire (pts (xy 71.120 33.020) (xy 53.340 30.480)) (stroke (width 0) (type default)) (uuid "a491d52b-42ef-4735-854f-e7f4b02fa72d"))
-	(wire (pts (xy 71.120 27.940) (xy 53.340 30.480)) (stroke (width 0) (type default)) (uuid "04b76ef4-a5f3-407f-9e1f-07b99134559c"))
-	(wire (pts (xy 101.600 21.590) (xy 91.440 30.480)) (stroke (width 0) (type default)) (uuid "9a5c37f6-b441-434a-adf7-70b2c8927b42"))
-	(wire (pts (xy 101.600 13.970) (xy 91.440 30.480)) (stroke (width 0) (type default)) (uuid "9d9d6af6-79bf-4a60-ac75-2c08e69dbe56"))
-	(wire (pts (xy 81.280 43.180) (xy 91.440 30.480)) (stroke (width 0) (type default)) (uuid "1ac2cf3a-b2d6-4519-9b6f-b42951874926"))
-	(wire (pts (xy 81.280 38.100) (xy 91.440 30.480)) (stroke (width 0) (type default)) (uuid "c8da8e8a-748b-436f-b3ee-5f0bef3e401f"))
-	(wire (pts (xy 114.300 34.290) (xy 114.300 30.480)) (stroke (width 0) (type default)) (uuid "45bd9865-afb9-4c4b-8849-18c5dac32af8"))
-	(wire (pts (xy 114.300 26.670) (xy 114.300 30.480)) (stroke (width 0) (type default)) (uuid "433ec86e-0519-45ab-8b37-ab7091ac6fd2"))
-	(wire (pts (xy 114.300 22.860) (xy 114.300 30.480)) (stroke (width 0) (type default)) (uuid "d0665213-b319-484c-aee7-6ea719e42979"))
-	(wire (pts (xy 114.300 17.780) (xy 114.300 30.480)) (stroke (width 0) (type default)) (uuid "c29b1148-8ea4-4c82-a31f-2d410d4508bb"))
-	(wire (pts (xy 132.080 33.020) (xy 114.300 30.480)) (stroke (width 0) (type default)) (uuid "cf0cc888-9428-41bc-9971-b5b68a883f04"))
-	(wire (pts (xy 147.320 33.020) (xy 149.860 30.480)) (stroke (width 0) (type default)) (uuid "30a6f447-e90b-46e8-8498-af6edc9ee52b"))
-	(wire (pts (xy 139.700 22.860) (xy 149.860 30.480)) (stroke (width 0) (type default)) (uuid "7b65046e-7555-48c4-bf6f-f016686a5864"))
-	(wire (pts (xy 129.540 33.020) (xy 114.300 30.480)) (stroke (width 0) (type default)) (uuid "f96ff973-6f97-47e6-9b63-9039ac20996f"))
-	(wire (pts (xy 129.540 27.940) (xy 114.300 30.480)) (stroke (width 0) (type default)) (uuid "2df3df54-d2e5-4eb2-a8ab-031823adb4e8"))
-	(wire (pts (xy 149.860 33.020) (xy 149.860 30.480)) (stroke (width 0) (type default)) (uuid "6b6fd706-96d7-4f43-b39f-6184a187cf7c"))
-	(wire (pts (xy 149.860 27.940) (xy 149.860 30.480)) (stroke (width 0) (type default)) (uuid "cd4e8004-12cb-4789-a309-c3d5a5b1b067"))
-	(wire (pts (xy 137.160 38.100) (xy 149.860 30.480)) (stroke (width 0) (type default)) (uuid "7cfc8b15-bc7d-4256-b7e9-ab90dbf663b8"))
-	(wire (pts (xy 142.240 38.100) (xy 149.860 30.480)) (stroke (width 0) (type default)) (uuid "3e4063a3-a6e3-49ca-af2b-bb3eb52bc2ff"))
-	(wire (pts (xy 132.080 66.040) (xy 149.860 63.500)) (stroke (width 0) (type default)) (uuid "13df4658-2bea-4a0c-b6a9-745644fca9db"))
-	(wire (pts (xy 147.320 66.040) (xy 149.860 63.500)) (stroke (width 0) (type default)) (uuid "ab36380a-253c-4b17-9dcc-9071aa1b7a5e"))
-	(wire (pts (xy 139.700 55.880) (xy 149.860 63.500)) (stroke (width 0) (type default)) (uuid "81abe160-d92f-42e9-9e43-96ba0d3af009"))
-	(wire (pts (xy 129.540 66.040) (xy 149.860 63.500)) (stroke (width 0) (type default)) (uuid "94a04ba3-6579-4e06-a184-9ecbf85ae1bd"))
-	(wire (pts (xy 129.540 60.960) (xy 149.860 63.500)) (stroke (width 0) (type default)) (uuid "27a0f669-0f7a-435f-8a25-1a470070d4f0"))
-	(wire (pts (xy 149.860 66.040) (xy 149.860 63.500)) (stroke (width 0) (type default)) (uuid "662c33a6-2cdb-4fb3-bb3f-6976a5febc46"))
-	(wire (pts (xy 149.860 60.960) (xy 149.860 63.500)) (stroke (width 0) (type default)) (uuid "f8678dc3-f958-4a96-9964-a3a4c7cf6972"))
-	(wire (pts (xy 137.160 71.120) (xy 149.860 63.500)) (stroke (width 0) (type default)) (uuid "6dde55c5-30e9-427f-ae17-a8f1039f071d"))
-	(wire (pts (xy 142.240 71.120) (xy 149.860 63.500)) (stroke (width 0) (type default)) (uuid "c82d5603-abf3-474e-8b30-f8c449ad7fe1"))
-	(wire (pts (xy 73.660 82.550) (xy 88.900 81.280)) (stroke (width 0) (type default)) (uuid "6cadcfa2-2c15-4722-8a34-024f5c23d4e0"))
-	(wire (pts (xy 81.280 74.930) (xy 88.900 81.280)) (stroke (width 0) (type default)) (uuid "c10b0d2c-ef95-42d2-99ae-7cc24e1678b9"))
-	(wire (pts (xy 73.660 80.010) (xy 88.900 81.280)) (stroke (width 0) (type default)) (uuid "09f7d25a-a8c7-46bc-91a2-4b7e41c97362"))
-	(wire (pts (xy 71.120 85.090) (xy 88.900 81.280)) (stroke (width 0) (type default)) (uuid "8539f951-705e-40c1-9651-42de9c988a6b"))
-	(wire (pts (xy 71.120 77.470) (xy 88.900 81.280)) (stroke (width 0) (type default)) (uuid "854eb2b3-5f32-43e0-bbb3-a9f3767b00cc"))
-	(wire (pts (xy 91.440 85.090) (xy 88.900 81.280)) (stroke (width 0) (type default)) (uuid "a87448bb-68e3-4f8a-96a9-732755597dff"))
-	(wire (pts (xy 91.440 77.470) (xy 88.900 81.280)) (stroke (width 0) (type default)) (uuid "0ff1433f-ef18-4e7f-8e45-9c1856170879"))
-	(wire (pts (xy 101.600 100.330) (xy 101.600 96.520)) (stroke (width 0) (type default)) (uuid "4ed69b83-8e9b-4295-bdb4-a2760de70cf0"))
-	(wire (pts (xy 101.600 92.710) (xy 101.600 96.520)) (stroke (width 0) (type default)) (uuid "2e33e053-8b3d-4689-9f06-acebe66589c6"))
-	(wire (pts (xy 81.280 100.330) (xy 88.900 81.280)) (stroke (width 0) (type default)) (uuid "378d3c78-8957-426a-af88-8e25eda1a93b"))
-	(wire (pts (xy 81.280 92.710) (xy 88.900 81.280)) (stroke (width 0) (type default)) (uuid "c9c8c0d5-ff93-4953-95de-d4f551085c49"))
-	(wire (pts (xy 101.600 109.220) (xy 101.600 96.520)) (stroke (width 0) (type default)) (uuid "b554a875-bed8-4391-bd6d-ce0e023b0989"))
-	(wire (pts (xy 53.340 31.750) (xy 53.340 30.480)) (stroke (width 0) (type default)) (uuid "52e5d231-7568-4542-b468-ba3ee9f61a79"))
-	(wire (pts (xy 53.340 46.990) (xy 53.340 45.720)) (stroke (width 0) (type default)) (uuid "105dc53b-b058-45cf-b921-18c9425c428c"))
-	(wire (pts (xy 91.440 31.750) (xy 91.440 30.480)) (stroke (width 0) (type default)) (uuid "ea84b288-841d-4ec5-99b9-cd56d0ca8eda"))
-	(wire (pts (xy 114.300 31.750) (xy 114.300 30.480)) (stroke (width 0) (type default)) (uuid "d0e9f890-5b4f-4d01-99c5-089563e119b7"))
-	(wire (pts (xy 149.860 31.750) (xy 149.860 30.480)) (stroke (width 0) (type default)) (uuid "085a3845-79dd-4595-9c2b-080fca0668a6"))
-	(wire (pts (xy 149.860 64.770) (xy 149.860 63.500)) (stroke (width 0) (type default)) (uuid "c0d6b7bd-48aa-424e-8982-15a2bb5bb166"))
-	(wire (pts (xy 71.120 35.560) (xy 53.340 30.480)) (stroke (width 0) (type default)) (uuid "cc586105-f7d9-4735-8880-eba838dbba0a"))
-	(wire (pts (xy 91.440 35.560) (xy 91.440 30.480)) (stroke (width 0) (type default)) (uuid "6ba72b76-79f7-4137-880f-c5098b738b68"))
-	(wire (pts (xy 114.300 25.400) (xy 114.300 30.480)) (stroke (width 0) (type default)) (uuid "099bb6d9-a118-46e0-af9d-c79cd8b49314"))
-	(wire (pts (xy 139.700 50.800) (xy 149.860 63.500)) (stroke (width 0) (type default)) (uuid "4e2d2cdb-6acc-4061-b5b0-124f290542cd"))
-	(wire (pts (xy 139.700 83.820) (xy 149.860 63.500)) (stroke (width 0) (type default)) (uuid "cdcb17aa-dd39-43f2-97e3-dc534c57b12d"))
-	(wire (pts (xy 81.280 101.600) (xy 101.600 96.520)) (stroke (width 0) (type default)) (uuid "d248d1b2-1ab7-42d5-956e-79640cb77eda"))
-	(wire (pts (xy 101.600 101.600) (xy 101.600 96.520)) (stroke (width 0) (type default)) (uuid "00300d6c-6f1f-4d33-bb39-42d870398e70"))
-	(wire (pts (xy 53.340 25.400) (xy 53.340 30.480)) (stroke (width 0) (type default)) (uuid "0cab1d7e-ca09-496f-ba61-e0c65bfa928e"))
-	(wire (pts (xy 53.340 50.800) (xy 53.340 45.720)) (stroke (width 0) (type default)) (uuid "634cc89e-f8c0-467f-8aad-2140a06d91b2"))
-
+	(wire
+		(pts
+			(xy 139.7 22.86) (xy 149.86 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7b65046e-7555-48c4-bf6f-f016686a5864")
+	)
+	(wire
+		(pts
+			(xy 137.16 38.1) (xy 149.86 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7cfc8b15-bc7d-4256-b7e9-ab90dbf663b8")
+	)
+	(wire
+		(pts
+			(xy 139.7 55.88) (xy 149.86 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "81abe160-d92f-42e9-9e43-96ba0d3af009")
+	)
+	(wire
+		(pts
+			(xy 71.12 85.09) (xy 88.9 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8539f951-705e-40c1-9651-42de9c988a6b")
+	)
+	(wire
+		(pts
+			(xy 71.12 77.47) (xy 88.9 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "854eb2b3-5f32-43e0-bbb3-a9f3767b00cc")
+	)
+	(wire
+		(pts
+			(xy 20.32 38.1) (xy 17.78 38.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8564fdf1-f40c-4f9b-b7d7-19e8fe10c90c")
+	)
+	(wire
+		(pts
+			(xy 40.64 41.91) (xy 53.34 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "91183c2c-e768-482d-b24c-9926dbfba297")
+	)
+	(wire
+		(pts
+			(xy 81.28 21.59) (xy 91.44 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "939a46c1-40e3-403a-a435-9e1705c30e7f")
+	)
+	(wire
+		(pts
+			(xy 129.54 66.04) (xy 149.86 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "94a04ba3-6579-4e06-a184-9ecbf85ae1bd")
+	)
+	(wire
+		(pts
+			(xy 101.6 21.59) (xy 91.44 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9a5c37f6-b441-434a-adf7-70b2c8927b42")
+	)
+	(wire
+		(pts
+			(xy 101.6 13.97) (xy 91.44 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9d9d6af6-79bf-4a60-ac75-2c08e69dbe56")
+	)
+	(wire
+		(pts
+			(xy 73.66 34.29) (xy 91.44 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a1f07ec2-3522-4a3c-b77c-dcfa682a612a")
+	)
+	(wire
+		(pts
+			(xy 71.12 33.02) (xy 53.34 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a491d52b-42ef-4735-854f-e7f4b02fa72d")
+	)
+	(wire
+		(pts
+			(xy 30.48 38.1) (xy 38.1 38.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a5873e8f-5191-4cf6-96c9-67d164eb4dab")
+	)
+	(wire
+		(pts
+			(xy 132.08 30.48) (xy 137.16 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a80d3cf7-9afb-4926-9103-0485cf055899")
+	)
+	(wire
+		(pts
+			(xy 91.44 85.09) (xy 88.9 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a87448bb-68e3-4f8a-96a9-732755597dff")
+	)
+	(wire
+		(pts
+			(xy 101.6 96.52) (xy 101.6 109.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b554a875-bed8-4391-bd6d-ce0e023b0989")
+	)
+	(wire
+		(pts
+			(xy 43.18 30.48) (xy 50.8 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bfe20243-0518-4a39-a53c-135e728168ab")
+	)
+	(wire
+		(pts
+			(xy 81.28 74.93) (xy 88.9 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c10b0d2c-ef95-42d2-99ae-7cc24e1678b9")
+	)
+	(wire
+		(pts
+			(xy 53.34 45.72) (xy 53.34 51.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c5192b5e-7406-43ee-89fd-6c4c67c99254")
+	)
+	(wire
+		(pts
+			(xy 142.24 71.12) (xy 149.86 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c82d5603-abf3-474e-8b30-f8c449ad7fe1")
+	)
+	(wire
+		(pts
+			(xy 81.28 38.1) (xy 91.44 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c8da8e8a-748b-436f-b3ee-5f0bef3e401f")
+	)
+	(wire
+		(pts
+			(xy 81.28 92.71) (xy 88.9 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c9c8c0d5-ff93-4953-95de-d4f551085c49")
+	)
+	(wire
+		(pts
+			(xy 71.12 35.56) (xy 53.34 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cc586105-f7d9-4735-8880-eba838dbba0a")
+	)
+	(wire
+		(pts
+			(xy 149.86 27.94) (xy 149.86 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cd4e8004-12cb-4789-a309-c3d5a5b1b067")
+	)
+	(wire
+		(pts
+			(xy 139.7 83.82) (xy 149.86 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cdcb17aa-dd39-43f2-97e3-dc534c57b12d")
+	)
+	(wire
+		(pts
+			(xy 132.08 33.02) (xy 114.3 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cf0cc888-9428-41bc-9971-b5b68a883f04")
+	)
+	(wire
+		(pts
+			(xy 114.3 30.48) (xy 114.3 34.29)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d0e9f890-5b4f-4d01-99c5-089563e119b7")
+	)
+	(wire
+		(pts
+			(xy 81.28 101.6) (xy 101.6 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d248d1b2-1ab7-42d5-956e-79640cb77eda")
+	)
+	(wire
+		(pts
+			(xy 40.64 53.34) (xy 53.34 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d4d0d46b-5adc-4753-b798-2c7ec597b6d5")
+	)
+	(wire
+		(pts
+			(xy 91.44 30.48) (xy 91.44 35.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ea84b288-841d-4ec5-99b9-cd56d0ca8eda")
+	)
+	(wire
+		(pts
+			(xy 91.44 26.27) (xy 91.44 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f03b56e0-4b82-4233-900f-dcbe139b9a75")
+	)
+	(wire
+		(pts
+			(xy 63.5 26.67) (xy 53.34 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f567e3f5-fff6-4741-800a-75077bbd7a30")
+	)
+	(wire
+		(pts
+			(xy 149.86 60.96) (xy 149.86 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f8678dc3-f958-4a96-9964-a3a4c7cf6972")
+	)
+	(wire
+		(pts
+			(xy 129.54 33.02) (xy 114.3 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f96ff973-6f97-47e6-9b63-9039ac20996f")
+	)
+	(wire
+		(pts
+			(xy 78.74 81.28) (xy 81.28 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fae72101-1ee3-4a36-bd8e-35f6b531d31d")
+	)
+	(wire
+		(pts
+			(xy 40.64 58.42) (xy 53.34 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fbbb9b31-6399-452e-8457-fb1723b0c289")
+	)
+	(wire
+		(pts
+			(xy 83.82 30.48) (xy 111.76 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fd8e6421-e446-48ef-967a-b66ea637a928")
+	)
+	(wire
+		(pts
+			(xy 81.28 13.97) (xy 91.44 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fda55b02-4845-4d73-9e83-f5b6dd987474")
+	)
+	(wire
+		(pts
+			(xy 40.64 34.29) (xy 53.34 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ffed28a4-c651-42fe-a5e7-df3d9d7ba00a")
+	)
+	(global_label "-12V_EXT"
+		(shape input)
+		(at 17.78 45.72 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "48987989-38c2-4442-882a-b3b7b4406986")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 17.78 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "+12V_EXT"
+		(shape input)
+		(at 17.78 38.1 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "7ea26348-5901-4826-99f3-58b50284e10b")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 17.78 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "+12V_A"
+		(shape output)
+		(at 53.34 30.48 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "a1111111-1111-4111-8111-a11111111111")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 53.34 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "-12V_A"
+		(shape output)
+		(at 53.34 45.72 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "a2222222-2222-4222-8222-a22222222222")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 53.34 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "+5V_A"
+		(shape output)
+		(at 91.44 30.48 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "a3333333-3333-4333-8333-a33333333333")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 91.44 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "+3V3"
+		(shape output)
+		(at 114.3 30.48 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "a4444444-4444-4334-8444-a44444444444")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 114.3 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "VREF_5V"
+		(shape output)
+		(at 149.86 30.48 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "a5555555-5555-4555-8555-a55555555555")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 149.86 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "VREF_2V5"
+		(shape output)
+		(at 149.86 63.5 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "a6666666-6666-4666-8666-a66666666666")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 149.86 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "GND"
+		(shape input)
+		(at 17.78 60.96 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "a7777777-7777-4777-8777-a77777777777")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 17.78 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "OUTPUT_ENABLE"
+		(shape output)
+		(at 101.6 96.52 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "a8888888-8888-4888-8888-a88888888888")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 101.6 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "nPOR"
+		(shape output)
+		(at 88.9 81.28 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "a9999999-9999-4999-8999-a99999999999")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 88.9 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 114.3 20.32 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "10101010-1010-4101-8101-101010101010")
+		(property "Reference" "C_3V3_OUT1"
+			(at 114.3 22.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10uF + 100nF +3V3"
+			(at 114.3 17.78 0)
+			(effects
+				(font
+					(size 0.9 0.9)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 114.3 15.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 114.3 20.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 114.3 20.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "c6c642a2-81af-4eb7-ae84-e2c4359e57cc")
+		)
+		(pin "2"
+			(uuid "d80dbd48-450b-4b39-a138-940804ab9241")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "C_3V3_OUT1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_03x01_Odd_Even")
+		(at 25.4 38.1 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "11111111-1111-4111-8111-111111111111")
+		(property "Reference" "J1"
+			(at 25.4 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "POWER_IN +-12V EXT 3.5mm pitch screw terminal"
+			(at 25.4 43.18 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Footprint" "Connector_Screw:Connector_Screw_Terminal_3.5mm_3pin"
+			(at 25.4 44.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "External bench +-12V 1A current-limited, no mains on PCB REQ-PWR-001"
+			(at 25.4 46.48 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 25.4 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "acda05ee-e734-4098-b3d0-7cd240d72179")
+		)
+		(pin "2"
+			(uuid "98dfab5f-d030-417d-ba5b-8849651244d7")
+		)
+		(pin "3"
+			(uuid "fb8cc981-ebf0-4258-9f40-11e21417cc94")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "J1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "ReRAM_SMU:TestPoint")
+		(at 101.6 86.36 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "12121212-1212-4121-8121-121212121212")
+		(property "Reference" "TP4"
+			(at 101.6 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TP_POR_RESET_N"
+			(at 101.6 83.82 0)
+			(effects
+				(font
+					(size 0.9 0.9)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 101.6 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 101.6 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 101.6 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "423539fb-61d7-427f-8231-6c22437910bc")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "TP4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 101.6 106.68 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "1275ff33-91e4-401c-8871-7e8ed7dac43f")
+		(property "Reference" "C_OE1"
+			(at 101.6 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100nF OE debounce"
+			(at 101.6 101.6 0)
+			(effects
+				(font
+					(size 0.9 0.9)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 101.6 99.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 101.6 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 101.6 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "c3275844-9807-4c45-b44a-4b8ef4188abe")
+		)
+		(pin "2"
+			(uuid "95c84edd-733f-4eff-8b59-4ff06ed34905")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "C_OE1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "ReRAM_SMU:TestPoint")
+		(at 101.6 114.3 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "13131313-1313-4131-8131-131313131313")
+		(property "Reference" "TP5"
+			(at 101.6 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TP_OUTPUT_ENABLE"
+			(at 101.6 111.76 0)
+			(effects
+				(font
+					(size 0.9 0.9)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 101.6 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 101.6 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 101.6 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "5e433eb8-f35b-4ca6-83d8-33b68f98d88d")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "TP5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 53.34 30.48 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "14141414-1414-4141-8141-141414141414")
+		(property "Reference" "#U0104"
+			(at 53.34 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 53.34 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 53.34 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 53.34 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 53.34 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "1c5ffc43-4265-4b96-91e3-606481a6098e")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "#U0104")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 53.34 45.72 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "15151515-1515-4151-8151-151515151515")
+		(property "Reference" "#U0103"
+			(at 53.34 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 53.34 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 53.34 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 53.34 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 53.34 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "2914f79d-c301-45ad-98ae-aa1deb641da4")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "#U0103")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 91.44 30.48 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "16161616-1616-4161-8161-161616161616")
+		(property "Reference" "#U0112"
+			(at 91.44 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 91.44 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 91.44 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 91.44 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 91.44 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "34742992-4a26-4d5b-8bc6-3f096c79a854")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "#U0112")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 114.3 30.48 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "17171717-1717-4171-8171-171717171717")
+		(property "Reference" "#U0110"
+			(at 114.3 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 114.3 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 114.3 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 114.3 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 114.3 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "4fa5ace7-ac0e-4b87-b7a4-7aab61d1caf8")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "#U0110")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 149.86 30.48 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "18181818-1818-4181-8181-181818181818")
+		(property "Reference" "#U0108"
+			(at 149.86 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 149.86 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 149.86 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 149.86 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 149.86 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "1f4a890f-0552-417c-946d-b86b9e55b832")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "#U0108")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 149.86 63.5 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "19191919-1919-4191-8191-191919191919")
+		(property "Reference" "#U0109"
+			(at 149.86 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 149.86 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 149.86 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 149.86 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 149.86 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "f65921eb-d8e5-4f30-b3e5-798bfe9ed0db")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "#U0109")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 71.12 35.56 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "1a1a1a1a-1a1a-41a1-81a1-1a1a1a1a1a1a")
+		(property "Reference" "#U0102"
+			(at 71.12 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 71.12 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 71.12 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 71.12 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 71.12 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "#U0102")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 91.44 35.56 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "1b1b1b1b-1b1b-41b1-81b1-1b1b1b1b1b1b")
+		(property "Reference" "#U0101"
+			(at 91.44 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 91.44 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 91.44 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 91.44 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 91.44 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "#U0101")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 114.3 25.4 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "1c1c1c1c-1c1c-41c1-81c1-1c1c1c1c1c1c")
+		(property "Reference" "#U0111"
+			(at 114.3 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 114.3 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 114.3 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 114.3 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 114.3 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "#U0111")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 139.7 50.8 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "1d1d1d1d-1d1d-41d1-81d1-1d1d1d1d1d1d")
+		(property "Reference" "#U0107"
+			(at 139.7 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 139.7 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 139.7 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 139.7 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 139.7 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "#U0107")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 139.7 83.82 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "1e1e1e1e-1e1e-41e1-81e1-1e1e1e1e1e1e")
+		(property "Reference" "#U0115"
+			(at 139.7 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 139.7 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 139.7 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 139.7 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 139.7 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "#U0115")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 81.28 101.6 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "1f1f1f1f-1f1f-41f1-81f1-1f1f1f1f1f1f")
+		(property "Reference" "#U0114"
+			(at 81.28 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 81.28 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 81.28 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 81.28 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 81.28 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "#U0114")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "ReRAM_SMU:LTC6655-5")
+		(at 139.7 30.48 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "20202020-2020-4202-8202-202020202020")
+		(property "Reference" "U4"
+			(at 139.7 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LTC6655BHMS8-5.0 DAC REF 5.0V LN 0.775uVpp"
+			(at 139.7 22.86 0)
+			(effects
+				(font
+					(size 0.9 0.9)
+				)
+			)
+		)
+		(property "Footprint" "Package_SO:MSOP-8_3x3mm_P0.65mm"
+			(at 139.7 20.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 139.7 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 139.7 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "c7bd4edc-fea4-4505-83f6-b4893dcd1c7a")
+		)
+		(pin "4"
+			(uuid "78ba6f15-d228-46c5-ba55-11116d50bda9")
+		)
+		(pin "3"
+			(uuid "f8b74f9d-da63-4e4e-91a6-977ef86d971f")
+		)
+		(pin "2"
+			(uuid "d8fa0c3c-d010-4e48-ad48-4cc17df6fec5")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "U4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 101.6 101.6 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "20222222-2022-4222-8222-202222222022")
+		(property "Reference" "#U0113"
+			(at 101.6 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 101.6 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 101.6 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 101.6 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 101.6 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "#U0113")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 53.34 25.4 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "21212121-2121-4212-8212-212121212121")
+		(property "Reference" "#U0106"
+			(at 53.34 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 53.34 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 53.34 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 53.34 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 53.34 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "#U0106")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 53.34 50.8 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "22212121-2121-4212-8212-212122112121")
+		(property "Reference" "#U0105"
+			(at 53.34 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 53.34 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 53.34 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 53.34 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 53.34 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "#U0105")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 40.64 30.48 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "22222222-2222-4222-8222-222222222222")
+		(property "Reference" "F1"
+			(at 40.64 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Polyfuse 500mA 30V 1206 Bourns MF-MSMF050-2"
+			(at 40.64 25.4 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Footprint" "Fuse:Fuse_1206_3216Metric"
+			(at 40.64 23.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 40.64 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 40.64 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "53b86857-e483-4975-9702-aa454f129841")
+		)
+		(pin "2"
+			(uuid "0d82efec-aa66-46ee-b7fb-c168a00675cc")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "F1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "ReRAM_SMU:TestPoint")
+		(at 53.34 20.32 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "2bf1a35a-4a59-4a73-94d4-03ab3bbf61b5")
+		(property "Reference" "TP1"
+			(at 53.34 22.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TP_+12V_A"
+			(at 53.34 17.78 0)
+			(effects
+				(font
+					(size 0.9 0.9)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 53.34 20.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 53.34 20.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 53.34 20.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "7cc866e6-1c47-4af6-9458-59dd2ecfd193")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "TP1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 129.54 30.48 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "30303030-3030-4303-8303-303030303030")
+		(property "Reference" "C_REF5V_IN1"
+			(at 129.54 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "0.1uF VIN bypass LTC6655-5"
+			(at 129.54 25.4 0)
+			(effects
+				(font
+					(size 0.9 0.9)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 129.54 23.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 129.54 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 129.54 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "227c4e0e-e139-4ab1-a24f-d80cde60be34")
+		)
+		(pin "2"
+			(uuid "b29fc8ab-4564-4a7b-ba80-891d1dcaf9ae")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "C_REF5V_IN1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 40.64 45.72 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "33333333-3333-4333-8333-333333333333")
+		(property "Reference" "F2"
+			(at 40.64 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Polyfuse 500mA 30V 1206 -12V rail"
+			(at 40.64 40.64 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Footprint" "Fuse:Fuse_1206_3216Metric"
+			(at 40.64 38.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 40.64 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 40.64 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "4a2bab1c-d532-4203-9eda-1b37189f3010")
+		)
+		(pin "2"
+			(uuid "83d98157-5d29-4c0d-a6fe-fc0157398e1a")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "F2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "ReRAM_SMU:TPS3808")
+		(at 81.28 81.28 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "36e4c895-20b8-4117-a6d8-5b972a423fde")
+		(property "Reference" "U2"
+			(at 81.28 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TPS3808G33 supervisor +3V3 Vth2.93V 200ms"
+			(at 81.28 73.66 0)
+			(effects
+				(font
+					(size 0.9 0.9)
+				)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
+			(at 81.28 71.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 81.28 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 81.28 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "87930d4f-6688-4772-8546-b9a400a9c52d")
+		)
+		(pin "3"
+			(uuid "7aef9160-104c-414a-82a2-eb95e1023b62")
+		)
+		(pin "2"
+			(uuid "75481762-b171-435c-a9a7-e9cddd540a48")
+		)
+		(pin "4"
+			(uuid "b77173b2-0886-490b-a17c-0949d286020d")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "U2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 149.86 30.48 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "40404040-4040-4404-8404-404040404040")
+		(property "Reference" "C_REF5V_OUT1"
+			(at 149.86 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10uF X7R + 0.1uF VOUT LTC6655-5 per DS: 2.7-50uF, 10uF rec"
+			(at 149.86 25.4 0)
+			(effects
+				(font
+					(size 0.8 0.8)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 149.86 23.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 149.86 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 149.86 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "0fee8edd-4c85-4407-b759-77a6b8bbff38")
+		)
+		(pin "2"
+			(uuid "d9af27a1-42b5-4986-9ff5-54c2dda30033")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "C_REF5V_OUT1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:D_Schottky")
+		(at 40.64 20.32 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "44444444-4444-4444-8444-444444444444")
+		(property "Reference" "D1"
+			(at 43.18 20.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SS14 Schottky reverse protection +12V"
+			(at 43.18 22.86 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Footprint" "Diode_SMD:D_SMA"
+			(at 43.18 18.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 40.64 20.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 40.64 20.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "f387bd9e-7a00-486c-9498-21925e8f98f6")
+		)
+		(pin "2"
+			(uuid "8523100e-aa8b-487d-afcf-9cea0cb1d839")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "D1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "ReRAM_SMU:TestPoint")
+		(at 91.44 20.32 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "4ce652dc-fc38-4c3d-a06d-5b11721d154d")
+		(property "Reference" "TP3"
+			(at 91.44 22.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TP_+5V_A"
+			(at 91.44 17.78 0)
+			(effects
+				(font
+					(size 0.9 0.9)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 91.44 20.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 91.44 20.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 91.44 20.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "358b5ec5-2e3d-433b-a6ff-453cd4daa005")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "TP3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 139.7 38.1 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "50505050-5050-4505-8505-505050505050")
+		(property "Reference" "C_NR5V1"
+			(at 142.24 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "0.1uF NR pin to GND LTC6655 noise reduction"
+			(at 142.24 40.64 0)
+			(effects
+				(font
+					(size 0.8 0.8)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 142.24 36.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 139.7 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 139.7 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "c8c0d919-1586-4d9f-a0eb-ab13aa345b6e")
+		)
+		(pin "2"
+			(uuid "ef1a17d9-aa99-42c9-b6e0-29c513fe2d82")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "C_NR5V1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:D_Schottky")
+		(at 40.64 55.88 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "55555555-5555-4555-8555-555555555555")
+		(property "Reference" "D2"
+			(at 43.18 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SS14 Schottky reverse protection -12V"
+			(at 43.18 58.42 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Footprint" "Diode_SMD:D_SMA"
+			(at 43.18 53.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 40.64 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 40.64 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "2ba53c6f-d5a2-4382-b024-3bb5bdd88a70")
+		)
+		(pin "2"
+			(uuid "aa47fb4b-9994-46fb-8dcd-e26afbc378c5")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "D2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "ReRAM_SMU:LTC6655-2V5")
+		(at 139.7 63.5 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "60606060-6060-4606-8606-606060606060")
+		(property "Reference" "U5"
+			(at 139.7 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LTC6655BHMS8-2.5 ADC REF 2.5V LN"
+			(at 139.7 55.88 0)
+			(effects
+				(font
+					(size 0.9 0.9)
+				)
+			)
+		)
+		(property "Footprint" "Package_SO:MSOP-8_3x3mm_P0.65mm"
+			(at 139.7 53.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 139.7 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 139.7 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "bb88a029-154d-46ed-bd9a-d88f8415a233")
+		)
+		(pin "4"
+			(uuid "7d5a6d69-c669-4533-a880-c153ef91edee")
+		)
+		(pin "3"
+			(uuid "9430a93e-1085-4bcc-8763-8715505ed0ee")
+		)
+		(pin "2"
+			(uuid "4252d642-ca76-425e-8d3d-7ea61befa179")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "U5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 53.34 30.48 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "66666666-6666-4666-8666-666666666666")
+		(property "Reference" "C_BULK_P1"
+			(at 53.34 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "47uF 25V X5R 1210 + 10uF 100nF decoupling bulk +12V"
+			(at 53.34 25.4 0)
+			(effects
+				(font
+					(size 0.9 0.9)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_1210_3225Metric"
+			(at 53.34 23.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 53.34 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 53.34 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "012e8122-0b34-4fe6-85a9-bf19a6225e00")
+		)
+		(pin "2"
+			(uuid "30e224ff-cf9b-4037-8099-24fd69816a60")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "C_BULK_P1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 129.54 63.5 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "70707070-7070-4707-8707-707070707070")
+		(property "Reference" "C_REF2V5_IN1"
+			(at 129.54 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "0.1uF VIN bypass LTC6655-2.5"
+			(at 129.54 58.42 0)
+			(effects
+				(font
+					(size 0.9 0.9)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 129.54 56.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 129.54 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 129.54 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "f898597f-9dfd-42e7-9506-98cd72ba51a9")
+		)
+		(pin "2"
+			(uuid "25d24b55-b33c-46a0-96ef-b0a3bc964660")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "C_REF2V5_IN1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 53.34 45.72 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "77777777-7777-4777-8777-777777777777")
+		(property "Reference" "C_BULK_N1"
+			(at 53.34 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "47uF 25V X5R 1210 -12V bulk"
+			(at 53.34 40.64 0)
+			(effects
+				(font
+					(size 0.9 0.9)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_1210_3225Metric"
+			(at 53.34 38.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 53.34 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 53.34 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "e8e1fc05-9495-4c11-9db5-62e68b79d236")
+		)
+		(pin "2"
+			(uuid "4e1d0589-7630-4622-b7be-12f1f2f29643")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "C_BULK_N1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 149.86 63.5 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "80808080-8080-4808-8808-808080808080")
+		(property "Reference" "C_REF2V5_OUT1"
+			(at 149.86 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10uF X7R + 0.1uF VOUT LTC6655-2.5"
+			(at 149.86 58.42 0)
+			(effects
+				(font
+					(size 0.8 0.8)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 149.86 56.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 149.86 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 149.86 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "e8676115-00eb-4324-a81f-cf88b3212d27")
+		)
+		(pin "2"
+			(uuid "2f48d7ea-76f2-49ce-987a-8d0837c9d22c")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "C_REF2V5_OUT1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 71.12 81.28 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "85d8bb68-afd7-4834-bb28-ad4e72ab9a90")
+		(property "Reference" "R_SENSE_DIV1"
+			(at 71.12 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100k SENSE divider top for supervisor check +5V"
+			(at 71.12 76.2 0)
+			(effects
+				(font
+					(size 0.8 0.8)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 71.12 74.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 71.12 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 71.12 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "de7236fd-44e5-4510-99b5-ecbbe5f91b61")
+		)
+		(pin "2"
+			(uuid "7504af72-cac0-4afd-b851-005c56fd0f21")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "R_SENSE_DIV1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:L")
+		(at 63.5 30.48 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "88888888-8888-4888-8888-888888888888")
+		(property "Reference" "L1"
+			(at 66.04 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10uH ferrite bead Murata BLM31PG121SN1 + LC pi 10uH/2x10uF for +5V_A"
+			(at 66.04 33.02 0)
+			(effects
+				(font
+					(size 0.9 0.9)
+				)
+			)
+		)
+		(property "Footprint" "Inductor_SMD:L_1206_3216Metric"
+			(at 66.04 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 63.5 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 63.5 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d9910035-61fb-4a9a-8841-1fffda4370b5")
+		)
+		(pin "2"
+			(uuid "d2da1b32-39a8-40c6-9b41-cba91c56f307")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "L1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 139.7 71.12 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "90909090-9090-4909-8909-909090909090")
+		(property "Reference" "C_NR2V1"
+			(at 142.24 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "0.1uF NR LTC6655-2.5"
+			(at 142.24 73.66 0)
+			(effects
+				(font
+					(size 0.8 0.8)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 142.24 69.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 139.7 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 139.7 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "2aba80fe-cf6c-46fe-8c6e-d5a011d49582")
+		)
+		(pin "2"
+			(uuid "ed6deffe-e411-45b0-8eec-c8fc0c2404fe")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "C_NR2V1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "ReRAM_SMU:LT3045")
+		(at 81.28 30.48 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "99999999-9999-4999-8999-999999999999")
+		(property "Reference" "U1"
+			(at 81.28 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LT3045EDD +5V_A 500mA 0.8uVrms ILIM PG"
+			(at 81.28 22.86 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Footprint" "Package_DFN:DFN-12_3x3mm_P0.45mm_EP"
+			(at 81.28 20.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 81.28 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 81.28 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "31438ee3-5a5f-42a0-9545-9b253ce6d1da")
+		)
+		(pin "4"
+			(uuid "90ac0792-ad96-4550-bc67-7985f11c0a32")
+		)
+		(pin "5"
+			(uuid "480d7db2-d9af-41c1-982e-341e8265f1d2")
+		)
+		(pin "3"
+			(uuid "28f81d92-0bd2-4587-ab6a-d03d3c305520")
+		)
+		(pin "2"
+			(uuid "a8bce353-2717-4607-b572-1b10990d56e9")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "U1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 81.28 96.52 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "9cc75aad-3d7a-4fd0-96ff-9e87e3e6200d")
+		(property "Reference" "R_OE_SER1"
+			(at 81.28 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1k series gate OUTPUT_ENABLE to LT1970 EN"
+			(at 81.28 91.44 0)
+			(effects
+				(font
+					(size 0.9 0.9)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 81.28 89.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 81.28 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 81.28 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "f4d079df-d0bb-48cc-a2d9-5bcafd0c0b56")
+		)
+		(pin "2"
+			(uuid "28b7475d-a303-45f6-a021-f55a0c9fcca7")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "R_OE_SER1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "ReRAM_SMU:TestPoint")
+		(at 149.86 53.34 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "a1568436-7950-42fd-ae5c-01caf463bf1d")
+		(property "Reference" "TP8"
+			(at 149.86 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TP_VREF_2V5"
+			(at 149.86 50.8 0)
+			(effects
+				(font
+					(size 0.9 0.9)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 149.86 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 149.86 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 149.86 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "1e8d7095-d5de-4ad8-91ea-e6cd11539657")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "TP8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "ReRAM_SMU:TestPoint")
+		(at 149.86 20.32 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "a2a2a2a2-a2a2-4a2a-8a2a-a2a2a2a2a2a2")
+		(property "Reference" "TP7"
+			(at 149.86 22.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TP_VREF_5V"
+			(at 149.86 17.78 0)
+			(effects
+				(font
+					(size 0.9 0.9)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 149.86 20.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 149.86 20.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 149.86 20.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "10500d06-1b36-4b22-9583-04201881f897")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "TP7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "ReRAM_SMU:TestPoint")
+		(at 114.3 12.7 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "a86ef40c-e4b6-44c0-a33f-b341facdcad5")
+		(property "Reference" "TP6"
+			(at 114.3 15.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TP_+3V3"
+			(at 114.3 10.16 0)
+			(effects
+				(font
+					(size 0.9 0.9)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 114.3 12.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 114.3 12.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 114.3 12.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "49543655-2622-489f-b79a-dce79f2c3c30")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "TP6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 81.28 17.78 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa")
+		(property "Reference" "R_SET1"
+			(at 81.28 20.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "12.4k 0.1% SET for 5.0V (VSET=100uA*R)"
+			(at 81.28 14.48 0)
+			(effects
+				(font
+					(size 0.9 0.9)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 81.28 12.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 81.28 17.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 81.28 17.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "b58a536e-f6bd-4c89-ae53-86a55142abc1")
+		)
+		(pin "2"
+			(uuid "379e229c-c5d1-4205-9fb3-d4fc8bce9140")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "R_SET1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 91.44 81.28 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "b8aa9d96-2fdd-49b5-a417-43494c610c12")
+		(property "Reference" "R_POR_PU1"
+			(at 91.44 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10k pull-up RESET_N to +3V3"
+			(at 91.44 76.96 0)
+			(effects
+				(font
+					(size 0.8 0.8)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 91.44 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 91.44 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 91.44 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "4eb3710c-f6ff-4ad6-a070-38a4b872d4e9")
+		)
+		(pin "2"
+			(uuid "46a38d25-18ba-4334-a68e-6aaec0423dba")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "R_POR_PU1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 101.6 96.52 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "bb5cff5c-f007-41ab-b6df-5f041ea3ed7b")
+		(property "Reference" "R_OE_PD1"
+			(at 101.6 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10k pulldown OUTPUT_ENABLE safe default"
+			(at 101.6 91.44 0)
+			(effects
+				(font
+					(size 0.9 0.9)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 101.6 89.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 101.6 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 101.6 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "f6d505fb-9a20-4642-a93d-9a707b8127f1")
+		)
+		(pin "2"
+			(uuid "e064a717-5d15-4793-9439-d728ef650aae")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "R_OE_PD1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 91.44 30.48 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb")
+		(property "Reference" "C_OUT_5V1"
+			(at 91.44 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10uF X5R 0805 + 4.7uF at LT3045 OUT low ESR"
+			(at 91.44 25.4 0)
+			(effects
+				(font
+					(size 0.9 0.9)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 91.44 23.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 91.44 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 91.44 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "ef0237e8-c76c-4885-bd01-6fc505e9c15f")
+		)
+		(pin "2"
+			(uuid "2bfe7025-3059-4140-a1cb-40f1b88e728a")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "C_OUT_5V1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 71.12 30.48 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "cccccccc-cccc-4ccc-8ccc-cccccccccccc")
+		(property "Reference" "C_IN_5V1"
+			(at 71.12 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10uF + 100nF at LT3045 IN"
+			(at 71.12 25.4 0)
+			(effects
+				(font
+					(size 0.9 0.9)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 71.12 23.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 71.12 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 71.12 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "ae0a84a1-30a3-4139-b579-e249821a3557")
+		)
+		(pin "2"
+			(uuid "44ca03ff-800b-45b3-8906-27defe764678")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "C_IN_5V1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 101.6 17.78 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "dddddddd-dddd-4ddd-8ddd-dddddddddddd")
+		(property "Reference" "R_PG5V1"
+			(at 101.6 20.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100k pull-up PG to +3V3"
+			(at 101.6 14.48 0)
+			(effects
+				(font
+					(size 0.9 0.9)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 101.6 12.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 101.6 17.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 101.6 17.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "5299a094-5241-45cc-8ab8-54d3c3ec4989")
+		)
+		(pin "2"
+			(uuid "34d15394-7ef5-4cf4-aec8-cc2cc16b02df")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "R_PG5V1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "ReRAM_SMU:TestPoint")
+		(at 53.34 55.88 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "ea65ee6f-996d-424f-b082-fac8bf673561")
+		(property "Reference" "TP2"
+			(at 53.34 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TP_-12V_A"
+			(at 53.34 53.34 0)
+			(effects
+				(font
+					(size 0.9 0.9)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 53.34 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 53.34 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 53.34 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "2b4e6909-9e44-47fe-968e-d76c564caa61")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "TP2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 81.28 40.64 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "eeeeeeee-eeee-4eee-8eee-eeeeeeeeeeee")
+		(property "Reference" "C_SET_5V1"
+			(at 81.28 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "4.7uF SET cap for noise/program stability"
+			(at 81.28 46.48 0)
+			(effects
+				(font
+					(size 0.9 0.9)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 81.28 48.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 81.28 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 81.28 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "dae7cf13-83e6-4cea-ab90-069a3ff51546")
+		)
+		(pin "2"
+			(uuid "ca2deb5e-d60f-4785-bb36-5d6bf2f2949e")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "C_SET_5V1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 114.3 30.48 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "ffffffff-ffff-4fff-8fff-ffffffffffff")
+		(property "Reference" "U3"
+			(at 114.3 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TLV1117-33 +3V3 800mA from +5V_A LDO"
+			(at 114.3 25.4 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-223-3_TabPin2"
+			(at 114.3 23.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 114.3 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 114.3 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "15f00c67-71cc-43e4-871a-e2e4527a51ca")
+		)
+		(pin "2"
+			(uuid "967edd0c-a202-45a2-aadf-c8c0a5fd40c2")
+		)
+		(instances
+			(project "ReRAM-SMU-V1"
+				(path "/e9bf5b4a-1683-4bd3-a37d-9d7bccc411c9/fb42ac5b-e9e4-457c-a7aa-4c2d771a6410"
+					(reference "U3")
+					(unit 1)
+				)
+			)
+		)
+	)
 )

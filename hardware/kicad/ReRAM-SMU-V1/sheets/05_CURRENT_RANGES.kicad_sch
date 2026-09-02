@@ -1,7 +1,7 @@
 (kicad_sch
-	(version 20241014)
+	(version 20250114)
 	(generator "eeschema")
-	(generator_version "10.0")
+	(generator_version "9.0")
 	(uuid "929fbb9e-5e37-4482-92ea-e037eb759cf9")
 	(paper "A4")
 	(title_block
@@ -11,220 +11,378 @@
 		(company "ReRAM-SMU V1 — Gate D detailed")
 	)
 	(lib_symbols
-		(symbol "Device:R" (pin_numbers hide) (pin_names (offset 0)) (in_bom yes) (on_board yes)
-			(property "Reference" "R" (at 0.00 1.27 0) (effects (font (size 1.27 1.27))))
-			(property "Value" "R" (at 0.00 -1.27 0) (effects (font (size 1.27 1.27))))
-			(property "Footprint" "" (at 0.00 -2.54 0) (effects (font (size 1.27 1.27)) (hide yes)))
-			(symbol "R_0_0" (rectangle (start -1.27 -2.54) (end 1.27 2.54) (stroke (width 0.254) (type default)) (fill (type none))))
-			(symbol "R_1_0" (pin passive line (at 0.00 3.81 270) (length 2.032) (name "1") (number "1")) (pin passive line (at 0.00 -3.81 90) (length 2.032) (name "2") (number "2"))))
-		(symbol "Device:C" (pin_numbers hide) (pin_names (offset 0)) (in_bom yes) (on_board yes)
-			(property "Reference" "C" (at 0.00 1.27 0) (effects (font (size 1.27 1.27))))
-			(property "Value" "C" (at 0.00 -1.27 0) (effects (font (size 1.27 1.27))))
-			(symbol "C_0_0" (polyline (pts (xy -0.762 0.762) (xy 0.762 0.762)) (stroke (width 0.254))) (polyline (pts (xy -0.762 -0.762) (xy 0.762 -0.762)) (stroke (width 0.254))))
-			(symbol "C_1_0" (pin passive line (at 0.00 2.54 270) (length 1.27) (name "1") (number "1")) (pin passive line (at 0.00 -2.54 90) (length 1.27) (name "2") (number "2"))))
-		(symbol "power:GND" (pin_numbers hide) (power) (property "Reference" "#PWR" (at 0.00 -3.81 0) (effects (font (size 1.27 1.27)) (hide yes))) (symbol "GND_0_0" (polyline (pts (xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54) (xy -1.27 -1.27) (xy 0 -1.27)) (stroke (width 0.254)))))
-		(symbol "power:+5V" (pin_numbers hide) (power) (property "Reference" "#PWR" (at 0.00 3.81 0) (effects (font (size 1.27 1.27)) (hide yes))) (symbol "+5V_0_0" (polyline (pts (xy 0 0) (xy 0 -1.27)) (stroke (width 0.254))) (polyline (pts (xy -0.635 0) (xy 0 1.27) (xy 0.635 0) (xy -0.635 0)) (stroke (width 0.254)))))
-		(symbol "Custom:REED_RELAY_SPST" (pin_numbers hide) (in_bom yes) (on_board yes)
-			(property "Reference" "K" (at 0.00 5.08 0) (effects (font (size 1.27 1.27))))
-			(property "Value" "REED" (at 0.00 -5.08 0) (effects (font (size 1.27 1.27))))
-			(property "Footprint" "Relay_THT:Coto_9007" (at 0.00 -6.35 0) (effects (font (size 1.27 1.27)) (hide yes)))
-			(symbol "REED_RELAY_SPST_0_0" (rectangle (start -5.08 -2.54) (end 5.08 2.54) (stroke (width 0.254) (type default)) (fill (type none))))
-			(symbol "REED_RELAY_SPST_0_1" (polyline (pts (xy -5.08 0) (xy -2.54 0)) (stroke (width 0.254))))
-			(symbol "REED_RELAY_SPST_0_2" (polyline (pts (xy 2.54 0) (xy 5.08 0)) (stroke (width 0.254))))
-			(symbol "REED_RELAY_SPST_1_0" (pin passive line (at -7.62 0.00 0) (length 2.54) (name "A") (number "1")) (pin passive line (at 7.62 0.00 180) (length 2.54) (name "B") (number "2")) (pin power_in line (at 0.00 5.08 270) (length 2.54) (name "COIL+") (number "3")) (pin power_in line (at 0.00 -5.08 90) (length 2.54) (name "COIL-") (number "4"))))
-		(symbol "Custom:REED_RELAY_SPST_NC" (pin_numbers hide) (in_bom yes) (on_board yes)
-			(property "Reference" "K" (at 0.00 5.08 0) (effects (font (size 1.27 1.27))))
-			(property "Value" "REED-NC" (at 0.00 -5.08 0) (effects (font (size 1.27 1.27))))
-			(property "Footprint" "Relay_THT:Coto_9007" (at 0.00 -6.35 0) (effects (font (size 1.27 1.27)) (hide yes)))
-			(symbol "REED_RELAY_SPST_NC_0_0" (rectangle (start -5.08 -2.54) (end 5.08 2.54) (stroke (width 0.254) (type default)) (fill (type none))))
-			(symbol "REED_RELAY_SPST_NC_1_0" (pin passive line (at -7.62 0.00 0) (length 2.54) (name "A") (number "1")) (pin passive line (at 7.62 0.00 180) (length 2.54) (name "B") (number "2")) (pin power_in line (at 0.00 5.08 270) (length 2.54) (name "COIL+") (number "3")) (pin power_in line (at 0.00 -5.08 90) (length 2.54) (name "COIL-") (number "4"))))
+		(symbol "Device:C"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "C"
+				(at 0 1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "C"
+				(at 0 -1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "C_0_0"
+				(polyline
+					(pts
+						(xy -0.762 0.762) (xy 0.762 0.762)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.762 -0.762) (xy 0.762 -0.762)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "C_1_0"
+				(pin passive line
+					(at 0 2.54 270)
+					(length 1.27)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -2.54 90)
+					(length 1.27)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Device:R"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "R"
+				(at 0 1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "R"
+				(at 0 -1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "R_0_0"
+				(rectangle
+					(start -1.27 -2.54)
+					(end 1.27 2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "R_1_0"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 2.032)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 2.032)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "power:+5V"
+			(power)
+			(pin_numbers
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "#PWR"
+				(at 0 3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "+5V_0_0"
+				(polyline
+					(pts
+						(xy -0.635 0) (xy 0 1.27) (xy 0.635 0) (xy -0.635 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 -1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "power:GND"
+			(power)
+			(pin_numbers
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "#PWR"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "GND_0_0"
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54) (xy -1.27 -1.27) (xy 0 -1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 	)
-
-	; --- Shunt resistors 2.5/25/500/5k/100k/1M (shared low-side) ---
-	(symbol (lib_id "Device:R") (at 29.97 35.05 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced yes)
-		(uuid "0b8d83de-2258-44be-b608-d534b57ae11c") (property "Reference" "R1" (at 29.97 38.61 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "2.49R 0.1% 25ppm 0.25W Kelvin 4-pad [2.5R nom]" (at 29.97 30.99 0) (effects (font (size 1.0 1.0))))
-		(property "Footprint" "Resistor_SMD:R_1206_3216Metric_Kelvin" (at 29.97 29.46 0) (effects (font (size 1.0 1.0)) (hide yes)))
-		(property "Datasheet" "Susumu KRL3216 / Vishay VCS1625" (at 29.97 27.94 0) (effects (font (size 1.0 1.0)) (hide yes)))
-		(pin "1" (uuid "r1-1")) (pin "2" (uuid "r1-2"))
-		(instances (project "" (reference "R1") (unit 1)))
-	)
-	(symbol (lib_id "Device:R") (at 59.94 35.05 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced yes)
-		(uuid "76f5effe-3e0e-4860-a3ec-745f8ddaa83d") (property "Reference" "R2" (at 59.94 38.61 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "24.9R 0.1% 25ppm [25R nom] 1mA 25mV" (at 59.94 30.99 0) (effects (font (size 1.0 1.0))))
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric" (at 59.94 29.46 0) (effects (font (size 1.0 1.0)) (hide yes)))
-		(pin "1" (uuid "r2-1")) (pin "2" (uuid "r2-2"))
-	)
-	(symbol (lib_id "Device:R") (at 89.92 35.05 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced yes)
-		(uuid "ad4794cf-6ce3-4544-b69b-41ea70752093") (property "Reference" "R3" (at 89.92 38.61 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "499R 0.1% 25ppm [500R] 100uA 50mV" (at 89.92 30.99 0) (effects (font (size 1.0 1.0))))
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric" (at 89.92 29.46 0) (effects (font (size 1.0 1.0)) (hide yes)))
-		(pin "1" (uuid "r3-1")) (pin "2" (uuid "r3-2"))
-	)
-	(symbol (lib_id "Device:R") (at 119.89 35.05 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced yes)
-		(uuid "85508db3-9431-4f33-a8fd-cdcc94853a59") (property "Reference" "R4" (at 119.89 38.61 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "4.99k 0.1% 25ppm [5k] 10uA 50mV" (at 119.89 30.99 0) (effects (font (size 1.0 1.0))))
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric" (at 119.89 29.46 0) (effects (font (size 1.0 1.0)) (hide yes)))
-		(pin "1" (uuid "r4-1")) (pin "2" (uuid "r4-2"))
-	)
-	(symbol (lib_id "Device:R") (at 29.97 74.93 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced yes)
-		(uuid "2677b05c-bf88-47a4-aefb-f59addcaef00") (property "Reference" "R5" (at 29.97 78.49 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "100k 0.01% 10ppm [100k] 1uA 100mV *TIGHT*" (at 29.97 71.12 0) (effects (font (size 1.0 1.0))))
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Guard" (at 29.97 69.60 0) (effects (font (size 1.0 1.0)) (hide yes)))
-		(pin "1" (uuid "r5-1")) (pin "2" (uuid "r5-2"))
-	)
-	(symbol (lib_id "Device:R") (at 59.94 74.93 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced yes)
-		(uuid "7579b440-c1aa-4c3e-81ea-25fabc77666a") (property "Reference" "R6" (at 59.94 78.49 0) (effects (font (size 1.27 1.27))))
-		(property "Value" "1.00M 0.01% 10ppm [1M] 100nA 100mV *TIGHT GUARD*" (at 59.94 71.12 0) (effects (font (size 1.0 1.0))))
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Guard_Keepout" (at 59.94 69.60 0) (effects (font (size 1.0 1.0)) (hide yes)))
-		(pin "1" (uuid "r6-1")) (pin "2" (uuid "r6-2"))
-	)
-
-	; --- Force relays (shared low-side selector) ---
-	(symbol (lib_id "Custom:REED_RELAY_SPST") (at 29.97 50.04 90) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
-		(uuid "k1a-uuid") (property "Reference" "K1A" (at 29.97 56.90 0) (effects (font (size 1.0 1.0))))
-		(property "Value" "TQ2-5V NO 10mA 2.5R" (at 29.97 43.94 0) (effects (font (size 1.0 1.0))))
-		(property "Footprint" "Relay_THT:TQ2-5V" (at 29.97 41.91 0) (effects (font (size 1.0 1.0)) (hide yes)))
-		(pin "1" (uuid "k1a-1")) (pin "2" (uuid "k1a-2")) (pin "3" (uuid "k1a-3")) (pin "4" (uuid "k1a-4"))
-	)
-	(symbol (lib_id "Custom:REED_RELAY_SPST") (at 59.94 50.04 90) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
-		(uuid "k2a-uuid") (property "Reference" "K2A" (at 59.94 56.90 0) (effects (font (size 1.0 1.0))))
-		(property "Value" "TQ2-5V NO 1mA 25R" (at 59.94 43.94 0) (effects (font (size 1.0 1.0))))
-		(pin "1" (uuid "k2a-1")) (pin "2" (uuid "k2a-2")) (pin "3" (uuid "k2a-3")) (pin "4" (uuid "k2a-4"))
-	)
-	(symbol (lib_id "Custom:REED_RELAY_SPST") (at 89.92 50.04 90) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
-		(uuid "k3a-uuid") (property "Reference" "K3A" (at 89.92 56.90 0) (effects (font (size 1.0 1.0))))
-		(property "Value" "TQ2-5V NO 100uA 499R" (at 89.92 43.94 0) (effects (font (size 1.0 1.0))))
-		(pin "1" (uuid "k3a-1")) (pin "2" (uuid "k3a-2")) (pin "3" (uuid "k3a-3")) (pin "4" (uuid "k3a-4"))
-	)
-	(symbol (lib_id "Custom:REED_RELAY_SPST") (at 119.89 50.04 90) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
-		(uuid "k4a-uuid") (property "Reference" "K4A" (at 119.89 56.90 0) (effects (font (size 1.0 1.0))))
-		(property "Value" "TQ2-5V NO 10uA 4.99k" (at 119.89 43.94 0) (effects (font (size 1.0 1.0))))
-		(pin "1" (uuid "k4a-1")) (pin "2" (uuid "k4a-2")) (pin "3" (uuid "k4a-3")) (pin "4" (uuid "k4a-4"))
-	)
-	(symbol (lib_id "Custom:REED_RELAY_SPST") (at 29.97 89.92 90) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
-		(uuid "k5a-uuid") (property "Reference" "K5A" (at 29.97 97.03 0) (effects (font (size 1.0 1.0))))
-		(property "Value" "Coto9007-5V NO <1pA 1uA 100k" (at 29.97 84.07 0) (effects (font (size 1.0 1.0))))
-		(property "Footprint" "Relay_THT:Coto_9007" (at 29.97 82.04 0) (effects (font (size 1.0 1.0)) (hide yes)))
-		(pin "1" (uuid "k5a-1")) (pin "2" (uuid "k5a-2")) (pin "3" (uuid "k5a-3")) (pin "4" (uuid "k5a-4"))
-	)
-	(symbol (lib_id "Custom:REED_RELAY_SPST_NC") (at 59.94 89.92 90) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
-		(uuid "k6a-uuid") (property "Reference" "K6A" (at 59.94 97.03 0) (effects (font (size 1.0 1.0))))
-		(property "Value" "Coto9007-5V *NC* <1pA SAFE DEFAULT 1M 100nA" (at 59.94 84.07 0) (effects (font (size 1.0 1.0))))
-		(property "Footprint" "Relay_THT:Coto_9007_NC" (at 59.94 82.04 0) (effects (font (size 1.0 1.0)) (hide yes)))
-		(pin "1" (uuid "k6a-1")) (pin "2" (uuid "k6a-2")) (pin "3" (uuid "k6a-3")) (pin "4" (uuid "k6a-4"))
-	)
-
-	; --- Sense Kelvin relays (companion, same coil drive per range, <1pA for low-I) ---
-	(symbol (lib_id "Custom:REED_RELAY_SPST") (at 29.97 109.98 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
-		(uuid "k1b-uuid") (property "Reference" "K1B" (at 29.97 116.08 0) (effects (font (size 1.0 1.0))))
-		(property "Value" "REED SENSE K1 <1pA" (at 29.97 103.89 0) (effects (font (size 1.0 1.0))))
-		(pin "1" (uuid "k1b-1")) (pin "2" (uuid "k1b-2")) (pin "3" (uuid "k1b-3a")) (pin "4" (uuid "k1b-4a"))
-	)
-	(symbol (lib_id "Custom:REED_RELAY_SPST") (at 50.04 109.98 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
-		(uuid "k2b-uuid") (property "Reference" "K2B" (at 50.04 116.08 0) (effects (font (size 1.0 1.0))))
-		(property "Value" "REED SENSE K2" (at 50.04 103.89 0) (effects (font (size 1.0 1.0))))
-		(pin "1" (uuid "k2b-1")) (pin "2" (uuid "k2b-2")) (pin "3" (uuid "k2b-3a")) (pin "4" (uuid "k2b-4a"))
-	)
-	(symbol (lib_id "Custom:REED_RELAY_SPST") (at 70.10 109.98 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
-		(uuid "k3b-uuid") (property "Reference" "K3B" (at 70.10 116.08 0) (effects (font (size 1.0 1.0))))
-		(property "Value" "REED SENSE K3" (at 70.10 103.89 0) (effects (font (size 1.0 1.0))))
-		(pin "1" (uuid "k3b-1")) (pin "2" (uuid "k3b-2")) (pin "3" (uuid "k3b-3a")) (pin "4" (uuid "k3b-4a"))
-	)
-	(symbol (lib_id "Custom:REED_RELAY_SPST") (at 89.92 109.98 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
-		(uuid "k4b-uuid") (property "Reference" "K4B" (at 89.92 116.08 0) (effects (font (size 1.0 1.0))))
-		(property "Value" "REED SENSE K4" (at 89.92 103.89 0) (effects (font (size 1.0 1.0))))
-		(pin "1" (uuid "k4b-1")) (pin "2" (uuid "k4b-2")) (pin "3" (uuid "k4b-3a")) (pin "4" (uuid "k4b-4a"))
-	)
-	(symbol (lib_id "Custom:REED_RELAY_SPST") (at 109.98 109.98 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
-		(uuid "k5b-uuid") (property "Reference" "K5B" (at 109.98 116.08 0) (effects (font (size 1.0 1.0))))
-		(property "Value" "REED SENSE K5 <1pA 100k" (at 109.98 103.89 0) (effects (font (size 1.0 1.0))))
-		(pin "1" (uuid "k5b-1")) (pin "2" (uuid "k5b-2")) (pin "3" (uuid "k5b-3a")) (pin "4" (uuid "k5b-4a"))
-	)
-	(symbol (lib_id "Custom:REED_RELAY_SPST_NC") (at 130.05 109.98 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
-		(uuid "k6b-uuid") (property "Reference" "K6B" (at 130.05 116.08 0) (effects (font (size 1.0 1.0))))
-		(property "Value" "REED SENSE *NC* SAFE 1M" (at 130.05 103.89 0) (effects (font (size 1.0 1.0))))
-		(pin "1" (uuid "k6b-1")) (pin "2" (uuid "k6b-2")) (pin "3" (uuid "k6b-3a")) (pin "4" (uuid "k6b-4a"))
-	)
-
-	; --- Global labels and test points ---
-	(global_label "FORCE_LO" (shape input) (at 9.91 24.89 0) (fields_autoplaced yes) (uuid "59f9cc62-5f71-4ef3-ad53-9850b87ae5fd") (property "Intersheetrefs" "${INTERSHEET_REFS}"))
-	(global_label "GND" (shape input) (at 9.91 14.99 0) (fields_autoplaced yes) (uuid "gnd-uuid-05") (property "Intersheetrefs" "${INTERSHEET_REFS}"))
-	(global_label "GND_KELVIN_STAR" (shape bidirectional) (at 80.01 95.00 0) (uuid "gnd-kelvin-uuid") (property "Intersheetrefs" "${INTERSHEET_REFS}"))
-	(global_label "ISENSE_P_K" (shape output) (at 160.02 59.94 180) (fields_autoplaced yes) (uuid "isense-p-uuid") (property "Intersheetrefs" "${INTERSHEET_REFS}"))
-	(global_label "ISENSE_N_K" (shape output) (at 160.02 80.01 180) (fields_autoplaced yes) (uuid "isense-n-uuid") (property "Intersheetrefs" "${INTERSHEET_REFS}"))
-	(global_label "LT1970_SENSE_P" (shape output) (at 160.02 39.88 180) (fields_autoplaced yes) (uuid "87455116-ff2d-44a4-b0e5-2cbd5b0083e3") (property "Intersheetrefs" "${INTERSHEET_REFS}"))
-	(global_label "LT1970_SENSE_N" (shape output) (at 160.02 89.92 180) (fields_autoplaced yes) (uuid "0d715bfa-cf1d-447b-8f3a-e12cce589faf") (property "Intersheetrefs" "${INTERSHEET_REFS}"))
-	(global_label "RELAY_DRV_K1" (shape input) (at 5.08 59.94 0) (fields_autoplaced yes) (uuid "drv1-uuid"))
-	(global_label "RELAY_DRV_K2" (shape input) (at 5.08 70.10 0) (fields_autoplaced yes) (uuid "drv2-uuid"))
-	(global_label "RELAY_DRV_K3" (shape input) (at 5.08 80.01 0) (fields_autoplaced yes) (uuid "drv3-uuid"))
-	(global_label "RELAY_DRV_K4" (shape input) (at 5.08 89.92 0) (fields_autoplaced yes) (uuid "drv4-uuid"))
-	(global_label "RELAY_DRV_K5" (shape input) (at 5.08 100.08 0) (fields_autoplaced yes) (uuid "drv5-uuid"))
-	(global_label "RELAY_DRV_K6" (shape input) (at 5.08 109.98 0) (fields_autoplaced yes) (uuid "drv6-uuid"))
-
-	; --- Buses ---
-	(wire (pts (xy 10 25) (xy 30 25)) (stroke (width 0.254) (type default)) (uuid "w-force-lo"))
-	(wire (pts (xy 30 25) (xy 60 25)) (stroke (width 0.254) (type default)) (uuid "w-force-bus1"))
-	(wire (pts (xy 60 25) (xy 90 25)) (stroke (width 0.254) (type default)) (uuid "w-force-bus2"))
-	(wire (pts (xy 90 25) (xy 120 25)) (stroke (width 0.254) (type default)) (uuid "w-force-bus3"))
-	(wire (pts (xy 10 15) (xy 80 15)) (stroke (width 0.254) (type default)) (uuid "w-gnd-bus"))
-
-	; Force relay vertical connections (FORCE_LO -> KxA -> Rx top)
-	(wire (pts (xy 30 25) (xy 30 42.38)) (stroke (width 0.254) (type default)) (uuid "wf1"))
-	(wire (pts (xy 30 57.62) (xy 30 38.81)) (stroke (width 0.254) (type default)) (uuid "wf1b"))
-	(wire (pts (xy 60 25) (xy 60 42.38)) (stroke (width 0.254) (type default)) (uuid "wf2"))
-	(wire (pts (xy 60 57.62) (xy 60 38.81)) (stroke (width 0.254) (type default)) (uuid "wf2b"))
-	(wire (pts (xy 90 25) (xy 90 42.38)) (stroke (width 0.254) (type default)) (uuid "wf3"))
-	(wire (pts (xy 90 57.62) (xy 90 38.81)) (stroke (width 0.254) (type default)) (uuid "wf3b"))
-	(wire (pts (xy 120 25) (xy 120 42.38)) (stroke (width 0.254) (type default)) (uuid "wf4"))
-	(wire (pts (xy 120 57.62) (xy 120 38.81)) (stroke (width 0.254) (type default)) (uuid "wf4b"))
-	(wire (pts (xy 30 25) (xy 30 82.38)) (stroke (width 0.254) (type default)) (uuid "wf5a"))
-	(wire (pts (xy 30 97.62) (xy 30 78.81)) (stroke (width 0.254) (type default)) (uuid "wf5b"))
-	(wire (pts (xy 60 25) (xy 60 82.38)) (stroke (width 0.254) (type default)) (uuid "wf6a"))
-	(wire (pts (xy 60 97.62) (xy 60 78.81)) (stroke (width 0.254) (type default)) (uuid "wf6b"))
-
-	; Resistor bottoms -> GND star
-	(wire (pts (xy 30 31.19) (xy 30 15)) (stroke (width 0.254) (type default)) (uuid "wg1"))
-	(wire (pts (xy 60 31.19) (xy 60 15)) (stroke (width 0.254) (type default)) (uuid "wg2"))
-	(wire (pts (xy 90 31.19) (xy 90 15)) (stroke (width 0.254) (type default)) (uuid "wg3"))
-	(wire (pts (xy 120 31.19) (xy 120 15)) (stroke (width 0.254) (type default)) (uuid "wg4"))
-	(wire (pts (xy 30 71.19) (xy 30 15)) (stroke (width 0.254) (type default)) (uuid "wg5"))
-	(wire (pts (xy 60 71.19) (xy 60 15)) (stroke (width 0.254) (type default)) (uuid "wg6"))
-
-	; Kelvin sense taps (at resistor pad, not relay pole) — thin trace style
-	(wire (pts (xy 30 38.81) (xy 28 102)) (stroke (width 0.15) (type default)) (uuid "wk1h"))
-	(wire (pts (xy 60 38.81) (xy 48 102)) (stroke (width 0.15) (type default)) (uuid "wk2h"))
-	(wire (pts (xy 90 38.81) (xy 68 102)) (stroke (width 0.15) (type default)) (uuid "wk3h"))
-	(wire (pts (xy 120 38.81) (xy 88 102)) (stroke (width 0.15) (type default)) (uuid "wk4h"))
-	(wire (pts (xy 30 78.81) (xy 108 102)) (stroke (width 0.15) (type default)) (uuid "wk5h"))
-	(wire (pts (xy 60 78.81) (xy 128 102)) (stroke (width 0.15) (type default)) (uuid "wk6h"))  ; NC default path highlighted
-	; Sense relays -> common ISENSE_P_K bus
-	(wire (pts (xy 28 110) (xy 140 110)) (stroke (width 0.15) (type default)) (uuid "ws-bus"))
-	(wire (pts (xy 140 110) (xy 160 60)) (stroke (width 0.15) (type default)) (uuid "ws-to-p"))
-	(wire (pts (xy 80 95) (xy 160 80)) (stroke (width 0.15) (type default)) (uuid "ws-n"))
-	(wire (pts (xy 80 95) (xy 160 90)) (stroke (width 0.15) (type default)) (uuid "ws-lt-n"))
-	(wire (pts (xy 160 60) (xy 160 40)) (stroke (width 0.15) (type default)) (uuid "ws-lt-p"))
-
-	; Coil drives (illustrative, to MCU drivers)
-	(wire (pts (xy 30 52) (xy 15 60)) (stroke (width 0.254) (type default)) (uuid "drv-w1"))
-	(wire (pts (xy 60 52) (xy 15 70)) (stroke (width 0.254) (type default)) (uuid "drv-w2"))
-
-	(text "05_CURRENT_RANGES — Gate D detailed: 6 shared low-side shunts, Kelvin taps at R pad (NOT relay pole), BBM, safe default K6 NC=1M" (at 9.91 5.08 0) (effects (font (size 1.0 1.0)) (justify left)))
-	(text "A: 10mA 2.49R 25mV B: 1mA 24.9R 25mV C: 100uA 499R 50mV D: 10uA 4.99k 50mV E: 1uA 100k 100mV *0.01%* F: 100nA 1M 100mV *0.01% 10ppm NC SAFE* — Force relays TQ2 / Sense Coto9007 <1pA" (at 9.91 7.87 0) (effects (font (size 0.9 0.9)) (justify left)))
-	(text "KELVIN: ISENSE_P_K / ISENSE_N_K (=GND star) → 06 + LT1970 SENSE_N/P — contact R OUTSIDE sense" (at 9.91 130.05 0) (effects (font (size 0.9 0.9)) (justify left)))
-	(text "BBM: one-hot shift register + 5ms break + 10ms settle + firmware hold. NC K6/K6B de-energized default → 1M between FORCE_LO–GND" (at 9.91 133.10 0) (effects (font (size 0.9 0.9)) (justify left)))
-	(text "LAYOUT: R bottoms → GND_KELVIN_STAR (4 vias, single point). Sense 0.3mm diff, no vias, guard keepout on R5/R6 (exposed copper, 0.5mm gap, stitched plane DNP). Force 0.5mm." (at 9.91 135.89 0) (effects (font (size 0.9 0.9)) (justify left)))
-	(text "REF: GROUNDING GND-05/07 relay return to supply entry, not analog plane. Contact audit §3.2 inside/outside. Leak <1pA reed for E/F." (at 9.91 138.94 0) (effects (font (size 0.9 0.9)) (justify left)))
-
-	(sheet_instances
-		(path "/929fbb9e-5e37-4482-92ea-e037eb759cf9" (page "5"))
-	)
-
-
-
-
-
-
-    (symbol (lib_id "power:PWR_FLAG") (at 100.08 199.90 0) (unit 1) (uuid "pwr-flag-05") (property "Reference" "#FLG1") )
-    (wire (pts (xy 100 200) (xy 10 15)) (stroke (width 0.254) (type default)) (uuid "w-pwr-flag-gnd-05"))
 )
